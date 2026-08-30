@@ -165,13 +165,13 @@
                          ========================================== -->
                     <div>
                         <div class="grid grid-cols-3 p-1 bg-slate-100 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-dark-border text-xs font-semibold gap-1">
-                            <button type="button" class="workspace-tab-btn py-1.5 px-2 rounded-lg text-center transition flex items-center justify-center gap-1 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white" data-tab="all" data-mode="all">
+                            <button type="button" class="tab-btn workspace-tab-btn py-1.5 px-2 rounded-lg text-center transition flex items-center justify-center gap-1 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white" data-tab="all" data-mode="all">
                                 <i class="fa-solid fa-globe text-xs"></i> <span>All</span>
                             </button>
-                            <button type="button" class="workspace-tab-btn py-1.5 px-2 rounded-lg text-center transition flex items-center justify-center gap-1 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white" data-tab="blogger" data-mode="blogger">
+                            <button type="button" class="tab-btn workspace-tab-btn py-1.5 px-2 rounded-lg text-center transition flex items-center justify-center gap-1 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white" data-tab="blogger" data-mode="blogger">
                                 <i class="fa-solid fa-feather text-xs text-amber-500"></i> <span>Blogger</span>
                             </button>
-                            <button type="button" class="workspace-tab-btn py-1.5 px-2 rounded-lg text-center transition flex items-center justify-center gap-1 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white" data-tab="creator" data-mode="creator">
+                            <button type="button" class="tab-btn workspace-tab-btn py-1.5 px-2 rounded-lg text-center transition flex items-center justify-center gap-1 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white" data-tab="creator" data-mode="creator">
                                 <i class="fa-solid fa-video text-xs text-pink-500"></i> <span>Creator</span>
                             </button>
                         </div>
@@ -187,8 +187,8 @@
                     <div id="toolsListContainer" class="space-y-4 max-h-[55vh] md:max-h-[calc(100vh-380px)] overflow-y-auto pr-1 custom-scrollbar">
 
                         <!-- Category: Social Media & Formatting -->
-                        <div class="tool-category" data-category="social">
-                            <h4 class="text-[11px] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5 px-1 flex items-center gap-1">
+                        <div class="tool-category category-group" data-group="social">
+                            <h4 class="category-header text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5 px-1 flex items-center gap-1">
                                 <i class="fa-brands fa-instagram text-pink-500 text-xs"></i> Social & Formatting
                             </h4>
                             <div class="space-y-1">
@@ -243,8 +243,8 @@
                         </div>
 
                         <!-- Category: Video, Script & Readability -->
-                        <div class="tool-category" data-category="video">
-                            <h4 class="text-[11px] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5 px-1 flex items-center gap-1">
+                        <div class="tool-category category-group" data-group="video">
+                            <h4 class="category-header text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5 px-1 flex items-center gap-1">
                                 <i class="fa-solid fa-video text-amber-500 text-xs"></i> Video & Copywriting
                             </h4>
                             <div class="space-y-1">
@@ -283,8 +283,8 @@
                         </div>
 
                         <!-- Category: AI, SEO & Media Cleaners -->
-                        <div class="tool-category" data-category="ai">
-                            <h4 class="text-[11px] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5 px-1 flex items-center gap-1">
+                        <div class="tool-category category-group" data-group="ai">
+                            <h4 class="category-header text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5 px-1 flex items-center gap-1">
                                 <i class="fa-solid fa-robot text-cyan-500 text-xs"></i> AI, SEO & Media
                             </h4>
                             <div class="space-y-1">

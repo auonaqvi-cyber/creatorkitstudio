@@ -11,6 +11,7 @@
     // ==========================================
     const state = {
         activeTool: 'fix-line-breaks',
+        activeWorkspace: 'all', // 'all' | 'blogger' | 'creator'
         fancyStyle: 'bold-sans',
         caseFormat: 'title',
         teleprompter: {
@@ -19,10 +20,18 @@
             fontSize: 44,
             isMirrored: false,
             animationFrameId: null
+        },
+        imageResizer: {
+            currentImage: null,
+            originalWidth: 0,
+            originalHeight: 0,
+            aspectRatio: 1,
+            lockedAspect: true,
+            mimeType: 'image/png'
         }
     };
 
-    // DOM Elements
+    // DOM Elements Cache
     const elements = {
         // Metadata & Schema
         pageTitle: document.getElementById('pageTitle'),
@@ -31,6 +40,12 @@
         ogDescription: document.getElementById('ogDescription'),
         faqSchema: document.getElementById('faqSchema'),
         dynamicSeoGuide: document.getElementById('dynamicSeoGuide'),
+
+        // Cards & Viewports
+        standardWorkspaceCard: document.getElementById('standardWorkspaceCard'),
+        imageResizerCard: document.getElementById('imageResizerCard'),
+        analyticsBarContainer: document.getElementById('analyticsBarContainer'),
+        dynamicCustomWidget: document.getElementById('dynamicCustomWidget'),
 
         // Inputs & Outputs
         mainInput: document.getElementById('mainInput'),
@@ -48,11 +63,12 @@
         clearInputBtn: document.getElementById('clearInputBtn'),
         clearAllBtn: document.getElementById('clearAllBtn'),
 
-        // Search & Filters
+        // Search, Workspace Mode & Filters
         headerToolSearch: document.getElementById('headerToolSearch'),
         sidebarToolSearch: document.getElementById('sidebarToolSearch'),
         toolsListContainer: document.getElementById('toolsListContainer'),
         toolCountBadge: document.getElementById('toolCountBadge'),
+        workspaceTabBtns: document.querySelectorAll('.workspace-tab-btn'),
 
         // Analytics
         statWords: document.getElementById('statWords'),
@@ -100,6 +116,17 @@
         sampleSocialBtn: document.getElementById('sampleSocialBtn'),
         sampleScriptBtn: document.getElementById('sampleScriptBtn'),
 
+        // Image Resizer Elements
+        imgDropzone: document.getElementById('imgDropzone'),
+        imgFileInput: document.getElementById('imgFileInput'),
+        imgControls: document.getElementById('imgControls'),
+        imgWidthInput: document.getElementById('imgWidthInput'),
+        imgHeightInput: document.getElementById('imgHeightInput'),
+        imgAspectLock: document.getElementById('imgAspectLock'),
+        imgFormatSelect: document.getElementById('imgFormatSelect'),
+        downloadResizedImgBtn: document.getElementById('downloadResizedImgBtn'),
+        resizerCanvas: document.getElementById('resizerCanvas'),
+
         // Toast Container
         toastContainer: document.getElementById('toastContainer')
     };
@@ -117,7 +144,7 @@
             digits: '𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗'
         },
         'italic': {
-            chars: '𝘢𝘣𝘤𝘥𝘦𝘧𝘨𝘩𝘪𝘫𝘬𝘭𝘮𝘯𝘰𝘱𝘲𝘳𝘴𝘵𝘶𝘷𝘸𝘹𝘺𝘻𝘈𝘉𝘊𝘋𝘌𝘍𝘎𝘏𝘐𝘑𝘒𝘓𝘔𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝𝘞𝘟𝘠𝘡0123456789',
+            chars: '𝘢𝘣𝘤𝘥𝘦𝗳𝘨𝘩𝘪𝘫𝘬𝘭𝘮𝘯𝘰𝘱𝘲𝘳𝘴𝘵𝘶𝘃𝘸𝘹𝘺𝘻𝘈𝘉𝘊𝘋𝘌𝘍𝘎𝘏𝘐𝘑𝘒𝘓𝘔𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝𝘞𝘟𝘠𝘡0123456789',
             digits: '0123456789'
         },
         'bubble': {
@@ -135,68 +162,194 @@
     };
     const PLAIN_ALPHABET = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
-    // ==========================================
-    // SAMPLE DATASETS FOR DEMONSTRATION
-    // ==========================================
+    // Sample Datasets
     const SAMPLE_DATA = {
-        srt: `1
-00:00:01,200 --> 00:00:04,500
-Welcome back to CreatorKit Studio!
-
-2
-00:00:04,800 --> 00:00:08,150
-Today we are showing you how to clean <b>SRT subtitles</b> instantly.
-
-3
-00:00:08,400 --> 00:00:12,900
-No more manual timestamp deletion or broken line breaks in your video scripts!`,
-
-        ai: `**In today's fast-paced digital world**, creating high-converting content is more important than ever. 
-
-In this article, we delve into the tapestry of modern social algorithms — unlocking growth for creators.
-
-**Key Takeaways:**
-* Point 1: Always format clean captions.
-* Point 2: Avoid cliché AI phrases like "In conclusion" or "delve into".
-
-In conclusion, having client-side creator tools elevates your workflow!`,
-
-        social: `Stop struggling with cramped Instagram and LinkedIn captions! 
-
-When you post multiple paragraphs on social media, the mobile app often squishes everything together.
-
-With CreatorKit Studio:
-1. Write your draft with clean double spacing.
-2. Hit "Fix Paragraphs".
-3. Paste directly to Instagram, Threads, or LinkedIn.
-
-#contentcreator #marketing #socialmediatips #copywriting #growthhacks #creatorlife`,
-
-        script: `Have you ever wondered why top creators post every single day without burning out? 
-
-The secret isn't working 14 hours a day. It's having an automated system for writing, cleaning, and pacing your voiceovers.
-
-At a standard conversational pace of 130 words per minute, this 65-word script takes precisely 30 seconds to record for a viral TikTok or YouTube Short. Clean, punchy, and straight to the point!`
+        srt: `1\n00:00:01,200 --> 00:00:04,500\nWelcome back to CreatorKit Studio!\n\n2\n00:00:04,800 --> 00:00:08,150\nToday we are showing you how to clean <b>SRT subtitles</b> instantly.\n\n3\n00:00:08,400 --> 00:00:12,900\nNo more manual timestamp deletion or broken line breaks in your video scripts!`,
+        ai: `**In today's fast-paced digital world**, creating high-converting content is more important than ever. \n\nIn this article, we delve into the tapestry of modern social algorithms — unlocking growth for creators.\n\n**Key Takeaways:**\n* Point 1: Always format clean captions.\n* Point 2: Avoid cliché AI phrases like "In conclusion" or "delve into".\n\nIn conclusion, having client-side creator tools elevates your workflow!`,
+        social: `Stop struggling with cramped Instagram and LinkedIn captions! \n\nWhen you post multiple paragraphs on social media, the mobile app often squishes everything together.\n\nWith CreatorKit Studio:\n1. Write your draft with clean double spacing.\n2. Hit "Fix Paragraphs".\n3. Paste directly to Instagram, Threads, or LinkedIn.\n\n#contentcreator #marketing #socialmediatips #copywriting #growthhacks #creatorlife`,
+        script: `Have you ever wondered why top creators post every single day without burning out? \n\nThe secret isn't working 14 hours a day. It's having an automated system for writing, cleaning, and pacing your voiceovers.\n\nAt a standard conversational pace of 130 words per minute, this 65-word script takes precisely 30 seconds to record for a viral TikTok or YouTube Short. Clean, punchy, and straight to the point!`
     };
 
     // ==========================================
-    // MODULAR UTILITY FUNCTIONS
+    // CORE UTILITY ALGORITHMS
     // ==========================================
 
-    // 1. Line Break & Paragraph Fixer for Instagram/LinkedIn
+    // 1. Line Break & Paragraph Fixer
     function fixLineBreaks(text) {
         if (!text) return '';
         const lines = text.split(/\r?\n/);
-        const fixedLines = lines.map((line) => {
-            if (line.trim() === '') {
-                return '\u200B'; // Zero-width space preserves the blank line
-            }
-            return line;
-        });
-        return fixedLines.join('\n');
+        return lines.map(line => line.trim() === '' ? '\u200B' : line).join('\n');
     }
 
-    // 2. Fancy Unicode Text Generator
+    // 2. Hashtag Generator (Multi-Platform Categorized)
+    function generateHashtags(input) {
+        if (!input || !input.trim()) return '';
+        const cleaned = input.toLowerCase().replace(/[^a-z0-9\s]/g, '').trim();
+        const words = cleaned.split(/\s+/).filter(w => w.length > 2);
+        const mainKeyword = words.join('');
+        const primaryTag = words[0] || 'creator';
+
+        const platformSets = {
+            instagram: [
+                `#${mainKeyword}`, `#${primaryTag}`, `#${primaryTag}tips`, `#${primaryTag}life`,
+                `#${primaryTag}hacks`, `#contentcreator`, `#socialmediatips`, `#creators`,
+                `#digitalcreator`, `#viralpost`, `#instatips`, `#growthhacks`
+            ],
+            tiktok: [
+                `#${mainKeyword}`, `#${primaryTag}tok`, `#${primaryTag}tutorial`, `#learnontiktok`,
+                `#fyp`, `#foryoupage`, `#viral`, `#trending`, `#xyzbca`
+            ],
+            shorts: [
+                `#${mainKeyword}`, `#shorts`, `#youtubeshorts`, `#${primaryTag}`, `#ytshorts`,
+                `#viralshorts`, `#shortsfeed`, `#creator`
+            ],
+            linkedin: [
+                `#${primaryTag}`, `#${primaryTag}strategy`, `#marketing`, `#growth`,
+                `#productivity`, `#leadership`, `#contentstrategy`
+            ]
+        };
+
+        return `📱 INSTAGRAM HASHTAG SET:\n${platformSets.instagram.join(' ')}\n\n` +
+               `🎵 TIKTOK SEARCH HASHTAG SET:\n${platformSets.tiktok.join(' ')}\n\n` +
+               `▶️ YOUTUBE SHORTS TAG SET:\n${platformSets.shorts.join(' ')}\n\n` +
+               `💼 LINKEDIN PROFESSIONAL SET:\n${platformSets.linkedin.join(' ')}`;
+    }
+
+    // 3. Twitter / X Thread Splitter
+    function splitIntoTwitterThread(text) {
+        if (!text || !text.trim()) return [];
+        const sentences = text.match(/[^.!?\n]+[.!?\n]+/g) || [text];
+        const maxLen = 270;
+        const tweets = [];
+        let currentTweet = '';
+
+        sentences.forEach(sentence => {
+            const trimmed = sentence.trim();
+            if (!trimmed) return;
+
+            if ((currentTweet + ' ' + trimmed).trim().length <= maxLen) {
+                currentTweet = (currentTweet + ' ' + trimmed).trim();
+            } else {
+                if (currentTweet) tweets.push(currentTweet);
+                currentTweet = trimmed;
+            }
+        });
+        if (currentTweet) tweets.push(currentTweet);
+
+        const total = tweets.length;
+        return tweets.map((tw, i) => `(${i + 1}/${total}) ${tw}`);
+    }
+
+    // 4. Flesch-Kincaid Readability Analyzer Math
+    function countSyllablesInWord(word) {
+        let clean = word.toLowerCase().replace(/[^a-z]/g, '');
+        if (clean.length <= 3) return 1;
+        clean = clean.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');
+        clean = clean.replace(/^y/, '');
+        const matches = clean.match(/[aeiouy]{1,2}/g);
+        return matches ? matches.length : 1;
+    }
+
+    function calculateReadability(text) {
+        if (!text || !text.trim()) {
+            return { words: 0, sentences: 0, syllables: 0, readingEase: 0, gradeLevel: 0, label: 'No text', tips: 'Paste text to analyze.' };
+        }
+
+        const wordsArray = text.trim().match(/[\w\u00C0-\u024F\u0400-\u04FF'-]+/g) || [];
+        const words = wordsArray.length || 1;
+        const sentencesArray = text.trim().match(/[^.!?]+[.!?]+(\s|$)/g) || [text];
+        const sentences = sentencesArray.length || 1;
+
+        let totalSyllables = 0;
+        let complexWords = 0;
+        wordsArray.forEach(w => {
+            const syl = countSyllablesInWord(w);
+            totalSyllables += syl;
+            if (syl >= 3) complexWords++;
+        });
+
+        // Flesch Reading Ease Formula
+        let ease = 206.835 - (1.015 * (words / sentences)) - (84.6 * (totalSyllables / words));
+        ease = Math.max(0, Math.min(100, Math.round(ease)));
+
+        // Flesch-Kincaid Grade Level Formula
+        let grade = (0.39 * (words / sentences)) + (11.8 * (totalSyllables / words)) - 15.59;
+        grade = Math.max(1, Math.round(grade * 10) / 10);
+
+        let label = 'Standard (Conversational)';
+        let badgeColor = 'text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/60';
+        let tips = 'Optimal conversational score. Effortless to read on mobile devices.';
+
+        if (ease >= 80) {
+            label = 'Very Easy (5th–6th Grade)';
+            badgeColor = 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60';
+            tips = 'Simple, fast-paced readability. Great for high-converting social copy.';
+        } else if (ease >= 60) {
+            label = 'Standard (8th Grade Sweet Spot)';
+            badgeColor = 'text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/60';
+            tips = 'Industry gold standard for blog posts, YouTube scripts, and newsletters.';
+        } else if (ease >= 40) {
+            label = 'Fairly Difficult (High School / College)';
+            badgeColor = 'text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/60';
+            tips = 'Slightly dense. Shorten long sentences and reduce 3-syllable words.';
+        } else {
+            label = 'Very Difficult (Academic / Legal)';
+            badgeColor = 'text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/60';
+            tips = 'High cognitive load. Split compound sentences and eliminate technical jargon.';
+        }
+
+        return {
+            words,
+            sentences,
+            syllables: totalSyllables,
+            complexWordsPercent: Math.round((complexWords / words) * 100),
+            avgWordsPerSentence: (words / sentences).toFixed(1),
+            readingEase: ease,
+            gradeLevel: grade,
+            label,
+            badgeColor,
+            tips
+        };
+    }
+
+    // 5. SEO Title & Meta Description Generator
+    function generateSEOMeta(text) {
+        if (!text || !text.trim()) {
+            return {
+                title: 'CreatorKit Studio | Free Creator Utility Suite',
+                description: 'Boost your content workflow with fast client-side utilities. Zero server latency and 100% privacy.',
+                raw: ''
+            };
+        }
+
+        const lines = text.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+        let firstLine = lines[0] || 'Content Creator Tools & Guide';
+        
+        let title = firstLine.replace(/^[#\*\-_\s]+/, '').replace(/[\*\_\`]/g, '');
+        if (title.length > 55) {
+            title = title.substring(0, 52) + '...';
+        }
+        if (title.length < 35) {
+            title += ' | Complete Guide & Tips';
+        }
+
+        const fullContent = lines.join(' ').replace(/[\*\_\`\#]/g, '');
+        let desc = fullContent.substring(0, 155).trim();
+        if (fullContent.length > 155) {
+            desc += '...';
+        }
+
+        const raw = `<!-- SEO Meta Tags for <head> -->\n` +
+                    `<title>${title}</title>\n` +
+                    `<meta name="description" content="${desc}">\n\n` +
+                    `<!-- Open Graph / Social Sharing -->\n` +
+                    `<meta property="og:title" content="${title}">\n` +
+                    `<meta property="og:description" content="${desc}">`;
+
+        return { title, description: desc, raw };
+    }
+
+    // 6. Fancy Unicode Text Generator
     function generateFancyText(text, style = 'bold-sans') {
         if (!text) return '';
         const fontMap = UNICODE_FONTS[style] || UNICODE_FONTS['bold-sans'];
@@ -206,16 +359,12 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
         let result = '';
         for (const char of text) {
             const index = plainChars.indexOf(char);
-            if (index !== -1 && fontChars[index]) {
-                result += fontChars[index];
-            } else {
-                result += char;
-            }
+            result += (index !== -1 && fontChars[index]) ? fontChars[index] : char;
         }
         return result;
     }
 
-    // 3. Hashtag Extractor & Cleaner
+    // 7. Hashtag Extractor & Cleaner
     function cleanHashtags(text, maxCount = 30) {
         if (!text) return '';
         const matches = text.match(/#[a-zA-Z0-9_\u00C0-\u024F\u0400-\u04FF]+/g) || [];
@@ -229,23 +378,17 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
                 uniqueTags.push(tag);
             }
         }
-
-        const limitedTags = uniqueTags.slice(0, maxCount);
-        return limitedTags.join(' ');
+        return uniqueTags.slice(0, maxCount).join(' ');
     }
 
-    // 4. Case Converter
+    // 8. Case Converter
     function convertCase(text, format = 'title') {
         if (!text) return '';
         switch (format) {
-            case 'upper':
-                return text.toUpperCase();
-            case 'lower':
-                return text.toLowerCase();
-            case 'sentence':
-                return text.toLowerCase().replace(/(^\s*\w|[.!?]\s+\w)/g, (c) => c.toUpperCase());
-            case 'capitalize':
-                return text.replace(/\b\w/g, (c) => c.toUpperCase());
+            case 'upper': return text.toUpperCase();
+            case 'lower': return text.toLowerCase();
+            case 'sentence': return text.toLowerCase().replace(/(^\s*\w|[.!?]\s+\w)/g, c => c.toUpperCase());
+            case 'capitalize': return text.replace(/\b\w/g, c => c.toUpperCase());
             case 'title': {
                 const smallWords = /^(a|an|and|as|at|but|by|for|if|in|nor|of|on|or|so|the|to|up|yet)$/i;
                 return text.split(/\s+/).map((word, index, arr) => {
@@ -256,14 +399,11 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
                     return word.toLowerCase();
                 }).join(' ');
             }
-            case 'camel':
-                return text.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase());
-            default:
-                return text;
+            default: return text;
         }
     }
 
-    // 5. SRT Caption Cleaner
+    // 9. SRT Caption Cleaner
     function cleanSRT(srtContent) {
         if (!srtContent) return '';
         let cleaned = srtContent
@@ -273,11 +413,10 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
             .replace(/<\/?[^>]+(>|$)/g, '')
             .replace(/\{[^\}]+\}/g, '');
 
-        const lines = cleaned.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
-        return lines.join('\n\n');
+        return cleaned.split(/\r?\n/).map(l => l.trim()).filter(Boolean).join('\n\n');
     }
 
-    // 6. Script Speaking Duration Calculator
+    // 10. Script Speaking Duration Calculator
     function calculateSpeakingTimeDetails(text, wpm = 130) {
         const words = countWords(text);
         const totalSeconds = Math.round((words / wpm) * 60);
@@ -292,20 +431,16 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
         };
     }
 
-    // 7. AI Formatting & Cliché Cleaner
+    // 11. AI Formatting & Cliché Cleaner
     function cleanAIArtifacts(text) {
         if (!text) return '';
-        let cleaned = text;
-
-        cleaned = cleaned
+        let cleaned = text
             .replace(/\*\*(.*?)\*\*/g, '$1')
             .replace(/\*(.*?)\*/g, '$1')
             .replace(/__(.*?)__/g, '$1')
             .replace(/`([^`]+)`/g, '$1')
             .replace(/^#{1,6}\s+/gm, '')
-            .replace(/^[-\*]\s+/gm, '• ');
-
-        cleaned = cleaned
+            .replace(/^[-\*]\s+/gm, '• ')
             .replace(/\s*—\s*/g, ' — ')
             .replace(/\s*–\s*/g, ' - ');
 
@@ -325,14 +460,11 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
             /^Sure thing! Here's [^:\n]+:?\s*/gim
         ];
 
-        for (const regex of cliches) {
-            cleaned = cleaned.replace(regex, '');
-        }
-
+        for (const regex of cliches) cleaned = cleaned.replace(regex, '');
         return cleaned.trim();
     }
 
-    // 8. SEO Slug Generator
+    // 12. SEO Slug Generator
     function generateSEOSlug(text) {
         if (!text) return '';
         return text
@@ -346,24 +478,18 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
             .replace(/^-+|-+$/g, '');
     }
 
-    // 9. Whitespace Trimmer
+    // 13. Whitespace Trimmer
     function cleanWhitespace(text) {
         if (!text) return '';
-        return text
-            .split(/\r?\n/)
-            .map(line => line.replace(/[ \t]+/g, ' ').trim())
-            .filter((line, i, arr) => !(line === '' && arr[i - 1] === ''))
-            .join('\n')
-            .trim();
+        return text.split(/\r?\n/).map(l => l.replace(/[ \t]+/g, ' ').trim()).filter((l, i, a) => !(l === '' && a[i - 1] === '')).join('\n').trim();
     }
 
-    // 10. Duplicate Line Filter
+    // 14. Duplicate Line Filter
     function removeDuplicateLines(text) {
         if (!text) return '';
         const lines = text.split(/\r?\n/);
         const seen = new Set();
         const unique = [];
-
         for (const line of lines) {
             const trimmed = line.trim();
             if (trimmed === '' || !seen.has(trimmed)) {
@@ -393,13 +519,11 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
 
         const readingSec = Math.round((words / 200) * 60);
         const readingMin = Math.floor(readingSec / 60);
-        const readingRemSec = readingSec % 60;
-        const readingDisplay = readingMin > 0 ? `${readingMin}m ${readingRemSec}s` : `${readingSec}s`;
+        const readingDisplay = readingMin > 0 ? `${readingMin}m ${readingSec % 60}s` : `${readingSec}s`;
 
         const speakingSec = Math.round((words / 130) * 60);
         const speakingMin = Math.floor(speakingSec / 60);
-        const speakingRemSec = speakingSec % 60;
-        const speakingDisplay = speakingMin > 0 ? `${speakingMin}m ${speakingRemSec}s` : `${speakingSec}s`;
+        const speakingDisplay = speakingMin > 0 ? `${speakingMin}m ${speakingSec % 60}s` : `${speakingSec}s`;
 
         elements.statWords.textContent = words.toLocaleString();
         elements.statChars.textContent = chars.toLocaleString();
@@ -412,6 +536,83 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
     }
 
     // ==========================================
+    // WORKSPACE MODE & TAB SWITCHER (All / Blogger / Creator)
+    // ==========================================
+    function filterWorkspace(mode, save = true) {
+        state.activeWorkspace = mode;
+        if (save) {
+            localStorage.setItem('activeWorkspace', mode);
+            localStorage.setItem('creatorkit_active_workspace', mode);
+        }
+
+        const tabButtons = document.querySelectorAll('[data-tab], .tab-btn');
+        const toolItems = document.querySelectorAll('.tool-card[data-category], .tool-btn[data-category]');
+        const categoryBlocks = document.querySelectorAll('.space-y-1, .category-group');
+
+        // 1. Update active tab UI styling
+        tabButtons.forEach(btn => {
+            const btnMode = (btn.getAttribute('data-tab') || btn.innerText).toLowerCase();
+            if (btnMode.includes(mode)) {
+                btn.classList.add('bg-indigo-600', 'text-white', 'active');
+                btn.classList.remove('text-slate-400');
+            } else {
+                btn.classList.remove('bg-indigo-600', 'text-white', 'active');
+                btn.classList.add('text-slate-400');
+            }
+        });
+
+        // 2. Hide/Show individual tools
+        let visibleCount = 0;
+        const searchQuery = (elements.sidebarToolSearch ? elements.sidebarToolSearch.value : '').toLowerCase().trim();
+
+        toolItems.forEach(item => {
+            const category = item.getAttribute('data-category') || '';
+            const text = item.innerText.toLowerCase();
+            const keywords = (item.dataset.keywords || '').toLowerCase();
+
+            const matchesSearch = !searchQuery || text.includes(searchQuery) || keywords.includes(searchQuery);
+            const matchesMode = mode === 'all' || category.includes(mode);
+
+            if (matchesMode && matchesSearch) {
+                item.style.display = '';
+                visibleCount++;
+            } else {
+                item.style.display = 'none';
+            }
+        });
+
+        // 3. Hide empty category headers if no visible tools remain under them
+        categoryBlocks.forEach(block => {
+            const visibleChildren = block.querySelectorAll('[data-category]:not([style*="display: none"])');
+            const header = block.previousElementSibling; // Category title header
+
+            if (mode !== 'all' && visibleChildren.length === 0) {
+                block.style.display = 'none';
+                if (header && (header.classList.contains('text-xs') || header.classList.contains('category-header'))) {
+                    header.style.display = 'none';
+                }
+            } else {
+                block.style.display = '';
+                if (header && (header.classList.contains('text-xs') || header.classList.contains('category-header'))) {
+                    header.style.display = '';
+                }
+            }
+        });
+
+        const modeLabel = mode === 'all' ? 'All' : (mode === 'blogger' ? 'Blogger' : 'Creator');
+        if (elements.toolCountBadge) {
+            elements.toolCountBadge.textContent = `${visibleCount} in ${modeLabel}`;
+        }
+    }
+
+    const setWorkspaceMode = filterWorkspace;
+
+    // Expose globally for inline event handler fallbacks
+    window.switchWorkspaceTab = filterWorkspace;
+    window.filterWorkspace = filterWorkspace;
+    window.setActiveTool = setActiveTool;
+
+    // ==========================================
     // DYNAMIC SEO GUIDE & SCHEMA.ORG RENDERER
     // ==========================================
     function renderSeoGuide(toolId) {
@@ -419,13 +620,11 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
         const guide = SEO_GUIDES[toolId] || SEO_GUIDES['fix-line-breaks'];
         if (!guide) return;
 
-        // Update Title and Meta Tags
         if (elements.pageTitle) elements.pageTitle.textContent = guide.title;
         if (elements.pageMetaDescription) elements.pageMetaDescription.setAttribute('content', guide.metaDescription);
         if (elements.ogTitle) elements.ogTitle.setAttribute('content', guide.title);
         if (elements.ogDescription) elements.ogDescription.setAttribute('content', guide.metaDescription);
 
-        // Update Schema.org JSON-LD FAQPage
         if (elements.faqSchema && guide.faqs) {
             const schemaData = {
                 "@context": "https://schema.org",
@@ -433,16 +632,12 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
                 "mainEntity": guide.faqs.map(faq => ({
                     "@type": "Question",
                     "name": faq.q,
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": faq.a
-                    }
+                    "acceptedAnswer": { "@type": "Answer", "text": faq.a }
                 }))
             };
             elements.faqSchema.textContent = JSON.stringify(schemaData, null, 2);
         }
 
-        // Render HTML Content & FAQ Accordions
         const keywordsPills = (guide.keywords || []).map(kw => 
             `<span class="px-2 py-0.5 rounded text-[11px] font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-dark-border">${kw}</span>`
         ).join(' ');
@@ -455,9 +650,7 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
                         <i class="fa-solid fa-chevron-down text-xs"></i>
                     </span>
                 </summary>
-                <p class="mt-3 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                    ${faq.a}
-                </p>
+                <p class="mt-3 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">${faq.a}</p>
             </details>
         `).join('');
 
@@ -467,27 +660,17 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
                     <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 border border-indigo-200/60 dark:border-indigo-800/40">
                         <i class="fa-solid fa-book-open"></i> ${guide.badge || 'Creator Educational Guide'}
                     </span>
-                    <div class="flex flex-wrap gap-1.5">
-                        ${keywordsPills}
-                    </div>
+                    <div class="flex flex-wrap gap-1.5">${keywordsPills}</div>
                 </div>
 
-                <h2 class="text-xl md:text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-                    ${guide.h2}
-                </h2>
+                <h2 class="text-xl md:text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white">${guide.h2}</h2>
+                <div class="guide-body">${guide.contentHtml}</div>
 
-                <div class="guide-body">
-                    ${guide.contentHtml}
-                </div>
-
-                <!-- Structured FAQ Accordions -->
                 <div class="pt-6 border-t border-slate-200 dark:border-dark-border space-y-3">
                     <h3 class="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-3">
                         <i class="fa-solid fa-circle-question text-indigo-500"></i> Frequently Asked Questions & Best Practices
                     </h3>
-                    <div class="space-y-2.5">
-                        ${faqsHtml}
-                    </div>
+                    <div class="space-y-2.5">${faqsHtml}</div>
                 </div>
             </div>
         `;
@@ -500,10 +683,124 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
         const inputText = elements.mainInput.value;
         let outputText = '';
 
+        elements.dynamicCustomWidget.classList.add('hidden');
+        elements.dynamicCustomWidget.innerHTML = '';
+
         switch (state.activeTool) {
             case 'fix-line-breaks':
                 outputText = fixLineBreaks(inputText);
                 break;
+            case 'hashtag-generator':
+                outputText = generateHashtags(inputText);
+                break;
+            case 'thread-splitter': {
+                const threadChunks = splitIntoTwitterThread(inputText);
+                outputText = threadChunks.join('\n\n---\n\n');
+                
+                if (threadChunks.length > 0) {
+                    elements.dynamicCustomWidget.classList.remove('hidden');
+                    const cardsHtml = threadChunks.map((tweet, idx) => `
+                        <div class="p-3.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-dark-border rounded-xl space-y-2 relative">
+                            <div class="flex items-center justify-between text-[11px]">
+                                <span class="font-bold text-cyan-600 dark:text-cyan-400 font-mono">Tweet ${idx + 1} of ${threadChunks.length}</span>
+                                <span class="text-slate-400 font-mono">${tweet.length}/280 chars</span>
+                            </div>
+                            <p class="text-xs text-slate-800 dark:text-slate-200 whitespace-pre-wrap">${tweet}</p>
+                            <button type="button" class="copy-tweet-btn px-2.5 py-1 rounded bg-slate-200 dark:bg-slate-800 hover:bg-cyan-600 hover:text-white text-[11px] font-semibold text-slate-700 dark:text-slate-300 transition flex items-center gap-1">
+                                <i class="fa-regular fa-copy"></i> Copy Tweet ${idx + 1}
+                            </button>
+                        </div>
+                    `).join('');
+
+                    elements.dynamicCustomWidget.innerHTML = `
+                        <div class="space-y-2">
+                            <span class="text-[11px] font-bold uppercase text-slate-400 block"><i class="fa-brands fa-x-twitter text-cyan-500 mr-1"></i> Interactive Thread Deck (${threadChunks.length} Tweets):</span>
+                            <div class="space-y-2.5">${cardsHtml}</div>
+                        </div>
+                    `;
+
+                    elements.dynamicCustomWidget.querySelectorAll('.copy-tweet-btn').forEach((btn, idx) => {
+                        btn.addEventListener('click', async () => {
+                            await navigator.clipboard.writeText(threadChunks[idx]);
+                            showToast(`Copied Tweet ${idx + 1} to clipboard!`);
+                        });
+                    });
+                }
+                break;
+            }
+            case 'readability-score': {
+                const readData = calculateReadability(inputText);
+                outputText = `📊 FLESCH-KINCAID READABILITY BREAKDOWN:\n` +
+                    `--------------------------------------\n` +
+                    `• Flesch Reading Ease: ${readData.readingEase} / 100 (${readData.label})\n` +
+                    `• Flesch-Kincaid Grade Level: Grade ${readData.gradeLevel}\n` +
+                    `• Average Words per Sentence: ${readData.avgWordsPerSentence} words\n` +
+                    `• Complex Multi-Syllable Words: ${readData.complexWordsPercent}%\n` +
+                    `• Total Sentences: ${readData.sentences} | Total Words: ${readData.words}\n\n` +
+                    `Editorial Recommendation:\n` +
+                    `--------------------------------------\n` +
+                    `${readData.tips}`;
+
+                elements.dynamicCustomWidget.classList.remove('hidden');
+                elements.dynamicCustomWidget.innerHTML = `
+                    <div class="p-4 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-dark-border rounded-xl space-y-3">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <span class="text-xs font-bold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+                                <i class="fa-solid fa-glasses text-emerald-500"></i> Readability Grade Assessment
+                            </span>
+                            <span class="text-xs font-extrabold px-2.5 py-1 rounded-full ${readData.badgeColor}">${readData.label}</span>
+                        </div>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs">
+                            <div class="p-2 bg-white dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-slate-700">
+                                <span class="text-[10px] text-slate-400 block">Reading Ease</span>
+                                <span class="text-lg font-bold font-mono text-indigo-600 dark:text-indigo-400">${readData.readingEase} / 100</span>
+                            </div>
+                            <div class="p-2 bg-white dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-slate-700">
+                                <span class="text-[10px] text-slate-400 block">Grade Level</span>
+                                <span class="text-lg font-bold font-mono text-emerald-600 dark:text-emerald-400">Grade ${readData.gradeLevel}</span>
+                            </div>
+                            <div class="p-2 bg-white dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-slate-700">
+                                <span class="text-[10px] text-slate-400 block">Avg Words/Sentence</span>
+                                <span class="text-base font-bold font-mono text-slate-700 dark:text-slate-200">${readData.avgWordsPerSentence}</span>
+                            </div>
+                            <div class="p-2 bg-white dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-slate-700">
+                                <span class="text-[10px] text-slate-400 block">Complex Words</span>
+                                <span class="text-base font-bold font-mono text-slate-700 dark:text-slate-200">${readData.complexWordsPercent}%</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 italic bg-white dark:bg-slate-800 p-2.5 rounded-lg border border-slate-100 dark:border-slate-700">
+                            💡 <strong>Tip:</strong> ${readData.tips}
+                        </p>
+                    </div>
+                `;
+                break;
+            }
+            case 'seo-meta-generator': {
+                const seo = generateSEOMeta(inputText);
+                outputText = seo.raw;
+
+                elements.dynamicCustomWidget.classList.remove('hidden');
+                elements.dynamicCustomWidget.innerHTML = `
+                    <div class="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-dark-border rounded-xl space-y-2 shadow-sm">
+                        <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-1 flex items-center gap-1.5">
+                            <i class="fa-brands fa-google text-indigo-500"></i> Google SERP Live Snippet Preview:
+                        </span>
+                        <div class="p-3 bg-white dark:bg-slate-950 rounded-lg border border-slate-200 dark:border-slate-800 font-sans space-y-1">
+                            <div class="flex items-center gap-2 text-xs text-slate-500">
+                                <span class="w-4 h-4 rounded-full bg-indigo-600 text-white text-[9px] flex items-center justify-center font-bold">C</span>
+                                <span class="text-slate-700 dark:text-slate-300 text-[11px]">creatorkitstudio.pro &rsaquo; blog</span>
+                            </div>
+                            <h3 class="text-sm font-semibold text-blue-600 dark:text-blue-400 hover:underline cursor-pointer leading-snug">${seo.title}</h3>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">${seo.description}</p>
+                        </div>
+                        <div class="flex items-center justify-between text-[11px] text-slate-400 pt-1">
+                            <span>Title Length: <strong class="font-mono text-slate-700 dark:text-slate-200">${seo.title.length}/60 chars</strong></span>
+                            <span>Meta Length: <strong class="font-mono text-slate-700 dark:text-slate-200">${seo.description.length}/160 chars</strong></span>
+                        </div>
+                    </div>
+                `;
+                break;
+            }
             case 'fancy-text':
                 outputText = generateFancyText(inputText, state.fancyStyle);
                 break;
@@ -545,14 +842,16 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
                 openTeleprompter();
                 outputText = inputText;
                 break;
+            case 'image-resizer':
+                outputText = 'Image Resizer Active. Use the Canvas dropzone above to scale your photo locally.';
+                break;
             default:
                 outputText = inputText;
         }
 
         elements.mainOutput.value = outputText;
 
-        // Feedback badge
-        if (outputText && outputText !== inputText) {
+        if (outputText && outputText !== inputText && state.activeTool !== 'image-resizer') {
             elements.outputChangeBadge.classList.remove('hidden');
             elements.outputChangeBadge.textContent = 'Transformed ✓';
         } else {
@@ -560,7 +859,7 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
         }
     }
 
-    // Render dynamic sub-options for active tool
+    // Dynamic Sub-options Toolbar
     function renderDynamicToolOptions(toolAction) {
         if (toolAction === 'fancy-text') {
             elements.dynamicToolOptions.classList.remove('hidden');
@@ -577,9 +876,7 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
                     </div>
                 </div>
             `;
-
-            const styleBtns = elements.dynamicToolOptions.querySelectorAll('#fancyStyleOptions button');
-            styleBtns.forEach(btn => {
+            elements.dynamicToolOptions.querySelectorAll('#fancyStyleOptions button').forEach(btn => {
                 btn.addEventListener('click', () => {
                     state.fancyStyle = btn.dataset.style;
                     renderDynamicToolOptions('fancy-text');
@@ -600,9 +897,7 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
                     </div>
                 </div>
             `;
-
-            const caseBtns = elements.dynamicToolOptions.querySelectorAll('#caseFormatOptions button');
-            caseBtns.forEach(btn => {
+            elements.dynamicToolOptions.querySelectorAll('#caseFormatOptions button').forEach(btn => {
                 btn.addEventListener('click', () => {
                     state.caseFormat = btn.dataset.case;
                     renderDynamicToolOptions('case-converter');
@@ -615,7 +910,7 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
         }
     }
 
-    // Set active tool from UI & Hash Route
+    // Set Active Tool
     function setActiveTool(toolAction, updateHash = true) {
         state.activeTool = toolAction;
 
@@ -623,7 +918,16 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
             history.pushState(null, '', `#${toolAction}`);
         }
 
-        // Update sidebar tool active states
+        // Toggle standard card vs image resizer card
+        if (toolAction === 'image-resizer') {
+            elements.imageResizerCard.classList.remove('hidden');
+            elements.standardWorkspaceCard.classList.add('hidden');
+        } else {
+            elements.imageResizerCard.classList.add('hidden');
+            elements.standardWorkspaceCard.classList.remove('hidden');
+        }
+
+        // Update sidebar buttons
         document.querySelectorAll('.tool-btn').forEach(btn => {
             if (btn.dataset.action === toolAction) {
                 btn.classList.add('active');
@@ -632,7 +936,7 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
             }
         });
 
-        // Update quick action buttons
+        // Update quick action bar buttons
         document.querySelectorAll('.action-btn').forEach(btn => {
             if (btn.dataset.action === toolAction) {
                 btn.classList.add('bg-indigo-600', 'text-white');
@@ -647,13 +951,148 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
         processActiveTool();
         renderSeoGuide(toolAction);
 
-        // Auto-close mobile accordion drawer when a tool is selected on mobile (< 768px)
         if (window.innerWidth < 768) {
             const drawer = document.getElementById('mobileToolDrawer');
             if (drawer && drawer.hasAttribute('open')) {
                 drawer.removeAttribute('open');
             }
         }
+    }
+
+    // ==========================================
+    // CLIENT-SIDE IMAGE RESIZER & CANVAS ENGINE
+    // ==========================================
+    function initImageResizer() {
+        const dropzone = elements.imgDropzone;
+        const fileInput = elements.imgFileInput;
+
+        dropzone.addEventListener('click', () => fileInput.click());
+
+        dropzone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropzone.classList.add('border-indigo-500', 'bg-indigo-50/20');
+        });
+
+        dropzone.addEventListener('dragleave', () => {
+            dropzone.classList.remove('border-indigo-500', 'bg-indigo-50/20');
+        });
+
+        dropzone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropzone.classList.remove('border-indigo-500', 'bg-indigo-50/20');
+            if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+                loadImageFile(e.dataTransfer.files[0]);
+            }
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files && e.target.files[0]) {
+                loadImageFile(e.target.files[0]);
+            }
+        });
+
+        elements.imgAspectLock.addEventListener('change', (e) => {
+            state.imageResizer.lockedAspect = e.target.checked;
+        });
+
+        elements.imgWidthInput.addEventListener('input', () => {
+            const w = parseInt(elements.imgWidthInput.value, 10);
+            if (w > 0 && state.imageResizer.lockedAspect && state.imageResizer.aspectRatio) {
+                const h = Math.round(w / state.imageResizer.aspectRatio);
+                elements.imgHeightInput.value = h;
+            }
+            renderCanvasPreview();
+        });
+
+        elements.imgHeightInput.addEventListener('input', () => {
+            const h = parseInt(elements.imgHeightInput.value, 10);
+            if (h > 0 && state.imageResizer.lockedAspect && state.imageResizer.aspectRatio) {
+                const w = Math.round(h * state.imageResizer.aspectRatio);
+                elements.imgWidthInput.value = w;
+            }
+            renderCanvasPreview();
+        });
+
+        document.querySelectorAll('.preset-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const w = parseInt(btn.dataset.w, 10);
+                const h = parseInt(btn.dataset.h, 10);
+                elements.imgWidthInput.value = w;
+                elements.imgHeightInput.value = h;
+                renderCanvasPreview();
+                showToast(`Preset loaded: ${w}×${h}`);
+            });
+        });
+
+        elements.imgFormatSelect.addEventListener('change', (e) => {
+            state.imageResizer.mimeType = e.target.value;
+        });
+
+        elements.downloadResizedImgBtn.addEventListener('click', () => {
+            if (!state.imageResizer.currentImage) {
+                showToast('Please upload an image first!', 'info');
+                return;
+            }
+
+            const canvas = elements.resizerCanvas;
+            const mime = state.imageResizer.mimeType || 'image/png';
+            const ext = mime.split('/')[1] === 'jpeg' ? 'jpg' : mime.split('/')[1];
+
+            canvas.toBlob((blob) => {
+                if (!blob) return;
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `creatorkit-resized-${canvas.width}x${canvas.height}.${ext}`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                showToast(`Image scaled to ${canvas.width}×${canvas.height} downloaded!`);
+            }, mime, 0.92);
+        });
+    }
+
+    function loadImageFile(file) {
+        if (!file.type.startsWith('image/')) {
+            showToast('Please select a valid image file (PNG, JPG, WebP)', 'info');
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const img = new Image();
+            img.onload = () => {
+                state.imageResizer.currentImage = img;
+                state.imageResizer.originalWidth = img.width;
+                state.imageResizer.originalHeight = img.height;
+                state.imageResizer.aspectRatio = img.width / img.height;
+
+                elements.imgWidthInput.value = img.width;
+                elements.imgHeightInput.value = img.height;
+                elements.imgControls.classList.remove('hidden');
+
+                renderCanvasPreview();
+                showToast(`Loaded ${file.name} (${img.width}×${img.height}px)`);
+            };
+            img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+
+    function renderCanvasPreview() {
+        if (!state.imageResizer.currentImage) return;
+        const w = parseInt(elements.imgWidthInput.value, 10) || 100;
+        const h = parseInt(elements.imgHeightInput.value, 10) || 100;
+
+        const canvas = elements.resizerCanvas;
+        canvas.width = w;
+        canvas.height = h;
+
+        const ctx = canvas.getContext('2d');
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
+        ctx.drawImage(state.imageResizer.currentImage, 0, 0, w, h);
     }
 
     // ==========================================
@@ -692,7 +1131,6 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
             }
             state.teleprompter.animationFrameId = requestAnimationFrame(scrollStep);
         }
-
         state.teleprompter.animationFrameId = requestAnimationFrame(scrollStep);
     }
 
@@ -708,11 +1146,8 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
     }
 
     function toggleTeleprompterPlay() {
-        if (state.teleprompter.isPlaying) {
-            stopTeleprompterScroll();
-        } else {
-            startTeleprompterScroll();
-        }
+        if (state.teleprompter.isPlaying) stopTeleprompterScroll();
+        else startTeleprompterScroll();
     }
 
     function resetTeleprompter() {
@@ -721,14 +1156,13 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
     }
 
     // ==========================================
-    // TOAST NOTIFICATION SYSTEM
+    // TOAST NOTIFICATIONS & PERSISTENCE
     // ==========================================
     function showToast(message, type = 'success') {
         const toast = document.createElement('div');
         const icon = type === 'success' ? 'fa-circle-check text-emerald-400' : 'fa-circle-info text-indigo-400';
         toast.className = 'toast-in flex items-center gap-2.5 px-4 py-3 bg-slate-900 text-white rounded-xl shadow-xl border border-slate-800 text-xs font-medium max-w-sm';
         toast.innerHTML = `<i class="fa-solid ${icon}"></i> <span>${message}</span>`;
-        
         elements.toastContainer.appendChild(toast);
 
         setTimeout(() => {
@@ -737,34 +1171,25 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
         }, 2500);
     }
 
-    // ==========================================
-    // LOCAL STORAGE PERSISTENCE
-    // ==========================================
     let autoSaveTimeout = null;
     function saveDraftToStorage() {
         if (autoSaveTimeout) clearTimeout(autoSaveTimeout);
         autoSaveTimeout = setTimeout(() => {
             localStorage.setItem('creatorkit_draft_text', elements.mainInput.value);
             elements.autoSaveBadge.style.opacity = '1';
-            setTimeout(() => {
-                elements.autoSaveBadge.style.opacity = '0.7';
-            }, 1000);
+            setTimeout(() => elements.autoSaveBadge.style.opacity = '0.7', 1000);
         }, 400);
     }
 
     function loadDraftFromStorage() {
         const savedText = localStorage.getItem('creatorkit_draft_text');
-        if (savedText !== null && savedText.trim() !== '') {
-            elements.mainInput.value = savedText;
-        } else {
-            elements.mainInput.value = SAMPLE_DATA.social;
-        }
+        elements.mainInput.value = (savedText !== null && savedText.trim() !== '') ? savedText : SAMPLE_DATA.social;
         updateAnalytics(elements.mainInput.value);
         processActiveTool();
     }
 
     // ==========================================
-    // THEME MANAGEMENT
+    // THEME & LEGAL MODALS
     // ==========================================
     function initTheme() {
         const storedTheme = localStorage.getItem('creatorkit_theme') || 'dark';
@@ -790,52 +1215,22 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
         }
     }
 
-    // ==========================================
-    // LEGAL MODALS (AdSense Compliance)
-    // ==========================================
     const LEGAL_CONTENT = {
         about: {
             title: '<i class="fa-solid fa-circle-info text-indigo-500"></i> About CreatorKit Studio',
-            html: `
-                <p><strong>CreatorKit Studio</strong> is an open-access, browser-powered utility workspace crafted for YouTubers, Instagram and LinkedIn content creators, scriptwriters, copywriters, and SEO specialists.</p>
-                <p class="mt-2">Our mission is to eliminate repetitive text formatting friction. Built with cutting-edge, 100% client-side JavaScript architecture, CreatorKit Studio guarantees that no scripts, captions, or intellectual property ever leave your device.</p>
-                <h4 class="font-bold text-slate-800 dark:text-slate-200 mt-3 text-sm">Key Principles:</h4>
-                <ul class="list-disc pl-5 space-y-1 mt-1">
-                    <li><strong>Instant Execution:</strong> Zero server latency or API round-trips.</li>
-                    <li><strong>Zero Tracking of Content:</strong> Keystrokes remain in local browser sandbox.</li>
-                    <li><strong>Always Free:</strong> Maintained via transparent, non-intrusive Google AdSense advertising.</li>
-                </ul>
-            `
+            html: `<p><strong>CreatorKit Studio</strong> is an open-access, browser-powered utility workspace crafted for YouTubers, Instagram and LinkedIn content creators, scriptwriters, copywriters, and SEO specialists.</p><p class="mt-2">Built with 100% client-side JavaScript architecture, CreatorKit Studio guarantees zero server uploads and zero data retention.</p>`
         },
         privacy: {
             title: '<i class="fa-solid fa-shield-halved text-indigo-500"></i> Privacy Policy',
-            html: `
-                <p><strong>Last Updated: 2026</strong></p>
-                <p class="mt-2">Your privacy is fundamental to our architecture. This Privacy Policy details how CreatorKit Studio handles information:</p>
-                <h4 class="font-bold text-slate-800 dark:text-slate-200 mt-3 text-sm">1. 100% Client-Side Processing</h4>
-                <p>All text transformations (SRT subtitle cleaning, hashtag extraction, AI cliché sanitization, font conversion) are executed entirely inside your browser's JavaScript engine. We do not operate external processing servers or retain copies of your text.</p>
-                <h4 class="font-bold text-slate-800 dark:text-slate-200 mt-3 text-sm">2. Local Storage</h4>
-                <p>We utilize your browser's private <code>localStorage</code> API to remember your draft content and theme preference. This data never leaves your device.</p>
-                <h4 class="font-bold text-slate-800 dark:text-slate-200 mt-3 text-sm">3. Google AdSense & Third-Party Cookies</h4>
-                <p>We display third-party advertisements served by Google AdSense. Google uses cookies (including the DoubleClick cookie) to serve ads based on prior visits to this or other websites. You may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" class="text-indigo-500 underline">Google Ads Settings</a>.</p>
-            `
+            html: `<p><strong>100% Client-Side Privacy:</strong> All text and image operations run locally inside your browser sandbox. We do not store or transmit your content to external servers.</p><p class="mt-2">We display third-party advertisements served by Google AdSense.</p>`
         },
         terms: {
             title: '<i class="fa-solid fa-file-contract text-indigo-500"></i> Terms of Service',
-            html: `
-                <p><strong>1. Acceptance of Terms:</strong> By accessing and using CreatorKit Studio, you agree to comply with and be bound by these terms.</p>
-                <p class="mt-2"><strong>2. Permitted Use:</strong> You may use all utilities for personal, educational, or commercial content creation workflows without fee.</p>
-                <p class="mt-2"><strong>3. Disclaimer of Warranties:</strong> The utilities are provided "as is" without warranty of any kind. You are solely responsible for reviewing transformed text prior to publication.</p>
-                <p class="mt-2"><strong>4. Intellectual Property:</strong> You retain 100% ownership and copyright of any content you input or generate with CreatorKit Studio.</p>
-            `
+            html: `<p>You retain 100% ownership and copyright of any content you input or generate with CreatorKit Studio.</p>`
         },
         contact: {
             title: '<i class="fa-solid fa-envelope text-indigo-500"></i> Contact Us',
-            html: `
-                <p>Have feature suggestions, bug reports, or partnership inquiries?</p>
-                <p class="mt-2">Reach our development team directly at: <a href="mailto:support@creatorkitstudio.local" class="text-indigo-500 font-semibold underline">support@creatorkitstudio.local</a></p>
-                <p class="mt-2 text-slate-400">We typically reply within 24–48 business hours.</p>
-            `
+            html: `<p>Reach our team at: <a href="mailto:support@creatorkitstudio.pro" class="text-indigo-500 font-semibold underline">support@creatorkitstudio.pro</a></p>`
         }
     };
 
@@ -853,18 +1248,21 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
         elements.legalModal.classList.remove('flex');
     }
 
-    // ==========================================
-    // SEARCH & FILTER UTILITIES
-    // ==========================================
-    function filterTools(query) {
-        const q = query.toLowerCase().trim();
+    function filterTools(query = '') {
+        const q = (query || '').toLowerCase().trim();
+        const mode = state.activeWorkspace;
         const toolButtons = document.querySelectorAll('.tool-btn');
         let visibleCount = 0;
 
         toolButtons.forEach(btn => {
             const text = btn.innerText.toLowerCase();
             const keywords = (btn.dataset.keywords || '').toLowerCase();
-            if (!q || text.includes(q) || keywords.includes(q)) {
+            const modes = (btn.dataset.modes || 'all').split(',');
+
+            const matchesSearch = !q || text.includes(q) || keywords.includes(q);
+            const matchesMode = mode === 'all' || modes.includes(mode);
+
+            if (matchesSearch && matchesMode) {
                 btn.style.display = 'flex';
                 visibleCount++;
             } else {
@@ -877,24 +1275,36 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
             cat.style.display = hasVisibleChild ? 'block' : 'none';
         });
 
-        elements.toolCountBadge.textContent = `${visibleCount} Tools`;
+        const modeLabel = mode === 'all' ? 'All' : (mode === 'blogger' ? 'Blogger' : 'Creator');
+        elements.toolCountBadge.textContent = `${visibleCount} in ${modeLabel}`;
     }
 
-    // Handle URL Hash Routes
     function handleHashRoute() {
         const hash = window.location.hash.replace('#', '').trim();
+        
+        if (hash === 'all' || hash === 'blogger' || hash === 'creator') {
+            setWorkspaceMode(hash, true);
+            return;
+        }
+
         if (hash) {
-            const validTool = document.querySelector(`.tool-btn[data-action="${hash}"]`);
-            if (validTool) {
+            const validToolBtn = document.querySelector(`.tool-btn[data-action="${hash}"]`);
+            if (validToolBtn) {
+                const modes = (validToolBtn.dataset.modes || 'all').split(',');
+                if (state.activeWorkspace !== 'all' && !modes.includes(state.activeWorkspace)) {
+                    setWorkspaceMode('all', false);
+                }
                 setActiveTool(hash, false);
                 return;
             }
         }
+        
+        // Default initial tool
         setActiveTool('fix-line-breaks', false);
     }
 
     // ==========================================
-    // EVENT LISTENERS INITIALIZATION
+    // INITIALIZATION & LISTENERS
     // ==========================================
     function initEventListeners() {
         elements.mainInput.addEventListener('input', () => {
@@ -903,20 +1313,30 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
             saveDraftToStorage();
         });
 
-        // Tool buttons clicks (Left Sidebar)
         document.querySelectorAll('.tool-btn').forEach(btn => {
             btn.addEventListener('click', () => {
-                const action = btn.dataset.action;
-                setActiveTool(action);
+                setActiveTool(btn.dataset.action);
                 showToast(`Tool loaded: ${btn.innerText.trim()}`);
             });
         });
 
-        // Quick action bar buttons (Center panel)
         document.querySelectorAll('.action-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const action = btn.dataset.action;
-                setActiveTool(action);
+            btn.addEventListener('click', () => setActiveTool(btn.dataset.action));
+        });
+
+        // 3-Way Workspace Tabs Click Handlers
+        const tabButtons = document.querySelectorAll('[data-tab], .tab-btn');
+        tabButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const text = (btn.getAttribute('data-tab') || btn.innerText).toLowerCase();
+                let mode = 'all';
+                if (text.includes('blogger')) mode = 'blogger';
+                else if (text.includes('creator')) mode = 'creator';
+                
+                filterWorkspace(mode, true);
+                const title = mode === 'all' ? 'All Tools' : (mode === 'blogger' ? 'Blogger Mode' : 'Creator Mode');
+                showToast(`Switched to ${title}`);
             });
         });
 
@@ -927,7 +1347,6 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
                 showToast('Nothing to copy yet!', 'info');
                 return;
             }
-
             try {
                 if (navigator.clipboard && window.isSecureContext) {
                     await navigator.clipboard.writeText(textToCopy);
@@ -935,23 +1354,18 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
                     elements.mainOutput.select();
                     document.execCommand('copy');
                 }
-                
                 elements.copyFeedbackBadge.classList.remove('hidden');
                 setTimeout(() => elements.copyFeedbackBadge.classList.add('hidden'), 1500);
-
-                showToast('Copied transformed text to clipboard!');
+                showToast('Copied result to clipboard!');
             } catch (err) {
-                showToast('Failed to copy. Please select and copy manually.', 'info');
+                showToast('Failed to copy. Please copy manually.', 'info');
             }
         });
 
         // Send Output back to Input
         elements.sendToInputBtn.addEventListener('click', () => {
             const outputText = elements.mainOutput.value;
-            if (!outputText) {
-                showToast('No output to send!', 'info');
-                return;
-            }
+            if (!outputText) return showToast('No output to send!', 'info');
             elements.mainInput.value = outputText;
             updateAnalytics(outputText);
             saveDraftToStorage();
@@ -959,13 +1373,10 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
             showToast('Output transferred to input!');
         });
 
-        // Download output file (.txt)
+        // Download Output as text
         elements.downloadOutputBtn.addEventListener('click', () => {
             const content = elements.mainOutput.value;
-            if (!content) {
-                showToast('No content to download!', 'info');
-                return;
-            }
+            if (!content) return showToast('No content to download!', 'info');
             const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
@@ -978,7 +1389,7 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
             showToast('File downloaded successfully!');
         });
 
-        // Paste from clipboard
+        // Paste & Clear
         elements.pasteBtn.addEventListener('click', async () => {
             try {
                 if (navigator.clipboard) {
@@ -988,15 +1399,12 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
                     processActiveTool();
                     saveDraftToStorage();
                     showToast('Pasted from clipboard!');
-                } else {
-                    showToast('Please paste using Ctrl+V / Cmd+V', 'info');
                 }
             } catch (err) {
-                showToast('Clipboard access denied. Please use Ctrl+V', 'info');
+                showToast('Please paste using Ctrl+V', 'info');
             }
         });
 
-        // Clear input button
         elements.clearInputBtn.addEventListener('click', () => {
             elements.mainInput.value = '';
             elements.mainOutput.value = '';
@@ -1005,31 +1413,26 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
             showToast('Input cleared');
         });
 
-        // Clear all / Reset button
         elements.clearAllBtn.addEventListener('click', () => {
             if (confirm('Reset workspace and clear current draft?')) {
                 elements.mainInput.value = '';
                 elements.mainOutput.value = '';
                 localStorage.removeItem('creatorkit_draft_text');
                 updateAnalytics('');
-                showToast('Workspace reset to blank');
+                showToast('Workspace reset');
             }
         });
 
-        // Theme Toggle
+        // Theme Toggle & Search
         elements.themeToggleBtn.addEventListener('click', toggleTheme);
-
-        // Search inputs
         elements.sidebarToolSearch.addEventListener('input', (e) => filterTools(e.target.value));
         elements.headerToolSearch.addEventListener('input', (e) => {
             elements.sidebarToolSearch.value = e.target.value;
             filterTools(e.target.value);
         });
 
-        // Hash change router
         window.addEventListener('hashchange', handleHashRoute);
 
-        // Keyboard Shortcut Ctrl+K & Esc
         window.addEventListener('keydown', (e) => {
             if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
                 e.preventDefault();
@@ -1051,7 +1454,7 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
             setActiveTool('clean-srt');
             updateAnalytics(SAMPLE_DATA.srt);
             saveDraftToStorage();
-            showToast('Loaded SRT Subtitle sample');
+            showToast('Loaded SRT Subtitles');
         });
 
         elements.sampleAiBtn.addEventListener('click', () => {
@@ -1059,7 +1462,7 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
             setActiveTool('clean-ai-artifacts');
             updateAnalytics(SAMPLE_DATA.ai);
             saveDraftToStorage();
-            showToast('Loaded AI Draft sample');
+            showToast('Loaded AI Draft');
         });
 
         elements.sampleSocialBtn.addEventListener('click', () => {
@@ -1067,7 +1470,7 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
             setActiveTool('fix-line-breaks');
             updateAnalytics(SAMPLE_DATA.social);
             saveDraftToStorage();
-            showToast('Loaded Social Post sample');
+            showToast('Loaded Social Post');
         });
 
         elements.sampleScriptBtn.addEventListener('click', () => {
@@ -1075,7 +1478,7 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
             setActiveTool('speech-timer');
             updateAnalytics(SAMPLE_DATA.script);
             saveDraftToStorage();
-            showToast('Loaded Video Script sample');
+            showToast('Loaded Video Script');
         });
 
         // Teleprompter Controls
@@ -1119,14 +1522,19 @@ At a standard conversational pace of 130 words per minute, this 65-word script t
         elements.legalModal.addEventListener('click', (e) => {
             if (e.target === elements.legalModal) closeLegalModal();
         });
+
+        // Initialize Image Resizer
+        initImageResizer();
     }
 
-    // ==========================================
-    // APP INITIALIZATION
-    // ==========================================
     function init() {
         initTheme();
         initEventListeners();
+
+        // Restore saved workspace mode
+        const savedMode = localStorage.getItem('activeWorkspace') || localStorage.getItem('creatorkit_active_workspace') || 'all';
+        setWorkspaceMode(savedMode, false);
+
         loadDraftFromStorage();
         handleHashRoute();
     }
