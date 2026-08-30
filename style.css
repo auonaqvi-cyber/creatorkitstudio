@@ -1,0 +1,191 @@
+/* ==========================================================================
+   CreatorKit Studio - Modern Custom Styles
+   ========================================================================== */
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(148, 163, 184, 0.4);
+    border-radius: 9999px;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(51, 65, 85, 0.7);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(99, 102, 241, 0.7);
+}
+
+/* Smooth Focus Glow */
+textarea:focus, input:focus {
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+/* AdSense Slot Placeholder Styling & CLS Prevention */
+.adsense-slot, .adsense-placeholder {
+    position: relative;
+    background-image: repeating-linear-gradient(
+        45deg,
+        rgba(148, 163, 184, 0.03),
+        rgba(148, 163, 184, 0.03) 10px,
+        rgba(148, 163, 184, 0.07) 10px,
+        rgba(148, 163, 184, 0.07) 20px
+    );
+    transition: border-color 0.2s ease;
+    contain: layout paint;
+}
+
+.adsense-header-banner {
+    min-height: 90px;
+}
+
+.adsense-bottom-banner {
+    min-height: 90px;
+}
+
+.adsense-sidebar-sticky {
+    min-height: 280px;
+}
+
+.dark .adsense-slot, .dark .adsense-placeholder {
+    background-image: repeating-linear-gradient(
+        45deg,
+        rgba(51, 65, 85, 0.1),
+        rgba(51, 65, 85, 0.1) 10px,
+        rgba(51, 65, 85, 0.2) 10px,
+        rgba(51, 65, 85, 0.2) 20px
+    );
+}
+
+.adsense-slot:hover, .adsense-placeholder:hover {
+    border-color: rgba(99, 102, 241, 0.4);
+}
+
+/* Active Tool Button Highlight */
+.tool-btn.active {
+    background-color: rgb(238 242 255);
+    color: rgb(79 70 229);
+    font-weight: 600;
+}
+
+.dark .tool-btn.active {
+    background-color: rgba(67, 56, 202, 0.3);
+    color: rgb(165 180 252);
+    font-weight: 600;
+}
+
+.tool-btn.active i {
+    color: rgb(99 102 241) !important;
+}
+
+/* Teleprompter Guide Line */
+.teleprompter-guide-line {
+    position: absolute;
+    top: 38%;
+    left: 0;
+    right: 0;
+    height: 90px;
+    background: linear-gradient(
+        to bottom,
+        rgba(99, 102, 241, 0.05),
+        rgba(99, 102, 241, 0.18) 50%,
+        rgba(99, 102, 241, 0.05)
+    );
+    border-top: 1px dashed rgba(99, 102, 241, 0.3);
+    border-bottom: 1px dashed rgba(99, 102, 241, 0.3);
+    z-index: 5;
+}
+
+/* Prompter Mirror Rig Mode (Horizontal Flip) */
+.prompter-mirrored {
+    transform: scaleX(-1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes toastSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes toastSlideOut {
+    from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(12px) scale(0.95);
+    }
+}
+
+.toast-in {
+    animation: toastSlideIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.toast-out {
+    animation: toastSlideOut 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Details Accordion Animation */
+details > summary {
+    list-style: none;
+}
+details[open] summary ~ * {
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+/* SEO Guide Content Styling */
+.seo-guide code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82em;
+    padding: 0.15em 0.35em;
+    border-radius: 0.3em;
+    background-color: rgba(99, 102, 241, 0.08);
+    color: rgb(99, 102, 241);
+}
+
+.dark .seo-guide code {
+    background-color: rgba(99, 102, 241, 0.18);
+    color: rgb(165, 180, 252);
+}
+
+.seo-guide kbd {
+    font-family: 'JetBrains Mono', monospace;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.seo-guide table {
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}

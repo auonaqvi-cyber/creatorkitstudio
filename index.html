@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">CreatorKit Studio | All-in-One Content Creator & Social Media Utility Suite</title>
+    <meta id="pageMetaDescription" name="description" content="Free, 100% client-side content creator utility suite. Fix Instagram line breaks, clean AI clichés & markdown, clean SRT subtitles, extract hashtags, generate Unicode fancy fonts, calculate speaking time, and run a fullscreen teleprompter with zero data storage.">
+    <meta name="keywords" content="content creator tools, instagram line break fixer, ai text cleaner, srt subtitle cleaner, hashtag extractor, unicode fancy text generator, script speaking timer, teleprompter online, seo slug generator">
+    <meta name="author" content="CreatorKit Studio">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Meta -->
+    <meta property="og:type" content="website">
+    <meta id="ogTitle" property="og:title" content="CreatorKit Studio - All-in-One Content Creator Utility Suite">
+    <meta id="ogDescription" property="og:description" content="Fast, 100% browser-based text utilities for creators, writers, and digital marketers. Zero server lag, 100% private.">
+
+    <!-- Schema.org JSON-LD for Dynamic FAQPage Rich Snippets -->
+    <script id="faqSchema" type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": []
+    }
+    </script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            400: '#818cf8',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#312e81'
+                        },
+                        dark: {
+                            bg: '#0f172a',
+                            surface: '#1e293b',
+                            border: '#334155',
+                            card: '#1e293b',
+                            text: '#f8fafc',
+                            muted: '#94a3b8'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- FontAwesome CDN for Crisp Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Google Fonts Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- SEO Content Guides Data Module -->
+    <script src="seo-content.js"></script>
+</head>
+<body class="bg-slate-50 dark:bg-dark-bg text-slate-900 dark:text-dark-text antialiased transition-colors duration-200 min-h-screen flex flex-col font-['Inter',sans-serif]">
+
+    <!-- ==============================================
+         STICKY HEADER NAVIGATION
+         ============================================== -->
+    <header class="sticky top-0 z-40 bg-white/90 dark:bg-dark-surface/90 backdrop-blur border-b border-slate-200 dark:border-dark-border px-4 sm:px-6 lg:px-8 py-3 transition-colors">
+        <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+            <!-- Brand Logo -->
+            <div class="flex items-center gap-3">
+                <a href="#fix-line-breaks" class="flex items-center gap-2 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center text-white shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-wand-magic-sparkles text-lg"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-bold tracking-tight bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent">CreatorKit</span>
+                        <span class="text-xs font-semibold uppercase tracking-wider px-1.5 py-0.5 rounded bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300 ml-1">Studio</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Header Center: Quick Tools Search (Desktop) -->
+            <div class="hidden md:flex items-center flex-1 max-w-md mx-4 relative">
+                <i class="fa-solid fa-magnifying-glass absolute left-3.5 text-slate-400 text-sm"></i>
+                <input type="text" id="headerToolSearch" placeholder="Quick search tools (e.g. 'srt', 'hashtags', 'line break', 'slug')..." class="w-full pl-10 pr-4 py-1.5 text-sm bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-dark-border rounded-lg text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition">
+                <kbd class="hidden lg:inline-block absolute right-3 px-1.5 py-0.5 text-[10px] font-mono text-slate-400 bg-slate-200 dark:bg-slate-700 rounded">Ctrl+K</kbd>
+            </div>
+
+            <!-- Header Actions -->
+            <div class="flex items-center gap-2">
+                <button id="clearAllBtn" title="Clear all text from workspace" class="px-3 py-1.5 text-xs font-medium rounded-lg text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/30 border border-rose-200 dark:border-rose-900/50 transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-trash-can"></i>
+                    <span class="hidden sm:inline">Reset</span>
+                </button>
+
+                <button id="teleprompterLaunchBtn" title="Launch Fullscreen Teleprompter" class="px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm shadow-indigo-500/30 transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-tv"></i>
+                    <span>Teleprompter</span>
+                </button>
+
+                <!-- Theme Toggle -->
+                <button id="themeToggleBtn" aria-label="Toggle Theme" class="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition">
+                    <i id="themeIcon" class="fa-solid fa-moon text-base"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==============================================
+         2-COLUMN DESKTOP DASHBOARD GRID CONTAINER
+         With responsive side/bottom padding for mobile and AdSense anchors
+         ============================================== -->
+    <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-6 pb-20 md:pb-12 grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 flex-1">
+        
+        <!-- ==========================================
+             LEFT SIDEBAR / MOBILE ACCORDION DRAWER
+             Mobile: Collapsible Native <details> Accordion
+             Desktop: Expanded Sticky Sidebar (md:open)
+             ========================================== -->
+        <aside class="md:col-span-4 lg:col-span-3 space-y-6">
+            
+            <!-- Mobile Collapsible Container (Visible as Accordion on Mobile, Expanded on Desktop) -->
+            <details id="mobileToolDrawer" class="group bg-white dark:bg-dark-surface rounded-xl border border-slate-200 dark:border-dark-border p-4 shadow-sm md:open sticky top-20 transition-all">
+                
+                <!-- Accordion Trigger Header (Mobile Only interaction, styled on Desktop as standard header) -->
+                <summary class="flex items-center justify-between cursor-pointer list-none md:cursor-default font-semibold text-slate-800 dark:text-slate-200 select-none [&::-webkit-details-marker]:hidden">
+                    <span class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                        <span class="text-sm font-bold">Select Tool</span>
+                        <span id="toolCountBadge" class="text-xs text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/60 px-2 py-0.5 rounded-full border border-indigo-200 dark:border-indigo-800/50 font-mono font-medium">12 Available</span>
+                    </span>
+                    <!-- Toggle Chevron Icon (Rotates when open on mobile, hidden on desktop) -->
+                    <svg class="w-5 h-5 text-slate-400 transition-transform duration-200 group-open:rotate-180 md:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </summary>
+
+                <!-- Tool Selector List & Search Bar (Collapsed by default on mobile, always visible on desktop) -->
+                <div class="mt-4 space-y-4 pt-4 border-t border-slate-200 dark:border-dark-border md:border-t-0 md:pt-0">
+                    
+                    <!-- Search Input -->
+                    <div class="relative">
+                        <i class="fa-solid fa-filter absolute left-3 top-2.5 text-slate-400 text-xs"></i>
+                        <input type="text" id="sidebarToolSearch" placeholder="Filter tools..." class="w-full pl-8 pr-3 py-1.5 text-xs bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-dark-border rounded-md text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-indigo-500">
+                    </div>
+
+                    <!-- Tool Links List -->
+                    <div id="toolsListContainer" class="space-y-4 max-h-[55vh] md:max-h-[calc(100vh-340px)] overflow-y-auto pr-1 custom-scrollbar">
+
+                        <!-- Category: Social Media & Formatting -->
+                        <div class="tool-category" data-category="social">
+                            <h4 class="text-[11px] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5 px-1 flex items-center gap-1">
+                                <i class="fa-brands fa-instagram text-pink-500 text-xs"></i> Social & Formatting
+                            </h4>
+                            <div class="space-y-1">
+                                <button class="tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="fix-line-breaks" data-keywords="instagram linkedin caption line break whitespace clump spacer paragraph">
+                                    <span class="flex items-center gap-2">
+                                        <i class="fa-solid fa-paragraph text-slate-400 group-hover:text-indigo-500 w-4 text-center"></i>
+                                        Line Break Fixer
+                                    </span>
+                                    <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                                </button>
+
+                                <button class="tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="fancy-text" data-keywords="fancy text unicode bold italics bubble cursive gothic fonts font style">
+                                    <span class="flex items-center gap-2">
+                                        <i class="fa-solid fa-font text-slate-400 group-hover:text-indigo-500 w-4 text-center"></i>
+                                        Fancy Text Generator
+                                    </span>
+                                    <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                                </button>
+
+                                <button class="tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="clean-hashtags" data-keywords="hashtags hash tags instagram tiktok extract cleaner deduplicate tags">
+                                    <span class="flex items-center gap-2">
+                                        <i class="fa-solid fa-hashtag text-slate-400 group-hover:text-indigo-500 w-4 text-center"></i>
+                                        Hashtag Extractor
+                                    </span>
+                                    <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                                </button>
+
+                                <button class="tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="case-converter" data-keywords="title case uppercase lowercase sentence case capitalize capitalizer">
+                                    <span class="flex items-center gap-2">
+                                        <i class="fa-solid fa-text-height text-slate-400 group-hover:text-indigo-500 w-4 text-center"></i>
+                                        Case Converter
+                                    </span>
+                                    <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Category: Video & Script Utilities -->
+                        <div class="tool-category" data-category="video">
+                            <h4 class="text-[11px] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5 px-1 flex items-center gap-1">
+                                <i class="fa-solid fa-video text-amber-500 text-xs"></i> Video & Script
+                            </h4>
+                            <div class="space-y-1">
+                                <button class="tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="clean-srt" data-keywords="srt caption subtitles subtitle timestamps remove timecode vtt transcript cleaner">
+                                    <span class="flex items-center gap-2">
+                                        <i class="fa-solid fa-closed-captioning text-slate-400 group-hover:text-indigo-500 w-4 text-center"></i>
+                                        SRT Caption Cleaner
+                                    </span>
+                                    <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                                </button>
+
+                                <button class="tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="speech-timer" data-keywords="script speech timer duration voiceover 130 wpm words per minute video length">
+                                    <span class="flex items-center gap-2">
+                                        <i class="fa-solid fa-stopwatch text-slate-400 group-hover:text-indigo-500 w-4 text-center"></i>
+                                        Script-to-Speech Timer
+                                    </span>
+                                    <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                                </button>
+
+                                <button class="tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="open-teleprompter" data-keywords="teleprompter prompter script reading scroll fullscreen speech presenter">
+                                    <span class="flex items-center gap-2">
+                                        <i class="fa-solid fa-chalkboard-user text-slate-400 group-hover:text-indigo-500 w-4 text-center"></i>
+                                        Live Teleprompter
+                                    </span>
+                                    <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Category: AI & Text Cleaners -->
+                        <div class="tool-category" data-category="ai">
+                            <h4 class="text-[11px] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5 px-1 flex items-center gap-1">
+                                <i class="fa-solid fa-robot text-cyan-500 text-xs"></i> AI & Text Cleaners
+                            </h4>
+                            <div class="space-y-1">
+                                <button class="tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="clean-ai-artifacts" data-keywords="ai formatting markdown asterisks em dash cliches humanize chatgpt claude cleaner">
+                                    <span class="flex items-center gap-2">
+                                        <i class="fa-solid fa-broom text-slate-400 group-hover:text-indigo-500 w-4 text-center"></i>
+                                        AI Artifact Cleaner
+                                    </span>
+                                    <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                                </button>
+
+                                <button class="tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="seo-slug" data-keywords="seo slug generator url permalink link clean url hyphens">
+                                    <span class="flex items-center gap-2">
+                                        <i class="fa-solid fa-link text-slate-400 group-hover:text-indigo-500 w-4 text-center"></i>
+                                        SEO Slug Generator
+                                    </span>
+                                    <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                                </button>
+
+                                <button class="tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="clean-whitespace" data-keywords="whitespace spaces tabs trim trailing spaces remove extra spaces">
+                                    <span class="flex items-center gap-2">
+                                        <i class="fa-solid fa-arrows-left-right-to-line text-slate-400 group-hover:text-indigo-500 w-4 text-center"></i>
+                                        Whitespace Trimmer
+                                    </span>
+                                    <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                                </button>
+
+                                <button class="tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="remove-duplicates" data-keywords="duplicate lines list deduplicate sort remove duplicate lines">
+                                    <span class="flex items-center gap-2">
+                                        <i class="fa-solid fa-list-check text-slate-400 group-hover:text-indigo-500 w-4 text-center"></i>
+                                        Duplicate Line Filter
+                                    </span>
+                                    <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Preset Samples Button -->
+                    <div class="pt-3 border-t border-slate-200 dark:border-dark-border">
+                        <label class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block mb-1.5">Load Demo Sample:</label>
+                        <div class="grid grid-cols-2 gap-1.5">
+                            <button id="sampleSrtBtn" class="px-2 py-1 text-[11px] rounded bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition text-center">
+                                <i class="fa-solid fa-closed-captioning text-amber-500 mr-1"></i> SRT Subtitles
+                            </button>
+                            <button id="sampleAiBtn" class="px-2 py-1 text-[11px] rounded bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition text-center">
+                                <i class="fa-solid fa-robot text-cyan-500 mr-1"></i> AI Draft
+                            </button>
+                            <button id="sampleSocialBtn" class="px-2 py-1 text-[11px] rounded bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition text-center">
+                                <i class="fa-brands fa-instagram text-pink-500 mr-1"></i> Social Post
+                            </button>
+                            <button id="sampleScriptBtn" class="px-2 py-1 text-[11px] rounded bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition text-center">
+                                <i class="fa-solid fa-microphone text-emerald-500 mr-1"></i> Video Script
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </details>
+
+            <!-- STICKY ADSENSE SIDEBAR AD CONTAINER (CLS Prevention: min-height: 280px) -->
+            <div class="hidden md:flex adsense-slot adsense-placeholder adsense-sidebar-sticky w-full rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-700 flex-col items-center justify-center text-slate-400 dark:text-slate-500 text-xs gap-1.5 p-4 bg-white/40 dark:bg-slate-800/30 overflow-hidden text-center shadow-sm" style="min-height: 280px;">
+                <span class="font-mono uppercase tracking-widest text-[10px] bg-slate-200 dark:bg-slate-700 px-2 py-0.5 rounded text-slate-600 dark:text-slate-300">Advertisement</span>
+                <span class="flex items-center gap-1 font-mono text-[11px]"><i class="fa-brands fa-google text-indigo-500"></i> Google AdSense Sticky Slot (300x250)</span>
+                <p class="text-[10px] text-slate-400 max-w-[220px]">Contextual ad placement for creators and publishers.</p>
+            </div>
+        </aside>
+
+        <!-- ==========================================
+             RIGHT PANEL: WORKSPACE, ADS, & SEO ARTICLE (8 or 9 Columns)
+             ========================================== -->
+        <main class="md:col-span-8 lg:col-span-9 space-y-6">
+            
+            <!-- 1. Top Banner Ad Placeholder -->
+            <div class="w-full">
+                <div class="adsense-slot adsense-placeholder adsense-header-banner adsense-top-banner w-full rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-700 flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 text-xs gap-1 p-3 bg-white/40 dark:bg-slate-800/30 overflow-hidden text-center shadow-sm" style="min-height: 90px; height: 90px;">
+                    <span class="font-mono uppercase tracking-widest text-[10px] bg-slate-200 dark:bg-slate-700 px-2 py-0.5 rounded text-slate-600 dark:text-slate-300">Advertisement</span>
+                    <span class="flex items-center gap-1 font-mono text-[11px]"><i class="fa-brands fa-google text-indigo-500"></i> Google AdSense Leaderboard (728x90 / Responsive)</span>
+                </div>
+            </div>
+
+            <!-- 2. Live Text Analytics Bar -->
+            <div class="bg-white dark:bg-dark-surface rounded-xl p-4 border border-slate-200 dark:border-dark-border shadow-sm">
+                <div class="flex flex-wrap items-center justify-between pb-2.5 border-b border-slate-200 dark:border-dark-border mb-3 gap-2">
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-200 flex items-center gap-1.5">
+                            <i class="fa-solid fa-chart-simple text-indigo-500"></i> Live Workspace Analytics
+                        </span>
+                        <span class="text-[10px] text-emerald-500 bg-emerald-50 dark:bg-emerald-950/50 px-2 py-0.5 rounded-full flex items-center gap-1 font-semibold">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Active
+                        </span>
+                    </div>
+                    
+                    <!-- Voiceover & Reading Time Badges -->
+                    <div class="flex items-center gap-3 text-xs">
+                        <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-indigo-50/70 dark:bg-indigo-950/40 border border-indigo-100 dark:border-indigo-900/30 text-indigo-900 dark:text-indigo-200">
+                            <i class="fa-solid fa-book-open-reader text-indigo-500 text-[11px]"></i>
+                            <span class="font-medium text-[11px]">Reading (200 WPM):</span>
+                            <span id="statReadingTime" class="font-bold font-mono text-indigo-600 dark:text-indigo-400">0s</span>
+                        </div>
+                        <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-amber-50/70 dark:bg-amber-950/40 border border-amber-100 dark:border-amber-900/30 text-amber-900 dark:text-amber-200">
+                            <i class="fa-solid fa-microphone-lines text-amber-500 text-[11px]"></i>
+                            <span class="font-medium text-[11px]">Speech (130 WPM):</span>
+                            <span id="statSpeakingTime" class="font-bold font-mono text-amber-600 dark:text-amber-400">0s</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Metrics Grid (6-column responsive strip) -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2.5">
+                    <div class="p-2.5 bg-slate-50 dark:bg-slate-900 rounded-lg border border-slate-100 dark:border-dark-border/50 text-center sm:text-left">
+                        <span class="text-[10px] uppercase font-semibold text-slate-400 block mb-0.5">Words</span>
+                        <span id="statWords" class="text-lg md:text-xl font-bold font-mono text-slate-800 dark:text-slate-100">0</span>
+                    </div>
+
+                    <div class="p-2.5 bg-slate-50 dark:bg-slate-900 rounded-lg border border-slate-100 dark:border-dark-border/50 text-center sm:text-left">
+                        <span class="text-[10px] uppercase font-semibold text-slate-400 block mb-0.5">Characters</span>
+                        <span id="statChars" class="text-lg md:text-xl font-bold font-mono text-slate-800 dark:text-slate-100">0</span>
+                    </div>
+
+                    <div class="p-2.5 bg-slate-50 dark:bg-slate-900 rounded-lg border border-slate-100 dark:border-dark-border/50 text-center sm:text-left">
+                        <span class="text-[10px] uppercase font-semibold text-slate-400 block mb-0.5">No Spaces</span>
+                        <span id="statCharsNoSpace" class="text-base md:text-lg font-bold font-mono text-slate-700 dark:text-slate-300">0</span>
+                    </div>
+
+                    <div class="p-2.5 bg-slate-50 dark:bg-slate-900 rounded-lg border border-slate-100 dark:border-dark-border/50 text-center sm:text-left">
+                        <span class="text-[10px] uppercase font-semibold text-slate-400 block mb-0.5">Sentences</span>
+                        <span id="statSentences" class="text-base md:text-lg font-bold font-mono text-slate-700 dark:text-slate-300">0</span>
+                    </div>
+
+                    <div class="p-2.5 bg-slate-50 dark:bg-slate-900 rounded-lg border border-slate-100 dark:border-dark-border/50 text-center sm:text-left">
+                        <span class="text-[10px] uppercase font-semibold text-slate-400 block mb-0.5">Paragraphs</span>
+                        <span id="statParagraphs" class="text-base md:text-lg font-bold font-mono text-slate-700 dark:text-slate-300">0</span>
+                    </div>
+
+                    <div class="p-2.5 bg-slate-50 dark:bg-slate-900 rounded-lg border border-slate-100 dark:border-dark-border/50 text-center sm:text-left">
+                        <span class="text-[10px] uppercase font-semibold text-slate-400 block mb-0.5">Lines</span>
+                        <span id="statLines" class="text-base md:text-lg font-bold font-mono text-slate-700 dark:text-slate-300">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Active Tool Card (Input, Action Buttons, Output) -->
+            <div class="bg-white dark:bg-dark-surface rounded-xl p-5 border border-slate-200 dark:border-dark-border shadow-sm space-y-4">
+                
+                <!-- Top Workspace Bar -->
+                <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-200 dark:border-dark-border">
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-200 flex items-center gap-1.5">
+                            <i class="fa-solid fa-pen-nib text-indigo-500"></i> Input Text
+                        </span>
+                        <span id="autoSaveBadge" class="text-[10px] text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50 px-2 py-0.5 rounded-full flex items-center gap-1 font-mono transition-opacity duration-300">
+                            <i class="fa-solid fa-check text-[9px]"></i> Auto-saved
+                        </span>
+                    </div>
+
+                    <div class="flex items-center gap-1.5">
+                        <button id="pasteBtn" class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition flex items-center gap-1">
+                            <i class="fa-regular fa-paste text-[11px]"></i> Paste
+                        </button>
+                        <button id="clearInputBtn" class="px-2.5 py-1 text-xs font-medium rounded-md text-slate-500 hover:text-rose-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center gap-1">
+                            <i class="fa-solid fa-eraser text-[11px]"></i> Clear
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Input Textarea -->
+                <div class="relative">
+                    <textarea id="mainInput" rows="7" placeholder="Type or paste your text, script, Instagram caption, AI output, or SRT subtitle data here..." class="w-full p-3.5 text-sm bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-dark-border rounded-lg text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent font-sans resize-y custom-scrollbar transition"></textarea>
+                </div>
+
+                <!-- Interactive Quick Action Bar -->
+                <div>
+                    <label class="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider block mb-2">
+                        <i class="fa-solid fa-bolt-lightning text-amber-500 mr-1"></i> Quick Action Bar
+                    </label>
+                    <div class="flex flex-wrap gap-2">
+                        <button class="action-btn px-3 py-1.5 text-xs font-semibold rounded-lg bg-indigo-50 dark:bg-indigo-950/60 hover:bg-indigo-600 hover:text-white text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800/60 transition flex items-center gap-1.5 shadow-sm active:scale-95" data-action="fix-line-breaks">
+                            <i class="fa-solid fa-paragraph"></i> Fix Paragraphs
+                        </button>
+
+                        <button class="action-btn px-3 py-1.5 text-xs font-semibold rounded-lg bg-indigo-50 dark:bg-indigo-950/60 hover:bg-indigo-600 hover:text-white text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800/60 transition flex items-center gap-1.5 shadow-sm active:scale-95" data-action="clean-ai-artifacts">
+                            <i class="fa-solid fa-broom"></i> Clean AI Artifacts
+                        </button>
+
+                        <button class="action-btn px-3 py-1.5 text-xs font-semibold rounded-lg bg-indigo-50 dark:bg-indigo-950/60 hover:bg-indigo-600 hover:text-white text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800/60 transition flex items-center gap-1.5 shadow-sm active:scale-95" data-action="clean-srt">
+                            <i class="fa-solid fa-closed-captioning"></i> Clean SRT
+                        </button>
+
+                        <button class="action-btn px-3 py-1.5 text-xs font-semibold rounded-lg bg-indigo-50 dark:bg-indigo-950/60 hover:bg-indigo-600 hover:text-white text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800/60 transition flex items-center gap-1.5 shadow-sm active:scale-95" data-action="clean-hashtags">
+                            <i class="fa-solid fa-hashtag"></i> Extract Tags
+                        </button>
+
+                        <button class="action-btn px-3 py-1.5 text-xs font-semibold rounded-lg bg-indigo-50 dark:bg-indigo-950/60 hover:bg-indigo-600 hover:text-white text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800/60 transition flex items-center gap-1.5 shadow-sm active:scale-95" data-action="fancy-text">
+                            <i class="fa-solid fa-font"></i> Fancy Fonts
+                        </button>
+
+                        <button class="action-btn px-3 py-1.5 text-xs font-semibold rounded-lg bg-indigo-50 dark:bg-indigo-950/60 hover:bg-indigo-600 hover:text-white text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800/60 transition flex items-center gap-1.5 shadow-sm active:scale-95" data-action="seo-slug">
+                            <i class="fa-solid fa-link"></i> SEO Slug
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Dynamic Tool Options Toolbar -->
+                <div id="dynamicToolOptions" class="hidden p-3 bg-slate-50 dark:bg-slate-900/90 rounded-lg border border-slate-200 dark:border-dark-border text-xs">
+                    <!-- Injected dynamically via JS -->
+                </div>
+
+                <!-- Output Area Container -->
+                <div class="space-y-2 pt-2">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-200 flex items-center gap-1.5">
+                                <i class="fa-solid fa-square-poll-vertical text-emerald-500"></i> Transformed Result
+                            </span>
+                            <span id="outputChangeBadge" class="text-[10px] text-indigo-600 dark:text-indigo-400 font-mono hidden">Ready</span>
+                        </div>
+
+                        <div class="flex items-center gap-1.5">
+                            <button id="sendToInputBtn" title="Send output back to input box for multi-step processing" class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition flex items-center gap-1">
+                                <i class="fa-solid fa-arrow-up text-[11px]"></i> Use as Input
+                            </button>
+                            <button id="downloadOutputBtn" class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition flex items-center gap-1">
+                                <i class="fa-solid fa-download text-[11px]"></i> Save
+                            </button>
+                            <button id="copyOutputBtn" class="px-3.5 py-1 text-xs font-semibold rounded-md bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm transition flex items-center gap-1.5 active:scale-95">
+                                <i class="fa-regular fa-copy"></i>
+                                <span>Copy Result</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Output Textarea -->
+                    <div class="relative">
+                        <textarea id="mainOutput" rows="7" readonly placeholder="Your cleaned or transformed text will appear here automatically..." class="w-full p-3.5 text-sm bg-slate-100/70 dark:bg-slate-900/60 border border-slate-200 dark:border-dark-border rounded-lg text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-emerald-500 font-sans resize-y custom-scrollbar transition"></textarea>
+                        <div id="copyFeedbackBadge" class="absolute top-3 right-3 hidden bg-emerald-500 text-white text-xs px-2.5 py-1 rounded shadow-md flex items-center gap-1 font-medium pointer-events-none">
+                            <i class="fa-solid fa-check"></i> Copied!
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 4. Inline Ad Banner Placeholder (min-height: 90px) -->
+            <div class="w-full">
+                <div class="adsense-slot adsense-placeholder adsense-bottom-banner w-full rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-700 flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 text-xs gap-1 p-3 bg-white/40 dark:bg-slate-800/30 overflow-hidden text-center shadow-sm" style="min-height: 90px; height: 90px;">
+                    <span class="font-mono uppercase tracking-widest text-[10px] bg-slate-200 dark:bg-slate-700 px-2 py-0.5 rounded text-slate-600 dark:text-slate-300">Advertisement</span>
+                    <span class="flex items-center gap-1 font-mono text-[11px]"><i class="fa-brands fa-google text-indigo-500"></i> Google AdSense Responsive In-Content Banner</span>
+                </div>
+            </div>
+
+            <!-- 5. Dynamic SEO Educational Article & FAQ Section -->
+            <article id="dynamicSeoGuide" class="seo-guide p-6 md:p-8 bg-white dark:bg-dark-surface border border-slate-200 dark:border-dark-border rounded-2xl shadow-sm space-y-6">
+                <!-- Dynamic Tool SEO Guide Injected via seo-content.js -->
+            </article>
+
+        </main>
+
+    </div>
+
+    <!-- ==============================================
+         SITE FOOTER & COMPLIANCE LINKS
+         ============================================== -->
+    <footer class="bg-white dark:bg-dark-surface border-t border-slate-200 dark:border-dark-border mt-auto py-8 px-4 sm:px-6 lg:px-8 text-xs text-slate-500 dark:text-slate-400 transition-colors">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            
+            <div class="flex items-center gap-2">
+                <span class="font-bold text-slate-800 dark:text-slate-200">CreatorKit Studio</span>
+                <span>&copy; 2026. All rights reserved. 100% Client-Side Free Creator Suite.</span>
+            </div>
+
+            <!-- Mandatory AdSense Compliance Links -->
+            <div class="flex items-center gap-6 font-medium">
+                <button id="openAboutBtn" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">About Us</button>
+                <button id="openPrivacyBtn" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">Privacy Policy</button>
+                <button id="openTermsBtn" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">Terms of Service</button>
+                <button id="openContactBtn" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">Contact</button>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- ==============================================
+         FULLSCREEN TELEPROMPTER MODAL
+         ============================================== -->
+    <div id="teleprompterModal" class="fixed inset-0 z-50 bg-black text-white hidden flex-col select-none">
+        
+        <!-- Prompter Floating Control Bar -->
+        <header class="bg-slate-900/90 backdrop-blur border-b border-slate-800 px-6 py-3 flex flex-wrap items-center justify-between gap-4 z-10 transition-opacity duration-300 opacity-90 hover:opacity-100">
+            <div class="flex items-center gap-3">
+                <button id="tpPlayPauseBtn" class="px-4 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm flex items-center gap-2 transition">
+                    <i class="fa-solid fa-play"></i> <span id="tpPlayStatusText">Start</span>
+                </button>
+                <button id="tpResetBtn" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition">
+                    <i class="fa-solid fa-rotate-left"></i> Reset
+                </button>
+            </div>
+
+            <!-- Controls: Speed, Font Size, Flip -->
+            <div class="flex flex-wrap items-center gap-5 text-xs">
+                <div class="flex items-center gap-2">
+                    <span class="text-slate-400"><i class="fa-solid fa-gauge-high"></i> Speed:</span>
+                    <input type="range" id="tpSpeedSlider" min="1" max="10" value="3" class="w-24 accent-indigo-500 cursor-pointer">
+                    <span id="tpSpeedValue" class="font-mono text-indigo-400 w-4">3</span>
+                </div>
+
+                <div class="flex items-center gap-2">
+                    <span class="text-slate-400"><i class="fa-solid fa-text-height"></i> Size:</span>
+                    <input type="range" id="tpFontSlider" min="24" max="72" value="44" class="w-24 accent-indigo-500 cursor-pointer">
+                    <span id="tpFontValue" class="font-mono text-indigo-400 w-8">44px</span>
+                </div>
+
+                <button id="tpMirrorBtn" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium transition flex items-center gap-1.5" title="Flip text horizontally for teleprompter glass rigs">
+                    <i class="fa-solid fa-right-left"></i> Mirror Rig
+                </button>
+
+                <button id="tpCloseBtn" class="px-3 py-1.5 rounded-lg bg-rose-600/80 hover:bg-rose-600 text-white font-bold text-xs transition flex items-center gap-1">
+                    <i class="fa-solid fa-xmark"></i> Exit (Esc)
+                </button>
+            </div>
+        </header>
+
+        <!-- Prompter Reading Guide Target Line -->
+        <div class="teleprompter-guide-line pointer-events-none"></div>
+
+        <!-- Prompter Scroll Viewport -->
+        <div id="tpViewport" class="flex-1 overflow-y-auto px-8 md:px-24 lg:px-48 py-24 custom-scrollbar text-center relative scroll-smooth">
+            <div id="tpContent" class="max-w-4xl mx-auto leading-relaxed font-semibold transition-all select-text font-sans">
+                <!-- Text populated dynamically -->
+            </div>
+            <div class="h-[60vh]"></div>
+        </div>
+
+    </div>
+
+    <!-- ==============================================
+         LEGAL COMPLIANCE MODAL (Privacy, Terms, About, Contact)
+         ============================================== -->
+    <div id="legalModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white dark:bg-dark-surface border border-slate-200 dark:border-dark-border rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden animate-fadeIn">
+            
+            <div class="flex items-center justify-between px-6 py-4 border-b border-slate-200 dark:border-dark-border">
+                <h3 id="legalModalTitle" class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                    <i class="fa-solid fa-scale-balanced text-indigo-500"></i> Legal Information
+                </h3>
+                <button id="closeLegalModalBtn" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-lg transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div id="legalModalBody" class="p-6 overflow-y-auto text-xs text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed custom-scrollbar">
+                <!-- Content injected via JS -->
+            </div>
+
+            <div class="px-6 py-3 border-t border-slate-200 dark:border-dark-border bg-slate-50 dark:bg-slate-900 flex justify-end">
+                <button id="closeLegalModalFooterBtn" class="px-4 py-1.5 text-xs font-semibold rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white transition">
+                    Understood & Close
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- Application Script -->
+    <script src="app.js"></script>
+</body>
+</html>
