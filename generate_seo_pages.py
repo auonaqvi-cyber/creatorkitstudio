@@ -1070,7 +1070,6 @@ def generate_page_html(tool):
                 <a href="index.html#all" class="hover:text-indigo-500">All Tools</a>
                 <a href="index.html#blogger" class="hover:text-indigo-500">Blogger Suite</a>
                 <a href="index.html#creator" class="hover:text-indigo-500">Creator Suite</a>
-                <a href="mailto:auonaqvi@gmail.com" class="hover:text-indigo-500 text-indigo-600 dark:text-indigo-400">Contact: auonaqvi@gmail.com</a>
             </div>
         </div>
     </footer>
