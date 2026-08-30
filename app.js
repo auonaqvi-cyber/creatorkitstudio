@@ -1233,7 +1233,7 @@
         },
         contact: {
             title: '<i class="fa-solid fa-envelope text-indigo-500"></i> Contact Us',
-            html: `<p>Reach our team at: <a href="mailto:support@creatorkitstudio.pro" class="text-indigo-500 font-semibold underline">support@creatorkitstudio.pro</a></p>`
+            html: `<p>Reach our team at: <a href="mailto:auonaqvi@gmail.com" class="text-indigo-500 font-semibold underline">auonaqvi@gmail.com</a></p>`
         }
     };
 
