@@ -655,13 +655,16 @@
         `).join('');
 
         elements.dynamicSeoGuide.innerHTML = `
-            <div class="space-y-4">
+            <div class="space-y-6">
                 <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 dark:border-dark-border pb-3">
                     <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 border border-indigo-200/60 dark:border-indigo-800/40">
                         <i class="fa-solid fa-book-open"></i> ${guide.badge || 'Creator Educational Guide'}
                     </span>
                     <div class="flex flex-wrap gap-1.5">${keywordsPills}</div>
                 </div>
+
+                <!-- Structured Tool Usage Card (150-250 words semantic instructions) -->
+                ${guide.quickGuide || ''}
 
                 <h2 class="text-xl md:text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white">${guide.h2}</h2>
                 <div class="guide-body">${guide.contentHtml}</div>
