@@ -4,12 +4,12 @@ TOOLS_PHASE1 = [
     {
         "dir": "image-resizer",
         "canonical": "https://www.creatorkitstudio.pro/tools/image-resizer/",
-        "title": "Free Online Image Resizer & Scaler (100% In-Browser Private Canvas)",
+        "title": "Free Online Image Resizer – Resize JPG, PNG & WebP | CreatorKit Studio",
         "meta_desc": "Resize, scale, and compress images directly in your browser using HTML5 Canvas. YouTube thumbnail (1280x720), Instagram, and Twitter presets. Zero server uploads.",
-        "keywords": "image resizer online, HTML5 canvas photo scaler, resize youtube thumbnail, private photo compressor, in browser photo resize no upload",
-        "h1": "Browser Image Resizer & Scaler (100% Private Canvas)",
-        "badge": "Media Scaling & Canvas Tool",
-        "summary": "Resize, scale, crop, and convert image files directly inside your web browser using the HTML5 Canvas 2D rendering pipeline. Includes one-click aspect ratio presets for YouTube thumbnails (1280×720), Instagram square (1080×1080), Story/Reels (1080×1920), and Twitter/X header graphics. Zero server uploads ensure complete privacy.",
+        "keywords": "free online image resizer, resize image online, resize JPG, resize PNG, resize WebP, browser-based image resizer, client-side image resizing, youtube thumbnail resizer",
+        "h1": "Free Online Image Resizer",
+        "badge": "Free Online Image Resizer",
+        "summary": "Resize, scale, and convert image files directly in your browser using HTML5 Canvas. Includes one-click aspect ratio presets for YouTube thumbnails (1280×720), Instagram square (1080×1080), Story/Reels (1080×1920), and Twitter graphics. Fast, 100% private, with zero server uploads.",
         "icon": "fa-image",
         "color": "purple",
         "custom_ui": """
@@ -190,46 +190,47 @@ TOOLS_PHASE1 = [
             });
         """,
         "overview": """
-            <h3>Why Client-Side Image Resizing Matters for Creators</h3>
-            <p>Content creators, YouTubers, and social media managers frequently need to adapt visual assets into platform-specific dimensions: 16:9 for YouTube video thumbnails, 1:1 for Instagram profile grids, 9:16 for vertical TikTok and Reels videos, and 1200×675 for Twitter header banners. However, using online cloud converters means uploading confidential thumbnails, brand graphics, and unreleased video assets to third-party web servers.</p>
-            <p>CreatorKit Studio's Image Resizer runs entirely inside your web browser using the <strong>HTML5 Canvas 2D Context API</strong>. Pixels are rendered, resampled, and scaled locally utilizing your device's CPU/GPU. Your files never leave your computer or smartphone.</p>
+            <h3>Client-Side Image Resizing for Creators & Bloggers</h3>
+            <p>Content creators, bloggers, and social media managers frequently need to adapt visual assets into platform-specific dimensions: 16:9 for YouTube thumbnails, 1:1 for Instagram grids, 9:16 for vertical TikTok and Reels videos, and standard landscape graphics for Twitter banners and blog headers.</p>
+            <p>CreatorKit Studio's <strong>Free Online Image Resizer</strong> processes images locally in your browser using HTML5 Canvas. Your images do not need to be uploaded to a server, ensuring complete privacy for unreleased thumbnails and proprietary graphics.</p>
+            <p>When preparing visual assets for your website, you can also craft search-optimized titles and snippets with our <a href="../seo-meta-generator/" class="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">SEO Meta & SERP Generator</a>.</p>
         """,
         "instructions": [
-            "Upload any image file (PNG, JPG, WebP, GIF, or SVG) by clicking the upload dropzone or dragging a file from your desktop.",
-            "Select one of the pre-configured social media preset dimensions (YouTube 1280×720, Instagram Square 1080×1080, TikTok/Reels 1080×1920, Twitter 1200×675) or enter custom width and height values.",
-            "Toggle the 'Lock Aspect Ratio' checkbox to prevent image distortion when scaling custom dimensions.",
-            "Click <strong>Download Scaled Image</strong> to immediately save your processed, high-resolution PNG file to your downloads folder."
+            "Upload an image file (PNG, JPG, WebP, GIF, or SVG) by clicking the upload area or dragging a file from your desktop.",
+            "Select a preset dimension (YouTube 1280×720, Instagram 1080×1080, TikTok/Reels 1080×1920, Twitter 1200×675) or type custom pixel dimensions.",
+            "Keep 'Lock Aspect Ratio' checked to scale proportionally without distorting image proportions.",
+            "Click <strong>Download Scaled Image</strong> to save your resized image directly to your device."
         ],
         "tips": [
-            "Always design YouTube thumbnails at 1280×720 pixels (16:9 aspect ratio) with high visual contrast to maximize organic click-through rates.",
-            "Keep the aspect ratio lock enabled when resizing portraits or product photography to avoid unnatural stretching.",
-            "Because processing occurs in local memory, you can resize heavy high-resolution images (4K/8K) with zero upload latency or bandwidth usage."
+            "For YouTube video thumbnails, 1280×720 pixels (16:9 aspect ratio) is the standard recommended dimension.",
+            "Keep the aspect ratio locked when resizing portraits or product photography to avoid unnatural stretching.",
+            "Because images are processed locally in your browser, you can scale high-resolution files without uploading delays or server wait times."
         ],
-        "privacy": "All image scaling, rasterization, and compression routines execute 100% inside your local web browser sandbox. No image data is transmitted across the network, stored in cloud databases, or viewed by third parties.",
+        "privacy": "Images are processed locally in your browser using HTML5 Canvas. Your images do not need to be uploaded to a server, ensuring your graphics remain 100% private.",
         "faqs": [
             {
-                "q": "What is the best resolution for a YouTube video thumbnail?",
-                "a": "YouTube officially recommends 1280×720 pixels with a 16:9 aspect ratio and a minimum width of 640 pixels, formatted as PNG or JPG."
+                "q": "What formats does this image resizer support?",
+                "a": "The resizer supports standard web formats including PNG, JPG, WebP, GIF, and SVG."
             },
             {
-                "q": "Are my images uploaded to any remote server or cloud database?",
-                "a": "No. All resizing operations execute entirely on your device using client-side JavaScript and the HTML5 Canvas API. Your images never leave your browser."
+                "q": "Are my photos uploaded to a server?",
+                "a": "No. Images are processed entirely in your web browser using HTML5 Canvas. No image data is sent to external servers."
             },
             {
-                "q": "Will resizing an image reduce its visual quality?",
-                "a": "Our Canvas bilinear interpolation algorithm maintains crisp image clarity during downscaling and proportional scaling, ensuring your graphics remain sharp."
+                "q": "What is the recommended size for YouTube thumbnails?",
+                "a": "YouTube recommends 1280×720 pixels with a 16:9 aspect ratio and a minimum width of 640 pixels."
             }
         ]
     },
     {
         "dir": "hashtag-generator",
         "canonical": "https://www.creatorkitstudio.pro/tools/hashtag-generator/",
-        "title": "Free Multi-Platform Hashtag Generator | Instagram, TikTok & Shorts | CreatorKit",
-        "meta_desc": "Generate high-ranking hashtags categorized for Instagram, TikTok, YouTube Shorts, and LinkedIn. Clean spaces, remove duplicates, and copy tags in 1 click.",
-        "keywords": "hashtag generator, instagram hashtags maker, tiktok viral tags, youtube shorts hashtags, linkedin hashtag generator free",
-        "h1": "Multi-Platform Hashtag Generator & Tag Discovery Tool",
-        "badge": "Social Discovery & Tag Strategy",
-        "summary": "Generate targeted, high-intent hashtags categorized for Instagram, TikTok, YouTube Shorts, and LinkedIn. Combine high-volume broad tags with low-competition niche tags to rank on social Explore feeds and search discovery algorithms.",
+        "title": "Free Hashtag Generator – Instagram, TikTok & Shorts | CreatorKit Studio",
+        "meta_desc": "Generate relevant hashtags categorized for Instagram, TikTok, YouTube Shorts, and LinkedIn. Clean spaces, deduplicate tags, and copy sets in 1 click.",
+        "keywords": "free hashtag generator, hashtag generator online, instagram hashtag maker, tiktok viral tags, youtube shorts hashtags, linkedin hashtags",
+        "h1": "Free Hashtag Generator",
+        "badge": "Free Hashtag Generator",
+        "summary": "Generate relevant, topic-specific hashtags categorized for Instagram, TikTok, YouTube Shorts, and LinkedIn. Discover niche tags to organize and label your content across social platforms with zero server tracking.",
         "icon": "fa-tags",
         "color": "pink",
         "custom_ui": """
@@ -342,42 +343,43 @@ TOOLS_PHASE1 = [
             });
         """,
         "overview": """
-            <h3>How Hashtags Drive Discovery in Modern Social Algorithms</h3>
-            <p>Hashtags remain one of the primary metadata signals used by recommendation engines on Instagram, TikTok, YouTube Shorts, and LinkedIn to categorize video and text content into distinct topic clusters. Rather than functioning solely as visual labels, hashtags index your posts within high-intent search feeds.</p>
-            <p>Using a structured 3-tier hashtag strategy (combining high-volume broad tags, mid-volume niche community tags, and ultra-specific long-tail tags) ensures your content can rank on the Explore page immediately and continue driving passive impressions for months.</p>
+            <h3>Topic Discovery & Tag Organization for Social Content</h3>
+            <p>Hashtags help categorize content and make posts discoverable to users searching for specific topics across social platforms. Using focused, topic-specific tags makes it easier for your audience to find relevant posts, tutorials, and discussions.</p>
+            <p>CreatorKit Studio's <strong>Free Hashtag Generator</strong> organizes tags by platform format, allowing you to quickly generate and copy relevant keyword groupings for Instagram, TikTok, YouTube Shorts, and LinkedIn directly in your browser.</p>
+            <p>If you are repurposing video transcripts into social captions, you can first clean timestamp headers using our <a href="../srt-caption-cleaner/" class="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">SRT Caption Cleaner</a>.</p>
         """,
         "instructions": [
-            "Enter your primary niche keyword, video topic, or campaign focus into the search bar (e.g. 'fitness nutrition' or 'saas marketing').",
-            "Click <strong>Generate</strong> to produce organized hashtag sets tailored specifically for Instagram, TikTok, YouTube Shorts, and LinkedIn.",
-            "Click 'Copy Set' next to any individual platform card, or click <strong>Copy Master Tag Set</strong> to grab the complete collection.",
-            "Paste the formatted tags into your social post caption or first comment."
+            "Enter a topic keyword or niche phrase into the search box (e.g. 'digital marketing' or 'fitness nutrition').",
+            "Click <strong>Generate</strong> to create platform-tailored hashtag sets for Instagram, TikTok, YouTube Shorts, and LinkedIn.",
+            "Click 'Copy Set' next to any platform card, or click <strong>Copy Master Tag Set</strong> to copy all generated tags.",
+            "Paste the tags into your social post caption or notes."
         ],
         "tips": [
-            "On Instagram, 3 to 8 ultra-targeted niche hashtags consistently outperform 30 generic tags for algorithmic Explore distribution.",
-            "Combine trending sound tags with niche subject hashtags on TikTok to maximize For You Page (FYP) indexing.",
-            "Avoid repetitive tag spamming across multiple posts to keep your account in good algorithmic standing."
+            "Hashtag recommendations vary by platform, content type, and audience. Focus on relevant, specific hashtags rather than adding large numbers of unrelated tags.",
+            "Mix broader topic tags with specific sub-niche tags that directly match what is shown in your post.",
+            "Avoid repetitive or irrelevant tags to keep your posts clear and focused for your followers."
         ],
-        "privacy": "All hashtag clustering algorithms execute locally in your web browser. No search queries or keyword inputs are transmitted or logged on external servers.",
+        "privacy": "All hashtag suggestions are generated locally in your web browser. Your search queries and keywords are not recorded or sent to any server.",
         "faqs": [
             {
-                "q": "How many hashtags should I include on Instagram?",
-                "a": "Instagram officially advises creators to use 3 to 8 relevant hashtags per post to clearly signal subject matter without triggering spam filters."
+                "q": "How many hashtags should I use on my posts?",
+                "a": "Hashtag recommendations vary by platform and audience. It is generally best to focus on a targeted set of relevant, topic-specific hashtags rather than adding excessive tags."
             },
             {
-                "q": "Should I put hashtags in the caption or the first comment?",
-                "a": "Both placements are indexed by search algorithms equally; however, placing tags directly at the end of the caption guarantees instant indexing at publication time."
+                "q": "Should hashtags be placed in the caption or comments?",
+                "a": "Both placements allow your tags to be discovered. Placing them directly in the caption ensures they are immediately active when your post goes live."
             }
         ]
     },
     {
         "dir": "teleprompter",
         "canonical": "https://www.creatorkitstudio.pro/tools/teleprompter/",
-        "title": "Online Fullscreen Teleprompter | Free Browser Video Script Prompter",
+        "title": "Online Teleprompter – Free Fullscreen Script Prompter | CreatorKit Studio",
         "meta_desc": "Free online fullscreen teleprompter for creators and presenters. Smooth auto-scroll, speed controls, font resizing, and beam-splitter mirror rig mode.",
-        "keywords": "online teleprompter free, fullscreen prompter browser, mirror teleprompter tool, video recording script prompter, smooth scroll prompter",
-        "h1": "Online Fullscreen Video Script Teleprompter",
-        "badge": "Video Presentation & Prompter Tool",
-        "summary": "A distraction-free online video teleprompter with smooth auto-scrolling (requestAnimationFrame), speed controls (1–10), font resizing (24–72px), target guide lines, and horizontal mirror mode for 70/30 beam-splitter glass prompter rigs. Runs 100% in-browser.",
+        "keywords": "online teleprompter, free teleprompter online, fullscreen script prompter, mirror teleprompter browser, video recording prompter",
+        "h1": "Online Teleprompter",
+        "badge": "Online Teleprompter",
+        "summary": "A distraction-free online video teleprompter with smooth scrolling, adjustable scroll speed (1–10x), font resizing (24–72px), keyboard play/pause controls, and horizontal mirror mode for prompter glass rigs. Runs 100% in your browser.",
         "icon": "fa-chalkboard-user",
         "color": "indigo",
         "custom_ui": """
@@ -474,7 +476,7 @@ TOOLS_PHASE1 = [
             function play() {
                 isPlaying = true;
                 playIcon.className = 'fa-solid fa-pause';
-                playLabel.textContent = 'Pause (Space)';
+                playLabel.textContent = 'Play (Space)';
                 scrollStep();
             }
 
@@ -498,7 +500,6 @@ TOOLS_PHASE1 = [
                 fontVal.textContent = `${fontSlider.value}px`;
                 prompterText.style.fontSize = `${fontSlider.value}px`;
             });
-
             mirrorToggle.addEventListener('change', () => {
                 if (mirrorToggle.checked) prompterText.style.transform = 'scaleX(-1)';
                 else prompterText.style.transform = 'none';
@@ -512,42 +513,43 @@ TOOLS_PHASE1 = [
             });
         """,
         "overview": """
-            <h3>Delivering Confident On-Camera Video Delivery</h3>
-            <p>Recording YouTube videos, webinars, and online courses often requires speaking fluidly without memorizing multi-page scripts. A dedicated teleprompter allows you to maintain direct eye contact with the camera lens, eliminating unnatural pauses and drastically reducing recording retakes.</p>
-            <p>CreatorKit Studio's Online Teleprompter provides full hardware-accelerated <code>requestAnimationFrame</code> smooth scrolling, dynamic speed regulation, and horizontal mirror inversion for beam-splitter prompter glass rigs—running directly in your web browser with zero software downloads.</p>
+            <h3>Smooth On-Camera Script Delivery for Video Creators</h3>
+            <p>Recording video lessons, YouTube presentations, and live webinars is easier when you can read your speaking notes naturally without looking away from the camera lens. A teleprompter helps you maintain consistent eye contact and pacing.</p>
+            <p>CreatorKit Studio's <strong>Online Teleprompter</strong> provides smooth browser-based auto-scrolling with adjustable speed, font size controls, keyboard shortcuts, and horizontal mirror mode for beam-splitter prompter glass setups.</p>
+            <p>After recording your video, you can convert your exported subtitle files into clean article transcripts with our <a href="../srt-caption-cleaner/" class="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">SRT Caption Cleaner</a>.</p>
         """,
         "instructions": [
-            "Paste your video script, speaking notes, or lecture outline into the text area.",
-            "Click <strong>Launch Fullscreen Prompter</strong> to switch into the distraction-free recording prompter view.",
-            "Use the top controls to adjust text font size (24–72px) and auto-scroll speed (1–10x).",
-            "Press the <kbd class=\"px-1.5 py-0.5 bg-slate-800 text-white rounded\">Spacebar</kbd> on your keyboard to play or pause the scrolling teleprompter as you speak."
+            "Paste your video script, speech notes, or outline into the text area.",
+            "Click <strong>Launch Fullscreen Prompter</strong> to enter the distraction-free presentation screen.",
+            "Adjust the font size slider (24–72px) and scroll speed slider (1–10x) to match your reading comfort.",
+            "Press the <kbd class=\"px-1.5 py-0.5 bg-slate-800 text-white rounded\">Spacebar</kbd> on your keyboard to play or pause scrolling at any time."
         ],
         "tips": [
-            "Position your browser window directly adjacent to your webcam or camera lens to maintain direct eye contact with your audience.",
-            "Enable 'Mirror Rig' mode when reflecting text onto professional 70/30 beam-splitter prompter glass mounted in front of your camera.",
-            "Set your scroll speed so the target line matches your natural speaking cadence (typically 130–140 words per minute)."
+            "Place your browser window as close as possible to your webcam or camera lens to maintain natural eye contact.",
+            "Enable 'Mirror Rig' mode when reflecting text onto physical beam-splitter teleprompter glass.",
+            "Set the scroll speed so the current line stays near the top third of your display."
         ],
-        "privacy": "All speech scripts and prompter text remain 100% in your local browser session. No text is transmitted or saved on external servers.",
+        "privacy": "All script text remains entirely inside your local browser session. No text is saved, stored, or transmitted to any external server.",
         "faqs": [
             {
-                "q": "What is Mirror Rig mode on a teleprompter?",
-                "a": "Mirror Rig mode flips text horizontally (mirror inversion) so it reflects right-side-up when viewed through physical beam-splitter glass mounted in front of a camera."
+                "q": "What is Mirror Rig mode?",
+                "a": "Mirror Rig mode flips the text horizontally so it appears normal when reflected on a physical teleprompter glass rig."
             },
             {
-                "q": "Can I control the teleprompter with keyboard shortcuts?",
-                "a": "Yes. Press Spacebar to play/pause scrolling, and press Escape to exit fullscreen mode."
+                "q": "What keyboard shortcuts can I use?",
+                "a": "Press Spacebar to play or pause auto-scrolling, and press Escape to close fullscreen mode."
             }
         ]
     },
     {
         "dir": "srt-caption-cleaner",
         "canonical": "https://www.creatorkitstudio.pro/tools/srt-caption-cleaner/",
-        "title": "SRT Caption Cleaner | Convert Subtitles into Clean Transcripts",
-        "meta_desc": "Clean .SRT and WebVTT subtitle files into readable article text. Strip timecodes, sequence numbers, and formatting tags with zero server uploads.",
-        "keywords": "SRT subtitle cleaner, convert srt to text, remove timecodes from srt, clean vtt captions online, video transcript extractor free",
-        "h1": "SRT & VTT Subtitle Caption Cleaner",
-        "badge": "Video Repurposing & Transcript Tool",
-        "summary": "Convert raw .SRT and WebVTT subtitle files into clean, readable blog text. Strips timecode timestamps (00:00:00,000 --> 00:00:00,000), sequence line counters, and HTML formatting tags in seconds.",
+        "title": "SRT Caption Cleaner – Convert Subtitles to Text | CreatorKit Studio",
+        "meta_desc": "Clean .SRT and WebVTT subtitle files into readable text. Strip timecodes, sequence numbers, and formatting tags with zero server uploads.",
+        "keywords": "SRT caption cleaner, convert srt to text, remove timecodes from srt, clean vtt captions online, video transcript cleaner free",
+        "h1": "SRT Caption Cleaner",
+        "badge": "SRT Caption Cleaner",
+        "summary": "Convert raw .SRT and WebVTT subtitle files into clean, readable text. Automatically strips timestamps (00:00:00,000 --> 00:00:00,000), sequence numbers, and formatting tags directly in your browser.",
         "icon": "fa-closed-captioning",
         "color": "emerald",
         "custom_ui": """
@@ -586,12 +588,12 @@ TOOLS_PHASE1 = [
             function cleanSrt(raw) {
                 if (!raw) return '';
                 return raw
-                    .replace(/^WEBVTT[^\\n]*\\n+/i, '')
-                    .replace(/\\d{1,2}:\\d{2}:\\d{2}[,\\.]\\d{3}\\s*-->\\s*\\d{1,2}:\\d{2}:\\d{2}[,\\.]\\d{3}[^\\n]*/g, '')
-                    .replace(/^\\s*\\d+\\s*$/gm, '')
-                    .replace(/<\\/?[^>]+(>|$)/g, '')
-                    .replace(/\\{[^\\}]+\\}/g, '')
-                    .split(/\\r?\\n/).map(l => l.trim()).filter(Boolean).join('\\n\\n');
+                    .replace(/^WEBVTT[^\n]*\n+/i, '')
+                    .replace(/\d{1,2}:\d{2}:\d{2}[,\.]\d{3}\s*-->\s*\d{1,2}:\d{2}:\d{2}[,\.]\d{3}[^\n]*/g, '')
+                    .replace(/^\s*\d+\s*$/gm, '')
+                    .replace(/<\/?[^>]+(>|$)/g, '')
+                    .replace(/\{[^\}]+\}/g, '')
+                    .split(/\r?\n/).map(l => l.trim()).filter(Boolean).join('\n\n');
             }
 
             input.addEventListener('input', () => {
@@ -607,45 +609,46 @@ TOOLS_PHASE1 = [
                 if (!output.value) return;
                 await navigator.clipboard.writeText(output.value);
                 copyBtn.textContent = 'Copied!';
-                setTimeout(() => copyBtn.innerHTML = '<i class=\"fa-regular fa-copy\"></i> Copy Transcript', 1500);
+                setTimeout(() => copyBtn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy Transcript', 1500);
             });
         """,
         "overview": """
-            <h3>Repurposing Video Subtitles into SEO-Friendly Blog Articles</h3>
-            <p>Video transcripts from YouTube, Descript, Premiere Pro, and CapCut are rich with spoken keywords and expert commentary. However, raw caption exports contain thousands of timestamp lines (<code>00:01:23,450 --> 00:01:26,800</code>) and sequence numbers that make direct reading impossible.</p>
-            <p>CreatorKit Studio's SRT Cleaner sanitizes multi-gigabyte subtitle files in milliseconds inside your browser memory, extracting continuous prose that can be repurposed into blog articles, newsletter summaries, and show notes.</p>
+            <h3>Converting Video Subtitles into Clean Transcripts</h3>
+            <p>Video subtitle files exported from editing tools and platforms (such as YouTube, Premiere Pro, Final Cut, and CapCut) contain timestamp lines and numeric counters on every line. Reading or reusing raw subtitle text requires stripping these formatting headers.</p>
+            <p>CreatorKit Studio's <strong>SRT Caption Cleaner</strong> processes subtitle text locally in your browser without uploading your file to a server. It automatically removes timecodes and line numbers, leaving you with clean, continuous text suitable for articles, notes, and documentation.</p>
+            <p>Once your transcript is cleaned, you can generate search-ready titles and snippet descriptions using our <a href="../seo-meta-generator/" class="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">SEO Meta & SERP Generator</a>.</p>
         """,
         "instructions": [
-            "Export the `.srt` or `.vtt` caption file from your video editor (Premiere, Final Cut, CapCut, or YouTube Studio).",
-            "Paste the raw subtitle text into the left input workspace.",
-            "The client-side regex engine instantly strips timestamp headers and sequence counters, assembling spoken dialogue into clean paragraphs.",
-            "Click <strong>Copy Transcript</strong> to transfer the sanitized text into your CMS, Google Docs, or newsletter editor."
+            "Copy the raw `.srt` or `.vtt` text from your subtitle file or video editor.",
+            "Paste the text into the left input area.",
+            "The tool instantly strips timestamps, sequence counters, and styling tags, outputting clean text on the right.",
+            "Click <strong>Copy Transcript</strong> to copy the cleaned text to your clipboard."
         ],
         "tips": [
-            "Repurposing spoken YouTube video transcripts into written blog posts can double organic Google search traffic from the same content.",
-            "Pair this tool with our AI Cliché Cleaner to polish informal spoken dialogue into formal editorial copy."
+            "Clean and standardize subtitle files to help keep your captions organized and consistent for blog articles and show notes.",
+            "Use this tool to convert spoken video transcripts into readable outlines or newsletter drafts."
         ],
-        "privacy": "All subtitle parsing occurs 100% inside your local browser sandbox. No video scripts or transcripts are uploaded or stored remotely.",
+        "privacy": "Processes subtitle text locally in your browser without uploading your file to a server. Your transcript data remains completely private.",
         "faqs": [
             {
-                "q": "Does this tool delete any spoken words from my video?",
-                "a": "No. The regex filter exclusively strips timestamp lines and numeric sequence counters, preserving 100% of your spoken words."
+                "q": "Does this tool remove any spoken dialogue?",
+                "a": "No. The cleaner only removes timestamp headers and line counters, keeping all your spoken words intact."
             },
             {
-                "q": "Does it support both .SRT and WebVTT (.VTT) formats?",
-                "a": "Yes. The parsing engine automatically handles both comma-separated (.SRT) and dot-separated (.VTT) timestamp formats."
+                "q": "Does it support both .SRT and .VTT files?",
+                "a": "Yes. It handles both standard SubRip (.srt) and WebVTT (.vtt) timestamp formats."
             }
         ]
     },
     {
         "dir": "seo-meta-generator",
         "canonical": "https://www.creatorkitstudio.pro/tools/seo-meta-generator/",
-        "title": "SEO Meta Description & Title Generator | Live Google SERP Preview Tool",
-        "meta_desc": "Generate click-worthy SEO page titles and meta descriptions with live Google SERP snippet preview. Enforce 60-char title and 160-char description limits.",
-        "keywords": "SEO meta description generator, Google SERP snippet preview, meta title builder, CTR optimization tool, search snippet tester online",
-        "h1": "SEO Title & Meta Description Generator with Google SERP Preview",
-        "badge": "On-Page SEO & SERP Preview",
-        "summary": "Extract key themes from your article draft to generate click-worthy SEO page titles (under 60 characters) and high-converting meta descriptions (under 160 characters) with a real-time Google Search desktop and mobile SERP preview simulation.",
+        "title": "SEO Meta & SERP Generator – Title & Description Preview | CreatorKit Studio",
+        "meta_desc": "Generate clear SEO page titles and meta descriptions with a live Google SERP preview. Test search snippet display with zero server tracking.",
+        "keywords": "SEO meta generator, Google SERP preview tool, meta title builder, meta description preview, search snippet tester online",
+        "h1": "SEO Meta & SERP Generator",
+        "badge": "SEO Meta & SERP Generator",
+        "summary": "Generate clear SEO page titles and meta descriptions from your topic summary, complete with a live Google Search desktop and mobile SERP preview simulation. 100% private in-browser generation.",
         "icon": "fa-magnifying-glass-chart",
         "color": "cyan",
         "custom_ui": """
@@ -692,7 +695,7 @@ TOOLS_PHASE1 = [
             const copyBtn = document.getElementById('copyMetaBtn');
 
             function process() {
-                const val = input.value.trim().replace(/[\\r\\n]+/g, ' ');
+                const val = input.value.trim().replace(/[\r\n]+/g, ' ');
                 if (!val) {
                     serpTitle.textContent = 'Your SEO Page Title Appears Here';
                     serpDesc.textContent = 'Your compelling meta description snippet will appear here within optimal search engine pixel boundaries.';
@@ -705,7 +708,7 @@ TOOLS_PHASE1 = [
                 serpTitle.textContent = `${title} | CreatorKit Studio`;
                 serpDesc.textContent = desc;
 
-                output.value = `<!-- Primary Meta Tags -->\\n<title>${title} | CreatorKit Studio</title>\\n<meta name="description" content="${desc}">\\n\\n<!-- Open Graph / Facebook -->\\n<meta property="og:title" content="${title}">\\n<meta property="og:description" content="${desc}">`;
+                output.value = `<!-- Primary Meta Tags -->\n<title>${title} | CreatorKit Studio</title>\n<meta name="description" content="${desc}">\n\n<!-- Open Graph / Facebook -->\n<meta property="og:title" content="${title}">\n<meta property="og:description" content="${desc}">`;
             }
 
             input.addEventListener('input', process);
@@ -714,34 +717,35 @@ TOOLS_PHASE1 = [
                 if (!output.value) return;
                 await navigator.clipboard.writeText(output.value);
                 copyBtn.textContent = 'Copied!';
-                setTimeout(() => copyBtn.innerHTML = '<i class=\"fa-regular fa-copy\"></i> Copy HTML Tags', 1500);
+                setTimeout(() => copyBtn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy HTML Tags', 1500);
             });
         """,
         "overview": """
-            <h3>Maximizing Organic Click-Through Rate (CTR) on Search Engines</h3>
-            <p>Your search snippet represents your primary storefront on Google Search. Even if your webpage ranks in position #3 or #4, a compelling, benefit-driven title tag and concise meta description can capture more organic clicks than a generic #1 result.</p>
-            <p>CreatorKit Studio's SEO Generator formats title tags (enforcing the 580-pixel / 60-character desktop cutoff) and meta descriptions (155–160 character boundary) with a real-time Google SERP simulation.</p>
+            <h3>Crafting Search Snippets with Live SERP Previews</h3>
+            <p>Search engine result snippets give potential visitors their first impression of your webpage. A clear, accurate title and informative meta description help searchers understand whether your page answers their query.</p>
+            <p>CreatorKit Studio's <strong>SEO Meta & SERP Generator</strong> helps you draft and preview your title tag and meta description within a simulated Google search snippet, helping you see how your text may appear on search results pages.</p>
+            <p>Pair your optimized meta tags with properly sized share images using our <a href="../image-resizer/" class="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">Free Online Image Resizer</a>.</p>
         """,
         "instructions": [
-            "Paste your article introduction, summary paragraph, or key topic outline into the workspace.",
-            "The generator produces an optimized Title Tag (under 60 characters) and Meta Description (under 160 characters).",
-            "Preview how your snippet appears on Google Search in the live SERP preview box.",
-            "Click <strong>Copy HTML Tags</strong> and paste the generated `<title>` and `<meta>` tags into your CMS or HTML `<head>`."
+            "Paste your article introduction, summary paragraph, or core topic into the input box.",
+            "The tool generates a suggested Title Tag and Meta Description based on your text.",
+            "Review how your snippet appears in the live Google Search result preview.",
+            "Click <strong>Copy HTML Tags</strong> and paste the generated <code>&lt;title&gt;</code> and <code>&lt;meta&gt;</code> tags into your HTML <code>&lt;head&gt;</code>."
         ],
         "tips": [
-            "Position your primary target keyword within the first 30 characters of your title tag.",
-            "Include an active call-to-action (e.g. 'Learn how to...', 'Free online tool...') in your meta description to maximize CTR.",
-            "Keep titles strictly under 60 characters to prevent Google from truncating your headline."
+            "Keep titles concise so they are more likely to display clearly in search results without truncation.",
+            "Keep meta descriptions concise and informative. Google may truncate or rewrite snippets depending on the search query and available display space.",
+            "Include your main topic naturally near the beginning of the title tag."
         ],
-        "privacy": "All title and meta description generation occurs 100% locally in your web browser. No content is sent to external databases.",
+        "privacy": "All title and meta description generation occurs locally in your web browser. No text is transmitted or saved on external servers.",
         "faqs": [
             {
-                "q": "What is the ideal character length for an SEO title tag?",
-                "a": "The recommended title tag length is between 50 and 60 characters (or under 580 pixels) to avoid search engine truncation."
+                "q": "What is a good guideline for title tag length?",
+                "a": "Titles are commonly kept around 50 to 60 characters to help ensure they display clearly on most desktop and mobile search screens."
             },
             {
-                "q": "Do meta descriptions directly impact Google search rankings?",
-                "a": "While not a direct ranking factor, meta descriptions heavily determine your Click-Through Rate (CTR), which is a key organic engagement signal."
+                "q": "How long should a meta description be?",
+                "a": "Meta descriptions are commonly kept around 150 to 160 characters, though search engines may adjust the snippet displayed based on the user's specific query."
             }
         ]
     }
@@ -778,8 +782,9 @@ def generate_tool_html(t):
 
     instructions_html = "".join([f"<li>{step}</li>" for step in t["instructions"]])
     tips_html = "".join([f"<li>{tip}</li>" for tip in t["tips"]])
+
     faqs_html = "".join([
-        f"""<details class="group bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-dark-border rounded-xl p-4 transition [&_summary::-webkit-details-marker]:hidden" {'open' if i==0 else ''}>
+        f"""<details class="group bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-dark-border rounded-xl p-4 transition [&_summary::-webkit-details-marker]:hidden" {"open" if i == 0 else ""}>
             <summary class="flex items-center justify-between cursor-pointer font-semibold text-xs md:text-sm text-slate-900 dark:text-white">
                 <span>{f['q']}</span>
                 <span class="ml-2 text-slate-400 group-open:rotate-180 transition-transform">
@@ -793,9 +798,9 @@ def generate_tool_html(t):
 
     other_tools = [x for x in TOOLS_PHASE1 if x["dir"] != t["dir"]]
     related_html = "".join([
-        f"""<a href="../{ot['dir']}/index.html" class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-dark-border hover:border-indigo-500 transition flex items-center gap-2.5 text-xs font-semibold text-slate-800 dark:text-slate-200 group">
+        f"""<a href="../{ot['dir']}/" class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-dark-border hover:border-indigo-500 transition flex items-center gap-2.5 text-xs font-semibold text-slate-800 dark:text-slate-200 group">
             <i class="fa-solid {ot['icon']} text-indigo-500 group-hover:scale-110 transition-transform"></i>
-            <span>{ot['badge'].split('&')[0].strip()} Tool</span>
+            <span>{ot['h1']}</span>
         </a>"""
         for ot in other_tools
     ])
@@ -858,17 +863,21 @@ def generate_tool_html(t):
                 extend: {{
                     colors: {{
                         brand: {{ 50: '#eef2ff', 100: '#e0e7ff', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca' }},
-                        dark: {{ bg: '#0f172a', surface: '#1e293b', border: '#334155', text: '#f8fafc', muted: '#94a3b8' }}
+                        dark: {{ bg: '#0b0f19', surface: '#111827', border: '#1f2937', text: '#f3f4f6' }}
                     }}
                 }}
             }}
-        }}
+        }};
     </script>
 
     <!-- FontAwesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../style.css?v=2.2.0">
+    <link rel="stylesheet" href="../../style.css?v=2.3.0">
 </head>
 <body class="bg-slate-50 dark:bg-dark-bg text-slate-900 dark:text-dark-text antialiased min-h-screen flex flex-col font-['Inter',sans-serif]">
 
@@ -889,7 +898,7 @@ def generate_tool_html(t):
 
             <!-- Header Navigation -->
             <nav class="hidden md:flex items-center gap-4 text-xs font-semibold">
-                <a href="../index.html" class="px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center gap-1.5">
+                <a href="../" class="px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center gap-1.5">
                     <i class="fa-solid fa-layer-group text-indigo-500"></i> Tools Directory
                 </a>
                 <a href="../../index.html#blogger" class="px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center gap-1.5">
@@ -919,9 +928,9 @@ def generate_tool_html(t):
         <nav class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
             <a href="../../index.html" class="hover:text-indigo-500 transition">CreatorKit Studio</a>
             <i class="fa-solid fa-chevron-right text-[10px]"></i>
-            <a href="../index.html" class="hover:text-indigo-500 transition">Tools Directory</a>
+            <a href="../" class="hover:text-indigo-500 transition">Tools Directory</a>
             <i class="fa-solid fa-chevron-right text-[10px]"></i>
-            <span class="text-slate-800 dark:text-slate-200 font-semibold">{t['h1'].split('(')[0].strip()}</span>
+            <span class="text-slate-800 dark:text-slate-200 font-semibold">{t['h1']}</span>
         </nav>
 
         <!-- Header Banner Ad Placeholder -->
@@ -959,7 +968,7 @@ def generate_tool_html(t):
                     </ol>
                 </div>
                 <div class="space-y-2">
-                    <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Pro Tips & Best Practices:</h3>
+                    <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Practical Tips & Guidelines:</h3>
                     <ul class="list-disc pl-5 text-xs text-slate-600 dark:text-slate-300 space-y-1.5 leading-relaxed">
                         {tips_html}
                     </ul>
@@ -977,7 +986,7 @@ def generate_tool_html(t):
 
         <!-- Deep Educational Guide Article (400+ words) -->
         <article class="prose prose-slate dark:prose-invert max-w-none bg-white dark:bg-dark-surface p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-dark-border shadow-sm space-y-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-            <h2 class="text-xl font-bold text-slate-900 dark:text-white">Overview & Architecture: {t['h1'].split('(')[0].strip()}</h2>
+            <h2 class="text-xl font-bold text-slate-900 dark:text-white">Overview & User Guide: {t['h1']}</h2>
             {t['overview']}
             
             <div class="mt-6 p-4 rounded-xl bg-indigo-50/50 dark:bg-indigo-950/30 border border-indigo-100 dark:border-indigo-900/40">
@@ -1003,7 +1012,7 @@ def generate_tool_html(t):
             <h2 class="text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                 Explore More Free Standalone Creator Utilities:
             </h2>
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                 {related_html}
             </div>
         </section>
@@ -1018,7 +1027,7 @@ def generate_tool_html(t):
             </div>
             <div class="flex items-center gap-5 font-medium">
                 <a href="../../index.html#all" class="hover:text-indigo-500">All Tools</a>
-                <a href="../index.html" class="hover:text-indigo-500">Tools Directory</a>
+                <a href="../" class="hover:text-indigo-500">Tools Directory</a>
                 <a href="../../index.html#blogger" class="hover:text-indigo-500">Blogger Suite</a>
                 <a href="../../index.html#creator" class="hover:text-indigo-500">Creator Suite</a>
             </div>
@@ -1051,15 +1060,18 @@ def generate_tool_html(t):
 """
 
 def main():
-    root = r"d:\all in one tools website\tools"
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    tools_dir = os.path.join(base_dir, "tools")
+    os.makedirs(tools_dir, exist_ok=True)
+
     for t in TOOLS_PHASE1:
-        tool_dir = os.path.join(root, t["dir"])
-        os.makedirs(tool_dir, exist_ok=True)
-        html_path = os.path.join(tool_dir, "index.html")
-        html_code = generate_tool_html(t)
+        tool_folder = os.path.join(tools_dir, t["dir"])
+        os.makedirs(tool_folder, exist_ok=True)
+        html_path = os.path.join(tool_folder, "index.html")
+        content = generate_tool_html(t)
         with open(html_path, "w", encoding="utf-8") as f:
-            f.write(html_code)
-        print(f"Generated {t['dir']}/index.html ({len(html_code)} bytes)")
+            f.write(content)
+        print(f"Generated {t['dir']}/index.html ({len(content)} bytes)")
 
 if __name__ == "__main__":
     main()

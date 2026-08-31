@@ -13,9 +13,9 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SRT Caption Cleaner | Convert Subtitles into Clean Transcripts</title>
-    <meta name="description" content="Clean .SRT and WebVTT subtitle files into readable article text. Strip timecodes, sequence numbers, and formatting tags with zero server uploads.">
-    <meta name="keywords" content="SRT subtitle cleaner, convert srt to text, remove timecodes from srt, clean vtt captions online, video transcript extractor free">
+    <title>SRT Caption Cleaner – Convert Subtitles to Text | CreatorKit Studio</title>
+    <meta name="description" content="Clean .SRT and WebVTT subtitle files into readable text. Strip timecodes, sequence numbers, and formatting tags with zero server uploads.">
+    <meta name="keywords" content="SRT caption cleaner, convert srt to text, remove timecodes from srt, clean vtt captions online, video transcript cleaner free">
     <meta name="author" content="CreatorKit Studio">
     <meta name="robots" content="index, follow">
     <meta name="google-site-verification" content="WM4c52x0WOHkjYTAqQMRLdBSMGOo3aG7IoGemVJVte8" />
@@ -33,8 +33,8 @@
 
     <!-- Open Graph / Meta -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="SRT Caption Cleaner | Convert Subtitles into Clean Transcripts">
-    <meta property="og:description" content="Clean .SRT and WebVTT subtitle files into readable article text. Strip timecodes, sequence numbers, and formatting tags with zero server uploads.">
+    <meta property="og:title" content="SRT Caption Cleaner – Convert Subtitles to Text | CreatorKit Studio">
+    <meta property="og:description" content="Clean .SRT and WebVTT subtitle files into readable text. Strip timecodes, sequence numbers, and formatting tags with zero server uploads.">
     <meta property="og:url" content="https://www.creatorkitstudio.pro/tools/srt-caption-cleaner/">
 
     <!-- Favicon & App Icons -->
@@ -49,9 +49,9 @@
   "@graph": [
     {
       "@type": "WebApplication",
-      "name": "SRT Caption Cleaner | Convert Subtitles into Clean Transcripts",
+      "name": "SRT Caption Cleaner \u2013 Convert Subtitles to Text | CreatorKit Studio",
       "url": "https://www.creatorkitstudio.pro/tools/srt-caption-cleaner/",
-      "description": "Clean .SRT and WebVTT subtitle files into readable article text. Strip timecodes, sequence numbers, and formatting tags with zero server uploads.",
+      "description": "Clean .SRT and WebVTT subtitle files into readable text. Strip timecodes, sequence numbers, and formatting tags with zero server uploads.",
       "applicationCategory": "UtilitiesApplication",
       "operatingSystem": "All",
       "browserRequirements": "Requires JavaScript. Requires HTML5.",
@@ -66,18 +66,18 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Does this tool delete any spoken words from my video?",
+          "name": "Does this tool remove any spoken dialogue?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. The regex filter exclusively strips timestamp lines and numeric sequence counters, preserving 100% of your spoken words."
+            "text": "No. The cleaner only removes timestamp headers and line counters, keeping all your spoken words intact."
           }
         },
         {
           "@type": "Question",
-          "name": "Does it support both .SRT and WebVTT (.VTT) formats?",
+          "name": "Does it support both .SRT and .VTT files?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. The parsing engine automatically handles both comma-separated (.SRT) and dot-separated (.VTT) timestamp formats."
+            "text": "Yes. It handles both standard SubRip (.srt) and WebVTT (.vtt) timestamp formats."
           }
         }
       ]
@@ -95,17 +95,21 @@
                 extend: {
                     colors: {
                         brand: { 50: '#eef2ff', 100: '#e0e7ff', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca' },
-                        dark: { bg: '#0f172a', surface: '#1e293b', border: '#334155', text: '#f8fafc', muted: '#94a3b8' }
+                        dark: { bg: '#0b0f19', surface: '#111827', border: '#1f2937', text: '#f3f4f6' }
                     }
                 }
             }
-        }
+        };
     </script>
 
     <!-- FontAwesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../style.css?v=2.2.0">
+    <link rel="stylesheet" href="../../style.css?v=2.3.0">
 </head>
 <body class="bg-slate-50 dark:bg-dark-bg text-slate-900 dark:text-dark-text antialiased min-h-screen flex flex-col font-['Inter',sans-serif]">
 
@@ -126,7 +130,7 @@
 
             <!-- Header Navigation -->
             <nav class="hidden md:flex items-center gap-4 text-xs font-semibold">
-                <a href="../index.html" class="px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center gap-1.5">
+                <a href="../" class="px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center gap-1.5">
                     <i class="fa-solid fa-layer-group text-indigo-500"></i> Tools Directory
                 </a>
                 <a href="../../index.html#blogger" class="px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center gap-1.5">
@@ -156,9 +160,9 @@
         <nav class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
             <a href="../../index.html" class="hover:text-indigo-500 transition">CreatorKit Studio</a>
             <i class="fa-solid fa-chevron-right text-[10px]"></i>
-            <a href="../index.html" class="hover:text-indigo-500 transition">Tools Directory</a>
+            <a href="../" class="hover:text-indigo-500 transition">Tools Directory</a>
             <i class="fa-solid fa-chevron-right text-[10px]"></i>
-            <span class="text-slate-800 dark:text-slate-200 font-semibold">SRT & VTT Subtitle Caption Cleaner</span>
+            <span class="text-slate-800 dark:text-slate-200 font-semibold">SRT Caption Cleaner</span>
         </nav>
 
         <!-- Header Banner Ad Placeholder -->
@@ -172,10 +176,10 @@
         <!-- Tool Header -->
         <div class="space-y-2">
             <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 border border-indigo-200/60 dark:border-indigo-800/40">
-                <i class="fa-solid fa-closed-captioning"></i> Video Repurposing & Transcript Tool
+                <i class="fa-solid fa-closed-captioning"></i> SRT Caption Cleaner
             </div>
-            <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">SRT & VTT Subtitle Caption Cleaner</h1>
-            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">Convert raw .SRT and WebVTT subtitle files into clean, readable blog text. Strips timecode timestamps (00:00:00,000 --> 00:00:00,000), sequence line counters, and HTML formatting tags in seconds.</p>
+            <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">SRT Caption Cleaner</h1>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">Convert raw .SRT and WebVTT subtitle files into clean, readable text. Automatically strips timestamps (00:00:00,000 --> 00:00:00,000), sequence numbers, and formatting tags directly in your browser.</p>
         </div>
 
         <!-- Interactive Tool Card -->
@@ -218,13 +222,13 @@
                 <div class="space-y-2">
                     <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Step-by-Step Instructions:</h3>
                     <ol class="list-decimal pl-5 text-xs text-slate-600 dark:text-slate-300 space-y-1.5 leading-relaxed">
-                        <li>Export the `.srt` or `.vtt` caption file from your video editor (Premiere, Final Cut, CapCut, or YouTube Studio).</li><li>Paste the raw subtitle text into the left input workspace.</li><li>The client-side regex engine instantly strips timestamp headers and sequence counters, assembling spoken dialogue into clean paragraphs.</li><li>Click <strong>Copy Transcript</strong> to transfer the sanitized text into your CMS, Google Docs, or newsletter editor.</li>
+                        <li>Copy the raw `.srt` or `.vtt` text from your subtitle file or video editor.</li><li>Paste the text into the left input area.</li><li>The tool instantly strips timestamps, sequence counters, and styling tags, outputting clean text on the right.</li><li>Click <strong>Copy Transcript</strong> to copy the cleaned text to your clipboard.</li>
                     </ol>
                 </div>
                 <div class="space-y-2">
-                    <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Pro Tips & Best Practices:</h3>
+                    <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Practical Tips & Guidelines:</h3>
                     <ul class="list-disc pl-5 text-xs text-slate-600 dark:text-slate-300 space-y-1.5 leading-relaxed">
-                        <li>Repurposing spoken YouTube video transcripts into written blog posts can double organic Google search traffic from the same content.</li><li>Pair this tool with our AI Cliché Cleaner to polish informal spoken dialogue into formal editorial copy.</li>
+                        <li>Clean and standardize subtitle files to help keep your captions organized and consistent for blog articles and show notes.</li><li>Use this tool to convert spoken video transcripts into readable outlines or newsletter drafts.</li>
                     </ul>
                 </div>
             </div>
@@ -240,18 +244,19 @@
 
         <!-- Deep Educational Guide Article (400+ words) -->
         <article class="prose prose-slate dark:prose-invert max-w-none bg-white dark:bg-dark-surface p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-dark-border shadow-sm space-y-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-            <h2 class="text-xl font-bold text-slate-900 dark:text-white">Overview & Architecture: SRT & VTT Subtitle Caption Cleaner</h2>
+            <h2 class="text-xl font-bold text-slate-900 dark:text-white">Overview & User Guide: SRT Caption Cleaner</h2>
             
-            <h3>Repurposing Video Subtitles into SEO-Friendly Blog Articles</h3>
-            <p>Video transcripts from YouTube, Descript, Premiere Pro, and CapCut are rich with spoken keywords and expert commentary. However, raw caption exports contain thousands of timestamp lines (<code>00:01:23,450 --> 00:01:26,800</code>) and sequence numbers that make direct reading impossible.</p>
-            <p>CreatorKit Studio's SRT Cleaner sanitizes multi-gigabyte subtitle files in milliseconds inside your browser memory, extracting continuous prose that can be repurposed into blog articles, newsletter summaries, and show notes.</p>
+            <h3>Converting Video Subtitles into Clean Transcripts</h3>
+            <p>Video subtitle files exported from editing tools and platforms (such as YouTube, Premiere Pro, Final Cut, and CapCut) contain timestamp lines and numeric counters on every line. Reading or reusing raw subtitle text requires stripping these formatting headers.</p>
+            <p>CreatorKit Studio's <strong>SRT Caption Cleaner</strong> processes subtitle text locally in your browser without uploading your file to a server. It automatically removes timecodes and line numbers, leaving you with clean, continuous text suitable for articles, notes, and documentation.</p>
+            <p>Once your transcript is cleaned, you can generate search-ready titles and snippet descriptions using our <a href="../seo-meta-generator/" class="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">SEO Meta & SERP Generator</a>.</p>
         
             
             <div class="mt-6 p-4 rounded-xl bg-indigo-50/50 dark:bg-indigo-950/30 border border-indigo-100 dark:border-indigo-900/40">
                 <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-1">
                     <i class="fa-solid fa-shield-halved"></i> 100% Client-Side Privacy Guarantee
                 </h4>
-                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">All subtitle parsing occurs 100% inside your local browser sandbox. No video scripts or transcripts are uploaded or stored remotely.</p>
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">Processes subtitle text locally in your browser without uploading your file to a server. Your transcript data remains completely private.</p>
             </div>
         </article>
 
@@ -263,20 +268,20 @@
             <div class="space-y-3">
                 <details class="group bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-dark-border rounded-xl p-4 transition [&_summary::-webkit-details-marker]:hidden" open>
             <summary class="flex items-center justify-between cursor-pointer font-semibold text-xs md:text-sm text-slate-900 dark:text-white">
-                <span>Does this tool delete any spoken words from my video?</span>
+                <span>Does this tool remove any spoken dialogue?</span>
                 <span class="ml-2 text-slate-400 group-open:rotate-180 transition-transform">
                     <i class="fa-solid fa-chevron-down text-xs"></i>
                 </span>
             </summary>
-            <p class="mt-3 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">No. The regex filter exclusively strips timestamp lines and numeric sequence counters, preserving 100% of your spoken words.</p>
+            <p class="mt-3 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">No. The cleaner only removes timestamp headers and line counters, keeping all your spoken words intact.</p>
         </details><details class="group bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-dark-border rounded-xl p-4 transition [&_summary::-webkit-details-marker]:hidden" >
             <summary class="flex items-center justify-between cursor-pointer font-semibold text-xs md:text-sm text-slate-900 dark:text-white">
-                <span>Does it support both .SRT and WebVTT (.VTT) formats?</span>
+                <span>Does it support both .SRT and .VTT files?</span>
                 <span class="ml-2 text-slate-400 group-open:rotate-180 transition-transform">
                     <i class="fa-solid fa-chevron-down text-xs"></i>
                 </span>
             </summary>
-            <p class="mt-3 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Yes. The parsing engine automatically handles both comma-separated (.SRT) and dot-separated (.VTT) timestamp formats.</p>
+            <p class="mt-3 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Yes. It handles both standard SubRip (.srt) and WebVTT (.vtt) timestamp formats.</p>
         </details>
             </div>
         </section>
@@ -286,19 +291,19 @@
             <h2 class="text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                 Explore More Free Standalone Creator Utilities:
             </h2>
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                <a href="../image-resizer/index.html" class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-dark-border hover:border-indigo-500 transition flex items-center gap-2.5 text-xs font-semibold text-slate-800 dark:text-slate-200 group">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                <a href="../image-resizer/" class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-dark-border hover:border-indigo-500 transition flex items-center gap-2.5 text-xs font-semibold text-slate-800 dark:text-slate-200 group">
             <i class="fa-solid fa-image text-indigo-500 group-hover:scale-110 transition-transform"></i>
-            <span>Media Scaling Tool</span>
-        </a><a href="../hashtag-generator/index.html" class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-dark-border hover:border-indigo-500 transition flex items-center gap-2.5 text-xs font-semibold text-slate-800 dark:text-slate-200 group">
+            <span>Free Online Image Resizer</span>
+        </a><a href="../hashtag-generator/" class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-dark-border hover:border-indigo-500 transition flex items-center gap-2.5 text-xs font-semibold text-slate-800 dark:text-slate-200 group">
             <i class="fa-solid fa-tags text-indigo-500 group-hover:scale-110 transition-transform"></i>
-            <span>Social Discovery Tool</span>
-        </a><a href="../teleprompter/index.html" class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-dark-border hover:border-indigo-500 transition flex items-center gap-2.5 text-xs font-semibold text-slate-800 dark:text-slate-200 group">
+            <span>Free Hashtag Generator</span>
+        </a><a href="../teleprompter/" class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-dark-border hover:border-indigo-500 transition flex items-center gap-2.5 text-xs font-semibold text-slate-800 dark:text-slate-200 group">
             <i class="fa-solid fa-chalkboard-user text-indigo-500 group-hover:scale-110 transition-transform"></i>
-            <span>Video Presentation Tool</span>
-        </a><a href="../seo-meta-generator/index.html" class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-dark-border hover:border-indigo-500 transition flex items-center gap-2.5 text-xs font-semibold text-slate-800 dark:text-slate-200 group">
+            <span>Online Teleprompter</span>
+        </a><a href="../seo-meta-generator/" class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-dark-border hover:border-indigo-500 transition flex items-center gap-2.5 text-xs font-semibold text-slate-800 dark:text-slate-200 group">
             <i class="fa-solid fa-magnifying-glass-chart text-indigo-500 group-hover:scale-110 transition-transform"></i>
-            <span>On-Page SEO Tool</span>
+            <span>SEO Meta & SERP Generator</span>
         </a>
             </div>
         </section>
@@ -313,7 +318,7 @@
             </div>
             <div class="flex items-center gap-5 font-medium">
                 <a href="../../index.html#all" class="hover:text-indigo-500">All Tools</a>
-                <a href="../index.html" class="hover:text-indigo-500">Tools Directory</a>
+                <a href="../" class="hover:text-indigo-500">Tools Directory</a>
                 <a href="../../index.html#blogger" class="hover:text-indigo-500">Blogger Suite</a>
                 <a href="../../index.html#creator" class="hover:text-indigo-500">Creator Suite</a>
             </div>
@@ -348,12 +353,18 @@
             function cleanSrt(raw) {
                 if (!raw) return '';
                 return raw
-                    .replace(/^WEBVTT[^\n]*\n+/i, '')
-                    .replace(/\d{1,2}:\d{2}:\d{2}[,\.]\d{3}\s*-->\s*\d{1,2}:\d{2}:\d{2}[,\.]\d{3}[^\n]*/g, '')
+                    .replace(/^WEBVTT[^
+]*
++/i, '')
+                    .replace(/\d{1,2}:\d{2}:\d{2}[,\.]\d{3}\s*-->\s*\d{1,2}:\d{2}:\d{2}[,\.]\d{3}[^
+]*/g, '')
                     .replace(/^\s*\d+\s*$/gm, '')
                     .replace(/<\/?[^>]+(>|$)/g, '')
                     .replace(/\{[^\}]+\}/g, '')
-                    .split(/\r?\n/).map(l => l.trim()).filter(Boolean).join('\n\n');
+                    .split(/?
+/).map(l => l.trim()).filter(Boolean).join('
+
+');
             }
 
             input.addEventListener('input', () => {

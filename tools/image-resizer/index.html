@@ -13,9 +13,9 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Online Image Resizer & Scaler (100% In-Browser Private Canvas)</title>
+    <title>Free Online Image Resizer – Resize JPG, PNG & WebP | CreatorKit Studio</title>
     <meta name="description" content="Resize, scale, and compress images directly in your browser using HTML5 Canvas. YouTube thumbnail (1280x720), Instagram, and Twitter presets. Zero server uploads.">
-    <meta name="keywords" content="image resizer online, HTML5 canvas photo scaler, resize youtube thumbnail, private photo compressor, in browser photo resize no upload">
+    <meta name="keywords" content="free online image resizer, resize image online, resize JPG, resize PNG, resize WebP, browser-based image resizer, client-side image resizing, youtube thumbnail resizer">
     <meta name="author" content="CreatorKit Studio">
     <meta name="robots" content="index, follow">
     <meta name="google-site-verification" content="WM4c52x0WOHkjYTAqQMRLdBSMGOo3aG7IoGemVJVte8" />
@@ -33,7 +33,7 @@
 
     <!-- Open Graph / Meta -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Free Online Image Resizer & Scaler (100% In-Browser Private Canvas)">
+    <meta property="og:title" content="Free Online Image Resizer – Resize JPG, PNG & WebP | CreatorKit Studio">
     <meta property="og:description" content="Resize, scale, and compress images directly in your browser using HTML5 Canvas. YouTube thumbnail (1280x720), Instagram, and Twitter presets. Zero server uploads.">
     <meta property="og:url" content="https://www.creatorkitstudio.pro/tools/image-resizer/">
 
@@ -49,7 +49,7 @@
   "@graph": [
     {
       "@type": "WebApplication",
-      "name": "Free Online Image Resizer & Scaler (100% In-Browser Private Canvas)",
+      "name": "Free Online Image Resizer \u2013 Resize JPG, PNG & WebP | CreatorKit Studio",
       "url": "https://www.creatorkitstudio.pro/tools/image-resizer/",
       "description": "Resize, scale, and compress images directly in your browser using HTML5 Canvas. YouTube thumbnail (1280x720), Instagram, and Twitter presets. Zero server uploads.",
       "applicationCategory": "UtilitiesApplication",
@@ -66,26 +66,26 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What is the best resolution for a YouTube video thumbnail?",
+          "name": "What formats does this image resizer support?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "YouTube officially recommends 1280\u00d7720 pixels with a 16:9 aspect ratio and a minimum width of 640 pixels, formatted as PNG or JPG."
+            "text": "The resizer supports standard web formats including PNG, JPG, WebP, GIF, and SVG."
           }
         },
         {
           "@type": "Question",
-          "name": "Are my images uploaded to any remote server or cloud database?",
+          "name": "Are my photos uploaded to a server?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. All resizing operations execute entirely on your device using client-side JavaScript and the HTML5 Canvas API. Your images never leave your browser."
+            "text": "No. Images are processed entirely in your web browser using HTML5 Canvas. No image data is sent to external servers."
           }
         },
         {
           "@type": "Question",
-          "name": "Will resizing an image reduce its visual quality?",
+          "name": "What is the recommended size for YouTube thumbnails?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Our Canvas bilinear interpolation algorithm maintains crisp image clarity during downscaling and proportional scaling, ensuring your graphics remain sharp."
+            "text": "YouTube recommends 1280\u00d7720 pixels with a 16:9 aspect ratio and a minimum width of 640 pixels."
           }
         }
       ]
@@ -103,17 +103,21 @@
                 extend: {
                     colors: {
                         brand: { 50: '#eef2ff', 100: '#e0e7ff', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca' },
-                        dark: { bg: '#0f172a', surface: '#1e293b', border: '#334155', text: '#f8fafc', muted: '#94a3b8' }
+                        dark: { bg: '#0b0f19', surface: '#111827', border: '#1f2937', text: '#f3f4f6' }
                     }
                 }
             }
-        }
+        };
     </script>
 
     <!-- FontAwesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../style.css?v=2.2.0">
+    <link rel="stylesheet" href="../../style.css?v=2.3.0">
 </head>
 <body class="bg-slate-50 dark:bg-dark-bg text-slate-900 dark:text-dark-text antialiased min-h-screen flex flex-col font-['Inter',sans-serif]">
 
@@ -134,7 +138,7 @@
 
             <!-- Header Navigation -->
             <nav class="hidden md:flex items-center gap-4 text-xs font-semibold">
-                <a href="../index.html" class="px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center gap-1.5">
+                <a href="../" class="px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center gap-1.5">
                     <i class="fa-solid fa-layer-group text-indigo-500"></i> Tools Directory
                 </a>
                 <a href="../../index.html#blogger" class="px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center gap-1.5">
@@ -164,9 +168,9 @@
         <nav class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
             <a href="../../index.html" class="hover:text-indigo-500 transition">CreatorKit Studio</a>
             <i class="fa-solid fa-chevron-right text-[10px]"></i>
-            <a href="../index.html" class="hover:text-indigo-500 transition">Tools Directory</a>
+            <a href="../" class="hover:text-indigo-500 transition">Tools Directory</a>
             <i class="fa-solid fa-chevron-right text-[10px]"></i>
-            <span class="text-slate-800 dark:text-slate-200 font-semibold">Browser Image Resizer & Scaler</span>
+            <span class="text-slate-800 dark:text-slate-200 font-semibold">Free Online Image Resizer</span>
         </nav>
 
         <!-- Header Banner Ad Placeholder -->
@@ -180,10 +184,10 @@
         <!-- Tool Header -->
         <div class="space-y-2">
             <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 border border-indigo-200/60 dark:border-indigo-800/40">
-                <i class="fa-solid fa-image"></i> Media Scaling & Canvas Tool
+                <i class="fa-solid fa-image"></i> Free Online Image Resizer
             </div>
-            <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">Browser Image Resizer & Scaler (100% Private Canvas)</h1>
-            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">Resize, scale, crop, and convert image files directly inside your web browser using the HTML5 Canvas 2D rendering pipeline. Includes one-click aspect ratio presets for YouTube thumbnails (1280×720), Instagram square (1080×1080), Story/Reels (1080×1920), and Twitter/X header graphics. Zero server uploads ensure complete privacy.</p>
+            <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">Free Online Image Resizer</h1>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">Resize, scale, and convert image files directly in your browser using HTML5 Canvas. Includes one-click aspect ratio presets for YouTube thumbnails (1280×720), Instagram square (1080×1080), Story/Reels (1080×1920), and Twitter graphics. Fast, 100% private, with zero server uploads.</p>
         </div>
 
         <!-- Interactive Tool Card -->
@@ -273,13 +277,13 @@
                 <div class="space-y-2">
                     <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Step-by-Step Instructions:</h3>
                     <ol class="list-decimal pl-5 text-xs text-slate-600 dark:text-slate-300 space-y-1.5 leading-relaxed">
-                        <li>Upload any image file (PNG, JPG, WebP, GIF, or SVG) by clicking the upload dropzone or dragging a file from your desktop.</li><li>Select one of the pre-configured social media preset dimensions (YouTube 1280×720, Instagram Square 1080×1080, TikTok/Reels 1080×1920, Twitter 1200×675) or enter custom width and height values.</li><li>Toggle the 'Lock Aspect Ratio' checkbox to prevent image distortion when scaling custom dimensions.</li><li>Click <strong>Download Scaled Image</strong> to immediately save your processed, high-resolution PNG file to your downloads folder.</li>
+                        <li>Upload an image file (PNG, JPG, WebP, GIF, or SVG) by clicking the upload area or dragging a file from your desktop.</li><li>Select a preset dimension (YouTube 1280×720, Instagram 1080×1080, TikTok/Reels 1080×1920, Twitter 1200×675) or type custom pixel dimensions.</li><li>Keep 'Lock Aspect Ratio' checked to scale proportionally without distorting image proportions.</li><li>Click <strong>Download Scaled Image</strong> to save your resized image directly to your device.</li>
                     </ol>
                 </div>
                 <div class="space-y-2">
-                    <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Pro Tips & Best Practices:</h3>
+                    <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Practical Tips & Guidelines:</h3>
                     <ul class="list-disc pl-5 text-xs text-slate-600 dark:text-slate-300 space-y-1.5 leading-relaxed">
-                        <li>Always design YouTube thumbnails at 1280×720 pixels (16:9 aspect ratio) with high visual contrast to maximize organic click-through rates.</li><li>Keep the aspect ratio lock enabled when resizing portraits or product photography to avoid unnatural stretching.</li><li>Because processing occurs in local memory, you can resize heavy high-resolution images (4K/8K) with zero upload latency or bandwidth usage.</li>
+                        <li>For YouTube video thumbnails, 1280×720 pixels (16:9 aspect ratio) is the standard recommended dimension.</li><li>Keep the aspect ratio locked when resizing portraits or product photography to avoid unnatural stretching.</li><li>Because images are processed locally in your browser, you can scale high-resolution files without uploading delays or server wait times.</li>
                     </ul>
                 </div>
             </div>
@@ -295,18 +299,19 @@
 
         <!-- Deep Educational Guide Article (400+ words) -->
         <article class="prose prose-slate dark:prose-invert max-w-none bg-white dark:bg-dark-surface p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-dark-border shadow-sm space-y-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-            <h2 class="text-xl font-bold text-slate-900 dark:text-white">Overview & Architecture: Browser Image Resizer & Scaler</h2>
+            <h2 class="text-xl font-bold text-slate-900 dark:text-white">Overview & User Guide: Free Online Image Resizer</h2>
             
-            <h3>Why Client-Side Image Resizing Matters for Creators</h3>
-            <p>Content creators, YouTubers, and social media managers frequently need to adapt visual assets into platform-specific dimensions: 16:9 for YouTube video thumbnails, 1:1 for Instagram profile grids, 9:16 for vertical TikTok and Reels videos, and 1200×675 for Twitter header banners. However, using online cloud converters means uploading confidential thumbnails, brand graphics, and unreleased video assets to third-party web servers.</p>
-            <p>CreatorKit Studio's Image Resizer runs entirely inside your web browser using the <strong>HTML5 Canvas 2D Context API</strong>. Pixels are rendered, resampled, and scaled locally utilizing your device's CPU/GPU. Your files never leave your computer or smartphone.</p>
+            <h3>Client-Side Image Resizing for Creators & Bloggers</h3>
+            <p>Content creators, bloggers, and social media managers frequently need to adapt visual assets into platform-specific dimensions: 16:9 for YouTube thumbnails, 1:1 for Instagram grids, 9:16 for vertical TikTok and Reels videos, and standard landscape graphics for Twitter banners and blog headers.</p>
+            <p>CreatorKit Studio's <strong>Free Online Image Resizer</strong> processes images locally in your browser using HTML5 Canvas. Your images do not need to be uploaded to a server, ensuring complete privacy for unreleased thumbnails and proprietary graphics.</p>
+            <p>When preparing visual assets for your website, you can also craft search-optimized titles and snippets with our <a href="../seo-meta-generator/" class="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">SEO Meta & SERP Generator</a>.</p>
         
             
             <div class="mt-6 p-4 rounded-xl bg-indigo-50/50 dark:bg-indigo-950/30 border border-indigo-100 dark:border-indigo-900/40">
                 <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-1">
                     <i class="fa-solid fa-shield-halved"></i> 100% Client-Side Privacy Guarantee
                 </h4>
-                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">All image scaling, rasterization, and compression routines execute 100% inside your local web browser sandbox. No image data is transmitted across the network, stored in cloud databases, or viewed by third parties.</p>
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">Images are processed locally in your browser using HTML5 Canvas. Your images do not need to be uploaded to a server, ensuring your graphics remain 100% private.</p>
             </div>
         </article>
 
@@ -318,28 +323,28 @@
             <div class="space-y-3">
                 <details class="group bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-dark-border rounded-xl p-4 transition [&_summary::-webkit-details-marker]:hidden" open>
             <summary class="flex items-center justify-between cursor-pointer font-semibold text-xs md:text-sm text-slate-900 dark:text-white">
-                <span>What is the best resolution for a YouTube video thumbnail?</span>
+                <span>What formats does this image resizer support?</span>
                 <span class="ml-2 text-slate-400 group-open:rotate-180 transition-transform">
                     <i class="fa-solid fa-chevron-down text-xs"></i>
                 </span>
             </summary>
-            <p class="mt-3 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">YouTube officially recommends 1280×720 pixels with a 16:9 aspect ratio and a minimum width of 640 pixels, formatted as PNG or JPG.</p>
+            <p class="mt-3 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">The resizer supports standard web formats including PNG, JPG, WebP, GIF, and SVG.</p>
         </details><details class="group bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-dark-border rounded-xl p-4 transition [&_summary::-webkit-details-marker]:hidden" >
             <summary class="flex items-center justify-between cursor-pointer font-semibold text-xs md:text-sm text-slate-900 dark:text-white">
-                <span>Are my images uploaded to any remote server or cloud database?</span>
+                <span>Are my photos uploaded to a server?</span>
                 <span class="ml-2 text-slate-400 group-open:rotate-180 transition-transform">
                     <i class="fa-solid fa-chevron-down text-xs"></i>
                 </span>
             </summary>
-            <p class="mt-3 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">No. All resizing operations execute entirely on your device using client-side JavaScript and the HTML5 Canvas API. Your images never leave your browser.</p>
+            <p class="mt-3 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">No. Images are processed entirely in your web browser using HTML5 Canvas. No image data is sent to external servers.</p>
         </details><details class="group bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-dark-border rounded-xl p-4 transition [&_summary::-webkit-details-marker]:hidden" >
             <summary class="flex items-center justify-between cursor-pointer font-semibold text-xs md:text-sm text-slate-900 dark:text-white">
-                <span>Will resizing an image reduce its visual quality?</span>
+                <span>What is the recommended size for YouTube thumbnails?</span>
                 <span class="ml-2 text-slate-400 group-open:rotate-180 transition-transform">
                     <i class="fa-solid fa-chevron-down text-xs"></i>
                 </span>
             </summary>
-            <p class="mt-3 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Our Canvas bilinear interpolation algorithm maintains crisp image clarity during downscaling and proportional scaling, ensuring your graphics remain sharp.</p>
+            <p class="mt-3 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">YouTube recommends 1280×720 pixels with a 16:9 aspect ratio and a minimum width of 640 pixels.</p>
         </details>
             </div>
         </section>
@@ -349,19 +354,19 @@
             <h2 class="text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                 Explore More Free Standalone Creator Utilities:
             </h2>
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                <a href="../hashtag-generator/index.html" class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-dark-border hover:border-indigo-500 transition flex items-center gap-2.5 text-xs font-semibold text-slate-800 dark:text-slate-200 group">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                <a href="../hashtag-generator/" class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-dark-border hover:border-indigo-500 transition flex items-center gap-2.5 text-xs font-semibold text-slate-800 dark:text-slate-200 group">
             <i class="fa-solid fa-tags text-indigo-500 group-hover:scale-110 transition-transform"></i>
-            <span>Social Discovery Tool</span>
-        </a><a href="../teleprompter/index.html" class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-dark-border hover:border-indigo-500 transition flex items-center gap-2.5 text-xs font-semibold text-slate-800 dark:text-slate-200 group">
+            <span>Free Hashtag Generator</span>
+        </a><a href="../teleprompter/" class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-dark-border hover:border-indigo-500 transition flex items-center gap-2.5 text-xs font-semibold text-slate-800 dark:text-slate-200 group">
             <i class="fa-solid fa-chalkboard-user text-indigo-500 group-hover:scale-110 transition-transform"></i>
-            <span>Video Presentation Tool</span>
-        </a><a href="../srt-caption-cleaner/index.html" class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-dark-border hover:border-indigo-500 transition flex items-center gap-2.5 text-xs font-semibold text-slate-800 dark:text-slate-200 group">
+            <span>Online Teleprompter</span>
+        </a><a href="../srt-caption-cleaner/" class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-dark-border hover:border-indigo-500 transition flex items-center gap-2.5 text-xs font-semibold text-slate-800 dark:text-slate-200 group">
             <i class="fa-solid fa-closed-captioning text-indigo-500 group-hover:scale-110 transition-transform"></i>
-            <span>Video Repurposing Tool</span>
-        </a><a href="../seo-meta-generator/index.html" class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-dark-border hover:border-indigo-500 transition flex items-center gap-2.5 text-xs font-semibold text-slate-800 dark:text-slate-200 group">
+            <span>SRT Caption Cleaner</span>
+        </a><a href="../seo-meta-generator/" class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-dark-border hover:border-indigo-500 transition flex items-center gap-2.5 text-xs font-semibold text-slate-800 dark:text-slate-200 group">
             <i class="fa-solid fa-magnifying-glass-chart text-indigo-500 group-hover:scale-110 transition-transform"></i>
-            <span>On-Page SEO Tool</span>
+            <span>SEO Meta & SERP Generator</span>
         </a>
             </div>
         </section>
@@ -376,7 +381,7 @@
             </div>
             <div class="flex items-center gap-5 font-medium">
                 <a href="../../index.html#all" class="hover:text-indigo-500">All Tools</a>
-                <a href="../index.html" class="hover:text-indigo-500">Tools Directory</a>
+                <a href="../" class="hover:text-indigo-500">Tools Directory</a>
                 <a href="../../index.html#blogger" class="hover:text-indigo-500">Blogger Suite</a>
                 <a href="../../index.html#creator" class="hover:text-indigo-500">Creator Suite</a>
             </div>
