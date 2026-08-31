@@ -588,12 +588,12 @@ TOOLS_PHASE1 = [
             function cleanSrt(raw) {
                 if (!raw) return '';
                 return raw
-                    .replace(/^WEBVTT[^\n]*\n+/i, '')
-                    .replace(/\d{1,2}:\d{2}:\d{2}[,\.]\d{3}\s*-->\s*\d{1,2}:\d{2}:\d{2}[,\.]\d{3}[^\n]*/g, '')
-                    .replace(/^\s*\d+\s*$/gm, '')
-                    .replace(/<\/?[^>]+(>|$)/g, '')
-                    .replace(/\{[^\}]+\}/g, '')
-                    .split(/\r?\n/).map(l => l.trim()).filter(Boolean).join('\n\n');
+                    .replace(/^WEBVTT[^\\r\\n]*[\\r\\n]+/i, '')
+                    .replace(/\\d{1,2}:\\d{2}:\\d{2}[,\.]\\d{3}\\s*-->\\s*\\d{1,2}:\\d{2}:\\d{2}[,\.]\\d{3}[^\\r\\n]*/g, '')
+                    .replace(/^\\s*\\d+\\s*$/gm, '')
+                    .replace(/<\\/?[^>]+(>|$)/g, '')
+                    .replace(/\\{[^\\}]+\\}/g, '')
+                    .split(/([\\r\\n]+)/).map(l => l.trim()).filter(Boolean).join('\\n\\n');
             }
 
             input.addEventListener('input', () => {
@@ -695,7 +695,7 @@ TOOLS_PHASE1 = [
             const copyBtn = document.getElementById('copyMetaBtn');
 
             function process() {
-                const val = input.value.trim().replace(/[\r\n]+/g, ' ');
+                const val = input.value.trim().replace(/[\\r\\n]+/g, ' ');
                 if (!val) {
                     serpTitle.textContent = 'Your SEO Page Title Appears Here';
                     serpDesc.textContent = 'Your compelling meta description snippet will appear here within optimal search engine pixel boundaries.';

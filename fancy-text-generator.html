@@ -198,6 +198,33 @@
                 </div>
             </div>
 
+                        <!-- Unicode Font Style Selector Bar -->
+            <div class="space-y-2 pb-2">
+                <span class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+                    <i class="fa-solid fa-wand-magic-sparkles text-indigo-500"></i> Select Unicode Font Style:
+                </span>
+                <div class="flex flex-wrap gap-2" id="fancyStyleButtons">
+                    <button type="button" data-style="bold-sans" class="fancy-style-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white shadow-sm transition active:scale-95">
+                        Bold Sans (𝗖𝗿𝗲𝗮𝘁𝗼𝗿)
+                    </button>
+                    <button type="button" data-style="bold-serif" class="fancy-style-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 transition active:scale-95">
+                        Bold Serif (𝐂𝐫𝐞𝐚𝐭𝐨𝐫)
+                    </button>
+                    <button type="button" data-style="italic" class="fancy-style-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 transition active:scale-95">
+                        Italic (𝘊𝘳𝘦𝘢𝘵𝘰𝘳)
+                    </button>
+                    <button type="button" data-style="bubble" class="fancy-style-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 transition active:scale-95">
+                        Bubble (Ⓒⓡⓔⓐⓣⓞⓡ)
+                    </button>
+                    <button type="button" data-style="monospace" class="fancy-style-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 transition active:scale-95">
+                        Monospace (𝙲𝚛𝚎𝚊𝚝𝚘𝚛)
+                    </button>
+                    <button type="button" data-style="gothic" class="fancy-style-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 transition active:scale-95">
+                        Gothic (ℭ𝔯𝔢𝔞𝔱𝔬𝔯)
+                    </button>
+                </div>
+            </div>
+
             <!-- Input / Output Grid -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
                 
@@ -330,17 +357,54 @@
 
     <!-- Dedicated Tool Script -->
     <script>
-        function transform(input) {
+        const UNICODE_FONTS = {
+            'bold-sans': {
+                name: 'Bold Sans',
+                chars: '𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘃𝘄𝘅𝘆𝘇𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭0123456789',
+                digits: '𝟬𝟭𝟮𝟯𝟰𝟱𝟲𝟳𝟴𝟵'
+            },
+            'bold-serif': {
+                name: 'Bold Serif',
+                chars: '𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐙0123456789',
+                digits: '𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗'
+            },
+            'italic': {
+                name: 'Italic',
+                chars: '𝘢𝘣𝘤𝘥𝘦𝗳𝘨𝘩𝘪𝘫𝘬𝘭𝘮𝘯𝘰𝘱𝘲𝘳𝘴𝘵𝘶𝘃𝘸𝘹𝘺𝘻𝘈𝘉𝘊𝘋𝘌𝘍𝘎𝘏𝘐𝘑𝘒𝘓𝘔𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝𝘞𝘟𝘠𝘡0123456789',
+                digits: '0123456789'
+            },
+            'bubble': {
+                name: 'Bubble',
+                chars: 'ⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏ0①②③④⑤⑥⑦⑧⑨',
+                digits: '⓪①②③④⑤⑥⑦⑧⑨'
+            },
+            'monospace': {
+                name: 'Monospace',
+                chars: '𝚊𝚋𝚌𝚍𝚎𝚏𝚐𝚑𝚒𝚓𝚔𝚕ⓜⓝⓞ𝚙𝚚𝚛𝚜𝚝𝚞𝚟𝚠𝚡𝚢𝚣𝙰𝙱𝙲𝙳𝙴𝙵𝙶𝙷𝙸𝙹𝙺𝙻𝙼𝙽𝙾𝙿𝚀𝚁𝚂𝚃𝚄𝚅𝚆𝚇𝚈𝚉0123456789',
+                digits: '𝟶𝟷𝟸𝟹𝟺𝟻𝟼𝟽𝟾𝟿'
+            },
+            'gothic': {
+                name: 'Gothic',
+                chars: '𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ0123456789',
+                digits: '0123456789'
+            }
+        };
+        const PLAIN_ALPHABET = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+
+        let currentStyle = 'bold-sans';
+
+        function transform(input, style) {
             if (!input) return '';
-            const chars = {
-                'a': '𝗮', 'b': '𝗯', 'c': '𝗰', 'd': '𝗱', 'e': '𝗲', 'f': '𝗳', 'g': '𝗴', 'h': '𝗵', 'i': '𝗶',
-                'j': '𝗷', 'k': '𝗸', 'l': '𝗹', 'm': '𝗺', 'n': '𝗻', 'o': '𝗼', 'p': '𝗽', 'q': '𝗾', 'r': '𝗿',
-                's': '𝘀', 't': '𝘁', 'u': '𝘂', 'v': '𝘃', 'w': '𝘄', 'x': '𝘅', 'y': '𝘆', 'z': '𝘇',
-                'A': '𝗔', 'B': '𝗕', 'C': '𝗖', 'D': '𝗗', 'E': '𝗘', 'F': '𝗙', 'G': '𝗚', 'H': '𝗛', 'I': '𝗜',
-                'J': '𝗝', 'K': '𝗞', 'L': '𝗟', 'M': '𝗠', 'N': '𝗡', 'O': '𝗢', 'P': '𝗣', 'Q': '𝗤', 'R': '𝗥',
-                'S': '𝗦', 'T': '𝗧', 'U': '𝗨', 'V': '𝗩', 'W': '𝗪', 'X': '𝗫', 'Y': '𝗬', 'Z': '𝗭'
-            };
-            return input.split('').map(c => chars[c] || c).join('');
+            const fontMap = UNICODE_FONTS[style || currentStyle] || UNICODE_FONTS['bold-sans'];
+            const fontChars = Array.from(fontMap.chars);
+            const plainChars = Array.from(PLAIN_ALPHABET);
+
+            let result = '';
+            for (const char of input) {
+                const index = plainChars.indexOf(char);
+                result += (index !== -1 && fontChars[index]) ? fontChars[index] : char;
+            }
+            return result;
         }
 
         const inputEl = document.getElementById('toolInput');
@@ -368,13 +432,29 @@
         function process() {
             const val = inputEl.value;
             updateAnalytics(val);
-            outputEl.value = transform(val);
+            outputEl.value = transform(val, currentStyle);
         }
 
         inputEl.addEventListener('input', process);
         clearBtn.addEventListener('click', () => {
             inputEl.value = '';
             process();
+        });
+
+        // Style Selector Buttons
+        const styleBtns = document.querySelectorAll('.fancy-style-btn');
+        styleBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                currentStyle = btn.dataset.style;
+                styleBtns.forEach(b => {
+                    if (b.dataset.style === currentStyle) {
+                        b.className = 'fancy-style-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white shadow-sm transition active:scale-95';
+                    } else {
+                        b.className = 'fancy-style-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 transition active:scale-95';
+                    }
+                });
+                process();
+            });
         });
 
         copyBtn.addEventListener('click', async () => {

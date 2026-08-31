@@ -370,8 +370,7 @@
             const copyBtn = document.getElementById('copyMetaBtn');
 
             function process() {
-                const val = input.value.trim().replace(/[
-]+/g, ' ');
+                const val = input.value.trim().replace(/[\r\n]+/g, ' ');
                 if (!val) {
                     serpTitle.textContent = 'Your SEO Page Title Appears Here';
                     serpDesc.textContent = 'Your compelling meta description snippet will appear here within optimal search engine pixel boundaries.';

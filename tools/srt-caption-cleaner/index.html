@@ -362,18 +362,12 @@
             function cleanSrt(raw) {
                 if (!raw) return '';
                 return raw
-                    .replace(/^WEBVTT[^
-]*
-+/i, '')
-                    .replace(/\d{1,2}:\d{2}:\d{2}[,\.]\d{3}\s*-->\s*\d{1,2}:\d{2}:\d{2}[,\.]\d{3}[^
-]*/g, '')
+                    .replace(/^WEBVTT[^\r\n]*[\r\n]+/i, '')
+                    .replace(/\d{1,2}:\d{2}:\d{2}[,\.]\d{3}\s*-->\s*\d{1,2}:\d{2}:\d{2}[,\.]\d{3}[^\r\n]*/g, '')
                     .replace(/^\s*\d+\s*$/gm, '')
                     .replace(/<\/?[^>]+(>|$)/g, '')
                     .replace(/\{[^\}]+\}/g, '')
-                    .split(/?
-/).map(l => l.trim()).filter(Boolean).join('
-
-');
+                    .split(/([\r\n]+)/).map(l => l.trim()).filter(Boolean).join('\n\n');
             }
 
             input.addEventListener('input', () => {
