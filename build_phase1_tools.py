@@ -749,6 +749,145 @@ TOOLS_PHASE1 = [
             }
         ]
     }
+,
+    {
+        "dir": "seo-slug-generator",
+        "canonical": "https://www.creatorkitstudio.pro/tools/seo-slug-generator/",
+        "title": "Free SEO Slug Generator – Create Clean, SEO-Friendly URLs | CreatorKit Studio",
+        "meta_desc": "Create clean, readable, SEO-friendly URL slugs from titles or phrases. Convert text into lowercase, hyphen-separated slugs directly in your browser.",
+        "keywords": "SEO slug generator, URL slug generator, SEO friendly URL generator, slug generator, URL slug maker, clean URL generator",
+        "h1": "Free SEO Slug Generator",
+        "badge": "Free SEO Slug Generator",
+        "summary": "Create clean, readable, SEO-friendly URL slugs from titles, headlines, or phrases. Convert text into lowercase, hyphen-separated slugs directly in your browser with zero server uploads.",
+        "icon": "fa-link",
+        "color": "indigo",
+        "custom_ui": """
+            <div class="space-y-6">
+                <!-- Input Section -->
+                <div class="space-y-2">
+                    <label for="slugInput" class="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+                        <i class="fa-solid fa-file-signature text-indigo-500"></i> Page Title / Headline / Target Phrase:
+                    </label>
+                    <div class="relative">
+                        <input type="text" id="slugInput" placeholder="e.g. 10 Best Free Tools for YouTube Creators!" class="w-full p-3.5 pr-16 text-sm bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-dark-border rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-sans transition">
+                        <button type="button" id="clearSlugBtn" class="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-400 hover:text-rose-500 transition px-2 py-1">Clear</button>
+                    </div>
+                </div>
+
+                <!-- Output Section -->
+                <div class="space-y-2">
+                    <div class="flex items-center justify-between">
+                        <label for="slugOutput" class="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+                            <i class="fa-solid fa-link text-indigo-500"></i> Generated Clean URL Slug:
+                        </label>
+                        <button type="button" id="copySlugBtn" class="px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm transition flex items-center gap-1.5 active:scale-95">
+                            <i class="fa-regular fa-copy"></i> Copy Slug
+                        </button>
+                    </div>
+                    <input type="text" id="slugOutput" readonly placeholder="10-best-free-tools-for-youtube-creators" class="w-full p-3.5 text-sm font-mono bg-slate-100/80 dark:bg-slate-900/60 border border-slate-200 dark:border-dark-border rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none transition">
+                </div>
+
+                <!-- Live URL Simulation Box -->
+                <div class="p-4 bg-slate-50 dark:bg-slate-900/60 rounded-xl border border-slate-200 dark:border-dark-border space-y-1.5">
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1">
+                        <i class="fa-solid fa-globe text-indigo-500"></i> Full URL Preview:
+                    </span>
+                    <div class="text-xs font-mono text-slate-600 dark:text-slate-300 break-all">
+                        <span>https://example.com/blog/</span><span id="urlPreviewSlug" class="text-indigo-600 dark:text-indigo-400 font-bold">10-best-free-tools-for-youtube-creators</span>/
+                    </div>
+                </div>
+            </div>
+        """,
+        "custom_script": """
+            const input = document.getElementById('slugInput');
+            const output = document.getElementById('slugOutput');
+            const preview = document.getElementById('urlPreviewSlug');
+            const copyBtn = document.getElementById('copySlugBtn');
+            const clearBtn = document.getElementById('clearSlugBtn');
+
+            function generateSlug(text) {
+                if (!text) return '';
+                return text
+                    .toString()
+                    .normalize('NFD')
+                    .replace(/[\u0300-\u036f]/g, '')
+                    .toLowerCase()
+                    .trim()
+                    .replace(/[^a-z0-9\s-]/g, '')
+                    .replace(/[\s_]+/g, '-')
+                    .replace(/^-+|-+$/g, '');
+            }
+
+            function update() {
+                const val = input.value;
+                const slug = generateSlug(val);
+                output.value = slug;
+                preview.textContent = slug || 'your-slug-here';
+            }
+
+            input.addEventListener('input', update);
+
+            clearBtn.addEventListener('click', () => {
+                input.value = '';
+                update();
+                input.focus();
+            });
+
+            copyBtn.addEventListener('click', async () => {
+                if (!output.value) return;
+                await navigator.clipboard.writeText(output.value);
+                copyBtn.innerHTML = '<i class="fa-solid fa-check text-emerald-400"></i> Copied!';
+                setTimeout(() => {
+                    copyBtn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy Slug';
+                }, 1500);
+            });
+        """,
+        "overview": """
+            <h3>What is a URL Slug?</h3>
+            <p>A URL slug is the readable portion of a web address that identifies a specific page or article (for example, in <code>example.com/blog/seo-slug-generator/</code>, the slug is <code>seo-slug-generator</code>). Slugs help both readers and search engine crawlers understand what content the page contains before opening it.</p>
+            <p>CreatorKit Studio's <strong>Free SEO Slug Generator</strong> automatically formats headlines, article titles, or product names into clean, lowercase, hyphen-separated slugs directly in your web browser. Accents, punctuation marks, and extraneous spaces are sanitized locally with zero server requests.</p>
+            <p>When optimizing your webpage metadata, pair your clean URL slugs with descriptive headlines using our <a href="../seo-meta-generator/" class="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">SEO Meta & SERP Generator</a>.</p>
+        """,
+        "instructions": [
+            "Type or paste your page title, blog headline, or topic phrase into the input field.",
+            "The tool instantly converts the text to lowercase, replaces spaces with hyphens, and removes invalid punctuation.",
+            "Review the simulated web address in the live Full URL Preview container.",
+            "Click <strong>Copy Slug</strong> to transfer the formatted string directly into your CMS permalink editor or HTML router."
+        ],
+        "tips": [
+            "Keep slugs descriptive and reasonably concise so they are easy for human readers to remember and share.",
+            "Use hyphens to separate words rather than underscores or spaces for standard web address readability.",
+            "Avoid keyword stuffing: write clear, readable phrases that accurately reflect the page content rather than long strings of keywords.",
+            "Avoid changing established URLs on live pages whenever possible. If you must change an active URL, set up a 301 redirect from the old URL to the new one to preserve incoming links."
+        ],
+        "privacy": "All slug conversion occurs 100% locally inside your web browser using client-side JavaScript. No headlines, keywords, or text inputs are ever sent to or stored on an external server.",
+        "faqs": [
+            {
+                "q": "What is an SEO slug?",
+                "a": "An SEO slug is the human-readable part of a URL that identifies a specific page on a website, typically formatted in lowercase with hyphens between words."
+            },
+            {
+                "q": "Should URL slugs always be lowercase?",
+                "a": "Yes. While domain names are case-insensitive, URL paths on many web servers can be case-sensitive. Using all lowercase characters avoids broken links and duplicate content issues."
+            },
+            {
+                "q": "Should I use hyphens or underscores in slugs?",
+                "a": "Hyphens are standard for URL slugs because web crawlers and browsers treat hyphens as natural word separators, whereas underscores can concatenate words."
+            },
+            {
+                "q": "Should a slug contain keywords?",
+                "a": "Including one or two words that describe the core topic helps users understand what the page is about before clicking. Avoid adding repetitive or unnecessary keywords."
+            },
+            {
+                "q": "How long should a URL slug be?",
+                "a": "A slug is typically most effective when kept between 3 to 6 words. Shorter slugs are easier to read, copy, and share on social media."
+            },
+            {
+                "q": "Can I change an existing URL slug?",
+                "a": "You can change a slug, but changing established URLs can break existing links and bookmarks. If you must rename an existing page, always implement a permanent 301 redirect from the old URL to the new URL."
+            }
+        ]
+    }
 ]
 
 def generate_tool_html(t):
