@@ -625,7 +625,7 @@
                         </label>
 
 
-                        <button id="clearInputBtn" class="text-xs text-rose-500 hover:text-rose-600 transition font-medium">Clear</button>
+                        <button id="cleanActionBtn" class="text-xs text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 transition font-bold mr-3"><i class="fa-solid fa-wand-magic-sparkles mr-1"></i>Clean Text</button><button id="clearInputBtn" class="text-xs text-rose-500 hover:text-rose-600 transition font-medium">Clear</button>
 
 
                     </div>
@@ -994,66 +994,54 @@
     <script>
 
 
-        function transform(input) {
-
-
+                function transform(input) {
             if (!input) return '';
-
-
             let cleaned = input
-
-
+                // Markdown syntax removal
                 .replace(/\*\*(.*?)\*\*/g, '$1')
-
-
                 .replace(/\*(.*?)\*/g, '$1')
-
-
                 .replace(/__(.*?)__/g, '$1')
-
-
                 .replace(/`([^`]+)`/g, '$1')
-
-
                 .replace(/^#{1,6}\s+/gm, '')
-
-
                 .replace(/^[-\*]\s+/gm, '• ')
-
-
                 .replace(/\s*—\s*/g, ' — ')
-
-
                 .replace(/\s*–\s*/g, ' - ');
 
-
-            const clichées = [
-
-
-                /^In today's fast-paced (world|digital landscape|environment),?\s*/gim,
-
-
+            // AI Clichés & Buzzwords (Case-Insensitive)
+            const cliches = [
+                /^In today's fast-paced (?:digital\s+)?(?:world|landscape|environment|era),?\s*/gim,
                 /^In the fast-paced world of [^,\n]+,?\s*/gim,
-
-
                 /^In a world where [^,\n]+,?\s*/gim,
-
-
-                /^It's important to remember that\s*/gim,
-
-
-                /^First and foremost,?\s*/gim
-
-
+                /^In conclusion,?\s*/gim,
+                /^To sum up,?\s*/gim,
+                /^Without further ado,?\s*/gim,
+                /^Let's dive in:?\s*/gim,
+                /^Let's delve (into|in):?\s*/gim,
+                /^(It is|It's) important to remember that\s*/gim,
+                /^(It is|It's) worth noting that\s*/gim,
+                /^First and foremost,?\s*/gim,
+                /^As an AI language model,?\s*/gim,
+                /^Certainly! Here is [^:\n]+:?\s*/gim,
+                /^Sure thing! Here's [^:\n]+:?\s*/gim,
+                
+                // Inline clichés & buzzwords
+                /\b(?:a\s+)?tapestry\b/gi,
+                /\b(?:it is|it's)\s+worth\s+noting\s+that\s*/gi,
+                /\b(?:it is|it's)\s+important\s+to\s+(?:note|remember)\s+that\s*/gi,
+                /\bdelve\s+into\b/gi,
+                /\btestament\s+to\b/gi,
+                /\bbeacon\s+of\b/gi,
+                
+                // Properly escaped punctuation / question patterns
+                /The result\?/gi
             ];
 
+            for (const regex of cliches) {
+                cleaned = cleaned.replace(regex, '');
+            }
 
-            clichées.forEach(c => cleaned = cleaned.replace(c, ''));
-
-
+            cleaned = cleaned.replace(/[ \t]{2,}/g, ' ');
             return cleaned.trim();
-
-
         }
 
 
@@ -1145,6 +1133,8 @@
 
 
         inputEl.addEventListener('input', process);
+        const cleanActionBtn = document.getElementById('cleanActionBtn');
+        if (cleanActionBtn) cleanActionBtn.addEventListener('click', process);
 
 
         clearBtn.addEventListener('click', () => {

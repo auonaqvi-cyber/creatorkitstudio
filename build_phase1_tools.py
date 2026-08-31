@@ -694,21 +694,49 @@ TOOLS_PHASE1 = [
             const output = document.getElementById('metaOutput');
             const copyBtn = document.getElementById('copyMetaBtn');
 
+            function escapeHtml(str) {
+                if (!str) return '';
+                return str
+                    .replace(/&/g, '&amp;')
+                    .replace(/"/g, '&quot;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;');
+            }
+
             function process() {
-                const val = input.value.trim().replace(/[\\r\\n]+/g, ' ');
-                if (!val) {
+                const rawVal = input.value || '';
+                if (!rawVal.trim()) {
                     serpTitle.textContent = 'Your SEO Page Title Appears Here';
                     serpDesc.textContent = 'Your compelling meta description snippet will appear here within optimal search engine pixel boundaries.';
                     output.value = '';
                     return;
                 }
-                const title = val.slice(0, 58).trim() + (val.length > 58 ? '...' : '');
-                const desc = val.slice(0, 155).trim() + (val.length > 155 ? '...' : '');
+
+                const rawLines = rawVal.split(/[\\r\\n]+/).map(l => l.trim()).filter(Boolean);
+                if (!rawLines.length) return;
+
+                const labelPattern = /^(?:Core\\s+Hook|Hook|Title|Topic|Headline|Summary|Description|Overview|Intro|Introduction|Key\\s+Takeaways?|Meta\\s+Description):\\s*/i;
+                
+                const cleanedLines = [];
+                for (const l of rawLines) {
+                    const c = l.replace(labelPattern, '').trim();
+                    if (c) cleanedLines.push(c);
+                }
+
+                const lines = cleanedLines.length ? cleanedLines : rawLines;
+                const rawTitle = lines[0] || '';
+                const rawDesc = lines.length > 1 ? lines.slice(1).join(' ') : lines[0];
+
+                const title = rawTitle.slice(0, 58).trim() + (rawTitle.length > 58 ? '...' : '');
+                const desc = rawDesc.slice(0, 155).trim() + (rawDesc.length > 155 ? '...' : '');
 
                 serpTitle.textContent = `${title} | CreatorKit Studio`;
                 serpDesc.textContent = desc;
 
-                output.value = `<!-- Primary Meta Tags -->\n<title>${title} | CreatorKit Studio</title>\n<meta name="description" content="${desc}">\n\n<!-- Open Graph / Facebook -->\n<meta property="og:title" content="${title}">\n<meta property="og:description" content="${desc}">`;
+                const escTitle = escapeHtml(title);
+                const escDesc = escapeHtml(desc);
+
+                output.value = `<!-- Primary Meta Tags -->\\n<title>${escTitle} | CreatorKit Studio</title>\\n<meta name="description" content="${escDesc}">\\n\\n<!-- Open Graph / Facebook -->\\n<meta property="og:title" content="${escTitle}">\\n<meta property="og:description" content="${escDesc}">`;
             }
 
             input.addEventListener('input', process);
