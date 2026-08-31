@@ -87,10 +87,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css?v=2.2.0">
+    <link rel="stylesheet" href="style.css?v=2.3.0">
 
     <!-- SEO Content Guides Data Module -->
-    <script src="seo-content.js?v=2.2.0"></script>
+    <script src="seo-content.js?v=2.3.0"></script>
 </head>
 <body class="bg-slate-50 dark:bg-dark-bg text-slate-900 dark:text-dark-text antialiased transition-colors duration-200 min-h-screen flex flex-col font-['Inter',sans-serif]">
 
@@ -121,6 +121,11 @@
 
             <!-- Header Actions -->
             <div class="flex items-center gap-2">
+                <a href="tools/index.html" title="Browse All Standalone Tools Directory" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition flex items-center gap-1.5 border border-slate-200 dark:border-dark-border">
+                    <i class="fa-solid fa-layer-group text-indigo-500"></i>
+                    <span class="hidden sm:inline">Tools Directory</span>
+                </a>
+
                 <button id="clearAllBtn" title="Clear all text from workspace" class="px-3 py-1.5 text-xs font-medium rounded-lg text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/30 border border-rose-200 dark:border-rose-900/50 transition flex items-center gap-1.5">
                     <i class="fa-solid fa-trash-can"></i>
                     <span class="hidden sm:inline">Reset</span>
@@ -202,53 +207,53 @@
                                 <i class="fa-brands fa-instagram text-pink-500 text-xs"></i> Social & Formatting
                             </h4>
                             <div class="space-y-1">
-                                <button class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="fix-line-breaks" data-category="creator" data-modes="all,creator" data-keywords="instagram linkedin caption line break whitespace clump spacer paragraph">
+                                <a href="line-break-fixer.html" class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="fix-line-breaks" data-category="creator" data-modes="all,creator" data-keywords="instagram linkedin caption line break whitespace clump spacer paragraph">
                                     <span class="flex items-center gap-2">
                                         <i class="fa-solid fa-paragraph text-slate-400 group-hover:text-indigo-500 w-4 text-center"></i>
                                         Line Break Fixer
                                     </span>
                                     <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                                </button>
+                                </a>
 
-                                <button class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="hashtag-generator" data-category="creator" data-modes="all,creator" data-keywords="hashtag generator instagram tiktok shorts linkedin tags tag maker viral tags">
+                                <a href="tools/hashtag-generator/index.html" class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="hashtag-generator" data-category="creator" data-modes="all,creator" data-keywords="hashtag generator instagram tiktok shorts linkedin tags tag maker viral tags">
                                     <span class="flex items-center gap-2">
                                         <i class="fa-solid fa-tags text-pink-500 group-hover:text-pink-600 w-4 text-center"></i>
                                         Hashtag Generator <span class="text-[9px] bg-pink-100 dark:bg-pink-950/60 text-pink-700 dark:text-pink-300 font-bold px-1.5 py-0.2 rounded">NEW</span>
                                     </span>
                                     <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                                </button>
+                                </a>
 
-                                <button class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="thread-splitter" data-category="blogger creator" data-modes="all,creator,blogger" data-keywords="twitter x thread splitter chunker 280 character tweet converter thread maker">
+                                <a href="twitter-thread-splitter.html" class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="thread-splitter" data-category="blogger creator" data-modes="all,creator,blogger" data-keywords="twitter x thread splitter chunker 280 character tweet converter thread maker">
                                     <span class="flex items-center gap-2">
                                         <i class="fa-brands fa-x-twitter text-cyan-500 group-hover:text-cyan-600 w-4 text-center"></i>
                                         Twitter/X Thread Splitter <span class="text-[9px] bg-cyan-100 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-300 font-bold px-1.5 py-0.2 rounded">NEW</span>
                                     </span>
                                     <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                                </button>
+                                </a>
 
-                                <button class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="clean-hashtags" data-category="creator" data-modes="all,creator" data-keywords="hashtags hash tags instagram tiktok extract cleaner deduplicate tags">
+                                <a href="hashtag-deduplicator.html" class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="clean-hashtags" data-category="creator" data-modes="all,creator" data-keywords="hashtags hash tags instagram tiktok extract cleaner deduplicate tags">
                                     <span class="flex items-center gap-2">
                                         <i class="fa-solid fa-hashtag text-slate-400 group-hover:text-indigo-500 w-4 text-center"></i>
                                         Hashtag Deduplicator
                                     </span>
                                     <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                                </button>
+                                </a>
 
-                                <button class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="fancy-text" data-category="creator" data-modes="all,creator" data-keywords="fancy text unicode bold italics bubble cursive gothic fonts font style">
+                                <a href="fancy-text-generator.html" class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="fancy-text" data-category="creator" data-modes="all,creator" data-keywords="fancy text unicode bold italics bubble cursive gothic fonts font style">
                                     <span class="flex items-center gap-2">
                                         <i class="fa-solid fa-font text-slate-400 group-hover:text-indigo-500 w-4 text-center"></i>
                                         Fancy Text Generator
                                     </span>
                                     <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                                </button>
+                                </a>
 
-                                <button class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="case-converter" data-category="blogger creator" data-modes="all,creator,blogger" data-keywords="title case uppercase lowercase sentence case capitalize capitalizer">
+                                <a href="case-converter.html" class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="case-converter" data-category="blogger creator" data-modes="all,creator,blogger" data-keywords="title case uppercase lowercase sentence case capitalize capitalizer">
                                     <span class="flex items-center gap-2">
                                         <i class="fa-solid fa-text-height text-slate-400 group-hover:text-indigo-500 w-4 text-center"></i>
                                         Case Converter
                                     </span>
                                     <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                                </button>
+                                </a>
                             </div>
                         </div>
 
@@ -258,37 +263,37 @@
                                 <i class="fa-solid fa-video text-amber-500 text-xs"></i> Video & Copywriting
                             </h4>
                             <div class="space-y-1">
-                                <button class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="readability-score" data-category="blogger" data-modes="all,blogger" data-keywords="readability score flesch kincaid grade level reading ease syllable count copywriting test">
+                                <a href="readability-score-analyzer.html" class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="readability-score" data-category="blogger" data-modes="all,blogger" data-keywords="readability score flesch kincaid grade level reading ease syllable count copywriting test">
                                     <span class="flex items-center gap-2">
                                         <i class="fa-solid fa-glasses text-emerald-500 group-hover:text-emerald-600 w-4 text-center"></i>
                                         Readability Score <span class="text-[9px] bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 font-bold px-1.5 py-0.2 rounded">NEW</span>
                                     </span>
                                     <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                                </button>
+                                </a>
 
-                                <button class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="speech-timer" data-category="creator" data-modes="all,creator" data-keywords="script speech timer duration voiceover 130 wpm words per minute video length">
+                                <a href="speech-timer.html" class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="speech-timer" data-category="creator" data-modes="all,creator" data-keywords="script speech timer duration voiceover 130 wpm words per minute video length">
                                     <span class="flex items-center gap-2">
                                         <i class="fa-solid fa-stopwatch text-slate-400 group-hover:text-indigo-500 w-4 text-center"></i>
                                         Script-to-Speech Timer
                                     </span>
                                     <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                                </button>
+                                </a>
 
-                                <button class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="clean-srt" data-category="blogger creator" data-modes="all,creator,blogger" data-keywords="srt caption subtitles subtitle timestamps remove timecode vtt transcript cleaner">
+                                <a href="tools/srt-caption-cleaner/index.html" class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="clean-srt" data-category="blogger creator" data-modes="all,creator,blogger" data-keywords="srt caption subtitles subtitle timestamps remove timecode vtt transcript cleaner">
                                     <span class="flex items-center gap-2">
                                         <i class="fa-solid fa-closed-captioning text-slate-400 group-hover:text-indigo-500 w-4 text-center"></i>
                                         SRT Caption Cleaner
                                     </span>
                                     <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                                </button>
+                                </a>
 
-                                <button class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="open-teleprompter" data-category="creator" data-modes="all,creator" data-keywords="teleprompter prompter script reading scroll fullscreen speech presenter">
+                                <a href="tools/teleprompter/index.html" class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="open-teleprompter" data-category="creator" data-modes="all,creator" data-keywords="teleprompter prompter script reading scroll fullscreen speech presenter">
                                     <span class="flex items-center gap-2">
                                         <i class="fa-solid fa-chalkboard-user text-slate-400 group-hover:text-indigo-500 w-4 text-center"></i>
                                         Live Teleprompter
                                     </span>
                                     <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                                </button>
+                                </a>
                             </div>
                         </div>
 
@@ -298,53 +303,53 @@
                                 <i class="fa-solid fa-robot text-cyan-500 text-xs"></i> AI, SEO & Media
                             </h4>
                             <div class="space-y-1">
-                                <button class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="seo-meta-generator" data-category="blogger" data-modes="all,blogger" data-keywords="seo meta description title generator google serp preview snippet builder ctr">
+                                <a href="tools/seo-meta-generator/index.html" class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="seo-meta-generator" data-category="blogger" data-modes="all,blogger" data-keywords="seo meta description title generator google serp preview snippet builder ctr">
                                     <span class="flex items-center gap-2">
                                         <i class="fa-solid fa-magnifying-glass-chart text-indigo-500 group-hover:text-indigo-600 w-4 text-center"></i>
                                         SEO Meta & SERP <span class="text-[9px] bg-indigo-100 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 font-bold px-1.5 py-0.2 rounded">NEW</span>
                                     </span>
                                     <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                                </button>
+                                </a>
 
-                                <button class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="image-resizer" data-category="blogger creator" data-modes="all,blogger,creator" data-keywords="image resizer photo scaler html5 canvas crop resize picture dimensions png jpg webp">
+                                <a href="tools/image-resizer/index.html" class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="image-resizer" data-category="blogger creator" data-modes="all,blogger,creator" data-keywords="image resizer photo scaler html5 canvas crop resize picture dimensions png jpg webp">
                                     <span class="flex items-center gap-2">
                                         <i class="fa-solid fa-image text-purple-500 group-hover:text-purple-600 w-4 text-center"></i>
                                         Browser Image Resizer <span class="text-[9px] bg-purple-100 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 font-bold px-1.5 py-0.2 rounded">NEW</span>
                                     </span>
                                     <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                                </button>
+                                </a>
 
-                                <button class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="clean-ai-artifacts" data-category="blogger" data-modes="all,blogger" data-keywords="ai formatting markdown asterisks em dash cliches humanize chatgpt claude cleaner">
+                                <a href="ai-text-cleaner.html" class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="clean-ai-artifacts" data-category="blogger" data-modes="all,blogger" data-keywords="ai formatting markdown asterisks em dash cliches humanize chatgpt claude cleaner">
                                     <span class="flex items-center gap-2">
                                         <i class="fa-solid fa-broom text-slate-400 group-hover:text-indigo-500 w-4 text-center"></i>
                                         AI Artifact Cleaner
                                     </span>
                                     <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                                </button>
+                                </a>
 
-                                <button class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="seo-slug" data-category="blogger" data-modes="all,blogger" data-keywords="seo slug generator url permalink link clean url hyphens">
+                                <a href="seo-slug-generator.html" class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="seo-slug" data-category="blogger" data-modes="all,blogger" data-keywords="seo slug generator url permalink link clean url hyphens">
                                     <span class="flex items-center gap-2">
                                         <i class="fa-solid fa-link text-slate-400 group-hover:text-indigo-500 w-4 text-center"></i>
                                         SEO Slug Generator
                                     </span>
                                     <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                                </button>
+                                </a>
 
-                                <button class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="clean-whitespace" data-category="blogger" data-modes="all,blogger" data-keywords="whitespace spaces tabs trim trailing spaces remove extra spaces">
+                                <a href="whitespace-trimmer.html" class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="clean-whitespace" data-category="blogger" data-modes="all,blogger" data-keywords="whitespace spaces tabs trim trailing spaces remove extra spaces">
                                     <span class="flex items-center gap-2">
                                         <i class="fa-solid fa-arrows-left-right-to-line text-slate-400 group-hover:text-indigo-500 w-4 text-center"></i>
                                         Whitespace Trimmer
                                     </span>
                                     <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                                </button>
+                                </a>
 
-                                <button class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="remove-duplicates" data-category="blogger" data-modes="all,blogger" data-keywords="duplicate lines list deduplicate sort remove duplicate lines">
+                                <a href="duplicate-line-filter.html" class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="remove-duplicates" data-category="blogger" data-modes="all,blogger" data-keywords="duplicate lines list deduplicate sort remove duplicate lines">
                                     <span class="flex items-center gap-2">
                                         <i class="fa-solid fa-list-check text-slate-400 group-hover:text-indigo-500 w-4 text-center"></i>
                                         Duplicate Line Filter
                                     </span>
                                     <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                                </button>
+                                </a>
                             </div>
                         </div>
 
@@ -667,6 +672,7 @@
 
             <!-- Mandatory AdSense Compliance Links -->
             <div class="flex items-center gap-6 font-medium">
+                <a href="tools/index.html" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">Tools Directory</a>
                 <button id="openAboutBtn" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">About Us</button>
                 <button id="openPrivacyBtn" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">Privacy Policy</button>
                 <button id="openTermsBtn" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">Terms of Service</button>
@@ -761,6 +767,6 @@
     <div id="toastContainer" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
 
     <!-- Application Script -->
-    <script src="app.js?v=2.2.0"></script>
+    <script src="app.js?v=2.3.0"></script>
 </body>
 </html>

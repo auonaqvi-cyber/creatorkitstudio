@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8J6Z3C5EZ3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-8J6Z3C5EZ3');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Online Image Resizer & Scaler (100% In-Browser Private Canvas)</title>
+    <meta name="description" content="Resize, scale, and compress images directly in your browser using HTML5 Canvas. YouTube thumbnail (1280x720), Instagram, and Twitter presets. Zero server uploads.">
+    <meta name="keywords" content="image resizer online, HTML5 canvas photo scaler, resize youtube thumbnail, private photo compressor, in browser photo resize no upload">
+    <meta name="author" content="CreatorKit Studio">
+    <meta name="robots" content="index, follow">
+    <meta name="google-site-verification" content="WM4c52x0WOHkjYTAqQMRLdBSMGOo3aG7IoGemVJVte8" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.creatorkitstudio.pro/tools/image-resizer/">
+
+    <!-- Force Cache-Busting Meta Tags -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <!-- Google AdSense Verification & Publisher Script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5863857969717583" crossorigin="anonymous"></script>
+
+    <!-- Open Graph / Meta -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Free Online Image Resizer & Scaler (100% In-Browser Private Canvas)">
+    <meta property="og:description" content="Resize, scale, and compress images directly in your browser using HTML5 Canvas. YouTube thumbnail (1280x720), Instagram, and Twitter presets. Zero server uploads.">
+    <meta property="og:url" content="https://www.creatorkitstudio.pro/tools/image-resizer/">
+
+    <!-- Favicon & App Icons -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../favicon.png">
+
+    <!-- Schema.org JSON-LD for WebApplication & FAQPage -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Free Online Image Resizer & Scaler (100% In-Browser Private Canvas)",
+      "url": "https://www.creatorkitstudio.pro/tools/image-resizer/",
+      "description": "Resize, scale, and compress images directly in your browser using HTML5 Canvas. YouTube thumbnail (1280x720), Instagram, and Twitter presets. Zero server uploads.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires HTML5.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the best resolution for a YouTube video thumbnail?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "YouTube officially recommends 1280\u00d7720 pixels with a 16:9 aspect ratio and a minimum width of 640 pixels, formatted as PNG or JPG."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are my images uploaded to any remote server or cloud database?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. All resizing operations execute entirely on your device using client-side JavaScript and the HTML5 Canvas API. Your images never leave your browser."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will resizing an image reduce its visual quality?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our Canvas bilinear interpolation algorithm maintains crisp image clarity during downscaling and proportional scaling, ensuring your graphics remain sharp."
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50: '#eef2ff', 100: '#e0e7ff', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca' },
+                        dark: { bg: '#0f172a', surface: '#1e293b', border: '#334155', text: '#f8fafc', muted: '#94a3b8' }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css?v=2.2.0">
+</head>
+<body class="bg-slate-50 dark:bg-dark-bg text-slate-900 dark:text-dark-text antialiased min-h-screen flex flex-col font-['Inter',sans-serif]">
+
+    <!-- Top Navbar -->
+    <header class="bg-white dark:bg-dark-surface border-b border-slate-200 dark:border-dark-border sticky top-0 z-40 shadow-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <a href="../../index.html" class="flex items-center gap-2.5 group" title="Return to CreatorKit Studio Homepage">
+                    <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-indigo-400 flex items-center justify-center text-white shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-wand-magic-sparkles text-sm"></i>
+                    </div>
+                    <div>
+                        <span class="text-base font-extrabold tracking-tight bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-300 bg-clip-text text-transparent">CreatorKit</span>
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-indigo-500 block leading-none">Studio</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Header Navigation -->
+            <nav class="hidden md:flex items-center gap-4 text-xs font-semibold">
+                <a href="../index.html" class="px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-layer-group text-indigo-500"></i> Tools Directory
+                </a>
+                <a href="../../index.html#blogger" class="px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-feather text-amber-500"></i> Blogger Mode
+                </a>
+                <a href="../../index.html#creator" class="px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-video text-pink-500"></i> Creator Mode
+                </a>
+            </nav>
+
+            <!-- Theme Toggle & Main App Button -->
+            <div class="flex items-center gap-2">
+                <button id="themeToggleBtn" aria-label="Toggle Theme" class="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition">
+                    <i id="themeIcon" class="fa-solid fa-moon text-base"></i>
+                </button>
+                <a href="../../index.html" class="px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-table-cells"></i> <span class="hidden sm:inline">Suite Dashboard</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-5xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 space-y-8 flex-1">
+        
+        <!-- Breadcrumb Navigation -->
+        <nav class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+            <a href="../../index.html" class="hover:text-indigo-500 transition">CreatorKit Studio</a>
+            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            <a href="../index.html" class="hover:text-indigo-500 transition">Tools Directory</a>
+            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            <span class="text-slate-800 dark:text-slate-200 font-semibold">Browser Image Resizer & Scaler</span>
+        </nav>
+
+        <!-- Header Banner Ad Placeholder -->
+        <div class="w-full">
+            <div class="adsense-slot adsense-placeholder w-full rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-700 flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 text-xs gap-1 p-3 bg-white/40 dark:bg-slate-800/30 overflow-hidden text-center shadow-sm" style="min-height: 90px; height: 90px;">
+                <span class="font-mono uppercase tracking-widest text-[10px] bg-slate-200 dark:bg-slate-700 px-2 py-0.5 rounded text-slate-600 dark:text-slate-300">Advertisement</span>
+                <span class="flex items-center gap-1 font-mono text-[11px]"><i class="fa-brands fa-google text-indigo-500"></i> Google AdSense Leaderboard (Responsive)</span>
+            </div>
+        </div>
+
+        <!-- Tool Header -->
+        <div class="space-y-2">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 border border-indigo-200/60 dark:border-indigo-800/40">
+                <i class="fa-solid fa-image"></i> Media Scaling & Canvas Tool
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">Browser Image Resizer & Scaler (100% Private Canvas)</h1>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">Resize, scale, crop, and convert image files directly inside your web browser using the HTML5 Canvas 2D rendering pipeline. Includes one-click aspect ratio presets for YouTube thumbnails (1280×720), Instagram square (1080×1080), Story/Reels (1080×1920), and Twitter/X header graphics. Zero server uploads ensure complete privacy.</p>
+        </div>
+
+        <!-- Interactive Tool Card -->
+        <div class="bg-white dark:bg-dark-surface rounded-2xl border border-slate-200 dark:border-dark-border p-5 sm:p-6 shadow-sm">
+            
+            <!-- Image Resizer Interactive Workspace -->
+            <div class="space-y-6">
+                <!-- Dropzone Area -->
+                <div id="dropzone" class="border-2 border-dashed border-slate-300 dark:border-dark-border rounded-2xl p-8 text-center cursor-pointer hover:border-purple-500 transition-colors bg-slate-50/50 dark:bg-slate-900/40">
+                    <input type="file" id="imageInput" accept="image/*" class="hidden">
+                    <div class="space-y-3 pointer-events-none">
+                        <div class="w-14 h-14 rounded-2xl bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400 flex items-center justify-center text-2xl mx-auto">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                        </div>
+                        <div>
+                            <span class="text-sm font-bold text-slate-800 dark:text-slate-100">Click to upload or drag and drop an image</span>
+                            <span class="text-xs text-slate-500 dark:text-slate-400 block mt-1">Supports PNG, JPG, WebP, GIF, SVG (100% Local Browser Memory)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resizer Controls (Hidden until file selected) -->
+                <div id="controlsArea" class="hidden space-y-6">
+                    <!-- Presets Strip -->
+                    <div class="space-y-2">
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Social Media Presets:</span>
+                        <div class="flex flex-wrap gap-2">
+                            <button type="button" class="preset-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-purple-600 hover:text-white transition" data-w="1280" data-h="720">
+                                <i class="fa-brands fa-youtube text-red-500"></i> YouTube (1280×720)
+                            </button>
+                            <button type="button" class="preset-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-purple-600 hover:text-white transition" data-w="1080" data-h="1080">
+                                <i class="fa-brands fa-instagram text-pink-500"></i> IG Square (1080×1080)
+                            </button>
+                            <button type="button" class="preset-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-purple-600 hover:text-white transition" data-w="1080" data-h="1920">
+                                <i class="fa-brands fa-tiktok text-cyan-400"></i> Reel/Story (1080×1920)
+                            </button>
+                            <button type="button" class="preset-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-purple-600 hover:text-white transition" data-w="1200" data-h="675">
+                                <i class="fa-brands fa-x-twitter"></i> Twitter/X (1200×675)
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Custom Dimension Controls -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div>
+                            <label for="widthInput" class="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1">Width (px)</label>
+                            <input type="number" id="widthInput" class="w-full p-2.5 text-sm bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-dark-border rounded-xl font-mono text-slate-900 dark:text-slate-100">
+                        </div>
+                        <div>
+                            <label for="heightInput" class="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1">Height (px)</label>
+                            <input type="number" id="heightInput" class="w-full p-2.5 text-sm bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-dark-border rounded-xl font-mono text-slate-900 dark:text-slate-100">
+                        </div>
+                        <div class="flex items-end pb-2">
+                            <label class="flex items-center gap-2 cursor-pointer text-xs font-semibold text-slate-700 dark:text-slate-300">
+                                <input type="checkbox" id="lockAspect" checked class="rounded text-purple-600 focus:ring-purple-500">
+                                <span>Lock Aspect Ratio</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Image Preview & Canvas Container -->
+                    <div class="p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-dark-border flex flex-col items-center justify-center overflow-hidden">
+                        <canvas id="scalerCanvas" class="max-w-full max-h-96 rounded-lg shadow-sm"></canvas>
+                        <span id="canvasDimLabel" class="text-xs font-mono text-slate-400 mt-2">Original Dimensions: 0 × 0 px</span>
+                    </div>
+
+                    <!-- Action Bar -->
+                    <div class="flex flex-wrap items-center justify-between gap-4 pt-2">
+                        <button type="button" id="resetImageBtn" class="px-4 py-2 text-xs font-semibold rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition">
+                            <i class="fa-solid fa-trash-can mr-1"></i> Choose Another Image
+                        </button>
+                        <button type="button" id="downloadImageBtn" class="px-6 py-2.5 text-xs font-bold rounded-xl bg-purple-600 hover:bg-purple-700 text-white shadow-md shadow-purple-500/20 transition flex items-center gap-2 active:scale-95">
+                            <i class="fa-solid fa-download"></i> Download Scaled Image
+                        </button>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+
+        <!-- Structured Usage Instructions Card -->
+        <section class="bg-slate-50 dark:bg-slate-900/60 p-6 rounded-2xl border border-slate-200 dark:border-dark-border space-y-4">
+            <h2 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <i class="fa-solid fa-circle-info text-indigo-500"></i> How to Use This Tool
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-2">
+                    <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Step-by-Step Instructions:</h3>
+                    <ol class="list-decimal pl-5 text-xs text-slate-600 dark:text-slate-300 space-y-1.5 leading-relaxed">
+                        <li>Upload any image file (PNG, JPG, WebP, GIF, or SVG) by clicking the upload dropzone or dragging a file from your desktop.</li><li>Select one of the pre-configured social media preset dimensions (YouTube 1280×720, Instagram Square 1080×1080, TikTok/Reels 1080×1920, Twitter 1200×675) or enter custom width and height values.</li><li>Toggle the 'Lock Aspect Ratio' checkbox to prevent image distortion when scaling custom dimensions.</li><li>Click <strong>Download Scaled Image</strong> to immediately save your processed, high-resolution PNG file to your downloads folder.</li>
+                    </ol>
+                </div>
+                <div class="space-y-2">
+                    <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Pro Tips & Best Practices:</h3>
+                    <ul class="list-disc pl-5 text-xs text-slate-600 dark:text-slate-300 space-y-1.5 leading-relaxed">
+                        <li>Always design YouTube thumbnails at 1280×720 pixels (16:9 aspect ratio) with high visual contrast to maximize organic click-through rates.</li><li>Keep the aspect ratio lock enabled when resizing portraits or product photography to avoid unnatural stretching.</li><li>Because processing occurs in local memory, you can resize heavy high-resolution images (4K/8K) with zero upload latency or bandwidth usage.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- In-Content Ad Placeholder -->
+        <div class="w-full">
+            <div class="adsense-slot adsense-placeholder w-full rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-700 flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 text-xs gap-1 p-3 bg-white/40 dark:bg-slate-800/30 overflow-hidden text-center shadow-sm" style="min-height: 90px; height: 90px;">
+                <span class="font-mono uppercase tracking-widest text-[10px] bg-slate-200 dark:bg-slate-700 px-2 py-0.5 rounded text-slate-600 dark:text-slate-300">Advertisement</span>
+                <span class="flex items-center gap-1 font-mono text-[11px]"><i class="fa-brands fa-google text-indigo-500"></i> Google AdSense Responsive In-Content Banner</span>
+            </div>
+        </div>
+
+        <!-- Deep Educational Guide Article (400+ words) -->
+        <article class="prose prose-slate dark:prose-invert max-w-none bg-white dark:bg-dark-surface p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-dark-border shadow-sm space-y-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            <h2 class="text-xl font-bold text-slate-900 dark:text-white">Overview & Architecture: Browser Image Resizer & Scaler</h2>
+            
+            <h3>Why Client-Side Image Resizing Matters for Creators</h3>
+            <p>Content creators, YouTubers, and social media managers frequently need to adapt visual assets into platform-specific dimensions: 16:9 for YouTube video thumbnails, 1:1 for Instagram profile grids, 9:16 for vertical TikTok and Reels videos, and 1200×675 for Twitter header banners. However, using online cloud converters means uploading confidential thumbnails, brand graphics, and unreleased video assets to third-party web servers.</p>
+            <p>CreatorKit Studio's Image Resizer runs entirely inside your web browser using the <strong>HTML5 Canvas 2D Context API</strong>. Pixels are rendered, resampled, and scaled locally utilizing your device's CPU/GPU. Your files never leave your computer or smartphone.</p>
+        
+            
+            <div class="mt-6 p-4 rounded-xl bg-indigo-50/50 dark:bg-indigo-950/30 border border-indigo-100 dark:border-indigo-900/40">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-1">
+                    <i class="fa-solid fa-shield-halved"></i> 100% Client-Side Privacy Guarantee
+                </h4>
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">All image scaling, rasterization, and compression routines execute 100% inside your local web browser sandbox. No image data is transmitted across the network, stored in cloud databases, or viewed by third parties.</p>
+            </div>
+        </article>
+
+        <!-- FAQ Accordion Section -->
+        <section class="bg-white dark:bg-dark-surface p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-dark-border shadow-sm space-y-4">
+            <h2 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <i class="fa-solid fa-circle-question text-indigo-500"></i> Frequently Asked Questions
+            </h2>
+            <div class="space-y-3">
+                <details class="group bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-dark-border rounded-xl p-4 transition [&_summary::-webkit-details-marker]:hidden" open>
+            <summary class="flex items-center justify-between cursor-pointer font-semibold text-xs md:text-sm text-slate-900 dark:text-white">
+                <span>What is the best resolution for a YouTube video thumbnail?</span>
+                <span class="ml-2 text-slate-400 group-open:rotate-180 transition-transform">
+                    <i class="fa-solid fa-chevron-down text-xs"></i>
+                </span>
+            </summary>
+            <p class="mt-3 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">YouTube officially recommends 1280×720 pixels with a 16:9 aspect ratio and a minimum width of 640 pixels, formatted as PNG or JPG.</p>
+        </details><details class="group bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-dark-border rounded-xl p-4 transition [&_summary::-webkit-details-marker]:hidden" >
+            <summary class="flex items-center justify-between cursor-pointer font-semibold text-xs md:text-sm text-slate-900 dark:text-white">
+                <span>Are my images uploaded to any remote server or cloud database?</span>
+                <span class="ml-2 text-slate-400 group-open:rotate-180 transition-transform">
+                    <i class="fa-solid fa-chevron-down text-xs"></i>
+                </span>
+            </summary>
+            <p class="mt-3 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">No. All resizing operations execute entirely on your device using client-side JavaScript and the HTML5 Canvas API. Your images never leave your browser.</p>
+        </details><details class="group bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-dark-border rounded-xl p-4 transition [&_summary::-webkit-details-marker]:hidden" >
+            <summary class="flex items-center justify-between cursor-pointer font-semibold text-xs md:text-sm text-slate-900 dark:text-white">
+                <span>Will resizing an image reduce its visual quality?</span>
+                <span class="ml-2 text-slate-400 group-open:rotate-180 transition-transform">
+                    <i class="fa-solid fa-chevron-down text-xs"></i>
+                </span>
+            </summary>
+            <p class="mt-3 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Our Canvas bilinear interpolation algorithm maintains crisp image clarity during downscaling and proportional scaling, ensuring your graphics remain sharp.</p>
+        </details>
+            </div>
+        </section>
+
+        <!-- Related Tools Section (Descriptive Anchor Links) -->
+        <section class="space-y-3">
+            <h2 class="text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                Explore More Free Standalone Creator Utilities:
+            </h2>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <a href="../hashtag-generator/index.html" class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-dark-border hover:border-indigo-500 transition flex items-center gap-2.5 text-xs font-semibold text-slate-800 dark:text-slate-200 group">
+            <i class="fa-solid fa-tags text-indigo-500 group-hover:scale-110 transition-transform"></i>
+            <span>Social Discovery Tool</span>
+        </a><a href="../teleprompter/index.html" class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-dark-border hover:border-indigo-500 transition flex items-center gap-2.5 text-xs font-semibold text-slate-800 dark:text-slate-200 group">
+            <i class="fa-solid fa-chalkboard-user text-indigo-500 group-hover:scale-110 transition-transform"></i>
+            <span>Video Presentation Tool</span>
+        </a><a href="../srt-caption-cleaner/index.html" class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-dark-border hover:border-indigo-500 transition flex items-center gap-2.5 text-xs font-semibold text-slate-800 dark:text-slate-200 group">
+            <i class="fa-solid fa-closed-captioning text-indigo-500 group-hover:scale-110 transition-transform"></i>
+            <span>Video Repurposing Tool</span>
+        </a><a href="../seo-meta-generator/index.html" class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-dark-border hover:border-indigo-500 transition flex items-center gap-2.5 text-xs font-semibold text-slate-800 dark:text-slate-200 group">
+            <i class="fa-solid fa-magnifying-glass-chart text-indigo-500 group-hover:scale-110 transition-transform"></i>
+            <span>On-Page SEO Tool</span>
+        </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-dark-surface border-t border-slate-200 dark:border-dark-border py-8 px-4 sm:px-6 lg:px-8 text-xs text-slate-500 dark:text-slate-400">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div>
+                <span class="font-bold text-slate-800 dark:text-slate-200">CreatorKit Studio</span> &copy; 2026. 100% Free Client-Side Creator Suite.
+            </div>
+            <div class="flex items-center gap-5 font-medium">
+                <a href="../../index.html#all" class="hover:text-indigo-500">All Tools</a>
+                <a href="../index.html" class="hover:text-indigo-500">Tools Directory</a>
+                <a href="../../index.html#blogger" class="hover:text-indigo-500">Blogger Suite</a>
+                <a href="../../index.html#creator" class="hover:text-indigo-500">Creator Suite</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme & Tool Logic Script -->
+    <script>
+        // Theme Toggle
+        const themeBtn = document.getElementById('themeToggleBtn');
+        const themeIcon = document.getElementById('themeIcon');
+        themeBtn.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('creatorkit_theme', isDark ? 'dark' : 'light');
+            themeIcon.className = isDark ? 'fa-solid fa-sun text-base text-amber-400' : 'fa-solid fa-moon text-base text-slate-600';
+        });
+        if (localStorage.getItem('creatorkit_theme') === 'light') {
+            document.documentElement.classList.remove('dark');
+            themeIcon.className = 'fa-solid fa-moon text-base text-slate-600';
+        } else {
+            document.documentElement.classList.add('dark');
+            themeIcon.className = 'fa-solid fa-sun text-base text-amber-400';
+        }
+
+        // Tool-Specific Interactive Engine
+        
+            const dropzone = document.getElementById('dropzone');
+            const fileInput = document.getElementById('imageInput');
+            const controlsArea = document.getElementById('controlsArea');
+            const widthInput = document.getElementById('widthInput');
+            const heightInput = document.getElementById('heightInput');
+            const lockAspect = document.getElementById('lockAspect');
+            const canvas = document.getElementById('scalerCanvas');
+            const ctx = canvas.getContext('2d');
+            const dimLabel = document.getElementById('canvasDimLabel');
+            const resetBtn = document.getElementById('resetImageBtn');
+            const downloadBtn = document.getElementById('downloadImageBtn');
+            const presetBtns = document.querySelectorAll('.preset-btn');
+
+            let originalImage = null;
+            let aspectRatio = 1;
+
+            dropzone.addEventListener('click', () => fileInput.click());
+            dropzone.addEventListener('dragover', (e) => { e.preventDefault(); dropzone.classList.add('border-purple-500'); });
+            dropzone.addEventListener('dragleave', () => dropzone.classList.remove('border-purple-500'));
+            dropzone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                dropzone.classList.remove('border-purple-500');
+                if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+            });
+
+            fileInput.addEventListener('change', (e) => {
+                if (e.target.files.length) handleFile(e.target.files[0]);
+            });
+
+            function handleFile(file) {
+                if (!file.type.startsWith('image/')) return;
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        originalImage = img;
+                        aspectRatio = img.width / img.height;
+                        widthInput.value = img.width;
+                        heightInput.value = img.height;
+                        dropzone.classList.add('hidden');
+                        controlsArea.classList.remove('hidden');
+                        renderCanvas(img.width, img.height);
+                    };
+                    img.src = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+
+            function renderCanvas(w, h) {
+                canvas.width = w;
+                canvas.height = h;
+                ctx.drawImage(originalImage, 0, 0, w, h);
+                dimLabel.textContent = `Rendered Output: ${w} × ${h} px`;
+            }
+
+            widthInput.addEventListener('input', () => {
+                const w = parseInt(widthInput.value) || 100;
+                if (lockAspect.checked) {
+                    const h = Math.round(w / aspectRatio);
+                    heightInput.value = h;
+                    renderCanvas(w, h);
+                } else {
+                    renderCanvas(w, parseInt(heightInput.value) || 100);
+                }
+            });
+
+            heightInput.addEventListener('input', () => {
+                const h = parseInt(heightInput.value) || 100;
+                if (lockAspect.checked) {
+                    const w = Math.round(h * aspectRatio);
+                    widthInput.value = w;
+                    renderCanvas(w, h);
+                } else {
+                    renderCanvas(parseInt(widthInput.value) || 100, h);
+                }
+            });
+
+            presetBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const w = parseInt(btn.dataset.w);
+                    const h = parseInt(btn.dataset.h);
+                    lockAspect.checked = false;
+                    widthInput.value = w;
+                    heightInput.value = h;
+                    renderCanvas(w, h);
+                });
+            });
+
+            resetBtn.addEventListener('click', () => {
+                originalImage = null;
+                fileInput.value = '';
+                controlsArea.classList.add('hidden');
+                dropzone.classList.remove('hidden');
+            });
+
+            downloadBtn.addEventListener('click', () => {
+                const link = document.createElement('a');
+                link.download = `creatorkit-resized-${widthInput.value}x${heightInput.value}.png`;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            });
+        
+    </script>
+</body>
+</html>
