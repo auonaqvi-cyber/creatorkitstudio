@@ -994,7 +994,7 @@
     <script>
 
 
-                function transform(input) {
+        function transform(input) {
             if (!input) return '';
             let cleaned = input
                 // Markdown syntax removal
@@ -1003,12 +1003,23 @@
                 .replace(/__(.*?)__/g, '$1')
                 .replace(/`([^`]+)`/g, '$1')
                 .replace(/^#{1,6}\s+/gm, '')
+                .replace(/^>\s+/gm, '')
                 .replace(/^[-\*]\s+/gm, '• ')
                 .replace(/\s*—\s*/g, ' — ')
                 .replace(/\s*–\s*/g, ' - ');
 
-            // AI Clichés & Buzzwords (Case-Insensitive)
-            const cliches = [
+            // Grammatical Cliché Replacements (Case-Insensitive & Context-Aware)
+            cleaned = cleaned.replace(/\brich\s+tapestry\s+of\b/gi, 'rich collection of');
+            cleaned = cleaned.replace(/\btapestry\s+of\b/gi, 'blend of');
+            cleaned = cleaned.replace(/\bdelves\s+into\b/gi, 'explores');
+            cleaned = cleaned.replace(/\bdelving\s+into\b/gi, 'exploring');
+            cleaned = cleaned.replace(/\bdelve\s+into\b/gi, 'explore');
+            cleaned = cleaned.replace(/\btestament\s+to\b/gi, 'proof of');
+            cleaned = cleaned.replace(/\bbeacon\s+of\b/gi, 'model of');
+
+            // Filler Phrase Removals with Capitalization of Next Letter
+            const fillers = [
+                /^(?:it\s+is|it's)\s+important\s+to\s+(?:note|remember)(?:\s+that|:)?\s*,?\s*/gim,
                 /^In today's fast-paced (?:digital\s+)?(?:world|landscape|environment|era),?\s*/gim,
                 /^In the fast-paced world of [^,\n]+,?\s*/gim,
                 /^In a world where [^,\n]+,?\s*/gim,
@@ -1016,28 +1027,16 @@
                 /^To sum up,?\s*/gim,
                 /^Without further ado,?\s*/gim,
                 /^Let's dive in:?\s*/gim,
-                /^Let's delve (into|in):?\s*/gim,
-                /^(It is|It's) important to remember that\s*/gim,
-                /^(It is|It's) worth noting that\s*/gim,
                 /^First and foremost,?\s*/gim,
                 /^As an AI language model,?\s*/gim,
                 /^Certainly! Here is [^:\n]+:?\s*/gim,
                 /^Sure thing! Here's [^:\n]+:?\s*/gim,
-                
-                // Inline clichés & buzzwords
-                /\b(?:a\s+)?tapestry\b/gi,
-                /\b(?:it is|it's)\s+worth\s+noting\s+that\s*/gi,
-                /\b(?:it is|it's)\s+important\s+to\s+(?:note|remember)\s+that\s*/gi,
-                /\bdelve\s+into\b/gi,
-                /\btestament\s+to\b/gi,
-                /\bbeacon\s+of\b/gi,
-                
-                // Properly escaped punctuation / question patterns
-                /The result\?/gi
+                /\b(?:it is|it's)\s+worth\s+noting\s+that\s*,?\s*/gi
             ];
 
-            for (const regex of cliches) {
-                cleaned = cleaned.replace(regex, '');
+            for (const regex of fillers) {
+                const sourceWithCap = new RegExp(regex.source + '([a-z])?', regex.flags);
+                cleaned = cleaned.replace(sourceWithCap, (match, p1) => p1 ? p1.toUpperCase() : '');
             }
 
             cleaned = cleaned.replace(/[ \t]{2,}/g, ' ');
