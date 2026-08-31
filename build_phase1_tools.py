@@ -1359,7 +1359,7 @@ TOOLS_PHASE1 = [
 
             function countWords(str) {
                 if (!str || !str.trim()) return 0;
-                const matches = str.trim().match(/[\w\u00C0-\u024F'-]+/g);
+                const matches = str.trim().match(/[\\w\\u00C0-\\u024F'-]+/g);
                 return matches ? matches.length : 0;
             }
 
@@ -1374,9 +1374,9 @@ TOOLS_PHASE1 = [
                 }
                 if (mode === 'title') {
                     const smallWords = /^(a|an|and|as|at|but|by|for|if|in|nor|of|on|or|so|the|to|up|yet)$/i;
-                    return text.split(/(\r?\n|\s+)/).map((segment, index, arr) => {
-                        if (/^\s+$/.test(segment) || segment === '') return segment;
-                        const cleanWord = segment.replace(/^[^\w\u00C0-\u024F]+|[^\w\u00C0-\u024F]+$/g, '');
+                    return text.split(/([\\r\\n\\s]+)/).map((segment, index, arr) => {
+                        if (/^\\s+$/.test(segment) || segment === '') return segment;
+                        const cleanWord = segment.replace(/^[^\\w\\u00C0-\\u024F]+|[^\\w\\u00C0-\\u024F]+$/g, '');
                         if (!cleanWord) return segment;
                         if (index === 0 || index === arr.length - 1 || !smallWords.test(cleanWord)) {
                             return segment.charAt(0).toUpperCase() + segment.slice(1).toLowerCase();
@@ -1385,18 +1385,18 @@ TOOLS_PHASE1 = [
                     }).join('');
                 }
                 if (mode === 'sentence') {
-                    return text.toLowerCase().replace(/(^\s*[\w\u00C0-\u024F]|[.\n!?]\s*[\w\u00C0-\u024F])/g, c => c.toUpperCase());
+                    return text.toLowerCase().replace(/(^\\s*[\\w\\u00C0-\\u024F]|[\\r\\n.!?]\\s*[\\w\\u00C0-\\u024F])/g, c => c.toUpperCase());
                 }
                 if (mode === 'capitalize') {
-                    return text.toLowerCase().replace(/\b[\w\u00C0-\u024F]/g, c => c.toUpperCase());
+                    return text.toLowerCase().replace(/\\b[\\w\\u00C0-\\u024F]/g, c => c.toUpperCase());
                 }
 
                 // Developer Naming Formats
                 const words = text
                     .replace(/([a-z])([A-Z])/g, '$1 $2')
-                    .replace(/[^a-zA-Z0-9\u00C0-\u024F]+/g, ' ')
+                    .replace(/[^a-zA-Z0-9\\u00C0-\\u024F]+/g, ' ')
                     .trim()
-                    .split(/\s+/)
+                    .split(/\\s+/)
                     .filter(Boolean);
 
                 if (words.length === 0) return '';
@@ -1421,7 +1421,7 @@ TOOLS_PHASE1 = [
                 if (mode === 'alternating') {
                     let upper = false;
                     return text.split('').map(c => {
-                        if (/[a-zA-Z\u00C0-\u024F]/.test(c)) {
+                        if (/[a-zA-Z\\u00C0-\\u024F]/.test(c)) {
                             upper = !upper;
                             return upper ? c.toUpperCase() : c.toLowerCase();
                         }
