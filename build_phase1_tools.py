@@ -888,6 +888,317 @@ TOOLS_PHASE1 = [
             }
         ]
     }
+,
+    {
+        "dir": "readability-checker",
+        "no_faq_schema": True,
+        "canonical": "https://www.creatorkitstudio.pro/tools/readability-checker/",
+        "title": "Free Readability Checker – Check Your Text Readability Score | CreatorKit Studio",
+        "meta_desc": "Check your text's readability with useful writing metrics including readability scores, word count, sentence length, and grade-level estimates.",
+        "keywords": "readability checker, readability score checker, text readability checker, readability test, Flesch Reading Ease, Flesch-Kincaid grade level, check text readability, readability calculator",
+        "h1": "Free Readability Checker",
+        "badge": "Free Readability Checker",
+        "summary": "Analyze text readability with real-time writing metrics, including Flesch Reading Ease, Flesch-Kincaid Grade Level, average sentence length, complex word counts, and estimated reading duration. Runs 100% locally in your browser.",
+        "icon": "fa-glasses",
+        "color": "emerald",
+        "custom_ui": """
+            <div class="space-y-6">
+                <!-- Text Input Workspace -->
+                <div class="space-y-2">
+                    <div class="flex items-center justify-between">
+                        <label for="readabilityInput" class="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+                            <i class="fa-solid fa-align-left text-emerald-500"></i> Enter or Paste Your Text to Analyze:
+                        </label>
+                        <div class="flex items-center gap-3">
+                            <button type="button" id="loadSampleBtn" class="text-xs text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">Load Sample</button>
+                            <button type="button" id="clearTextBtn" class="text-xs text-rose-500 hover:underline font-semibold">Clear</button>
+                        </div>
+                    </div>
+                    <textarea id="readabilityInput" rows="7" placeholder="Paste your article draft, newsletter, essay, or video script here to calculate its readability score..." class="w-full p-3.5 text-sm bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-dark-border rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 font-sans resize-y custom-scrollbar transition"></textarea>
+                </div>
+
+                <!-- Primary Readability Score Cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <!-- Flesch Reading Ease Card -->
+                    <div class="p-5 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-dark-border space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Flesch Reading Ease</span>
+                            <span id="readingEaseBadge" class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300">Standard</span>
+                        </div>
+                        <div class="flex items-baseline gap-2">
+                            <span id="readingEaseScore" class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">65</span>
+                            <span class="text-xs text-slate-500 dark:text-slate-400">/ 100</span>
+                        </div>
+                        <p id="readingEaseDescription" class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Conversational and clear. Generally comfortable for standard web readers.</p>
+                    </div>
+
+                    <!-- Flesch-Kincaid Grade Level Card -->
+                    <div class="p-5 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-dark-border space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Grade Level Estimate</span>
+                            <span id="gradeLevelBadge" class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300">8th Grade</span>
+                        </div>
+                        <div class="flex items-baseline gap-2">
+                            <span id="gradeLevelScore" class="text-3xl font-extrabold text-slate-900 dark:text-white font-mono">8.2</span>
+                            <span class="text-xs text-slate-500 dark:text-slate-400">Grade Level</span>
+                        </div>
+                        <p id="gradeLevelDescription" class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Estimated reading level based on average sentence and word lengths.</p>
+                    </div>
+                </div>
+
+                <!-- Detailed Text Metrics Grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
+                    <div class="p-3 bg-white dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 text-center space-y-0.5">
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Words</span>
+                        <div id="statWords" class="text-lg font-bold font-mono text-slate-900 dark:text-white">0</div>
+                    </div>
+                    <div class="p-3 bg-white dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 text-center space-y-0.5">
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Sentences</span>
+                        <div id="statSentences" class="text-lg font-bold font-mono text-slate-900 dark:text-white">0</div>
+                    </div>
+                    <div class="p-3 bg-white dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 text-center space-y-0.5">
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Words / Sent.</span>
+                        <div id="statWordsPerSent" class="text-lg font-bold font-mono text-slate-900 dark:text-white">0</div>
+                    </div>
+                    <div class="p-3 bg-white dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 text-center space-y-0.5">
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Characters</span>
+                        <div id="statChars" class="text-lg font-bold font-mono text-slate-900 dark:text-white">0</div>
+                    </div>
+                    <div class="p-3 bg-white dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 text-center space-y-0.5">
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Complex Words</span>
+                        <div id="statComplexWords" class="text-lg font-bold font-mono text-slate-900 dark:text-white">0</div>
+                    </div>
+                    <div class="p-3 bg-white dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-slate-800 text-center space-y-0.5">
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Reading Time</span>
+                        <div id="statReadingTime" class="text-lg font-bold font-mono text-slate-900 dark:text-white">0s</div>
+                    </div>
+                </div>
+            </div>
+        """,
+        "custom_script": """
+            const input = document.getElementById('readabilityInput');
+            const sampleBtn = document.getElementById('loadSampleBtn');
+            const clearBtn = document.getElementById('clearTextBtn');
+            
+            const readingEaseScore = document.getElementById('readingEaseScore');
+            const readingEaseBadge = document.getElementById('readingEaseBadge');
+            const readingEaseDesc = document.getElementById('readingEaseDescription');
+            
+            const gradeLevelScore = document.getElementById('gradeLevelScore');
+            const gradeLevelBadge = document.getElementById('gradeLevelBadge');
+            const gradeLevelDesc = document.getElementById('gradeLevelDescription');
+            
+            const statWords = document.getElementById('statWords');
+            const statSentences = document.getElementById('statSentences');
+            const statWordsPerSent = document.getElementById('statWordsPerSent');
+            const statChars = document.getElementById('statChars');
+            const statComplexWords = document.getElementById('statComplexWords');
+            const statReadingTime = document.getElementById('statReadingTime');
+
+            function countSyllablesInWord(word) {
+                let clean = word.toLowerCase().replace(/[^a-z]/g, '');
+                if (clean.length <= 3) return 1;
+                clean = clean.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');
+                clean = clean.replace(/^y/, '');
+                const matches = clean.match(/[aeiouy]{1,2}/g);
+                return matches ? matches.length : 1;
+            }
+
+            function analyzeReadability(text) {
+                if (!text || !text.trim()) {
+                    readingEaseScore.textContent = '0';
+                    readingEaseBadge.textContent = 'No Text';
+                    readingEaseDesc.textContent = 'Paste or type text above to calculate the readability score.';
+                    gradeLevelScore.textContent = '0';
+                    gradeLevelBadge.textContent = 'N/A';
+                    gradeLevelDesc.textContent = 'Grade level estimate will appear here once text is provided.';
+                    statWords.textContent = '0';
+                    statSentences.textContent = '0';
+                    statWordsPerSent.textContent = '0';
+                    statChars.textContent = '0';
+                    statComplexWords.textContent = '0';
+                    statReadingTime.textContent = '0s';
+                    return;
+                }
+
+                const wordsArray = text.trim().match(/[\w\u00C0-\u024F\u0400-\u04FF'-]+/g) || [];
+                const words = wordsArray.length || 1;
+                const sentencesArray = text.trim().match(/[^.!?]+[.!?]+(\s|$)/g) || [text];
+                const sentences = sentencesArray.length || 1;
+
+                let totalSyllables = 0;
+                let complexWords = 0;
+                wordsArray.forEach(w => {
+                    const syl = countSyllablesInWord(w);
+                    totalSyllables += syl;
+                    if (syl >= 3) complexWords++;
+                });
+
+                // Flesch Reading Ease Formula
+                let ease = 206.835 - (1.015 * (words / sentences)) - (84.6 * (totalSyllables / words));
+                ease = Math.max(0, Math.min(100, Math.round(ease)));
+
+                // Flesch-Kincaid Grade Level Formula
+                let grade = (0.39 * (words / sentences)) + (11.8 * (totalSyllables / words)) - 15.59;
+                grade = Math.max(1, Math.round(grade * 10) / 10);
+
+                const avgWordsPerSent = (words / sentences).toFixed(1);
+                const chars = text.length;
+                const readingSec = Math.round((words / 200) * 60);
+                const readingTimeStr = readingSec >= 60 ? `${Math.floor(readingSec / 60)}m ${readingSec % 60}s` : `${readingSec}s`;
+
+                readingEaseScore.textContent = ease;
+                gradeLevelScore.textContent = grade;
+                statWords.textContent = words.toLocaleString();
+                statSentences.textContent = sentences.toLocaleString();
+                statWordsPerSent.textContent = avgWordsPerSent;
+                statChars.textContent = chars.toLocaleString();
+                statComplexWords.textContent = complexWords.toLocaleString();
+                statReadingTime.textContent = readingTimeStr;
+
+                if (ease >= 90) {
+                    readingEaseBadge.textContent = 'Very Easy';
+                    readingEaseBadge.className = 'text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300';
+                    readingEaseDesc.textContent = 'Extremely simple to read. Conversational and easy for general audiences.';
+                } else if (ease >= 70) {
+                    readingEaseBadge.textContent = 'Fairly Easy';
+                    readingEaseBadge.className = 'text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300';
+                    readingEaseDesc.textContent = 'Clear, accessible conversational English suitable for most online articles.';
+                } else if (ease >= 60) {
+                    readingEaseBadge.textContent = 'Standard';
+                    readingEaseBadge.className = 'text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300';
+                    readingEaseDesc.textContent = 'Standard reading ease. Balanced sentence lengths and familiar vocabulary.';
+                } else if (ease >= 50) {
+                    readingEaseBadge.textContent = 'Fairly Difficult';
+                    readingEaseBadge.className = 'text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300';
+                    readingEaseDesc.textContent = 'Somewhat complex. Typical for high school or specialized subject material.';
+                } else {
+                    readingEaseBadge.textContent = 'Difficult';
+                    readingEaseBadge.className = 'text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-rose-100 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300';
+                    readingEaseDesc.textContent = 'Complex vocabulary and longer sentences. Typical for technical or academic literature.';
+                }
+
+                if (grade <= 6) {
+                    gradeLevelBadge.textContent = 'Elementary';
+                    gradeLevelDesc.textContent = 'Estimated reading level accessible to elementary school readers.';
+                } else if (grade <= 8) {
+                    gradeLevelBadge.textContent = 'Middle School';
+                    gradeLevelDesc.textContent = 'Estimated reading level accessible to middle school readers (7th–8th grade).';
+                } else if (grade <= 12) {
+                    gradeLevelBadge.textContent = 'High School';
+                    gradeLevelDesc.textContent = 'Estimated reading level suitable for high school readers (9th–12th grade).';
+                } else {
+                    gradeLevelBadge.textContent = 'College Level';
+                    gradeLevelDesc.textContent = 'Estimated reading level suitable for college-level or specialized readers.';
+                }
+            }
+
+            input.addEventListener('input', () => analyzeReadability(input.value));
+
+            clearBtn.addEventListener('click', () => {
+                input.value = '';
+                analyzeReadability('');
+                input.focus();
+            });
+
+            sampleBtn.addEventListener('click', () => {
+                input.value = "Creating content for the web requires balancing clarity with thoroughness. When writing for online readers, breaking long paragraphs into concise sections and choosing straightforward words makes information easier to follow. Readability formulas provide helpful benchmarks to spot sentences that may need editing, but they should always be paired with thoughtful human judgment.";
+                analyzeReadability(input.value);
+            });
+        """,
+        "overview": """
+            <h3>What is Readability?</h3>
+            <p>Readability describes how easily a reader can understand written text. It is shaped by practical elements such as sentence length, word familiarity, paragraph structure, and overall writing style. Readability is distinct from grammatical correctness, factual accuracy, or literary quality—a text can be grammatically flawless yet difficult to digest if sentences are needlessly dense.</p>
+
+            <p>CreatorKit Studio's <strong>Free Readability Checker</strong> calculates established readability metrics directly in your browser. Whether you are a blogger, student, copywriter, marketer, editor, or website owner, this tool helps you review sentence pacing and identify passages that may benefit from simplification.</p>
+
+            <h3>What Does the Readability Score Mean?</h3>
+            <p>Readability formulas are statistical estimates derived from measurable text characteristics, primarily average sentence length and syllable counts per word. Because these scores are mathematical calculations, they provide helpful guidance rather than rigid rules.</p>
+            <p>There is no universally "correct" score for all content. The appropriate readability level depends on your target audience, topic complexity, publication type, and editorial purpose.</p>
+
+            <h3>Understanding Flesch Reading Ease</h3>
+            <p>The Flesch Reading Ease formula outputs a score between 0 and 100. Higher scores indicate writing that uses shorter sentences and simpler vocabulary, making it faster to read. Lower scores indicate more complex sentences and multisyllabic terms.</p>
+            <p>A lower score is not inherently negative—academic papers, legal briefs, and technical documentation naturally require specialized terminology that yields lower reading ease scores.</p>
+
+            <h3>Understanding Flesch-Kincaid Grade Level</h3>
+            <p>The Flesch-Kincaid Grade Level formula translates reading difficulty into an approximate U.S. school grade level (e.g., a score of 8.0 corresponds roughly to an 8th-grade reading level). This score serves as a rough indicator of structural complexity, not a measure of the reader's intelligence or the author's expertise.</p>
+
+            <h3>How to Improve Readability</h3>
+            <ul class="list-disc pl-5 space-y-1.5 text-xs text-slate-600 dark:text-slate-300">
+                <li><strong>Shorten unnecessarily long sentences:</strong> Break complex compound sentences into two clear thoughts.</li>
+                <li><strong>Divide large blocks of text:</strong> Use short paragraphs (2–4 sentences) to help readers scan on mobile screens.</li>
+                <li><strong>Prefer clear and familiar words:</strong> Choose straightforward phrasing when it conveys your meaning accurately.</li>
+                <li><strong>Remove unnecessary filler:</strong> Eliminate redundant modifiers and wordy transitional phrases.</li>
+                <li><strong>Use headings and bullet points:</strong> Structure multi-step processes or list items visually.</li>
+                <li><strong>Read your text aloud:</strong> Reading out loud is one of the most effective ways to catch unnatural rhythm and awkward phrasing.</li>
+            </ul>
+
+            <h3>Before and After Readability Example</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-3 text-xs not-prose">
+                <div class="p-3.5 bg-rose-50/70 dark:bg-rose-950/30 rounded-xl border border-rose-200/60 dark:border-rose-900/40 space-y-1">
+                    <span class="font-bold text-rose-700 dark:text-rose-400 uppercase tracking-wider text-[10px]">Dense Version (Grade 14.8 / Ease 24):</span>
+                    <p class="text-slate-700 dark:text-slate-300 leading-relaxed italic">"Due to the fact that the application possesses the capability to facilitate the processing of images in a manner that is performed entirely within the user's browser environment, users are able to resize their images without transmitting them to a remote server."</p>
+                </div>
+                <div class="p-3.5 bg-emerald-50/70 dark:bg-emerald-950/30 rounded-xl border border-emerald-200/60 dark:border-emerald-900/40 space-y-1">
+                    <span class="font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider text-[10px]">Clear Version (Grade 7.2 / Ease 75):</span>
+                    <p class="text-slate-700 dark:text-slate-300 leading-relaxed italic">"The tool processes images in your browser. You can resize them without uploading them to a remote server."</p>
+                </div>
+            </div>
+            <p>The revised version communicates the exact same information with greater clarity, making it faster to scan and understand.</p>
+
+            <h3>Limitations of Readability Formulas</h3>
+            <p>While formulas provide valuable structural feedback, they cannot evaluate:</p>
+            <ul class="list-disc pl-5 space-y-1 text-xs text-slate-600 dark:text-slate-300">
+                <li>The logical clarity and cohesion of your arguments.</li>
+                <li>Factual accuracy and source credibility.</li>
+                <li>Tone, humor, empathy, and voice.</li>
+                <li>Audience expectations and subject-matter context.</li>
+                <li>Originality, insight, and genuine usefulness.</li>
+            </ul>
+            <p>Always treat readability metrics as a diagnostic tool rather than a substitute for careful editorial judgment.</p>
+            <p>After polishing your article's readability, you can generate search-ready snippet metadata using our <a href="../seo-meta-generator/" class="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">SEO Meta & SERP Generator</a> and create clean permalinks with the <a href="../seo-slug-generator/" class="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">SEO Slug Generator</a>.</p>
+        """,
+        "instructions": [
+            "Paste or type your text draft into the input workspace.",
+            "The tool automatically analyzes your writing in real time.",
+            "Review your Flesch Reading Ease score and grade-level estimate.",
+            "Check structural metrics such as average sentence length and complex words.",
+            "Edit dense sentences and observe the scores update instantly."
+        ],
+        "tips": [
+            "Aim for a reading ease score that matches your specific audience and subject matter.",
+            "Keep average sentence length around 15–20 words for smooth online scanning.",
+            "Use bullet points and headings to break up dense informational lists.",
+            "Search engines do not require or publish a mandatory readability score for web pages."
+        ],
+        "privacy": "Your text is analyzed locally in your browser using client-side JavaScript and does not need to be uploaded to a server.",
+        "faqs": [
+            {
+                "q": "What is a readability checker?",
+                "a": "A readability checker is a utility that analyzes text characteristics such as sentence length and syllable count to estimate how easy a passage is to read."
+            },
+            {
+                "q": "What is Flesch Reading Ease?",
+                "a": "Flesch Reading Ease is a standard formula that scores text on a 0–100 scale, where higher numbers indicate simpler, faster-reading text and lower numbers indicate denser prose."
+            },
+            {
+                "q": "What does Flesch-Kincaid Grade Level mean?",
+                "a": "It translates text complexity into an approximate U.S. school grade level, serving as a rough indicator of structural complexity rather than an academic rating."
+            },
+            {
+                "q": "What is a good readability score?",
+                "a": "A good score depends entirely on your audience. General web content often targets a score between 60 and 70 (8th–9th grade), while technical and academic papers naturally score lower."
+            },
+            {
+                "q": "Does readability directly affect Google rankings?",
+                "a": "No. Search engines do not use Flesch Reading Ease or grade level formulas as direct ranking factors. However, clear and understandable writing helps visitors find the information they need."
+            },
+            {
+                "q": "Can readability formulas replace human editing?",
+                "a": "No. Readability formulas measure mathematical sentence structure, but cannot judge factual accuracy, logical flow, tone, or overall writing quality."
+            }
+        ]
+    }
 ]
 
 def generate_tool_html(t):
@@ -895,29 +1206,38 @@ def generate_tool_html(t):
         {"@type": "Question", "name": f["q"], "acceptedAnswer": {"@type": "Answer", "text": f["a"]}}
         for f in t["faqs"]
     ]
-    schema_json = json.dumps({
-        "@context": "https://schema.org",
-        "@graph": [
-            {
-                "@type": "WebApplication",
-                "name": t["title"],
-                "url": t["canonical"],
-                "description": t["meta_desc"],
-                "applicationCategory": "UtilitiesApplication",
-                "operatingSystem": "All",
-                "browserRequirements": "Requires JavaScript. Requires HTML5.",
-                "offers": {
-                    "@type": "Offer",
-                    "price": "0",
-                    "priceCurrency": "USD"
+    web_app_schema = {
+        "@type": "WebApplication",
+        "name": t["title"],
+        "url": t["canonical"],
+        "description": t["meta_desc"],
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+
+    if t.get("no_faq_schema"):
+        schema_dict = {
+            "@context": "https://schema.org",
+            **web_app_schema
+        }
+    else:
+        schema_dict = {
+            "@context": "https://schema.org",
+            "@graph": [
+                web_app_schema,
+                {
+                    "@type": "FAQPage",
+                    "mainEntity": faqs_schema
                 }
-            },
-            {
-                "@type": "FAQPage",
-                "mainEntity": faqs_schema
-            }
-        ]
-    }, indent=2)
+            ]
+        }
+    schema_json = json.dumps(schema_dict, indent=2)
 
     instructions_html = "".join([f"<li>{step}</li>" for step in t["instructions"]])
     tips_html = "".join([f"<li>{tip}</li>" for tip in t["tips"]])
