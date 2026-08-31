@@ -154,7 +154,7 @@
                 <i class="fa-solid fa-text-height"></i> Free Case Converter
             </div>
             <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">Free Case Converter</h1>
-            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">Convert text into UPPERCASE, lowercase, Title Case, Sentence case, Capitalized Case, camelCase, PascalCase, snake_case, kebab-case, and CONSTANT_CASE directly in your browser. Fast, 100% client-side formatting.</p>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">Convert text into UPPERCASE, lowercase, Title Case, Sentence case, Capitalized Case, camelCase, PascalCase, snake_case, kebab-case, and CONSTANT_CASE directly in your browser. Fast, browser-based formatting.</p>
         </div>
 
         <!-- Interactive Tool Card -->
@@ -488,7 +488,7 @@
     <footer class="bg-white dark:bg-dark-surface border-t border-slate-200 dark:border-dark-border py-8 px-4 sm:px-6 lg:px-8 text-xs text-slate-500 dark:text-slate-400">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
-                <span class="font-bold text-slate-800 dark:text-slate-200">CreatorKit Studio</span> &copy; 2026. 100% Free Client-Side Creator Suite.
+                <span class="font-bold text-slate-800 dark:text-slate-200">CreatorKit Studio</span> &copy; 2026. Free Client-Side Creator Suite.
             </div>
             <div class="flex items-center gap-5 font-medium">
                 <a href="../../index.html#all" class="hover:text-indigo-500">All Tools</a>
@@ -567,7 +567,8 @@
                 }
                 if (mode === 'title') {
                     const smallWords = /^(a|an|and|as|at|but|by|for|if|in|nor|of|on|or|so|the|to|up|yet)$/i;
-                    return text.split(/(?
+                    return text.split(/(
+?
 |\s+)/).map((segment, index, arr) => {
                         if (/^\s+$/.test(segment) || segment === '') return segment;
                         const cleanWord = segment.replace(/^[^\wÀ-ɏ]+|[^\wÀ-ɏ]+$/g, '');

@@ -1209,7 +1209,7 @@ TOOLS_PHASE1 = [
         "keywords": "case converter, case converter online, text case converter, uppercase converter, lowercase converter, title case converter, sentence case converter, camelCase converter, PascalCase converter, snake_case converter, kebab-case converter, change text case",
         "h1": "Free Case Converter",
         "badge": "Free Case Converter",
-        "summary": "Convert text into UPPERCASE, lowercase, Title Case, Sentence case, Capitalized Case, camelCase, PascalCase, snake_case, kebab-case, and CONSTANT_CASE directly in your browser. Fast, 100% client-side formatting.",
+        "summary": "Convert text into UPPERCASE, lowercase, Title Case, Sentence case, Capitalized Case, camelCase, PascalCase, snake_case, kebab-case, and CONSTANT_CASE directly in your browser. Fast, browser-based formatting.",
         "icon": "fa-text-height",
         "color": "blue",
         "custom_ui": """
@@ -1907,7 +1907,7 @@ def generate_tool_html(t):
     <footer class="bg-white dark:bg-dark-surface border-t border-slate-200 dark:border-dark-border py-8 px-4 sm:px-6 lg:px-8 text-xs text-slate-500 dark:text-slate-400">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
-                <span class="font-bold text-slate-800 dark:text-slate-200">CreatorKit Studio</span> &copy; 2026. 100% Free Client-Side Creator Suite.
+                <span class="font-bold text-slate-800 dark:text-slate-200">CreatorKit Studio</span> &copy; 2026. Free Client-Side Creator Suite.
             </div>
             <div class="flex items-center gap-5 font-medium">
                 <a href="../../index.html#all" class="hover:text-indigo-500">All Tools</a>
