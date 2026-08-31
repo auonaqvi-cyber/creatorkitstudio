@@ -186,4 +186,11 @@
         <priority>0.85</priority>
     </url>
 
+    <!-- Educational Guides Section -->
+    <url>
+        <loc>https://www.creatorkitstudio.pro/guides/convert-text-case/</loc>
+        <lastmod>2026-08-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+    </url>
 </urlset>
