@@ -1199,6 +1199,431 @@ TOOLS_PHASE1 = [
             }
         ]
     }
+,
+    {
+        "dir": "case-converter",
+        "canonical": "https://www.creatorkitstudio.pro/tools/case-converter/",
+        "no_faq_schema": True,
+        "title": "Free Case Converter – UPPERCASE, lowercase, Title Case & More | CreatorKit Studio",
+        "meta_desc": "Convert text to UPPERCASE, lowercase, Title Case, Sentence case, camelCase, PascalCase, snake_case and kebab-case instantly in your browser.",
+        "keywords": "case converter, case converter online, text case converter, uppercase converter, lowercase converter, title case converter, sentence case converter, camelCase converter, PascalCase converter, snake_case converter, kebab-case converter, change text case",
+        "h1": "Free Case Converter",
+        "badge": "Free Case Converter",
+        "summary": "Convert text into UPPERCASE, lowercase, Title Case, Sentence case, Capitalized Case, camelCase, PascalCase, snake_case, kebab-case, and CONSTANT_CASE directly in your browser. Fast, 100% client-side formatting.",
+        "icon": "fa-text-height",
+        "color": "blue",
+        "custom_ui": """
+            <div class="space-y-6">
+                <!-- Dual Text Workspace -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    <!-- Input Column -->
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <label for="caseInput" class="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+                                <i class="fa-solid fa-pen-to-square text-blue-500"></i> Original Input Text:
+                            </label>
+                            <div class="flex items-center gap-3">
+                                <button type="button" id="loadCaseSampleBtn" class="text-xs text-blue-600 dark:text-blue-400 hover:underline font-semibold">Load Sample</button>
+                                <button type="button" id="clearCaseInputBtn" class="text-xs text-rose-500 hover:underline font-semibold">Clear</button>
+                            </div>
+                        </div>
+                        <textarea id="caseInput" rows="8" placeholder="Type or paste your text here to convert its case..." class="w-full p-3.5 text-sm bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-dark-border rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 font-sans resize-y custom-scrollbar transition"></textarea>
+                        <div class="flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 px-1 font-mono">
+                            <span>Input Stats: <strong id="inputWordCount" class="text-slate-800 dark:text-slate-200">0</strong> words, <strong id="inputCharCount" class="text-slate-800 dark:text-slate-200">0</strong> chars</span>
+                        </div>
+                    </div>
+
+                    <!-- Output Column -->
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <label for="caseOutput" class="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-wand-magic-sparkles text-indigo-500"></i> Converted Output:
+                                </label>
+                                <span id="activeModeBadge" class="text-[10px] font-bold px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300">UPPERCASE</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <button type="button" id="copyCaseOutputBtn" class="px-3 py-1 text-xs font-semibold rounded-lg bg-blue-600 hover:bg-blue-700 text-white shadow-sm transition flex items-center gap-1.5 active:scale-95">
+                                    <i class="fa-regular fa-copy"></i> Copy Output
+                                </button>
+                                <button type="button" id="downloadCaseOutputBtn" class="px-3 py-1 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition flex items-center gap-1.5" title="Download as .txt">
+                                    <i class="fa-solid fa-download"></i> .txt
+                                </button>
+                            </div>
+                        </div>
+                        <textarea id="caseOutput" rows="8" readonly placeholder="Converted text will appear here instantly..." class="w-full p-3.5 text-sm font-sans bg-slate-100/70 dark:bg-slate-900/60 border border-slate-200 dark:border-dark-border rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none resize-y custom-scrollbar transition"></textarea>
+                        <div class="flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 px-1 font-mono">
+                            <span>Output Stats: <strong id="outputWordCount" class="text-slate-800 dark:text-slate-200">0</strong> words, <strong id="outputCharCount" class="text-slate-800 dark:text-slate-200">0</strong> chars</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Conversion Mode Selector Buttons -->
+                <div class="p-5 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-dark-border space-y-4">
+                    <!-- Group 1: Writing & Publishing -->
+                    <div class="space-y-2">
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+                            <i class="fa-solid fa-newspaper text-blue-500"></i> Writing & Publishing Formats:
+                        </span>
+                        <div class="flex flex-wrap gap-2">
+                            <button type="button" data-mode="upper" class="mode-btn px-3.5 py-2 text-xs font-bold rounded-xl bg-blue-600 text-white shadow-sm transition active:scale-95">
+                                UPPERCASE
+                            </button>
+                            <button type="button" data-mode="lower" class="mode-btn px-3.5 py-2 text-xs font-bold rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-blue-950/40 hover:text-blue-600 transition active:scale-95">
+                                lowercase
+                            </button>
+                            <button type="button" data-mode="title" class="mode-btn px-3.5 py-2 text-xs font-bold rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-blue-950/40 hover:text-blue-600 transition active:scale-95">
+                                Title Case
+                            </button>
+                            <button type="button" data-mode="sentence" class="mode-btn px-3.5 py-2 text-xs font-bold rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-blue-950/40 hover:text-blue-600 transition active:scale-95">
+                                Sentence case
+                            </button>
+                            <button type="button" data-mode="capitalize" class="mode-btn px-3.5 py-2 text-xs font-bold rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-blue-950/40 hover:text-blue-600 transition active:scale-95">
+                                Capitalized Case
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Group 2: Developer & Naming -->
+                    <div class="space-y-2 pt-2 border-t border-slate-200/60 dark:border-slate-800">
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+                            <i class="fa-solid fa-code text-indigo-500"></i> Developer & Naming Formats:
+                        </span>
+                        <div class="flex flex-wrap gap-2">
+                            <button type="button" data-mode="camel" class="mode-btn px-3.5 py-2 text-xs font-bold font-mono rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 transition active:scale-95">
+                                camelCase
+                            </button>
+                            <button type="button" data-mode="pascal" class="mode-btn px-3.5 py-2 text-xs font-bold font-mono rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 transition active:scale-95">
+                                PascalCase
+                            </button>
+                            <button type="button" data-mode="snake" class="mode-btn px-3.5 py-2 text-xs font-bold font-mono rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 transition active:scale-95">
+                                snake_case
+                            </button>
+                            <button type="button" data-mode="kebab" class="mode-btn px-3.5 py-2 text-xs font-bold font-mono rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 transition active:scale-95">
+                                kebab-case
+                            </button>
+                            <button type="button" data-mode="constant" class="mode-btn px-3.5 py-2 text-xs font-bold font-mono rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 transition active:scale-95">
+                                CONSTANT_CASE
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Group 3: Fun / Utility -->
+                    <div class="space-y-2 pt-2 border-t border-slate-200/60 dark:border-slate-800">
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+                            <i class="fa-solid fa-face-smile text-pink-500"></i> Fun / Utility Formats:
+                        </span>
+                        <div class="flex flex-wrap gap-2">
+                            <button type="button" data-mode="alternating" class="mode-btn px-3 py-1.5 text-xs font-semibold rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-pink-50 dark:hover:bg-pink-950/40 hover:text-pink-600 transition active:scale-95">
+                                aLtErNaTiNg CaSe
+                            </button>
+                            <button type="button" data-mode="inverse" class="mode-btn px-3 py-1.5 text-xs font-semibold rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-pink-50 dark:hover:bg-pink-950/40 hover:text-pink-600 transition active:scale-95">
+                                InVeRsE cAsE
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        """,
+        "custom_script": """
+            const caseInput = document.getElementById('caseInput');
+            const caseOutput = document.getElementById('caseOutput');
+            const activeBadge = document.getElementById('activeModeBadge');
+            const copyBtn = document.getElementById('copyCaseOutputBtn');
+            const downloadBtn = document.getElementById('downloadCaseOutputBtn');
+            const clearBtn = document.getElementById('clearCaseInputBtn');
+            const sampleBtn = document.getElementById('loadCaseSampleBtn');
+            const modeBtns = document.querySelectorAll('.mode-btn');
+
+            const inWordCount = document.getElementById('inputWordCount');
+            const inCharCount = document.getElementById('inputCharCount');
+            const outWordCount = document.getElementById('outputWordCount');
+            const outCharCount = document.getElementById('outputCharCount');
+
+            let currentMode = 'upper';
+
+            const MODE_NAMES = {
+                'upper': 'UPPERCASE',
+                'lower': 'lowercase',
+                'title': 'Title Case',
+                'sentence': 'Sentence case',
+                'capitalize': 'Capitalized Case',
+                'camel': 'camelCase',
+                'pascal': 'PascalCase',
+                'snake': 'snake_case',
+                'kebab': 'kebab-case',
+                'constant': 'CONSTANT_CASE',
+                'alternating': 'aLtErNaTiNg CaSe',
+                'inverse': 'InVeRsE cAsE'
+            };
+
+            function countWords(str) {
+                if (!str || !str.trim()) return 0;
+                const matches = str.trim().match(/[\w\u00C0-\u024F'-]+/g);
+                return matches ? matches.length : 0;
+            }
+
+            function convertCase(text, mode) {
+                if (!text) return '';
+
+                if (mode === 'upper') {
+                    return text.toUpperCase();
+                }
+                if (mode === 'lower') {
+                    return text.toLowerCase();
+                }
+                if (mode === 'title') {
+                    const smallWords = /^(a|an|and|as|at|but|by|for|if|in|nor|of|on|or|so|the|to|up|yet)$/i;
+                    return text.split(/(\r?\n|\s+)/).map((segment, index, arr) => {
+                        if (/^\s+$/.test(segment) || segment === '') return segment;
+                        const cleanWord = segment.replace(/^[^\w\u00C0-\u024F]+|[^\w\u00C0-\u024F]+$/g, '');
+                        if (!cleanWord) return segment;
+                        if (index === 0 || index === arr.length - 1 || !smallWords.test(cleanWord)) {
+                            return segment.charAt(0).toUpperCase() + segment.slice(1).toLowerCase();
+                        }
+                        return segment.toLowerCase();
+                    }).join('');
+                }
+                if (mode === 'sentence') {
+                    return text.toLowerCase().replace(/(^\s*[\w\u00C0-\u024F]|[.\n!?]\s*[\w\u00C0-\u024F])/g, c => c.toUpperCase());
+                }
+                if (mode === 'capitalize') {
+                    return text.toLowerCase().replace(/\b[\w\u00C0-\u024F]/g, c => c.toUpperCase());
+                }
+
+                // Developer Naming Formats
+                const words = text
+                    .replace(/([a-z])([A-Z])/g, '$1 $2')
+                    .replace(/[^a-zA-Z0-9\u00C0-\u024F]+/g, ' ')
+                    .trim()
+                    .split(/\s+/)
+                    .filter(Boolean);
+
+                if (words.length === 0) return '';
+
+                if (mode === 'camel') {
+                    return words.map((w, i) => i === 0 ? w.toLowerCase() : w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join('');
+                }
+                if (mode === 'pascal') {
+                    return words.map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join('');
+                }
+                if (mode === 'snake') {
+                    return words.map(w => w.toLowerCase()).join('_');
+                }
+                if (mode === 'kebab') {
+                    return words.map(w => w.toLowerCase()).join('-');
+                }
+                if (mode === 'constant') {
+                    return words.map(w => w.toUpperCase()).join('_');
+                }
+
+                // Fun / Utility
+                if (mode === 'alternating') {
+                    let upper = false;
+                    return text.split('').map(c => {
+                        if (/[a-zA-Z\u00C0-\u024F]/.test(c)) {
+                            upper = !upper;
+                            return upper ? c.toUpperCase() : c.toLowerCase();
+                        }
+                        return c;
+                    }).join('');
+                }
+                if (mode === 'inverse') {
+                    return text.split('').map(c => {
+                        if (c === c.toUpperCase()) return c.toLowerCase();
+                        if (c === c.toLowerCase()) return c.toUpperCase();
+                        return c;
+                    }).join('');
+                }
+
+                return text;
+            }
+
+            function processConversion() {
+                const text = caseInput.value;
+                const converted = convertCase(text, currentMode);
+                caseOutput.value = converted;
+
+                inWordCount.textContent = countWords(text).toLocaleString();
+                inCharCount.textContent = text.length.toLocaleString();
+                outWordCount.textContent = countWords(converted).toLocaleString();
+                outCharCount.textContent = converted.length.toLocaleString();
+            }
+
+            function setActiveMode(mode) {
+                currentMode = mode;
+                activeBadge.textContent = MODE_NAMES[mode] || mode;
+
+                modeBtns.forEach(btn => {
+                    if (btn.dataset.mode === mode) {
+                        btn.className = 'mode-btn px-3.5 py-2 text-xs font-bold rounded-xl bg-blue-600 text-white shadow-sm transition active:scale-95';
+                    } else {
+                        btn.className = 'mode-btn px-3.5 py-2 text-xs font-bold rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-blue-950/40 hover:text-blue-600 transition active:scale-95';
+                    }
+                });
+
+                processConversion();
+            }
+
+            modeBtns.forEach(btn => {
+                btn.addEventListener('click', () => setActiveMode(btn.dataset.mode));
+            });
+
+            caseInput.addEventListener('input', processConversion);
+
+            clearBtn.addEventListener('click', () => {
+                caseInput.value = '';
+                processConversion();
+                caseInput.focus();
+            });
+
+            sampleBtn.addEventListener('click', () => {
+                caseInput.value = "THE ULTIMATE GUIDE TO CONTENT CREATION: 10 best free tools for creators in 2026!";
+                processConversion();
+            });
+
+            copyBtn.addEventListener('click', async () => {
+                if (!caseOutput.value) return;
+                try {
+                    await navigator.clipboard.writeText(caseOutput.value);
+                    copyBtn.innerHTML = '<i class="fa-solid fa-check text-emerald-400"></i> Copied!';
+                    setTimeout(() => {
+                        copyBtn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy Output';
+                    }, 1500);
+                } catch (e) {
+                    caseOutput.select();
+                    document.execCommand('copy');
+                }
+            });
+
+            downloadBtn.addEventListener('click', () => {
+                if (!caseOutput.value) return;
+                const blob = new Blob([caseOutput.value], { type: 'text/plain;charset=utf-8' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `creatorkit-${currentMode}-${Date.now()}.txt`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            });
+        """,
+        "overview": """
+            <h3>What is a Case Converter?</h3>
+            <p>A case converter is a text utility that changes the capitalization of letters in words, sentences, or entire documents. Whether you accidentally typed with Caps Lock enabled, need to format article headings, or want to convert variable names for programming, a case converter transforms your text instantly without requiring manual retyping.</p>
+
+            <p>CreatorKit Studio's <strong>Free Case Converter</strong> supports both traditional publishing formats (UPPERCASE, lowercase, Title Case, Sentence case, Capitalized Case) and developer naming conventions (camelCase, PascalCase, snake_case, kebab-case, CONSTANT_CASE) directly in your browser with zero server uploads.</p>
+
+            <h3>What is Text Case?</h3>
+            <p>In typography and writing, "case" refers to the distinction between capital (majuscule) and small (minuscule) letters. Different writing contexts, style guides, and coding languages rely on specific capitalization patterns for clarity, consistency, and syntax compatibility.</p>
+
+            <h3>Common Writing & Publishing Cases</h3>
+            <ul class="list-disc pl-5 space-y-1.5 text-xs text-slate-600 dark:text-slate-300">
+                <li><strong>UPPERCASE (All Caps):</strong> Converts all letters to capital letters (e.g., <code>HELLO WORLD</code>). Useful for short acronyms, warning labels, and emphatic headings.</li>
+                <li><strong>lowercase:</strong> Converts all letters to small letters (e.g., <code>hello world</code>). Useful for normalizing text, tags, and email addresses.</li>
+                <li><strong>Title Case:</strong> Capitalizes major words while keeping defined short grammatical words (such as <em>a</em>, <em>an</em>, <em>and</em>, <em>as</em>, <em>at</em>, <em>but</em>, <em>by</em>, <em>for</em>, <em>if</em>, <em>in</em>, <em>nor</em>, <em>of</em>, <em>on</em>, <em>or</em>, <em>so</em>, <em>the</em>, <em>to</em>, <em>up</em>, <em>yet</em>) in lowercase, unless they occur as the first or last word in a heading (e.g., <code>The Best Tools for Content Creators</code>). This follows a standardized word-list algorithm and does not claim strict compliance with any specific editorial style guide (such as AP, Chicago, or APA), which often feature complex contextual rules.</li>
+                <li><strong>Sentence case:</strong> Capitalizes the first letter of each sentence while leaving remaining words lowercase (e.g., <code>This is a sample sentence. Here is another one.</code>).</li>
+                <li><strong>Capitalized Case:</strong> Capitalizes the first letter of every single word regardless of parts of speech (e.g., <code>Free Online Text Tool</code>).</li>
+            </ul>
+
+            <h3>Developer Naming Conventions</h3>
+            <p>Software development projects commonly adopt distinct capitalization conventions to distinguish between variables, functions, classes, and database fields. Note that naming conventions are practical community practices rather than universal rules for any single programming language:</p>
+            <div class="overflow-x-auto my-3 text-xs not-prose">
+                <table class="min-w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-dark-border rounded-xl">
+                    <thead>
+                        <tr class="border-b border-slate-200 dark:border-slate-800 text-left text-slate-500 font-bold">
+                            <th class="p-3">Format</th>
+                            <th class="p-3">Example Output</th>
+                            <th class="p-3">Common Usage Examples</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 dark:divide-slate-800 font-mono text-slate-700 dark:text-slate-300">
+                        <tr>
+                            <td class="p-3 font-sans font-bold">camelCase</td>
+                            <td class="p-3 text-indigo-600 dark:text-indigo-400">customerAccountNumber</td>
+                            <td class="p-3 font-sans">Commonly used for JavaScript variables, object properties, and function names</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-sans font-bold">PascalCase</td>
+                            <td class="p-3 text-indigo-600 dark:text-indigo-400">CustomerAccountNumber</td>
+                            <td class="p-3 font-sans">Frequently used for React components, class definitions, and TypeScript types</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-sans font-bold">snake_case</td>
+                            <td class="p-3 text-indigo-600 dark:text-indigo-400">customer_account_number</td>
+                            <td class="p-3 font-sans">Commonly adopted for Python variables, script filenames, and database columns</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-sans font-bold">kebab-case</td>
+                            <td class="p-3 text-indigo-600 dark:text-indigo-400">customer-account-number</td>
+                            <td class="p-3 font-sans">Often used for CSS class names, HTML attributes, and package names</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-sans font-bold">CONSTANT_CASE</td>
+                            <td class="p-3 text-indigo-600 dark:text-indigo-400">CUSTOMER_ACCOUNT_NUMBER</td>
+                            <td class="p-3 font-sans">Frequently used for environment variables and global configuration constants</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Title Case vs. Sentence Case</h3>
+            <p>Title Case capitalizes primary words (<code>The Best Free Tools for Creators</code>), while Sentence case capitalizes only the first word and proper nouns (<code>The best free tools for creators</code>). Neither is universally superior; choosing between them depends on your publication's editorial style guide or regional preference.</p>
+
+            <h3>When to Use UPPERCASE vs. lowercase</h3>
+            <p>UPPERCASE is effective for brief emphasis, UI buttons, acronyms, and warning labels, but should be used sparingly in long paragraphs as all-caps text can be difficult for readers to scan quickly. lowercase is standard for tags, code parameters, and informal communication.</p>
+            <p>If you're formatting text specifically for a clean web address, use the <a href="../seo-slug-generator/" class="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">SEO Slug Generator</a> instead, which automatically replaces spaces with hyphens and cleans punctuation for URL permalinks.</p>
+
+            <h3>Limitations of Automatic Case Conversion</h3>
+            <p>Automatic conversion tools operate on structural pattern rules and cannot determine whether a word is a brand name (e.g., <em>iPhone</em>, <em>eBay</em>), a specialized acronym (e.g., <em>NASA</em>, <em>HTML</em>), or a proper noun. Always review your converted text when proper capitalization accuracy is required.</p>
+            <p>After formatting your content, use our <a href="../readability-checker/" class="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">Readability Checker</a> to evaluate sentence flow, or generate search snippet tags with the <a href="../seo-meta-generator/" class="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">SEO Meta & SERP Generator</a>.</p>
+        """,
+        "instructions": [
+            "Type or paste your text into the Original Input Text area.",
+            "Click any case format button (such as UPPERCASE, Title Case, camelCase, or snake_case).",
+            "Review the converted output in the right-hand panel.",
+            "Switch between different case modes at any time without losing your original text.",
+            "Click <strong>Copy Output</strong> to copy to your clipboard, or click <strong>.txt</strong> to download a file."
+        ],
+        "tips": [
+            "Use Sentence case for standard blog paragraphs and email bodies.",
+            "Use Title Case for main headlines, blog titles, and newsletter subject lines.",
+            "Use snake_case or CONSTANT_CASE for database columns and configuration files.",
+            "If you need a URL-friendly permalink with hyphens and lowercase letters, use the dedicated SEO Slug Generator."
+        ],
+        "privacy": "Your text is processed entirely in your browser using client-side JavaScript and does not need to be uploaded to a server.",
+        "faqs": [
+            {
+                "q": "What does a case converter do?",
+                "a": "A case converter automatically alters the capitalization of letters in your text into styles such as UPPERCASE, lowercase, Title Case, Sentence case, camelCase, or snake_case."
+            },
+            {
+                "q": "How do I convert uppercase text to lowercase?",
+                "a": "Paste your uppercase text into the input field and click the lowercase button. The tool converts all characters to lowercase instantly."
+            },
+            {
+                "q": "What is the difference between Title Case and Sentence case?",
+                "a": "Title Case capitalizes all major words while keeping small prepositions lowercase. Sentence case capitalizes only the first word of each sentence and leaves remaining words lowercase."
+            },
+            {
+                "q": "What is camelCase and PascalCase?",
+                "a": "camelCase removes spaces and capitalizes each word except the first (e.g., userProfile). PascalCase capitalizes all words including the first (e.g., UserProfile)."
+            },
+            {
+                "q": "What is snake_case and kebab-case?",
+                "a": "snake_case separates lowercase words with underscores (e.g., user_profile), while kebab-case separates lowercase words with hyphens (e.g., user-profile)."
+            },
+            {
+                "q": "Can a case converter correctly capitalize proper names?",
+                "a": "Automatic converters follow standard algorithmic rules and cannot identify unique brand names (like iPhone) or proper nouns automatically. Always review converted copy."
+            },
+            {
+                "q": "Is my text uploaded to a server?",
+                "a": "No. All text processing occurs entirely within your web browser using client-side JavaScript. No text is sent to external servers."
+            }
+        ]
+    }
 ]
 
 def generate_tool_html(t):
