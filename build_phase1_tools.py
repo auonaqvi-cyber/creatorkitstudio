@@ -3,7 +3,7 @@ import os, json
 TOOLS_PHASE1 = [
     {
         "dir": "image-resizer",
-        "canonical": "https://www.creatorkitstudio.pro/tools/image-resizer/",
+        "canonical": "https://creatorkitstudio.pro/tools/image-resizer/",
         "title": "Free Online Image Resizer – Resize JPG, PNG & WebP | CreatorKit Studio",
         "meta_desc": "Resize, scale, and compress images directly in your browser using HTML5 Canvas. YouTube thumbnail (1280x720), Instagram, and Twitter presets. Zero server uploads.",
         "keywords": "free online image resizer, resize image online, resize JPG, resize PNG, resize WebP, browser-based image resizer, client-side image resizing, youtube thumbnail resizer",
@@ -224,7 +224,7 @@ TOOLS_PHASE1 = [
     },
     {
         "dir": "hashtag-generator",
-        "canonical": "https://www.creatorkitstudio.pro/tools/hashtag-generator/",
+        "canonical": "https://creatorkitstudio.pro/tools/hashtag-generator/",
         "title": "Free Hashtag Generator – Instagram, TikTok & Shorts | CreatorKit Studio",
         "meta_desc": "Generate relevant hashtags categorized for Instagram, TikTok, YouTube Shorts, and LinkedIn. Clean spaces, deduplicate tags, and copy sets in 1 click.",
         "keywords": "free hashtag generator, hashtag generator online, instagram hashtag maker, tiktok viral tags, youtube shorts hashtags, linkedin hashtags",
@@ -373,7 +373,7 @@ TOOLS_PHASE1 = [
     },
     {
         "dir": "teleprompter",
-        "canonical": "https://www.creatorkitstudio.pro/tools/teleprompter/",
+        "canonical": "https://creatorkitstudio.pro/tools/teleprompter/",
         "title": "Online Teleprompter – Free Fullscreen Script Prompter | CreatorKit Studio",
         "meta_desc": "Free online fullscreen teleprompter for creators and presenters. Smooth auto-scroll, speed controls, font resizing, and beam-splitter mirror rig mode.",
         "keywords": "online teleprompter, free teleprompter online, fullscreen script prompter, mirror teleprompter browser, video recording prompter",
@@ -543,7 +543,7 @@ TOOLS_PHASE1 = [
     },
     {
         "dir": "srt-caption-cleaner",
-        "canonical": "https://www.creatorkitstudio.pro/tools/srt-caption-cleaner/",
+        "canonical": "https://creatorkitstudio.pro/tools/srt-caption-cleaner/",
         "title": "SRT Caption Cleaner – Convert Subtitles to Text | CreatorKit Studio",
         "meta_desc": "Clean .SRT and WebVTT subtitle files into readable text. Strip timecodes, sequence numbers, and formatting tags with zero server uploads.",
         "keywords": "SRT caption cleaner, convert srt to text, remove timecodes from srt, clean vtt captions online, video transcript cleaner free",
@@ -642,7 +642,7 @@ TOOLS_PHASE1 = [
     },
     {
         "dir": "seo-meta-generator",
-        "canonical": "https://www.creatorkitstudio.pro/tools/seo-meta-generator/",
+        "canonical": "https://creatorkitstudio.pro/tools/seo-meta-generator/",
         "title": "SEO Meta & SERP Generator – Title & Description Preview | CreatorKit Studio",
         "meta_desc": "Generate clear SEO page titles and meta descriptions with a live Google SERP preview. Test search snippet display with zero server tracking.",
         "keywords": "SEO meta generator, Google SERP preview tool, meta title builder, meta description preview, search snippet tester online",
@@ -780,7 +780,7 @@ TOOLS_PHASE1 = [
 ,
     {
         "dir": "seo-slug-generator",
-        "canonical": "https://www.creatorkitstudio.pro/tools/seo-slug-generator/",
+        "canonical": "https://creatorkitstudio.pro/tools/seo-slug-generator/",
         "title": "Free SEO Slug Generator – Create Clean, SEO-Friendly URLs | CreatorKit Studio",
         "meta_desc": "Create clean, readable, SEO-friendly URL slugs from titles or phrases. Convert text into lowercase, hyphen-separated slugs directly in your browser.",
         "keywords": "SEO slug generator, URL slug generator, SEO friendly URL generator, slug generator, URL slug maker, clean URL generator",
@@ -920,7 +920,7 @@ TOOLS_PHASE1 = [
     {
         "dir": "readability-checker",
         "no_faq_schema": True,
-        "canonical": "https://www.creatorkitstudio.pro/tools/readability-checker/",
+        "canonical": "https://creatorkitstudio.pro/tools/readability-checker/",
         "title": "Free Readability Checker – Check Your Text Readability Score | CreatorKit Studio",
         "meta_desc": "Check your text's readability with useful writing metrics including readability scores, word count, sentence length, and grade-level estimates.",
         "keywords": "readability checker, readability score checker, text readability checker, readability test, Flesch Reading Ease, Flesch-Kincaid grade level, check text readability, readability calculator",
@@ -1230,7 +1230,7 @@ TOOLS_PHASE1 = [
 ,
     {
         "dir": "case-converter",
-        "canonical": "https://www.creatorkitstudio.pro/tools/case-converter/",
+        "canonical": "https://creatorkitstudio.pro/tools/case-converter/",
         "no_faq_schema": True,
         "title": "Free Case Converter – UPPERCASE, lowercase, Title Case & More | CreatorKit Studio",
         "meta_desc": "Convert text to UPPERCASE, lowercase, Title Case, Sentence case, camelCase, PascalCase, snake_case and kebab-case instantly in your browser.",
