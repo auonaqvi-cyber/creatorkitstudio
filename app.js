@@ -1221,19 +1221,19 @@
     const LEGAL_CONTENT = {
         about: {
             title: '<i class="fa-solid fa-circle-info text-indigo-500"></i> About CreatorKit Studio',
-            html: `<p><strong>CreatorKit Studio</strong> is an open-access, browser-powered utility workspace crafted for YouTubers, Instagram and LinkedIn content creators, scriptwriters, copywriters, and SEO specialists.</p><p class="mt-2">Built with 100% client-side JavaScript architecture, CreatorKit Studio guarantees zero server uploads and zero data retention.</p>`
+            html: `<p><strong>CreatorKit Studio</strong> is a free browser-based toolkit for content creators, writers, digital marketers, developers, and video editors.</p><p class="mt-2">CreatorKit Studio is operated by <strong>AMALEEN GLOBAL LLC</strong>, a United States limited liability company.</p><p class="mt-2">Many CreatorKit Studio tools perform their core processing directly in your browser without requiring file uploads.</p>`
         },
         privacy: {
             title: '<i class="fa-solid fa-shield-halved text-indigo-500"></i> Privacy Policy',
-            html: `<p><strong>100% Client-Side Privacy:</strong> All text and image operations run locally inside your browser sandbox. We do not store or transmit your content to external servers.</p><p class="mt-2">We display third-party advertisements served by Google AdSense.</p>`
+            html: `<p>CreatorKit Studio is operated by <strong>AMALEEN GLOBAL LLC</strong>.</p><p class="mt-2">Many tools process user content directly in the browser. We use Google Analytics for aggregate website statistics and Google AdSense to serve contextual advertising.</p><p class="mt-2"><a href="privacy/" class="text-indigo-600 dark:text-indigo-400 underline font-semibold">View Full Privacy Policy</a></p>`
         },
         terms: {
-            title: '<i class="fa-solid fa-file-contract text-indigo-500"></i> Terms of Service',
-            html: `<p>You retain 100% ownership and copyright of any content you input or generate with CreatorKit Studio.</p>`
+            title: '<i class="fa-solid fa-file-contract text-indigo-500"></i> Terms of Use',
+            html: `<p>CreatorKit Studio is operated by <strong>AMALEEN GLOBAL LLC</strong>.</p><p class="mt-2">CreatorKit Studio does not claim ownership of content users submit or process through the tools. Users retain whatever rights they already hold in their content.</p><p class="mt-2"><a href="terms/" class="text-indigo-600 dark:text-indigo-400 underline font-semibold">View Full Terms of Use</a></p>`
         },
         contact: {
-            title: '<i class="fa-solid fa-envelope text-indigo-500"></i> Contact Us',
-            html: `<p>Reach our team at: <a href="mailto:auonaqvi@gmail.com" class="text-indigo-500 font-semibold underline">auonaqvi@gmail.com</a></p>`
+            title: '<i class="fa-solid fa-envelope text-indigo-500"></i> Contact Information',
+            html: `<p>CreatorKit Studio is operated by <strong>AMALEEN GLOBAL LLC</strong>.</p><p class="mt-2">For feedback, bug reports, feature suggestions, business inquiries, or privacy and legal questions, contact CreatorKit Studio at <a href="mailto:auonaqvi@gmail.com" class="text-indigo-600 dark:text-indigo-400 font-semibold underline">auonaqvi@gmail.com</a>.</p><p class="mt-2"><a href="contact/" class="text-indigo-600 dark:text-indigo-400 underline font-semibold">View Contact Page</a></p>`
         }
     };
 
@@ -1317,9 +1317,17 @@
         });
 
         document.querySelectorAll('.tool-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                setActiveTool(btn.dataset.action);
-                showToast(`Tool loaded: ${btn.innerText.trim()}`);
+            btn.addEventListener('click', (e) => {
+                const href = btn.getAttribute('href');
+                if (href && !href.startsWith('#')) {
+                    // Allow standard browser navigation (left-click, middle-click, new tab)
+                    return;
+                }
+                if (btn.dataset.action) {
+                    e.preventDefault();
+                    setActiveTool(btn.dataset.action);
+                    showToast(`Tool loaded: ${btn.innerText.trim()}`);
+                }
             });
         });
 
@@ -1515,12 +1523,12 @@
         });
 
         // Legal Modals Listeners
-        elements.openAboutBtn.addEventListener('click', () => openLegalModal('about'));
-        elements.openPrivacyBtn.addEventListener('click', () => openLegalModal('privacy'));
-        elements.openTermsBtn.addEventListener('click', () => openLegalModal('terms'));
-        elements.openContactBtn.addEventListener('click', () => openLegalModal('contact'));
-        elements.closeLegalModalBtn.addEventListener('click', closeLegalModal);
-        elements.closeLegalModalFooterBtn.addEventListener('click', closeLegalModal);
+        if (elements.openAboutBtn) elements.openAboutBtn.addEventListener('click', () => openLegalModal('about'));
+        if (elements.openPrivacyBtn) elements.openPrivacyBtn.addEventListener('click', () => openLegalModal('privacy'));
+        if (elements.openTermsBtn) elements.openTermsBtn.addEventListener('click', () => openLegalModal('terms'));
+        if (elements.openContactBtn) elements.openContactBtn.addEventListener('click', () => openLegalModal('contact'));
+        if (elements.closeLegalModalBtn) elements.closeLegalModalBtn.addEventListener('click', closeLegalModal);
+        if (elements.closeLegalModalFooterBtn) elements.closeLegalModalFooterBtn.addEventListener('click', closeLegalModal);
 
         elements.legalModal.addEventListener('click', (e) => {
             if (e.target === elements.legalModal) closeLegalModal();

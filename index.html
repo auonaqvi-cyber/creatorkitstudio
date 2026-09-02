@@ -145,6 +145,34 @@
     </header>
 
     <!-- ==============================================
+         HERO PRODUCT INTRODUCTION
+         ============================================== -->
+    <section class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-6 pb-0">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 bg-white dark:bg-dark-surface p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-dark-border shadow-sm">
+            <div class="space-y-3 max-w-3xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800/50 text-indigo-700 dark:text-indigo-300 text-xs font-semibold">
+                    <i class="fa-solid fa-sparkles text-indigo-500"></i>
+                    <span>16 Free Tools · No Sign-Up · Browser-Based Processing</span>
+                </div>
+                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+                    Free Tools for Content Creators
+                </h1>
+                <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+                    Create, format, optimize, and prepare content with 16 free browser-based tools for writing, SEO, social media, video, and everyday creator workflows. No account required. Many CreatorKit Studio tools process text and files directly in your browser.
+                </p>
+            </div>
+            <div class="flex flex-wrap items-center gap-3 shrink-0">
+                <a href="tools/" class="px-5 py-2.5 text-sm font-bold rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white shadow-md shadow-indigo-500/20 transition flex items-center gap-2">
+                    <i class="fa-solid fa-layer-group"></i> Explore Tools
+                </a>
+                <a href="tools/teleprompter/" class="px-5 py-2.5 text-sm font-semibold rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-dark-border transition flex items-center gap-2">
+                    <i class="fa-solid fa-tv text-indigo-500"></i> Open Teleprompter
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================================
          2-COLUMN DESKTOP DASHBOARD GRID CONTAINER
          ============================================== -->
     <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-6 pb-20 md:pb-12 grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 flex-1">
@@ -164,7 +192,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
                         <span class="text-sm font-bold">Workspace Tools</span>
-                        <span id="toolCountBadge" class="text-xs text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/60 px-2 py-0.5 rounded-full border border-indigo-200 dark:border-indigo-800/50 font-mono font-medium">17 Available</span>
+                        <span id="toolCountBadge" class="text-xs text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/60 px-2 py-0.5 rounded-full border border-indigo-200 dark:border-indigo-800/50 font-mono font-medium">16 Available</span>
                     </span>
                     <svg class="w-5 h-5 text-slate-400 transition-transform duration-200 group-open:rotate-180 md:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -378,10 +406,9 @@
             </details>
 
             <!-- STICKY ADSENSE SIDEBAR AD CONTAINER (CLS Prevention: min-height: 280px) -->
-            <div class="hidden md:flex adsense-slot adsense-placeholder adsense-sidebar-sticky w-full rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-700 flex-col items-center justify-center text-slate-400 dark:text-slate-500 text-xs gap-1.5 p-4 bg-white/40 dark:bg-slate-800/30 overflow-hidden text-center shadow-sm" style="min-height: 280px;">
-                <span class="font-mono uppercase tracking-widest text-[10px] bg-slate-200 dark:bg-slate-700 px-2 py-0.5 rounded text-slate-600 dark:text-slate-300">Advertisement</span>
-                <span class="flex items-center gap-1 font-mono text-[11px]"><i class="fa-brands fa-google text-indigo-500"></i> Google AdSense Sticky Slot (300x250)</span>
-                <p class="text-[10px] text-slate-400 max-w-[220px]">Contextual ad placement for creators and publishers.</p>
+            <div class="hidden md:flex adsense-slot adsense-sidebar-sticky w-full rounded-xl flex-col items-center justify-center text-slate-400 dark:text-slate-500 text-xs gap-1.5 p-2 bg-transparent overflow-hidden text-center" style="min-height: 280px;">
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5863857969717583" data-ad-slot="4470355447" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
             </div>
         </aside>
 
@@ -390,11 +417,11 @@
              ========================================== -->
         <main class="md:col-span-8 lg:col-span-9 space-y-6">
             
-            <!-- 1. Top Banner Ad Placeholder -->
+            <!-- 1. Top Banner Ad Container -->
             <div class="w-full">
-                <div class="adsense-slot adsense-placeholder adsense-header-banner adsense-top-banner w-full rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-700 flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 text-xs gap-1 p-3 bg-white/40 dark:bg-slate-800/30 overflow-hidden text-center shadow-sm" style="min-height: 90px; height: 90px;">
-                    <span class="font-mono uppercase tracking-widest text-[10px] bg-slate-200 dark:bg-slate-700 px-2 py-0.5 rounded text-slate-600 dark:text-slate-300">Advertisement</span>
-                    <span class="flex items-center gap-1 font-mono text-[11px]"><i class="fa-brands fa-google text-indigo-500"></i> Google AdSense Leaderboard (728x90 / Responsive)</span>
+                <div class="adsense-slot adsense-header-banner adsense-top-banner w-full rounded-xl flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 text-xs p-1 bg-transparent overflow-hidden text-center" style="min-height: 90px;">
+                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5863857969717583" data-ad-slot="4470355447" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
                 </div>
             </div>
 
@@ -403,7 +430,7 @@
                 <div class="flex flex-wrap items-center justify-between pb-2.5 border-b border-slate-200 dark:border-dark-border mb-3 gap-2">
                     <div class="flex items-center gap-2">
                         <span class="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-200 flex items-center gap-1.5">
-                            <i class="fa-solid fa-chart-simple text-indigo-500"></i> Live Workspace Analytics
+                            <i class="fa-solid fa-chart-simple text-indigo-500"></i> Live Text Stats
                         </span>
                         <span class="text-[10px] text-emerald-500 bg-emerald-50 dark:bg-emerald-950/50 px-2 py-0.5 rounded-full flex items-center gap-1 font-semibold">
                             <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Active
@@ -667,16 +694,16 @@
             
             <div class="flex items-center gap-2">
                 <span class="font-bold text-slate-800 dark:text-slate-200">CreatorKit Studio</span>
-                <span>&copy; 2026. All rights reserved. 100% Client-Side Free Creator Suite.</span>
+                <span>&copy; 2026. Operated by AMALEEN GLOBAL LLC. All rights reserved.</span>
             </div>
 
-            <!-- Mandatory AdSense Compliance Links -->
-            <div class="flex items-center gap-6 font-medium">
+            <!-- Compliance & Navigation Links -->
+            <div class="flex flex-wrap items-center gap-5 font-medium">
+                <a href="about/" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">About</a>
+                <a href="privacy/" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">Privacy Policy</a>
+                <a href="terms/" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">Terms of Use</a>
+                <a href="contact/" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">Contact</a>
                 <a href="tools/" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">Tools Directory</a>
-                <button id="openAboutBtn" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">About Us</button>
-                <button id="openPrivacyBtn" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">Privacy Policy</button>
-                <button id="openTermsBtn" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">Terms of Service</button>
-                <button id="openContactBtn" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">Contact</button>
             </div>
 
         </div>
