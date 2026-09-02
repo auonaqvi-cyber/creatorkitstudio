@@ -120,15 +120,57 @@
         <priority>0.85</priority>
     </url>
 
-    <!-- Educational Guides Section -->
+    <!-- Creator Guides Section (Hub + 7 Guides = 8 URLs) -->
+    <url>
+        <loc>https://www.creatorkitstudio.pro/guides/</loc>
+        <lastmod>2026-09-02</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.90</priority>
+    </url>
     <url>
         <loc>https://www.creatorkitstudio.pro/guides/convert-text-case/</loc>
         <lastmod>2026-09-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
+    <url>
+        <loc>https://www.creatorkitstudio.pro/guides/clean-srt-subtitles/</loc>
+        <lastmod>2026-09-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://www.creatorkitstudio.pro/guides/seo-titles-meta-descriptions/</loc>
+        <lastmod>2026-09-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://www.creatorkitstudio.pro/guides/resize-images-in-browser/</loc>
+        <lastmod>2026-09-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://www.creatorkitstudio.pro/guides/how-to-use-online-teleprompter/</loc>
+        <lastmod>2026-09-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://www.creatorkitstudio.pro/guides/social-media-line-breaks/</loc>
+        <lastmod>2026-09-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://www.creatorkitstudio.pro/guides/improve-content-readability/</loc>
+        <lastmod>2026-09-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+    </url>
 
-    <!-- Legal, Business & Company Pages -->
+    <!-- Legal, Business & Company Pages (4) -->
     <url>
         <loc>https://www.creatorkitstudio.pro/about/</loc>
         <lastmod>2026-09-02</lastmod>
