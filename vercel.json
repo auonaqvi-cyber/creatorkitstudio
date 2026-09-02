@@ -1,0 +1,49 @@
+{
+  "redirects": [
+    {
+      "source": "/line-break-fixer.html",
+      "destination": "/tools/line-break-fixer/",
+      "permanent": true
+    },
+    {
+      "source": "/image-resizer.html",
+      "destination": "/tools/image-resizer/",
+      "permanent": true
+    },
+    {
+      "source": "/hashtag-generator.html",
+      "destination": "/tools/hashtag-generator/",
+      "permanent": true
+    },
+    {
+      "source": "/online-teleprompter.html",
+      "destination": "/tools/teleprompter/",
+      "permanent": true
+    },
+    {
+      "source": "/clean-srt-subtitles.html",
+      "destination": "/tools/srt-caption-cleaner/",
+      "permanent": true
+    },
+    {
+      "source": "/seo-meta-generator.html",
+      "destination": "/tools/seo-meta-generator/",
+      "permanent": true
+    },
+    {
+      "source": "/seo-slug-generator.html",
+      "destination": "/tools/seo-slug-generator/",
+      "permanent": true
+    },
+    {
+      "source": "/readability-score-analyzer.html",
+      "destination": "/tools/readability-checker/",
+      "permanent": true
+    },
+    {
+      "source": "/case-converter.html",
+      "destination": "/tools/case-converter/",
+      "permanent": true
+    }
+  ]
+}

@@ -13,15 +13,15 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="pageTitle">CreatorKit Studio | All-in-One Content Creator & Social Media Utility Suite</title>
-    <meta id="pageMetaDescription" name="description" content="Free, 100% client-side content creator utility suite. Fix Instagram line breaks, clean AI clichés & markdown, clean SRT subtitles, extract hashtags, generate Twitter threads, test readability, resize images, and calculate speaking time.">
-    <meta name="keywords" content="content creator tools, blogger tools, instagram line break fixer, ai text cleaner, srt subtitle cleaner, hashtag generator, twitter thread splitter, flesch kincaid readability, image resizer online, seo slug generator">
+    <title>CreatorKit Studio – Free Online Tools for Creators</title>
+    <meta name="description" content="Free online tools for creators, writers and social media users. Format text, clean captions, resize images, generate hashtags and more — no signup required.">
+    <meta name="keywords" content="free online creator tools, text formatter online, line break fixer, hashtag generator, srt caption cleaner, image resizer, teleprompter browser, readability checker, seo slug generator">
     <meta name="author" content="CreatorKit Studio">
     <meta name="robots" content="index, follow">
     <meta name="google-site-verification" content="WM4c52x0WOHkjYTAqQMRLdBSMGOo3aG7IoGemVJVte8" />
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://creatorkitstudio.pro/">
+    <link rel="canonical" href="https://www.creatorkitstudio.pro/">
 
     <!-- Force Cache-Busting Meta Tags -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
@@ -33,22 +33,43 @@
 
     <!-- Open Graph / Meta -->
     <meta property="og:type" content="website">
-    <meta id="ogTitle" property="og:title" content="CreatorKit Studio - All-in-One Content Creator Utility Suite">
-    <meta id="ogDescription" property="og:description" content="Fast, 100% browser-based text utilities for creators, writers, and digital marketers. Zero server lag, 100% private.">
-    <meta property="og:url" content="https://creatorkitstudio.pro/">
+    <meta property="og:title" content="CreatorKit Studio – Free Online Tools for Creators">
+    <meta property="og:description" content="Free online tools for creators, writers and social media users. Format text, clean captions, resize images, generate hashtags and more — no signup required.">
+    <meta property="og:url" content="https://www.creatorkitstudio.pro/">
 
     <!-- Favicon & App Icons -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
 
-    <!-- Schema.org JSON-LD for Dynamic FAQPage Rich Snippets -->
-    <script id="faqSchema" type="application/ld+json">
+    <!-- Schema.org WebSite & Organization JSON-LD -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": []
+      "@type": "WebSite",
+      "name": "CreatorKit Studio",
+      "url": "https://www.creatorkitstudio.pro/",
+      "description": "Free online tools for content creators, writers, video editors, and social media managers.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "AMALEEN GLOBAL LLC",
+        "url": "https://www.creatorkitstudio.pro/"
+      }
+    },
+    {
+      "@type": "Organization",
+      "name": "AMALEEN GLOBAL LLC",
+      "legalName": "AMALEEN GLOBAL LLC",
+      "url": "https://www.creatorkitstudio.pro/",
+      "brand": {
+        "@type": "Brand",
+        "name": "CreatorKit Studio"
+      }
     }
+  ]
+}
     </script>
 
     <!-- Tailwind CSS CDN -->
@@ -59,640 +80,691 @@
             theme: {
                 extend: {
                     colors: {
-                        brand: {
-                            50: '#eef2ff',
-                            100: '#e0e7ff',
-                            400: '#818cf8',
-                            500: '#6366f1',
-                            600: '#4f46e5',
-                            700: '#4338ca',
-                            900: '#312e81'
-                        },
-                        dark: {
-                            bg: '#0f172a',
-                            surface: '#1e293b',
-                            border: '#334155',
-                            card: '#1e293b',
-                            text: '#f8fafc',
-                            muted: '#94a3b8'
-                        }
+                        brand: { 50: '#eef2ff', 100: '#e0e7ff', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca' },
+                        dark: { bg: '#0b0f19', surface: '#111827', border: '#1f2937', text: '#f3f4f6' }
                     }
                 }
             }
         }
     </script>
 
-    <!-- FontAwesome CDN for Crisp Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!-- Google Fonts Inter & JetBrains Mono -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css?v=2.3.0">
-
-    <!-- SEO Content Guides Data Module -->
-    <script src="seo-content.js?v=2.3.0"></script>
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-slate-50 dark:bg-dark-bg text-slate-900 dark:text-dark-text antialiased transition-colors duration-200 min-h-screen flex flex-col font-['Inter',sans-serif]">
+<body class="bg-slate-50 dark:bg-dark-bg text-slate-900 dark:text-dark-text antialiased min-h-screen flex flex-col font-['Inter',sans-serif]">
 
-    <!-- ==============================================
-         STICKY HEADER NAVIGATION
-         ============================================== -->
-    <header class="sticky top-0 z-40 bg-white/90 dark:bg-dark-surface/90 backdrop-blur border-b border-slate-200 dark:border-dark-border px-4 sm:px-6 lg:px-8 py-3 transition-colors">
-        <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
-            <!-- Brand Logo -->
+    <!-- Top Navbar -->
+    <header class="bg-white dark:bg-dark-surface border-b border-slate-200 dark:border-dark-border sticky top-0 z-40 shadow-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <a href="#fix-line-breaks" class="flex items-center gap-2 group">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center text-white shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform">
-                        <i class="fa-solid fa-wand-magic-sparkles text-lg"></i>
+                <a href="/" class="flex items-center gap-2.5 group" title="CreatorKit Studio Homepage">
+                    <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-indigo-400 flex items-center justify-center text-white shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-wand-magic-sparkles text-sm"></i>
                     </div>
                     <div>
-                        <span class="text-xl font-bold tracking-tight bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent">CreatorKit</span>
-                        <span class="text-xs font-semibold uppercase tracking-wider px-1.5 py-0.5 rounded bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300 ml-1">Studio</span>
+                        <span class="text-base font-extrabold tracking-tight bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-300 bg-clip-text text-transparent">CreatorKit</span>
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-indigo-500 block leading-none">Studio</span>
                     </div>
                 </a>
             </div>
 
-            <!-- Header Center: Quick Tools Search (Desktop) -->
-            <div class="hidden md:flex items-center flex-1 max-w-md mx-4 relative">
-                <i class="fa-solid fa-magnifying-glass absolute left-3.5 text-slate-400 text-sm"></i>
-                <input type="text" id="headerToolSearch" placeholder="Quick search tools (e.g. 'thread', 'readability', 'image', 'hashtags')..." class="w-full pl-10 pr-4 py-1.5 text-sm bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-dark-border rounded-lg text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition">
-                <kbd class="hidden lg:inline-block absolute right-3 px-1.5 py-0.5 text-[10px] font-mono text-slate-400 bg-slate-200 dark:bg-slate-700 rounded">Ctrl+K</kbd>
-            </div>
+            <!-- Header Navigation -->
+            <nav class="hidden md:flex items-center gap-6 text-xs font-semibold">
+                <a href="#featured" class="text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition">Featured Tools</a>
+                <a href="#tools" class="text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition">All 16 Tools</a>
+                <a href="#why-us" class="text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition">Why CreatorKit</a>
+                <a href="#faq" class="text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition">FAQ</a>
+                <a href="about/" class="text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition">About</a>
+            </nav>
 
-            <!-- Header Actions -->
-            <div class="flex items-center gap-2">
-                <a href="tools/" title="Browse All Standalone Tools Directory" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition flex items-center gap-1.5 border border-slate-200 dark:border-dark-border">
-                    <i class="fa-solid fa-layer-group text-indigo-500"></i>
-                    <span class="hidden sm:inline">Tools Directory</span>
-                </a>
-
-                <button id="clearAllBtn" title="Clear all text from workspace" class="px-3 py-1.5 text-xs font-medium rounded-lg text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/30 border border-rose-200 dark:border-rose-900/50 transition flex items-center gap-1.5">
-                    <i class="fa-solid fa-trash-can"></i>
-                    <span class="hidden sm:inline">Reset</span>
-                </button>
-
-                <button id="teleprompterLaunchBtn" title="Launch Fullscreen Teleprompter" class="px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm shadow-indigo-500/30 transition flex items-center gap-1.5">
-                    <i class="fa-solid fa-tv"></i>
-                    <span>Teleprompter</span>
-                </button>
-
-                <!-- Theme Toggle -->
+            <!-- Right Controls: Theme Toggle & CTA -->
+            <div class="flex items-center gap-3">
                 <button id="themeToggleBtn" aria-label="Toggle Theme" class="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition">
                     <i id="themeIcon" class="fa-solid fa-moon text-base"></i>
                 </button>
+                <a href="#tools" class="px-4 py-2 text-xs font-bold rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-layer-group"></i> <span>Explore All Tools</span>
+                </a>
             </div>
         </div>
     </header>
 
-    <!-- ==============================================
-         HERO PRODUCT INTRODUCTION
-         ============================================== -->
-    <section class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-6 pb-0">
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 bg-white dark:bg-dark-surface p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-dark-border shadow-sm">
-            <div class="space-y-3 max-w-3xl">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800/50 text-indigo-700 dark:text-indigo-300 text-xs font-semibold">
-                    <i class="fa-solid fa-sparkles text-indigo-500"></i>
-                    <span>16 Free Tools · No Sign-Up · Browser-Based Processing</span>
-                </div>
-                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-                    Free Tools for Content Creators
-                </h1>
-                <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-                    Create, format, optimize, and prepare content with 16 free browser-based tools for writing, SEO, social media, video, and everyday creator workflows. No account required. Many CreatorKit Studio tools process text and files directly in your browser.
-                </p>
-            </div>
-            <div class="flex flex-wrap items-center gap-3 shrink-0">
-                <a href="tools/" class="px-5 py-2.5 text-sm font-bold rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white shadow-md shadow-indigo-500/20 transition flex items-center gap-2">
-                    <i class="fa-solid fa-layer-group"></i> Explore Tools
-                </a>
-                <a href="tools/teleprompter/" class="px-5 py-2.5 text-sm font-semibold rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-dark-border transition flex items-center gap-2">
-                    <i class="fa-solid fa-tv text-indigo-500"></i> Open Teleprompter
-                </a>
-            </div>
-        </div>
-    </section>
+    <!-- Main Content Container -->
+    <main class="flex-1 w-full space-y-16 py-8 sm:py-12">
 
-    <!-- ==============================================
-         2-COLUMN DESKTOP DASHBOARD GRID CONTAINER
-         ============================================== -->
-    <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-6 pb-20 md:pb-12 grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 flex-1">
-        
-        <!-- ==========================================
-             LEFT SIDEBAR / MOBILE ACCORDION DRAWER
-             ========================================== -->
-        <aside class="md:col-span-4 lg:col-span-3 space-y-6">
-            
-            <!-- Mobile Collapsible Container (Visible as Accordion on Mobile, Expanded on Desktop) -->
-            <details id="mobileToolDrawer" class="group bg-white dark:bg-dark-surface rounded-xl border border-slate-200 dark:border-dark-border p-4 shadow-sm md:open sticky top-20 transition-all">
+        <!-- ==============================================
+             HERO SECTION
+             ============================================== -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="relative overflow-hidden rounded-3xl bg-white dark:bg-dark-surface border border-slate-200 dark:border-dark-border p-8 sm:p-12 lg:p-16 shadow-sm">
                 
-                <!-- Accordion Trigger Header -->
-                <summary class="flex items-center justify-between cursor-pointer list-none md:cursor-default font-semibold text-slate-800 dark:text-slate-200 select-none [&::-webkit-details-marker]:hidden">
-                    <span class="flex items-center gap-2">
-                        <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                        <span class="text-sm font-bold">Workspace Tools</span>
-                        <span id="toolCountBadge" class="text-xs text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/60 px-2 py-0.5 rounded-full border border-indigo-200 dark:border-indigo-800/50 font-mono font-medium">16 Available</span>
-                    </span>
-                    <svg class="w-5 h-5 text-slate-400 transition-transform duration-200 group-open:rotate-180 md:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </summary>
+                <!-- Background Accent Glow -->
+                <div class="absolute -top-24 -right-24 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-                <!-- Tool Selector List & Search Bar -->
-                <div class="mt-4 space-y-4 pt-4 border-t border-slate-200 dark:border-dark-border md:border-t-0 md:pt-0">
+                <div class="relative z-10 max-w-3xl space-y-6">
                     
-                    <!-- ==========================================
-                         3-WAY WORKSPACE MODE SEGMENTED CONTROL
-                         [ 🌐 All Tools | 📝 Blogger Mode | 🎥 Creator Mode ]
-                         ========================================== -->
-                    <div>
-                        <div class="grid grid-cols-3 p-1 bg-slate-100 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-dark-border text-xs font-semibold gap-1">
-                            <button type="button" class="tab-btn workspace-tab-btn py-1.5 px-2 rounded-lg text-center transition flex items-center justify-center gap-1 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white" data-tab="all" data-mode="all">
-                                <i class="fa-solid fa-globe text-xs"></i> <span>All</span>
-                            </button>
-                            <button type="button" class="tab-btn workspace-tab-btn py-1.5 px-2 rounded-lg text-center transition flex items-center justify-center gap-1 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white" data-tab="blogger" data-mode="blogger">
-                                <i class="fa-solid fa-feather text-xs text-amber-500"></i> <span>Blogger</span>
-                            </button>
-                            <button type="button" class="tab-btn workspace-tab-btn py-1.5 px-2 rounded-lg text-center transition flex items-center justify-center gap-1 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white" data-tab="creator" data-mode="creator">
-                                <i class="fa-solid fa-video text-xs text-pink-500"></i> <span>Creator</span>
-                            </button>
-                        </div>
+                    <!-- Trust & Value Badge -->
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800/50 text-indigo-700 dark:text-indigo-300 text-xs font-semibold">
+                        <i class="fa-solid fa-sparkles text-indigo-500"></i>
+                        <span>Free to use · No signup required · Fast browser-based tools · Privacy-friendly processing</span>
                     </div>
 
-                    <!-- Search Input -->
-                    <div class="relative">
-                        <i class="fa-solid fa-filter absolute left-3 top-2.5 text-slate-400 text-xs"></i>
-                        <input type="text" id="sidebarToolSearch" placeholder="Filter tools..." class="w-full pl-8 pr-3 py-1.5 text-xs bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-dark-border rounded-md text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-indigo-500">
-                    </div>
+                    <!-- Single Primary H1 -->
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15]">
+                        Free Online Tools for Creators
+                    </h1>
 
-                    <!-- Tool Links List -->
-                    <div id="toolsListContainer" class="space-y-4 max-h-[55vh] md:max-h-[calc(100vh-380px)] overflow-y-auto pr-1 custom-scrollbar">
+                    <!-- Supporting Copy -->
+                    <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl">
+                        Simple, fast and free browser-based tools for text formatting, social media, video, images, SEO and everyday content creation.
+                    </p>
 
-                        <!-- Category: Social Media & Formatting -->
-                        <div class="tool-category category-group" data-group="social">
-                            <h4 class="category-header text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5 px-1 flex items-center gap-1">
-                                <i class="fa-brands fa-instagram text-pink-500 text-xs"></i> Social & Formatting
-                            </h4>
-                            <div class="space-y-1">
-                                <a href="line-break-fixer.html" class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="fix-line-breaks" data-category="creator" data-modes="all,creator" data-keywords="instagram linkedin caption line break whitespace clump spacer paragraph">
-                                    <span class="flex items-center gap-2">
-                                        <i class="fa-solid fa-paragraph text-slate-400 group-hover:text-indigo-500 w-4 text-center"></i>
-                                        Line Break Fixer
-                                    </span>
-                                    <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                                </a>
-
-                                <a href="tools/hashtag-generator/" class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="hashtag-generator" data-category="creator" data-modes="all,creator" data-keywords="hashtag generator instagram tiktok shorts linkedin tags tag maker viral tags">
-                                    <span class="flex items-center gap-2">
-                                        <i class="fa-solid fa-tags text-pink-500 group-hover:text-pink-600 w-4 text-center"></i>
-                                        Free Hashtag Generator <span class="text-[9px] bg-pink-100 dark:bg-pink-950/60 text-pink-700 dark:text-pink-300 font-bold px-1.5 py-0.2 rounded">NEW</span>
-                                    </span>
-                                    <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                                </a>
-
-                                <a href="twitter-thread-splitter.html" class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="thread-splitter" data-category="blogger creator" data-modes="all,creator,blogger" data-keywords="twitter x thread splitter chunker 280 character tweet converter thread maker">
-                                    <span class="flex items-center gap-2">
-                                        <i class="fa-brands fa-x-twitter text-cyan-500 group-hover:text-cyan-600 w-4 text-center"></i>
-                                        Twitter/X Thread Splitter <span class="text-[9px] bg-cyan-100 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-300 font-bold px-1.5 py-0.2 rounded">NEW</span>
-                                    </span>
-                                    <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                                </a>
-
-                                <a href="hashtag-deduplicator.html" class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="clean-hashtags" data-category="creator" data-modes="all,creator" data-keywords="hashtags hash tags instagram tiktok extract cleaner deduplicate tags">
-                                    <span class="flex items-center gap-2">
-                                        <i class="fa-solid fa-hashtag text-slate-400 group-hover:text-indigo-500 w-4 text-center"></i>
-                                        Hashtag Deduplicator
-                                    </span>
-                                    <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                                </a>
-
-                                <a href="fancy-text-generator.html" class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="fancy-text" data-category="creator" data-modes="all,creator" data-keywords="fancy text unicode bold italics bubble cursive gothic fonts font style">
-                                    <span class="flex items-center gap-2">
-                                        <i class="fa-solid fa-font text-slate-400 group-hover:text-indigo-500 w-4 text-center"></i>
-                                        Fancy Text Generator
-                                    </span>
-                                    <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                                </a>
-
-                                <a href="tools/case-converter/" class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="case-converter" data-category="blogger creator" data-modes="all,creator,blogger" data-keywords="title case uppercase lowercase sentence case capitalize capitalizer">
-                                    <span class="flex items-center gap-2">
-                                        <i class="fa-solid fa-text-height text-slate-400 group-hover:text-indigo-500 w-4 text-center"></i>
-                                        Case Converter
-                                    </span>
-                                    <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Category: Video, Script & Readability -->
-                        <div class="tool-category category-group" data-group="video">
-                            <h4 class="category-header text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5 px-1 flex items-center gap-1">
-                                <i class="fa-solid fa-video text-amber-500 text-xs"></i> Video & Copywriting
-                            </h4>
-                            <div class="space-y-1">
-                                <a href="tools/readability-checker/" class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="readability-score" data-category="blogger" data-modes="all,blogger" data-keywords="readability score flesch kincaid grade level reading ease syllable count copywriting test">
-                                    <span class="flex items-center gap-2">
-                                        <i class="fa-solid fa-glasses text-emerald-500 group-hover:text-emerald-600 w-4 text-center"></i>
-                                        Readability Checker <span class="text-[9px] bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 font-bold px-1.5 py-0.2 rounded">NEW</span>
-                                    </span>
-                                    <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                                </a>
-
-                                <a href="speech-timer.html" class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="speech-timer" data-category="creator" data-modes="all,creator" data-keywords="script speech timer duration voiceover 130 wpm words per minute video length">
-                                    <span class="flex items-center gap-2">
-                                        <i class="fa-solid fa-stopwatch text-slate-400 group-hover:text-indigo-500 w-4 text-center"></i>
-                                        Script-to-Speech Timer
-                                    </span>
-                                    <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                                </a>
-
-                                <a href="tools/srt-caption-cleaner/" class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="clean-srt" data-category="blogger creator" data-modes="all,creator,blogger" data-keywords="srt caption subtitles subtitle timestamps remove timecode vtt transcript cleaner">
-                                    <span class="flex items-center gap-2">
-                                        <i class="fa-solid fa-closed-captioning text-slate-400 group-hover:text-indigo-500 w-4 text-center"></i>
-                                        SRT Caption Cleaner
-                                    </span>
-                                    <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                                </a>
-
-                                <a href="tools/teleprompter/" class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="open-teleprompter" data-category="creator" data-modes="all,creator" data-keywords="teleprompter prompter script reading scroll fullscreen speech presenter">
-                                    <span class="flex items-center gap-2">
-                                        <i class="fa-solid fa-chalkboard-user text-slate-400 group-hover:text-indigo-500 w-4 text-center"></i>
-                                        Online Teleprompter
-                                    </span>
-                                    <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Category: AI, SEO & Media Cleaners -->
-                        <div class="tool-category category-group" data-group="ai">
-                            <h4 class="category-header text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5 px-1 flex items-center gap-1">
-                                <i class="fa-solid fa-robot text-cyan-500 text-xs"></i> AI, SEO & Media
-                            </h4>
-                            <div class="space-y-1">
-                                <a href="tools/seo-meta-generator/" class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="seo-meta-generator" data-category="blogger" data-modes="all,blogger" data-keywords="seo meta description title generator google serp preview snippet builder ctr">
-                                    <span class="flex items-center gap-2">
-                                        <i class="fa-solid fa-magnifying-glass-chart text-indigo-500 group-hover:text-indigo-600 w-4 text-center"></i>
-                                        SEO Meta & SERP Generator <span class="text-[9px] bg-indigo-100 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 font-bold px-1.5 py-0.2 rounded">NEW</span>
-                                    </span>
-                                    <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                                </a>
-
-                                <a href="tools/image-resizer/" class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="image-resizer" data-category="blogger creator" data-modes="all,blogger,creator" data-keywords="image resizer photo scaler html5 canvas crop resize picture dimensions png jpg webp">
-                                    <span class="flex items-center gap-2">
-                                        <i class="fa-solid fa-image text-purple-500 group-hover:text-purple-600 w-4 text-center"></i>
-                                        Free Online Image Resizer <span class="text-[9px] bg-purple-100 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 font-bold px-1.5 py-0.2 rounded">NEW</span>
-                                    </span>
-                                    <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                                </a>
-
-                                <a href="ai-text-cleaner.html" class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="clean-ai-artifacts" data-category="blogger" data-modes="all,blogger" data-keywords="ai formatting markdown asterisks em dash cliches humanize chatgpt claude cleaner">
-                                    <span class="flex items-center gap-2">
-                                        <i class="fa-solid fa-broom text-slate-400 group-hover:text-indigo-500 w-4 text-center"></i>
-                                        AI Text Formatting & Cliché Cleaner
-                                    </span>
-                                    <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                                </a>
-
-                                <a href="tools/seo-slug-generator/" class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="seo-slug" data-category="blogger" data-modes="all,blogger" data-keywords="seo slug generator url permalink link clean url hyphens">
-                                    <span class="flex items-center gap-2">
-                                        <i class="fa-solid fa-link text-indigo-500 group-hover:text-indigo-600 w-4 text-center"></i>
-                                        SEO Slug Generator <span class="text-[9px] bg-indigo-100 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 font-bold px-1.5 py-0.2 rounded">NEW</span>
-                                    </span>
-                                    <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                                </a>
-
-                                <a href="whitespace-trimmer.html" class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="clean-whitespace" data-category="blogger" data-modes="all,blogger" data-keywords="whitespace spaces tabs trim trailing spaces remove extra spaces">
-                                    <span class="flex items-center gap-2">
-                                        <i class="fa-solid fa-arrows-left-right-to-line text-slate-400 group-hover:text-indigo-500 w-4 text-center"></i>
-                                        Whitespace Trimmer
-                                    </span>
-                                    <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                                </a>
-
-                                <a href="duplicate-line-filter.html" class="tool-card tool-btn w-full text-left px-3 py-2 rounded-lg text-xs font-medium text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center justify-between group" data-action="remove-duplicates" data-category="blogger" data-modes="all,blogger" data-keywords="duplicate lines list deduplicate sort remove duplicate lines">
-                                    <span class="flex items-center gap-2">
-                                        <i class="fa-solid fa-list-check text-slate-400 group-hover:text-indigo-500 w-4 text-center"></i>
-                                        Duplicate Line Filter
-                                    </span>
-                                    <span class="text-[10px] text-slate-400 group-hover:text-indigo-400"><i class="fa-solid fa-arrow-right text-[10px]"></i></span>
-                                </a>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <!-- Preset Samples Button -->
-                    <div class="pt-3 border-t border-slate-200 dark:border-dark-border">
-                        <label class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider block mb-1.5">Load Demo Sample:</label>
-                        <div class="grid grid-cols-2 gap-1.5">
-                            <button id="sampleSrtBtn" class="px-2 py-1 text-[11px] rounded bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition text-center">
-                                <i class="fa-solid fa-closed-captioning text-amber-500 mr-1"></i> SRT Subtitles
-                            </button>
-                            <button id="sampleAiBtn" class="px-2 py-1 text-[11px] rounded bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition text-center">
-                                <i class="fa-solid fa-robot text-cyan-500 mr-1"></i> AI Draft
-                            </button>
-                            <button id="sampleSocialBtn" class="px-2 py-1 text-[11px] rounded bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition text-center">
-                                <i class="fa-brands fa-instagram text-pink-500 mr-1"></i> Social Post
-                            </button>
-                            <button id="sampleScriptBtn" class="px-2 py-1 text-[11px] rounded bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition text-center">
-                                <i class="fa-solid fa-microphone text-emerald-500 mr-1"></i> Video Script
-                            </button>
-                        </div>
+                    <!-- CTAs -->
+                    <div class="flex flex-wrap items-center gap-3.5 pt-2">
+                        <a href="#tools" class="px-6 py-3 text-sm font-bold rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white shadow-md shadow-indigo-500/20 transition flex items-center gap-2">
+                            <i class="fa-solid fa-layer-group"></i> Explore All Tools
+                        </a>
+                        <a href="#featured" class="px-6 py-3 text-sm font-semibold rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-dark-border transition flex items-center gap-2">
+                            <i class="fa-solid fa-star text-amber-500"></i> Featured Tools
+                        </a>
                     </div>
 
                 </div>
-            </details>
+            </div>
+        </section>
 
-            <!-- STICKY ADSENSE SIDEBAR AD CONTAINER (CLS Prevention: min-height: 280px) -->
-            <div class="hidden md:flex adsense-slot adsense-sidebar-sticky w-full rounded-xl flex-col items-center justify-center text-slate-400 dark:text-slate-500 text-xs gap-1.5 p-2 bg-transparent overflow-hidden text-center" style="min-height: 280px;">
+        <!-- Top Banner Ad Container -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="adsense-slot adsense-header-banner w-full rounded-xl flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 text-xs p-1 bg-transparent overflow-hidden text-center" style="min-height: 90px;">
                 <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5863857969717583" data-ad-slot="4470355447" data-ad-format="auto" data-full-width-responsive="true"></ins>
                 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
             </div>
-        </aside>
+        </div>
 
-        <!-- ==========================================
-             RIGHT PANEL: WORKSPACE, ADS, & SEO ARTICLE (8 or 9 Columns)
-             ========================================== -->
-        <main class="md:col-span-8 lg:col-span-9 space-y-6">
-            
-            <!-- 1. Top Banner Ad Container -->
-            <div class="w-full">
-                <div class="adsense-slot adsense-header-banner adsense-top-banner w-full rounded-xl flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 text-xs p-1 bg-transparent overflow-hidden text-center" style="min-height: 90px;">
-                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5863857969717583" data-ad-slot="4470355447" data-ad-format="auto" data-full-width-responsive="true"></ins>
-                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-                </div>
-            </div>
-
-            <!-- 2. Live Text Analytics Bar -->
-            <div id="analyticsBarContainer" class="bg-white dark:bg-dark-surface rounded-xl p-4 border border-slate-200 dark:border-dark-border shadow-sm">
-                <div class="flex flex-wrap items-center justify-between pb-2.5 border-b border-slate-200 dark:border-dark-border mb-3 gap-2">
-                    <div class="flex items-center gap-2">
-                        <span class="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-200 flex items-center gap-1.5">
-                            <i class="fa-solid fa-chart-simple text-indigo-500"></i> Live Text Stats
-                        </span>
-                        <span class="text-[10px] text-emerald-500 bg-emerald-50 dark:bg-emerald-950/50 px-2 py-0.5 rounded-full flex items-center gap-1 font-semibold">
-                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Active
-                        </span>
-                    </div>
-                    
-                    <!-- Voiceover & Reading Time Badges -->
-                    <div class="flex items-center gap-3 text-xs">
-                        <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-indigo-50/70 dark:bg-indigo-950/40 border border-indigo-100 dark:border-indigo-900/30 text-indigo-900 dark:text-indigo-200">
-                            <i class="fa-solid fa-book-open-reader text-indigo-500 text-[11px]"></i>
-                            <span class="font-medium text-[11px]">Reading (200 WPM):</span>
-                            <span id="statReadingTime" class="font-bold font-mono text-indigo-600 dark:text-indigo-400">0s</span>
-                        </div>
-                        <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-amber-50/70 dark:bg-amber-950/40 border border-amber-100 dark:border-amber-900/30 text-amber-900 dark:text-amber-200">
-                            <i class="fa-solid fa-microphone-lines text-amber-500 text-[11px]"></i>
-                            <span class="font-medium text-[11px]">Speech (130 WPM):</span>
-                            <span id="statSpeakingTime" class="font-bold font-mono text-amber-600 dark:text-amber-400">0s</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Metrics Grid (6-column responsive strip) -->
-                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2.5">
-                    <div class="p-2.5 bg-slate-50 dark:bg-slate-900 rounded-lg border border-slate-100 dark:border-dark-border/50 text-center sm:text-left">
-                        <span class="text-[10px] uppercase font-semibold text-slate-400 block mb-0.5">Words</span>
-                        <span id="statWords" class="text-lg md:text-xl font-bold font-mono text-slate-800 dark:text-slate-100">0</span>
-                    </div>
-
-                    <div class="p-2.5 bg-slate-50 dark:bg-slate-900 rounded-lg border border-slate-100 dark:border-dark-border/50 text-center sm:text-left">
-                        <span class="text-[10px] uppercase font-semibold text-slate-400 block mb-0.5">Characters</span>
-                        <span id="statChars" class="text-lg md:text-xl font-bold font-mono text-slate-800 dark:text-slate-100">0</span>
-                    </div>
-
-                    <div class="p-2.5 bg-slate-50 dark:bg-slate-900 rounded-lg border border-slate-100 dark:border-dark-border/50 text-center sm:text-left">
-                        <span class="text-[10px] uppercase font-semibold text-slate-400 block mb-0.5">No Spaces</span>
-                        <span id="statCharsNoSpace" class="text-base md:text-lg font-bold font-mono text-slate-700 dark:text-slate-300">0</span>
-                    </div>
-
-                    <div class="p-2.5 bg-slate-50 dark:bg-slate-900 rounded-lg border border-slate-100 dark:border-dark-border/50 text-center sm:text-left">
-                        <span class="text-[10px] uppercase font-semibold text-slate-400 block mb-0.5">Sentences</span>
-                        <span id="statSentences" class="text-base md:text-lg font-bold font-mono text-slate-700 dark:text-slate-300">0</span>
-                    </div>
-
-                    <div class="p-2.5 bg-slate-50 dark:bg-slate-900 rounded-lg border border-slate-100 dark:border-dark-border/50 text-center sm:text-left">
-                        <span class="text-[10px] uppercase font-semibold text-slate-400 block mb-0.5">Paragraphs</span>
-                        <span id="statParagraphs" class="text-base md:text-lg font-bold font-mono text-slate-700 dark:text-slate-300">0</span>
-                    </div>
-
-                    <div class="p-2.5 bg-slate-50 dark:bg-slate-900 rounded-lg border border-slate-100 dark:border-dark-border/50 text-center sm:text-left">
-                        <span class="text-[10px] uppercase font-semibold text-slate-400 block mb-0.5">Lines</span>
-                        <span id="statLines" class="text-base md:text-lg font-bold font-mono text-slate-700 dark:text-slate-300">0</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ==========================================
-                 SPECIALIZED VIEWPORT: IMAGE RESIZER
-                 ========================================== -->
-            <div id="imageResizerCard" class="hidden bg-white dark:bg-dark-surface rounded-xl p-5 border border-slate-200 dark:border-dark-border shadow-sm space-y-5">
-                <div class="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-dark-border">
-                    <span class="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-200 flex items-center gap-1.5">
-                        <i class="fa-solid fa-image text-purple-500"></i> Client-Side Canvas Image Resizer
-                    </span>
-                    <span class="text-[10px] font-mono text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-950/60 px-2 py-0.5 rounded-full">100% In-Browser Private</span>
-                </div>
-
-                <!-- Dropzone Area -->
-                <div id="imgDropzone" class="border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl p-8 text-center hover:border-indigo-500 dark:hover:border-indigo-400 transition cursor-pointer bg-slate-50/50 dark:bg-slate-900/40">
-                    <input type="file" id="imgFileInput" accept="image/*" class="hidden">
-                    <i class="fa-solid fa-cloud-arrow-up text-4xl text-indigo-500 mb-3"></i>
-                    <p class="text-sm font-semibold text-slate-700 dark:text-slate-200">Drag & drop your image here, or <span class="text-indigo-600 dark:text-indigo-400 underline">browse files</span></p>
-                    <p class="text-xs text-slate-400 mt-1">Supports PNG, JPG, WebP, GIF (Processed entirely in browser memory)</p>
-                </div>
-
-                <!-- Resizer Controls -->
-                <div id="imgControls" class="hidden space-y-4">
-                    
-                    <!-- Presets Chips -->
-                    <div>
-                        <label class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-2">Social Media Dimensions Presets:</label>
-                        <div class="flex flex-wrap gap-1.5">
-                            <button type="button" class="preset-btn px-2.5 py-1 text-xs rounded bg-slate-100 dark:bg-slate-800 hover:bg-indigo-600 hover:text-white transition" data-w="1280" data-h="720">YouTube Thumbnail (1280×720)</button>
-                            <button type="button" class="preset-btn px-2.5 py-1 text-xs rounded bg-slate-100 dark:bg-slate-800 hover:bg-indigo-600 hover:text-white transition" data-w="1080" data-h="1080">Instagram Square (1080×1080)</button>
-                            <button type="button" class="preset-btn px-2.5 py-1 text-xs rounded bg-slate-100 dark:bg-slate-800 hover:bg-indigo-600 hover:text-white transition" data-w="1080" data-h="1920">Story / Reel (1080×1920)</button>
-                            <button type="button" class="preset-btn px-2.5 py-1 text-xs rounded bg-slate-100 dark:bg-slate-800 hover:bg-indigo-600 hover:text-white transition" data-w="1200" data-h="675">Twitter/X Post (1200×675)</button>
-                        </div>
-                    </div>
-
-                    <!-- Dimension Inputs -->
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-end bg-slate-50 dark:bg-slate-900/80 p-4 rounded-xl border border-slate-200 dark:border-dark-border">
-                        <div>
-                            <label class="text-xs font-semibold text-slate-700 dark:text-slate-300 block mb-1">Width (px)</label>
-                            <input type="number" id="imgWidthInput" min="1" max="10000" class="w-full px-3 py-1.5 text-sm bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-1 focus:ring-indigo-500">
-                        </div>
-
-                        <div>
-                            <label class="text-xs font-semibold text-slate-700 dark:text-slate-300 block mb-1">Height (px)</label>
-                            <input type="number" id="imgHeightInput" min="1" max="10000" class="w-full px-3 py-1.5 text-sm bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-1 focus:ring-indigo-500">
-                        </div>
-
-                        <div class="flex items-center gap-2 pb-2">
-                            <label class="flex items-center gap-2 text-xs font-semibold text-slate-700 dark:text-slate-300 cursor-pointer select-none">
-                                <input type="checkbox" id="imgAspectLock" checked class="w-4 h-4 text-indigo-600 accent-indigo-500 rounded cursor-pointer">
-                                <span>Lock Aspect Ratio</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Format & Quality Options -->
-                    <div class="flex flex-wrap items-center justify-between gap-4">
-                        <div class="flex items-center gap-3">
-                            <span class="text-xs font-semibold text-slate-700 dark:text-slate-300">Format:</span>
-                            <select id="imgFormatSelect" class="px-3 py-1.5 text-xs bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-slate-800 dark:text-slate-200 focus:outline-none">
-                                <option value="image/png">PNG (.png - Best Quality)</option>
-                                <option value="image/jpeg">JPEG (.jpg - Smaller Size)</option>
-                                <option value="image/webp">WebP (.webp - Modern Web)</option>
-                            </select>
-                        </div>
-
-                        <button id="downloadResizedImgBtn" class="px-5 py-2 text-xs font-bold rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white shadow-md transition flex items-center gap-2">
-                            <i class="fa-solid fa-download"></i>
-                            <span>Download Scaled Image</span>
-                        </button>
-                    </div>
-
-                    <!-- Canvas Preview -->
-                    <div class="text-center p-3 bg-slate-900 rounded-xl overflow-hidden max-h-80 flex items-center justify-center">
-                        <canvas id="resizerCanvas" class="max-w-full max-h-72 object-contain rounded shadow"></canvas>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 3. Standard Active Tool Card (Input, Action Buttons, Output) -->
-            <div id="standardWorkspaceCard" class="bg-white dark:bg-dark-surface rounded-xl p-5 border border-slate-200 dark:border-dark-border shadow-sm space-y-4">
-                
-                <!-- Top Workspace Bar -->
-                <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-200 dark:border-dark-border">
-                    <div class="flex items-center gap-2">
-                        <span class="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-200 flex items-center gap-1.5">
-                            <i class="fa-solid fa-pen-nib text-indigo-500"></i> Input Text
-                        </span>
-                        <span id="autoSaveBadge" class="text-[10px] text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50 px-2 py-0.5 rounded-full flex items-center gap-1 font-mono transition-opacity duration-300">
-                            <i class="fa-solid fa-check text-[9px]"></i> Auto-saved
-                        </span>
-                    </div>
-
-                    <div class="flex items-center gap-1.5">
-                        <button id="pasteBtn" class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition flex items-center gap-1">
-                            <i class="fa-regular fa-paste text-[11px]"></i> Paste
-                        </button>
-                        <button id="clearInputBtn" class="px-2.5 py-1 text-xs font-medium rounded-md text-slate-500 hover:text-rose-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center gap-1">
-                            <i class="fa-solid fa-eraser text-[11px]"></i> Clear
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Input Textarea -->
-                <div class="relative">
-                    <textarea id="mainInput" rows="7" placeholder="Type or paste your text, script, Instagram caption, AI output, or SRT subtitle data here..." class="w-full p-3.5 text-sm bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-dark-border rounded-lg text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent font-sans resize-y custom-scrollbar transition"></textarea>
-                </div>
-
-                <!-- Interactive Quick Action Bar -->
+        <!-- ==============================================
+             FEATURED TOOLS SECTION
+             ============================================== -->
+        <section id="featured" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 scroll-mt-20">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 border-b border-slate-200 dark:border-dark-border pb-4">
                 <div>
-                    <label class="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider block mb-2">
-                        <i class="fa-solid fa-bolt-lightning text-amber-500 mr-1"></i> Quick Action Bar
-                    </label>
-                    <div class="flex flex-wrap gap-2">
-                        <button class="action-btn px-3 py-1.5 text-xs font-semibold rounded-lg bg-indigo-50 dark:bg-indigo-950/60 hover:bg-indigo-600 hover:text-white text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800/60 transition flex items-center gap-1.5 shadow-sm active:scale-95" data-action="fix-line-breaks">
-                            <i class="fa-solid fa-paragraph"></i> Fix Paragraphs
-                        </button>
-
-                        <button class="action-btn px-3 py-1.5 text-xs font-semibold rounded-lg bg-indigo-50 dark:bg-indigo-950/60 hover:bg-indigo-600 hover:text-white text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800/60 transition flex items-center gap-1.5 shadow-sm active:scale-95" data-action="hashtag-generator">
-                            <i class="fa-solid fa-tags"></i> Hashtag Generator
-                        </button>
-
-                        <button class="action-btn px-3 py-1.5 text-xs font-semibold rounded-lg bg-indigo-50 dark:bg-indigo-950/60 hover:bg-indigo-600 hover:text-white text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800/60 transition flex items-center gap-1.5 shadow-sm active:scale-95" data-action="thread-splitter">
-                            <i class="fa-brands fa-x-twitter"></i> Thread Splitter
-                        </button>
-
-                        <button class="action-btn px-3 py-1.5 text-xs font-semibold rounded-lg bg-indigo-50 dark:bg-indigo-950/60 hover:bg-indigo-600 hover:text-white text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800/60 transition flex items-center gap-1.5 shadow-sm active:scale-95" data-action="readability-score">
-                            <i class="fa-solid fa-glasses"></i> Readability Score
-                        </button>
-
-                        <button class="action-btn px-3 py-1.5 text-xs font-semibold rounded-lg bg-indigo-50 dark:bg-indigo-950/60 hover:bg-indigo-600 hover:text-white text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800/60 transition flex items-center gap-1.5 shadow-sm active:scale-95" data-action="seo-meta-generator">
-                            <i class="fa-solid fa-magnifying-glass-chart"></i> SEO Meta
-                        </button>
-
-                        <button class="action-btn px-3 py-1.5 text-xs font-semibold rounded-lg bg-indigo-50 dark:bg-indigo-950/60 hover:bg-indigo-600 hover:text-white text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800/60 transition flex items-center gap-1.5 shadow-sm active:scale-95" data-action="clean-ai-artifacts">
-                            <i class="fa-solid fa-broom"></i> Clean AI
-                        </button>
+                    <div class="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider mb-1">
+                        <i class="fa-solid fa-bolt"></i> Popular Utilities
                     </div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+                        Featured Tools
+                    </h2>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-md">
+                    High-utility tools built for creators, copywriters, video editors, and social media managers.
+                </p>
+            </div>
+
+            <!-- 6 Featured Tool Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Featured 1: Line Break Fixer -->
+                <a href="tools/line-break-fixer/" class="bg-white dark:bg-dark-surface border border-slate-200 dark:border-dark-border hover:border-indigo-500 dark:hover:border-indigo-500 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-paragraph"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                            Line Break Fixer
+                        </h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Fix Instagram, LinkedIn, and Threads caption spacing with invisible zero-width spaces without ugly period dots.
+                        </p>
+                    </div>
+                    <div class="mt-5 pt-4 border-t border-slate-100 dark:border-dark-border/50 flex items-center justify-between text-xs font-semibold text-indigo-600 dark:text-indigo-400">
+                        <span>Open Line Break Fixer</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
+
+                <!-- Featured 2: Hashtag Generator -->
+                <a href="tools/hashtag-generator/" class="bg-white dark:bg-dark-surface border border-slate-200 dark:border-dark-border hover:border-pink-500 dark:hover:border-pink-500 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-pink-50 dark:bg-pink-950/60 text-pink-600 dark:text-pink-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-tags"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors">
+                            Hashtag Generator
+                        </h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Generate high-engagement, categorized hashtags for Instagram, TikTok, Shorts, and LinkedIn posts.
+                        </p>
+                    </div>
+                    <div class="mt-5 pt-4 border-t border-slate-100 dark:border-dark-border/50 flex items-center justify-between text-xs font-semibold text-pink-600 dark:text-pink-400">
+                        <span>Open Hashtag Generator</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
+
+                <!-- Featured 3: SRT Caption Cleaner -->
+                <a href="tools/srt-caption-cleaner/" class="bg-white dark:bg-dark-surface border border-slate-200 dark:border-dark-border hover:border-emerald-500 dark:hover:border-emerald-500 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-closed-captioning"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                            SRT Caption Cleaner
+                        </h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Convert .SRT and WebVTT subtitle files into clean, readable text transcripts with timecodes removed.
+                        </p>
+                    </div>
+                    <div class="mt-5 pt-4 border-t border-slate-100 dark:border-dark-border/50 flex items-center justify-between text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+                        <span>Open SRT Caption Cleaner</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
+
+                <!-- Featured 4: Readability Checker -->
+                <a href="tools/readability-checker/" class="bg-white dark:bg-dark-surface border border-slate-200 dark:border-dark-border hover:border-teal-500 dark:hover:border-teal-500 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-teal-50 dark:bg-teal-950/60 text-teal-600 dark:text-teal-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-glasses"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                            Readability Checker
+                        </h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Analyze Flesch Reading Ease scores, grade levels, reading time, and speaking pace for articles and scripts.
+                        </p>
+                    </div>
+                    <div class="mt-5 pt-4 border-t border-slate-100 dark:border-dark-border/50 flex items-center justify-between text-xs font-semibold text-teal-600 dark:text-teal-400">
+                        <span>Open Readability Checker</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
+
+                <!-- Featured 5: Image Resizer -->
+                <a href="tools/image-resizer/" class="bg-white dark:bg-dark-surface border border-slate-200 dark:border-dark-border hover:border-purple-500 dark:hover:border-purple-500 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-image"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                            Browser Image Resizer
+                        </h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Resize, scale, and convert images to social aspect ratios (YouTube, IG, Reels, Twitter) 100% in browser memory.
+                        </p>
+                    </div>
+                    <div class="mt-5 pt-4 border-t border-slate-100 dark:border-dark-border/50 flex items-center justify-between text-xs font-semibold text-purple-600 dark:text-purple-400">
+                        <span>Open Image Resizer</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
+
+                <!-- Featured 6: SEO Slug Generator -->
+                <a href="tools/seo-slug-generator/" class="bg-white dark:bg-dark-surface border border-slate-200 dark:border-dark-border hover:border-indigo-500 dark:hover:border-indigo-500 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-link"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                            SEO Slug Generator
+                        </h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Convert article titles and headlines into clean, lowercase, hyphen-separated SEO-friendly URL slugs.
+                        </p>
+                    </div>
+                    <div class="mt-5 pt-4 border-t border-slate-100 dark:border-dark-border/50 flex items-center justify-between text-xs font-semibold text-indigo-600 dark:text-indigo-400">
+                        <span>Open SEO Slug Generator</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- ==============================================
+             ALL TOOLS CATEGORIZED DIRECTORY
+             ============================================== -->
+        <section id="tools" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 scroll-mt-20">
+            <div class="border-b border-slate-200 dark:border-dark-border pb-4">
+                <div class="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider mb-1">
+                    <i class="fa-solid fa-layer-group"></i> Complete Catalog
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+                    All Creator Tools Directory
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+                    16 free browser-based utilities organized by creator workflow.
+                </p>
+            </div>
+
+            <!-- Category 1: Text & Writing -->
+            <div class="space-y-4">
+                <h3 class="text-sm font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center gap-2">
+                    <i class="fa-solid fa-pen-nib text-indigo-500"></i> Text & Writing Tools
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    
+                    <a href="tools/line-break-fixer/" class="p-4 bg-white dark:bg-dark-surface rounded-xl border border-slate-200 dark:border-dark-border hover:border-indigo-500 transition group flex items-start gap-3.5">
+                        <div class="w-10 h-10 rounded-lg bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-lg shrink-0 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-paragraph"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">Line Break Fixer</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Format multi-line social captions with invisible zero-width spaces.</p>
+                        </div>
+                    </a>
+
+                    <a href="tools/case-converter/" class="p-4 bg-white dark:bg-dark-surface rounded-xl border border-slate-200 dark:border-dark-border hover:border-blue-500 transition group flex items-start gap-3.5">
+                        <div class="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center text-lg shrink-0 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-text-height"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">Case Converter</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Convert to UPPERCASE, lowercase, Title Case, camelCase & snake_case.</p>
+                        </div>
+                    </a>
+
+                    <a href="tools/readability-checker/" class="p-4 bg-white dark:bg-dark-surface rounded-xl border border-slate-200 dark:border-dark-border hover:border-emerald-500 transition group flex items-start gap-3.5">
+                        <div class="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-lg shrink-0 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-glasses"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">Readability Checker</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Analyze Flesch score, grade level, and reading/speaking times.</p>
+                        </div>
+                    </a>
+
+                    <a href="fancy-text-generator.html" class="p-4 bg-white dark:bg-dark-surface rounded-xl border border-slate-200 dark:border-dark-border hover:border-violet-500 transition group flex items-start gap-3.5">
+                        <div class="w-10 h-10 rounded-lg bg-violet-50 dark:bg-violet-950/60 text-violet-600 dark:text-violet-400 flex items-center justify-center text-lg shrink-0 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-font"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">Fancy Text Generator</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Generate Unicode bold, italic, script, gothic, and aesthetic text.</p>
+                        </div>
+                    </a>
+
+                    <a href="ai-text-cleaner.html" class="p-4 bg-white dark:bg-dark-surface rounded-xl border border-slate-200 dark:border-dark-border hover:border-amber-500 transition group flex items-start gap-3.5">
+                        <div class="w-10 h-10 rounded-lg bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center text-lg shrink-0 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-broom"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">AI Text & Cliché Cleaner</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Remove repetitive AI filler phrases and format markdown syntax.</p>
+                        </div>
+                    </a>
+
+                    <a href="whitespace-trimmer.html" class="p-4 bg-white dark:bg-dark-surface rounded-xl border border-slate-200 dark:border-dark-border hover:border-slate-500 transition group flex items-start gap-3.5">
+                        <div class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center justify-center text-lg shrink-0 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-align-left"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-slate-600 dark:group-hover:text-slate-300 transition-colors">Whitespace Trimmer</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Strip trailing spaces, redundant spaces, and clean whitespace.</p>
+                        </div>
+                    </a>
+
+                    <a href="duplicate-line-filter.html" class="p-4 bg-white dark:bg-dark-surface rounded-xl border border-slate-200 dark:border-dark-border hover:border-red-500 transition group flex items-start gap-3.5">
+                        <div class="w-10 h-10 rounded-lg bg-red-50 dark:bg-red-950/60 text-red-600 dark:text-red-400 flex items-center justify-center text-lg shrink-0 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-filter"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">Duplicate Line Filter</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Deduplicate list lines, sort items, and remove repeating data.</p>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- Category 2: Social Media -->
+            <div class="space-y-4">
+                <h3 class="text-sm font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center gap-2">
+                    <i class="fa-solid fa-share-nodes text-pink-500"></i> Social Media Tools
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    
+                    <a href="tools/hashtag-generator/" class="p-4 bg-white dark:bg-dark-surface rounded-xl border border-slate-200 dark:border-dark-border hover:border-pink-500 transition group flex items-start gap-3.5">
+                        <div class="w-10 h-10 rounded-lg bg-pink-50 dark:bg-pink-950/60 text-pink-600 dark:text-pink-400 flex items-center justify-center text-lg shrink-0 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-tags"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors">Hashtag Generator</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Generate multi-platform hashtags for Instagram, TikTok, and Shorts.</p>
+                        </div>
+                    </a>
+
+                    <a href="twitter-thread-splitter.html" class="p-4 bg-white dark:bg-dark-surface rounded-xl border border-slate-200 dark:border-dark-border hover:border-cyan-500 transition group flex items-start gap-3.5">
+                        <div class="w-10 h-10 rounded-lg bg-cyan-50 dark:bg-cyan-950/60 text-cyan-600 dark:text-cyan-400 flex items-center justify-center text-lg shrink-0 group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">Twitter/X Thread Splitter</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Split long text into numbered, 280-character tweets with thread counters.</p>
+                        </div>
+                    </a>
+
+                    <a href="hashtag-deduplicator.html" class="p-4 bg-white dark:bg-dark-surface rounded-xl border border-slate-200 dark:border-dark-border hover:border-rose-500 transition group flex items-start gap-3.5">
+                        <div class="w-10 h-10 rounded-lg bg-rose-50 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 flex items-center justify-center text-lg shrink-0 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-hashtag"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-rose-600 dark:group-hover:text-rose-400 transition-colors">Hashtag Deduplicator</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Clean messy hashtag blocks, remove duplicates, and normalize casing.</p>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- Category 3: Video & Captions -->
+            <div class="space-y-4">
+                <h3 class="text-sm font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center gap-2">
+                    <i class="fa-solid fa-video text-emerald-500"></i> Video & Caption Utilities
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    
+                    <a href="tools/srt-caption-cleaner/" class="p-4 bg-white dark:bg-dark-surface rounded-xl border border-slate-200 dark:border-dark-border hover:border-emerald-500 transition group flex items-start gap-3.5">
+                        <div class="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-lg shrink-0 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-closed-captioning"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">SRT Caption Cleaner</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Strip timecodes from .SRT and .VTT files into readable article transcripts.</p>
+                        </div>
+                    </a>
+
+                    <a href="tools/teleprompter/" class="p-4 bg-white dark:bg-dark-surface rounded-xl border border-slate-200 dark:border-dark-border hover:border-indigo-500 transition group flex items-start gap-3.5">
+                        <div class="w-10 h-10 rounded-lg bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-lg shrink-0 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-chalkboard-user"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">Online Teleprompter</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Fullscreen script prompter with speed controls and camera mirror rig mode.</p>
+                        </div>
+                    </a>
+
+                    <a href="speech-timer.html" class="p-4 bg-white dark:bg-dark-surface rounded-xl border border-slate-200 dark:border-dark-border hover:border-amber-500 transition group flex items-start gap-3.5">
+                        <div class="w-10 h-10 rounded-lg bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center text-lg shrink-0 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-stopwatch"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">Script-to-Speech Timer</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Calculate speech durations for podcast scripts, voiceovers, and presentations.</p>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- Category 4: Image Tools -->
+            <div class="space-y-4">
+                <h3 class="text-sm font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center gap-2">
+                    <i class="fa-solid fa-image text-purple-500"></i> Image Tools
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    
+                    <a href="tools/image-resizer/" class="p-4 bg-white dark:bg-dark-surface rounded-xl border border-slate-200 dark:border-dark-border hover:border-purple-500 transition group flex items-start gap-3.5">
+                        <div class="w-10 h-10 rounded-lg bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400 flex items-center justify-center text-lg shrink-0 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-image"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">Browser Image Resizer</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Scale JPG, PNG, and WebP images with social media aspect ratio presets.</p>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- Category 5: SEO & Web -->
+            <div class="space-y-4">
+                <h3 class="text-sm font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center gap-2">
+                    <i class="fa-solid fa-magnifying-glass text-cyan-500"></i> SEO & Web Tools
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    
+                    <a href="tools/seo-meta-generator/" class="p-4 bg-white dark:bg-dark-surface rounded-xl border border-slate-200 dark:border-dark-border hover:border-cyan-500 transition group flex items-start gap-3.5">
+                        <div class="w-10 h-10 rounded-lg bg-cyan-50 dark:bg-cyan-950/60 text-cyan-600 dark:text-cyan-400 flex items-center justify-center text-lg shrink-0 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-magnifying-glass-chart"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">SEO Meta & SERP Generator</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Preview and generate SEO title and meta description tags with live SERP.</p>
+                        </div>
+                    </a>
+
+                    <a href="tools/seo-slug-generator/" class="p-4 bg-white dark:bg-dark-surface rounded-xl border border-slate-200 dark:border-dark-border hover:border-indigo-500 transition group flex items-start gap-3.5">
+                        <div class="w-10 h-10 rounded-lg bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-lg shrink-0 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-link"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">SEO Slug Generator</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Convert article headlines into clean, lowercase, hyphen-separated URL slugs.</p>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Mid-Page In-Content Ad Banner -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="adsense-slot adsense-bottom-banner w-full rounded-xl flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 text-xs p-1 bg-transparent overflow-hidden text-center" style="min-height: 90px;">
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5863857969717583" data-ad-slot="4470355447" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+        </div>
+
+        <!-- ==============================================
+             WHY CREATORKIT STUDIO SECTION
+             ============================================== -->
+        <section id="why-us" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 scroll-mt-20">
+            <div class="border-b border-slate-200 dark:border-dark-border pb-4">
+                <div class="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider mb-1">
+                    <i class="fa-solid fa-heart"></i> Product Philosophy
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+                    Why Use CreatorKit Studio?
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+                    Built specifically for everyday creator workflows with zero bloat and zero barriers.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="p-6 bg-white dark:bg-dark-surface rounded-2xl border border-slate-200 dark:border-dark-border shadow-xs space-y-3">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-unlock"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-slate-900 dark:text-white">100% Free Forever</h3>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Every tool is free to use with no hidden paywalls, subscription tiers, or credit limits.
+                    </p>
                 </div>
 
-                <!-- Dynamic Tool Options Toolbar -->
-                <div id="dynamicToolOptions" class="hidden p-3 bg-slate-50 dark:bg-slate-900/90 rounded-lg border border-slate-200 dark:border-dark-border text-xs">
-                    <!-- Injected dynamically via JS -->
+                <div class="p-6 bg-white dark:bg-dark-surface rounded-2xl border border-slate-200 dark:border-dark-border shadow-xs space-y-3">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-user-xmark"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-slate-900 dark:text-white">No Sign-Up Required</h3>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                        No login, account creation, or email address required. Open any tool and start creating immediately.
+                    </p>
                 </div>
 
-                <!-- Dynamic Widgets Viewport (SERP Preview / Readability Meter / Twitter Cards) -->
-                <div id="dynamicCustomWidget" class="hidden space-y-3 pt-2">
-                    <!-- Injected dynamically via JS -->
+                <div class="p-6 bg-white dark:bg-dark-surface rounded-2xl border border-slate-200 dark:border-dark-border shadow-xs space-y-3">
+                    <div class="w-12 h-12 rounded-xl bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-bolt-lightning"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-slate-900 dark:text-white">In-Browser Processing</h3>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Many CreatorKit Studio tools process text and files directly inside your browser memory with zero upload lag.
+                    </p>
                 </div>
 
-                <!-- Output Area Container -->
-                <div class="space-y-2 pt-2">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-200 flex items-center gap-1.5">
-                                <i class="fa-solid fa-square-poll-vertical text-emerald-500"></i> Transformed Result
-                            </span>
-                            <span id="outputChangeBadge" class="text-[10px] text-indigo-600 dark:text-indigo-400 font-mono hidden">Ready</span>
-                        </div>
-
-                        <div class="flex items-center gap-1.5">
-                            <button id="sendToInputBtn" title="Send output back to input box for multi-step processing" class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition flex items-center gap-1">
-                                <i class="fa-solid fa-arrow-up text-[11px]"></i> Use as Input
-                            </button>
-                            <button id="downloadOutputBtn" class="px-2.5 py-1 text-xs font-medium rounded-md bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition flex items-center gap-1">
-                                <i class="fa-solid fa-download text-[11px]"></i> Save
-                            </button>
-                            <button id="copyOutputBtn" class="px-3.5 py-1 text-xs font-semibold rounded-md bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm transition flex items-center gap-1.5 active:scale-95">
-                                <i class="fa-regular fa-copy"></i>
-                                <span>Copy Result</span>
-                            </button>
-                        </div>
+                <div class="p-6 bg-white dark:bg-dark-surface rounded-2xl border border-slate-200 dark:border-dark-border shadow-xs space-y-3">
+                    <div class="w-12 h-12 rounded-xl bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-shield-halved"></i>
                     </div>
-
-                    <!-- Output Textarea -->
-                    <div class="relative">
-                        <textarea id="mainOutput" rows="7" readonly placeholder="Your cleaned or transformed text will appear here automatically..." class="w-full p-3.5 text-sm bg-slate-100/70 dark:bg-slate-900/60 border border-slate-200 dark:border-dark-border rounded-lg text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-emerald-500 font-sans resize-y custom-scrollbar transition"></textarea>
-                        <div id="copyFeedbackBadge" class="absolute top-3 right-3 hidden bg-emerald-500 text-white text-xs px-2.5 py-1 rounded shadow-md flex items-center gap-1 font-medium pointer-events-none">
-                            <i class="fa-solid fa-check"></i> Copied!
-                        </div>
-                    </div>
+                    <h3 class="text-base font-bold text-slate-900 dark:text-white">Privacy-Friendly</h3>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Client-side processing ensures your drafts, transcripts, and images remain on your local device.
+                    </p>
                 </div>
 
             </div>
+        </section>
 
-            <!-- 4. Inline Ad Banner Placeholder (min-height: 90px) -->
-            <div class="w-full">
-                <div class="adsense-slot adsense-placeholder adsense-bottom-banner w-full rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-700 flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 text-xs gap-1 p-3 bg-white/40 dark:bg-slate-800/30 overflow-hidden text-center shadow-sm" style="min-height: 90px; height: 90px;">
-                    <span class="font-mono uppercase tracking-widest text-[10px] bg-slate-200 dark:bg-slate-700 px-2 py-0.5 rounded text-slate-600 dark:text-slate-300">Advertisement</span>
-                    <span class="flex items-center gap-1 font-mono text-[11px]"><i class="fa-brands fa-google text-indigo-500"></i> Google AdSense Responsive In-Content Banner</span>
+        <!-- ==============================================
+             CREATOR GUIDES SECTION
+             ============================================== -->
+        <section id="guides" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 scroll-mt-20">
+            <div class="border-b border-slate-200 dark:border-dark-border pb-4">
+                <div class="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider mb-1">
+                    <i class="fa-solid fa-book-open"></i> Resources & Tutorials
                 </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+                    Creator Guides
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+                    In-depth guides on text formatting, SEO optimization, and content publishing workflows.
+                </p>
             </div>
 
-            <!-- 5. Dynamic SEO Educational Article & FAQ Section -->
-            <article id="dynamicSeoGuide" class="seo-guide p-6 md:p-8 bg-white dark:bg-dark-surface border border-slate-200 dark:border-dark-border rounded-2xl shadow-sm space-y-6">
-                <!-- Dynamic Tool SEO Guide Injected via seo-content.js -->
-            </article>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <a href="guides/convert-text-case/" class="p-6 bg-white dark:bg-dark-surface rounded-2xl border border-slate-200 dark:border-dark-border hover:border-indigo-500 transition group space-y-3">
+                    <div class="inline-flex items-center gap-2 text-xs font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/60 px-2.5 py-1 rounded-md">
+                        <i class="fa-solid fa-text-height"></i> Formatting Guide
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                        How to Convert Text Case Online: UPPERCASE, Title Case & CamelCase
+                    </h3>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Learn how different text cases work, when to use Title Case vs Sentence case in headlines, and how to convert code strings to camelCase and snake_case.
+                    </p>
+                    <div class="pt-2 text-xs font-semibold text-indigo-600 dark:text-indigo-400 flex items-center gap-1.5">
+                        <span>Read Full Guide</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
 
-        </main>
+                <a href="tools/line-break-fixer/" class="p-6 bg-white dark:bg-dark-surface rounded-2xl border border-slate-200 dark:border-dark-border hover:border-indigo-500 transition group space-y-3">
+                    <div class="inline-flex items-center gap-2 text-xs font-bold text-pink-600 dark:text-pink-400 bg-pink-50 dark:bg-pink-950/60 px-2.5 py-1 rounded-md">
+                        <i class="fa-solid fa-paragraph"></i> Social Media Formatting
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors">
+                        Preventing Social Media Caption Paragraph Clumping
+                    </h3>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Discover why Instagram and LinkedIn strip double line breaks, and how zero-width space characters keep multi-line captions perfectly spaced across mobile feeds.
+                    </p>
+                    <div class="pt-2 text-xs font-semibold text-pink-600 dark:text-pink-400 flex items-center gap-1.5">
+                        <span>Explore Line Break Fixer</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
 
-    </div>
+            </div>
+        </section>
 
-    <!-- ==============================================
-         SITE FOOTER & COMPLIANCE LINKS
-         ============================================== -->
+        <!-- ==============================================
+             FAQ SECTION
+             ============================================== -->
+        <section id="faq" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 scroll-mt-20">
+            <div class="border-b border-slate-200 dark:border-dark-border pb-4">
+                <div class="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider mb-1">
+                    <i class="fa-solid fa-circle-question"></i> Questions & Answers
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+                    Frequently Asked Questions
+                </h2>
+            </div>
+
+            <div class="bg-white dark:bg-dark-surface p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-dark-border shadow-xs space-y-4">
+                
+                <details class="group bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-dark-border rounded-xl p-4 transition [&_summary::-webkit-details-marker]:hidden" open>
+                    <summary class="flex items-center justify-between cursor-pointer font-semibold text-xs md:text-sm text-slate-900 dark:text-white">
+                        <span>What is CreatorKit Studio?</span>
+                        <span class="ml-2 text-slate-400 group-open:rotate-180 transition-transform">
+                            <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </span>
+                    </summary>
+                    <p class="mt-3 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                        CreatorKit Studio is a free collection of browser-based utilities designed for content creators, copywriters, digital marketers, video editors, and bloggers. It includes tools for text formatting, caption cleaning, subtitle conversion, image resizing, and SEO optimization.
+                    </p>
+                </details>
+
+                <details class="group bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-dark-border rounded-xl p-4 transition [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer font-semibold text-xs md:text-sm text-slate-900 dark:text-white">
+                        <span>Are CreatorKit Studio tools free?</span>
+                        <span class="ml-2 text-slate-400 group-open:rotate-180 transition-transform">
+                            <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </span>
+                    </summary>
+                    <p class="mt-3 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Yes. All 16 tools on CreatorKit Studio are 100% free to use. There are no subscription fees, premium tiers, or hidden usage limits.
+                    </p>
+                </details>
+
+                <details class="group bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-dark-border rounded-xl p-4 transition [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer font-semibold text-xs md:text-sm text-slate-900 dark:text-white">
+                        <span>Do I need to create an account?</span>
+                        <span class="ml-2 text-slate-400 group-open:rotate-180 transition-transform">
+                            <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </span>
+                    </summary>
+                    <p class="mt-3 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                        No. You do not need to register, sign up, or create an account. You can access and use every tool instantly in any modern web browser.
+                    </p>
+                </details>
+
+                <details class="group bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-dark-border rounded-xl p-4 transition [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer font-semibold text-xs md:text-sm text-slate-900 dark:text-white">
+                        <span>Are the tools browser-based?</span>
+                        <span class="ml-2 text-slate-400 group-open:rotate-180 transition-transform">
+                            <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </span>
+                    </summary>
+                    <p class="mt-3 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Yes. All tools run directly in your web browser using client-side technologies like JavaScript and HTML5 Canvas. No desktop software or mobile app installation is required.
+                    </p>
+                </details>
+
+                <details class="group bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-dark-border rounded-xl p-4 transition [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer font-semibold text-xs md:text-sm text-slate-900 dark:text-white">
+                        <span>Does CreatorKit Studio upload my content?</span>
+                        <span class="ml-2 text-slate-400 group-open:rotate-180 transition-transform">
+                            <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </span>
+                    </summary>
+                    <p class="mt-3 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Many CreatorKit Studio tools process text and files entirely within your local browser memory. Text formatting, case conversions, subtitle cleaning, and image resizing take place locally without transmitting your content to external processing servers.
+                    </p>
+                </details>
+
+                <details class="group bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-dark-border rounded-xl p-4 transition [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer font-semibold text-xs md:text-sm text-slate-900 dark:text-white">
+                        <span>Can I use the tools on mobile devices?</span>
+                        <span class="ml-2 text-slate-400 group-open:rotate-180 transition-transform">
+                            <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </span>
+                    </summary>
+                    <p class="mt-3 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Yes. Every tool is fully responsive and optimized for touchscreens on smartphones (iOS Safari, Android Chrome) and tablets.
+                    </p>
+                </details>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
     <footer class="bg-white dark:bg-dark-surface border-t border-slate-200 dark:border-dark-border mt-auto py-8 px-4 sm:px-6 lg:px-8 text-xs text-slate-500 dark:text-slate-400 transition-colors">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
             
@@ -713,91 +785,25 @@
         </div>
     </footer>
 
-    <!-- ==============================================
-         FULLSCREEN TELEPROMPTER MODAL
-         ============================================== -->
-    <div id="teleprompterModal" class="fixed inset-0 z-50 bg-black text-white hidden flex-col select-none">
+    <!-- Theme Controller Script -->
+    <script>
+        const themeBtn = document.getElementById('themeToggleBtn');
+        const themeIcon = document.getElementById('themeIcon');
         
-        <!-- Prompter Floating Control Bar -->
-        <header class="bg-slate-900/90 backdrop-blur border-b border-slate-800 px-6 py-3 flex flex-wrap items-center justify-between gap-4 z-10 transition-opacity duration-300 opacity-90 hover:opacity-100">
-            <div class="flex items-center gap-3">
-                <button id="tpPlayPauseBtn" class="px-4 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm flex items-center gap-2 transition">
-                    <i class="fa-solid fa-play"></i> <span id="tpPlayStatusText">Start</span>
-                </button>
-                <button id="tpResetBtn" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition">
-                    <i class="fa-solid fa-rotate-left"></i> Reset
-                </button>
-            </div>
+        themeBtn.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('creatorkit_theme', isDark ? 'dark' : 'light');
+            themeIcon.className = isDark ? 'fa-solid fa-sun text-base text-amber-400' : 'fa-solid fa-moon text-base text-slate-600';
+        });
 
-            <!-- Controls: Speed, Font Size, Flip -->
-            <div class="flex flex-wrap items-center gap-5 text-xs">
-                <div class="flex items-center gap-2">
-                    <span class="text-slate-400"><i class="fa-solid fa-gauge-high"></i> Speed:</span>
-                    <input type="range" id="tpSpeedSlider" min="1" max="10" value="3" class="w-24 accent-indigo-500 cursor-pointer">
-                    <span id="tpSpeedValue" class="font-mono text-indigo-400 w-4">3</span>
-                </div>
-
-                <div class="flex items-center gap-2">
-                    <span class="text-slate-400"><i class="fa-solid fa-text-height"></i> Size:</span>
-                    <input type="range" id="tpFontSlider" min="24" max="72" value="44" class="w-24 accent-indigo-500 cursor-pointer">
-                    <span id="tpFontValue" class="font-mono text-indigo-400 w-8">44px</span>
-                </div>
-
-                <button id="tpMirrorBtn" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium transition flex items-center gap-1.5" title="Flip text horizontally for teleprompter glass rigs">
-                    <i class="fa-solid fa-right-left"></i> Mirror Rig
-                </button>
-
-                <button id="tpCloseBtn" class="px-3 py-1.5 rounded-lg bg-rose-600/80 hover:bg-rose-600 text-white font-bold text-xs transition flex items-center gap-1">
-                    <i class="fa-solid fa-xmark"></i> Exit (Esc)
-                </button>
-            </div>
-        </header>
-
-        <!-- Prompter Reading Guide Target Line -->
-        <div class="teleprompter-guide-line pointer-events-none"></div>
-
-        <!-- Prompter Scroll Viewport -->
-        <div id="tpViewport" class="flex-1 overflow-y-auto px-8 md:px-24 lg:px-48 py-24 custom-scrollbar text-center relative scroll-smooth">
-            <div id="tpContent" class="max-w-4xl mx-auto leading-relaxed font-semibold transition-all select-text font-sans">
-                <!-- Text populated dynamically -->
-            </div>
-            <div class="h-[60vh]"></div>
-        </div>
-
-    </div>
-
-    <!-- ==============================================
-         LEGAL COMPLIANCE MODAL (Privacy, Terms, About, Contact)
-         ============================================== -->
-    <div id="legalModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden items-center justify-center p-4">
-        <div class="bg-white dark:bg-dark-surface border border-slate-200 dark:border-dark-border rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden animate-fadeIn">
-            
-            <div class="flex items-center justify-between px-6 py-4 border-b border-slate-200 dark:border-dark-border">
-                <h3 id="legalModalTitle" class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                    <i class="fa-solid fa-scale-balanced text-indigo-500"></i> Legal Information
-                </h3>
-                <button id="closeLegalModalBtn" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-lg transition">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-
-            <div id="legalModalBody" class="p-6 overflow-y-auto text-xs text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed custom-scrollbar">
-                <!-- Content injected via JS -->
-            </div>
-
-            <div class="px-6 py-3 border-t border-slate-200 dark:border-dark-border bg-slate-50 dark:bg-slate-900 flex justify-end">
-                <button id="closeLegalModalFooterBtn" class="px-4 py-1.5 text-xs font-semibold rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white transition">
-                    Understood & Close
-                </button>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- Toast Notification Container -->
-    <div id="toastContainer" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
-
-    <!-- Application Script -->
-    <script src="app.js?v=2.3.0"></script>
+        // Load saved theme
+        if (localStorage.getItem('creatorkit_theme') === 'light') {
+            document.documentElement.classList.remove('dark');
+            themeIcon.className = 'fa-solid fa-moon text-base text-slate-600';
+        } else {
+            document.documentElement.classList.add('dark');
+            themeIcon.className = 'fa-solid fa-sun text-base text-amber-400';
+        }
+    </script>
 </body>
 </html>

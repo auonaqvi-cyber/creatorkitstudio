@@ -1530,7 +1530,7 @@ def generate_page_html(tool):
 
                 "name": tool["title"],
 
-                "url": f"https://creatorkitstudio.pro/{tool['filename']}",
+                "url": f"https://www.creatorkitstudio.pro/{tool['filename']}",
 
                 "description": tool["meta_desc"],
 
@@ -1686,7 +1686,7 @@ def generate_page_html(tool):
 
     <meta property="og:description" content="{tool['meta_desc']}">
 
-    <meta property="og:url" content="https://creatorkitstudio.pro/{tool['filename']}">
+    <meta property="og:url" content="https://www.creatorkitstudio.pro/{tool['filename']}">
 
 
 
@@ -2303,7 +2303,7 @@ def generate_page_html(tool):
 
 def generate_sitemap():
 
-    base = "https://creatorkitstudio.pro/"
+    base = "https://www.creatorkitstudio.pro/"
 
     entries = [
 

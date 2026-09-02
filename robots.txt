@@ -1,4 +1,4 @@
-# robots.txt for https://creatorkitstudio.pro
+# robots.txt for https://www.creatorkitstudio.pro
 # Allow all search engine crawlers to index the utility suite and programmatic tools
 
 User-agent: *
@@ -7,4 +7,4 @@ Allow: /tools/
 Allow: /tools/*
 
 # Sitemap location
-Sitemap: https://creatorkitstudio.pro/sitemap.xml
+Sitemap: https://www.creatorkitstudio.pro/sitemap.xml
