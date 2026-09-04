@@ -223,8 +223,8 @@
                 <li><strong>Compression & Output Format:</strong> Modern formats like WebP or high-quality JPEG provide efficient compression with minimal quality loss, while heavily compressed formats may introduce noticeable artifacts.</li>
             </ul>
 
-            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mt-8 mb-4">Why Browser-Based Image Resizing is Safer and Faster</h2>
-            <p>Traditional image converters upload your confidential graphics, headshots, or product designs to a remote server for processing. Browser-based tools like <a href="../../tools/image-resizer/" class="text-indigo-600 dark:text-indigo-400 font-semibold underline hover:text-indigo-500">CreatorKit Studio Image Resizer</a> utilize the browser's native HTML5 Canvas drawing context:</p>
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mt-8 mb-4">Why Resize Images Directly in Your Browser</h2>
+            <p>CreatorKit Studio’s Image Resizer performs the resize operation in the browser using HTML5 Canvas, so the image does not need to be uploaded to CreatorKit Studio for processing. Normal website requests to third-party services such as analytics, advertising, fonts, or CDN resources may still occur.</p>
             <ol class="list-decimal pl-6 space-y-1.5 my-3">
                 <li>Your device reads the local image into temporary browser memory.</li>
                 <li>The browser's graphics rendering engine interpolates the new pixel dimensions.</li>
@@ -259,7 +259,7 @@
                         <i class="fa-solid fa-chevron-down text-xs"></i>
                     </span>
                 </summary>
-                <p class="mt-3 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Client-side resizing uses HTML5 Canvas APIs within your browser memory. The image data is never transmitted across the network to a third-party server or cloud storage bucket.</p>
+                <p class="mt-3 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">The resize operation is performed in the browser rather than by uploading the image to CreatorKit Studio for processing. Other normal website requests, such as analytics, advertising, fonts, or CDN resources, may still occur.</p>
             </details>
         
             <details class="group bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-dark-border rounded-xl p-4 transition [&_summary::-webkit-details-marker]:hidden">
