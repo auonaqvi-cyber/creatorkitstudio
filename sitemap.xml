@@ -20,6 +20,14 @@
         <priority>0.95</priority>
     </url>
 
+    <!-- Myna Creator Software -->
+    <url>
+        <loc>https://creatorkitstudio.pro/myna/</loc>
+        <lastmod>2026-09-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.90</priority>
+    </url>
+
     <!-- Dedicated Phase 1 Tool Routes (9 Dedicated Routes) -->
     <url>
         <loc>https://www.creatorkitstudio.pro/tools/line-break-fixer/</loc>

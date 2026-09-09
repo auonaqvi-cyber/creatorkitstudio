@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myna Local Voice Studio – Voice Cloning for Narration | CreatorKit Studio</title>
+    <meta name="description" content="Myna is a local voice cloning and long-form narration studio for Windows. Create voice presets, generate multiple takes, manage script chunks, and assemble narration locally.">
+    <meta name="author" content="Amaleen Global LLC">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://creatorkitstudio.pro/myna/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Myna Local Voice Studio – Voice Cloning for Narration">
+    <meta property="og:description" content="A local Windows workflow for voice presets, script chunks, multiple takes, approvals, pauses, and assembled long-form narration.">
+    <meta property="og:url" content="https://creatorkitstudio.pro/myna/">
+    <meta property="og:site_name" content="CreatorKit Studio">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Myna Local Voice Studio – Voice Cloning for Narration">
+    <meta name="twitter:description" content="A local Windows workflow for voice presets, script chunks, multiple takes, approvals, pauses, and assembled long-form narration.">
+    <link rel="icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../style.css?v=2.3.0">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8J6Z3C5EZ3"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-8J6Z3C5EZ3');</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5863857969717583" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config={darkMode:'class',theme:{extend:{colors:{'dark-bg':'#0f172a','dark-surface':'#1e293b','dark-border':'#334155','myna':'#f5b820','myna-dark':'#d99a08'}}}};
+        if(localStorage.getItem('creatorkit_theme')!=='light'&&(localStorage.getItem('creatorkit_theme')==='dark'||window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark')}
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .myna-grid{background-image:linear-gradient(rgba(245,184,32,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(245,184,32,.08) 1px,transparent 1px);background-size:30px 30px}
+        .myna-glow{box-shadow:0 22px 80px rgba(245,184,32,.16)}
+        .section-anchor{scroll-margin-top:6rem}
+        .flow-line:after{content:"";position:absolute;top:1.25rem;left:calc(50% + 1.5rem);width:calc(100% - 3rem);height:2px;background:#e2e8f0}
+        .dark .flow-line:after{background:#334155}
+        @media(max-width:767px){.flow-line:after{display:none}}
+        @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}}
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"SoftwareApplication",
+      "name":"Myna",
+      "alternateName":"Myna Local Voice Studio",
+      "applicationCategory":"MultimediaApplication",
+      "operatingSystem":"Windows 10 and Windows 11 (64-bit)",
+      "softwareVersion":"0.9-alpha",
+      "description":"A local voice cloning and long-form narration application for managing voice presets, script chunks, generated takes, approvals, pauses, and assembled narration.",
+      "publisher":{"@type":"Organization","name":"Amaleen Global LLC"},
+      "url":"https://creatorkitstudio.pro/myna/"
+    }
+    </script>
+</head>
+<body class="min-h-screen bg-slate-50 text-slate-700 antialiased dark:bg-dark-bg dark:text-slate-300">
+    <header class="sticky top-0 z-40 border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur dark:border-dark-border dark:bg-dark-surface/95">
+        <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+            <a href="../" class="flex items-center gap-2.5" aria-label="CreatorKit Studio home">
+                <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 text-white"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+                <span class="text-base font-extrabold tracking-tight text-slate-900 dark:text-white">CreatorKit <span class="text-indigo-600 dark:text-indigo-400">Studio</span></span>
+            </a>
+            <nav class="hidden items-center gap-5 text-sm font-semibold lg:flex" aria-label="Myna page navigation">
+                <a href="#workflow" class="hover:text-indigo-600 dark:hover:text-indigo-400">Workflow</a>
+                <a href="#features" class="hover:text-indigo-600 dark:hover:text-indigo-400">Features</a>
+                <a href="#requirements" class="hover:text-indigo-600 dark:hover:text-indigo-400">Requirements</a>
+                <a href="#privacy" class="hover:text-indigo-600 dark:hover:text-indigo-400">Privacy</a>
+                <a href="#faq" class="hover:text-indigo-600 dark:hover:text-indigo-400">FAQ</a>
+            </nav>
+            <div class="flex items-center gap-2">
+                <a href="#download" class="hidden rounded-xl bg-slate-900 px-4 py-2 text-sm font-bold text-white hover:bg-slate-700 sm:inline-flex dark:bg-myna dark:text-slate-950 dark:hover:bg-yellow-300">Download status</a>
+                <button id="themeToggleBtn" aria-label="Toggle theme" class="rounded-lg p-2 text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800"><i id="themeIcon" class="fa-solid fa-moon"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="myna-grid overflow-hidden border-b border-slate-200 bg-white dark:border-dark-border dark:bg-dark-bg">
+            <div class="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.15fr_.85fr] lg:px-8 lg:py-24">
+                <div class="flex flex-col justify-center">
+                    <div class="mb-5 flex flex-wrap items-center gap-3">
+                        <span class="rounded-full border border-amber-300 bg-amber-50 px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-amber-800 dark:border-amber-600/50 dark:bg-amber-950/40 dark:text-amber-300">Alpha / test build</span>
+                        <span class="font-mono text-sm font-semibold text-slate-500 dark:text-slate-400">Myna 0.9-alpha</span>
+                    </div>
+                    <h1 class="max-w-4xl text-4xl font-black tracking-tight text-slate-950 sm:text-5xl lg:text-6xl dark:text-white">Myna — Local Voice Studio for Long-Form Narration</h1>
+                    <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-600 dark:text-slate-300">Create reusable voice presets, break scripts into manageable chunks, generate multiple takes, approve the best results, adjust pauses, and assemble long-form narration locally on your Windows PC.</p>
+                    <p class="mt-4 text-sm font-medium text-slate-500 dark:text-slate-400">Developed by Amaleen Global LLC, the company behind CreatorKit Studio.</p>
+                    <div class="mt-8 flex flex-wrap gap-3">
+                        <a href="https://github.com/auonaqvi-cyber/myna/releases/download/v0.9-alpha/MynaBootstrap.exe" class="inline-flex items-center gap-2 rounded-xl bg-slate-900 px-6 py-3 font-bold text-white shadow-lg hover:bg-slate-700 dark:bg-myna dark:text-slate-950 dark:hover:bg-yellow-300"><i class="fa-solid fa-download"></i> Download Myna</a>
+                        <a href="#requirements" class="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-6 py-3 font-bold text-slate-800 hover:border-indigo-400 dark:border-slate-600 dark:bg-dark-surface dark:text-white"><i class="fa-solid fa-desktop"></i> View system requirements</a>
+                    </div>
+                </div>
+                <div class="myna-glow flex items-center justify-center rounded-[2rem] border border-amber-200 bg-gradient-to-br from-amber-50 via-white to-indigo-50 p-8 dark:border-amber-700/40 dark:from-slate-50 dark:via-white dark:to-indigo-50">
+                    <div class="w-full">
+                        <img src="assets/myna-logo.png" alt="Myna logo: a black and gold myna bird beside the Myna wordmark" width="2048" height="646" class="mx-auto h-auto w-full max-w-lg">
+                        <div class="mt-7 grid grid-cols-3 gap-2 text-center text-xs font-bold text-slate-600 dark:text-slate-300">
+                            <span class="rounded-lg border border-slate-200 bg-white/80 p-3 dark:border-slate-700 dark:bg-slate-800">CPU-only FP32</span>
+                            <span class="rounded-lg border border-slate-200 bg-white/80 p-3 dark:border-slate-700 dark:bg-slate-800">Local generation</span>
+                            <span class="rounded-lg border border-slate-200 bg-white/80 p-3 dark:border-slate-700 dark:bg-slate-800">Windows 64-bit</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="what-is-myna" class="section-anchor mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+            <div class="grid gap-8 lg:grid-cols-[.75fr_1.25fr]">
+                <div><p class="text-sm font-extrabold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Product overview</p><h2 class="mt-2 text-3xl font-black tracking-tight text-slate-950 dark:text-white">What is Myna?</h2></div>
+                <div class="space-y-4 text-base leading-7">
+                    <p>Myna is a local voice cloning and narration application for creators who need fine-grained control over long-form voice production. It uses a reference recording to condition the Chatterbox Original English engine; it does not train a new model on that recording.</p>
+                    <p>Instead of treating a complete script as one generation, Myna organizes narration into editable chunks. A chunk can hold multiple raw takes, so a creator can listen, regenerate only a weak section, approve a preferred take, tune the pause after it, and build a continuous preview without replacing the underlying recordings.</p>
+                <div class="rounded-2xl border-l-4 border-amber-400 bg-amber-50 p-5 text-amber-950 dark:bg-amber-950/30 dark:text-amber-100"><strong>Current status:</strong> Myna 0.9-alpha is a public prerelease/test build, not a finished production or enterprise platform. Project formats, packaging, and compatibility may change before a stable release.</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="workflow" class="section-anchor border-y border-slate-200 bg-white py-16 dark:border-dark-border dark:bg-dark-surface/40">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <p class="text-center text-sm font-extrabold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Built for long-form narration</p>
+                <h2 class="mt-2 text-center text-3xl font-black tracking-tight text-slate-950 dark:text-white">Work section by section, not all-or-nothing</h2>
+                <div class="mt-10 grid gap-y-6 md:grid-cols-5 lg:grid-cols-9">
+                    <div class="flow-line relative text-center"><span class="relative z-10 mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-myna font-black text-slate-950">1</span><p class="mt-3 text-sm font-bold">Add Voice Preset</p></div>
+                    <div class="flow-line relative text-center"><span class="relative z-10 mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-myna font-black text-slate-950">2</span><p class="mt-3 text-sm font-bold">Load Voice Model</p></div>
+                    <div class="flow-line relative text-center"><span class="relative z-10 mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-myna font-black text-slate-950">3</span><p class="mt-3 text-sm font-bold">Create Project</p></div>
+                    <div class="flow-line relative text-center"><span class="relative z-10 mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-myna font-black text-slate-950">4</span><p class="mt-3 text-sm font-bold">Auto Chunk</p></div>
+                    <div class="flow-line relative text-center"><span class="relative z-10 mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-myna font-black text-slate-950">5</span><p class="mt-3 text-sm font-bold">Generate Takes</p></div>
+                    <div class="flow-line relative text-center"><span class="relative z-10 mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-myna font-black text-slate-950">6</span><p class="mt-3 text-sm font-bold">Review & Approve</p></div>
+                    <div class="flow-line relative text-center"><span class="relative z-10 mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-myna font-black text-slate-950">7</span><p class="mt-3 text-sm font-bold">Adjust Pauses</p></div>
+                    <div class="flow-line relative text-center"><span class="relative z-10 mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-myna font-black text-slate-950">8</span><p class="mt-3 text-sm font-bold">Build Preview</p></div>
+                    <div class="relative text-center"><span class="relative z-10 mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-slate-900 font-black text-white dark:bg-white dark:text-slate-950">9</span><p class="mt-3 text-sm font-bold">Save / Export</p></div>
+                </div>
+                <p class="mx-auto mt-10 max-w-4xl text-center leading-7 text-slate-600 dark:text-slate-300">Auto Chunk uses sentence-aware boundaries and preserves paragraph relationships. Individual chunks can be edited or split; adjacent chunks can be merged. Editing marks earlier takes as outdated rather than silently presenting them as current. Generation is serialized, and creators can generate missing takes in sequence or regenerate just the selected chunk.</p>
+            </div>
+        </section>
+
+        <section id="features" class="section-anchor mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+            <p class="text-sm font-extrabold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Verified capabilities</p>
+            <h2 class="mt-2 text-3xl font-black tracking-tight text-slate-950 dark:text-white">A practical review-and-assembly workflow</h2>
+            <div class="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-dark-border dark:bg-dark-surface"><i class="fa-solid fa-fingerprint text-2xl text-amber-500"></i><h3 class="mt-4 text-xl font-extrabold text-slate-950 dark:text-white">Reusable voice presets</h3><p class="mt-2 leading-7">Create named zero-shot reference presets from WAV recordings you own or are permitted to use. Myna stores the managed reference, its SHA-256, settings, description, and preferred join mode.</p></article>
+                <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-dark-border dark:bg-dark-surface"><i class="fa-solid fa-scissors text-2xl text-indigo-500"></i><h3 class="mt-4 text-xl font-extrabold text-slate-950 dark:text-white">Sentence-aware chunks</h3><p class="mt-2 leading-7">Turn a long script into manageable units, then edit, split, or merge where the narration needs a different rhythm. Paragraph-aware metadata remains available to the project.</p></article>
+                <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-dark-border dark:bg-dark-surface"><i class="fa-solid fa-layer-group text-2xl text-emerald-500"></i><h3 class="mt-4 text-xl font-extrabold text-slate-950 dark:text-white">Non-overwriting takes</h3><p class="mt-2 leading-7">Every generation becomes a new take. Regenerate with the same seed for a repeatable attempt or use a new seed for an alternative, while earlier raw WAV files remain available for review.</p></article>
+                <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-dark-border dark:bg-dark-surface"><i class="fa-solid fa-circle-check text-2xl text-sky-500"></i><h3 class="mt-4 text-xl font-extrabold text-slate-950 dark:text-white">Approval and pause control</h3><p class="mt-2 leading-7">Choose the current approved take per chunk and adjust the following pause. Assembly uses those choices, so weak sections can be replaced without regenerating the full narration.</p></article>
+                <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-dark-border dark:bg-dark-surface"><i class="fa-solid fa-wave-square text-2xl text-violet-500"></i><h3 class="mt-4 text-xl font-extrabold text-slate-950 dark:text-white">Matched Room Tone</h3><p class="mt-2 leading-7">The recommended join mode inserts low-level room tone between approved chunks to soften transitions. Assembly is reversible: it does not modify approved raw takes.</p></article>
+                <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-dark-border dark:bg-dark-surface"><i class="fa-solid fa-sliders text-2xl text-rose-500"></i><h3 class="mt-4 text-xl font-extrabold text-slate-950 dark:text-white">Optional light mastering</h3><p class="mt-2 leading-7">Light Documentary mastering is conservative, optional, and off by default. It creates a comparison output without changing raw takes and requires FFmpeg to be available.</p></article>
+                <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-dark-border dark:bg-dark-surface md:col-span-2"><i class="fa-solid fa-floppy-disk text-2xl text-teal-500"></i><h3 class="mt-4 text-xl font-extrabold text-slate-950 dark:text-white">Persistent projects</h3><p class="mt-2 leading-7">Saved project data includes the original script, chunk order and text, paragraph relationships, pause values, generated-take metadata, approved selections, seed history, voice settings, reference path, and model identity. Raw WAV files are stored alongside the project.</p></article>
+                <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-dark-border dark:bg-dark-surface"><i class="fa-solid fa-file-shield text-2xl text-orange-500"></i><h3 class="mt-4 text-xl font-extrabold text-slate-950 dark:text-white">Provenance reports</h3><p class="mt-2 leading-7">Export a non-overwriting Markdown record with app and engine identity, reference hash, settings, take record, and post-production state. It supports record keeping; it is not proof of ownership or a commercial-use guarantee.</p></article>
+            </div>
+        </section>
+
+        <section id="privacy" class="section-anchor bg-slate-950 py-16 text-slate-300">
+            <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+                <div><p class="text-sm font-extrabold uppercase tracking-widest text-myna">Local-first design</p><h2 class="mt-2 text-3xl font-black text-white">Your working files stay in the local Myna data area</h2><p class="mt-5 leading-7">Voice presets, managed reference recordings, projects, raw takes, assembled previews, exports, caches, and session logs are local installation data. After the required runtime and model components are installed, normal reference conditioning and speech generation use the local CPU and do not require a cloud inference service.</p><p class="mt-4 leading-7">Myna is not fully offline from first launch: the public bootstrap needs internet access to download the application, isolated runtime, and pinned model payloads.</p></div>
+                <div class="rounded-2xl border border-slate-700 bg-slate-900 p-6"><h3 class="text-xl font-extrabold text-white">Share-build privacy boundary</h3><p class="mt-3 leading-7">The packaging process uses an explicit application allowlist and a fresh staging area. It is designed to reject personal audio, projects, preset identifiers, logs, caches, and development paths. Clean distributions start with no voice preset or reference audio.</p><ul class="mt-5 grid gap-3 text-sm sm:grid-cols-2"><li><i class="fa-solid fa-circle-xmark mr-2 text-myna"></i>No personal presets</li><li><i class="fa-solid fa-circle-xmark mr-2 text-myna"></i>No reference WAVs</li><li><i class="fa-solid fa-circle-xmark mr-2 text-myna"></i>No projects or exports</li><li><i class="fa-solid fa-circle-xmark mr-2 text-myna"></i>No personal logs or caches</li></ul></div>
+            </div>
+        </section>
+
+        <section id="responsible-use" class="section-anchor mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+            <div class="rounded-3xl border border-rose-200 bg-rose-50 p-7 sm:p-10 dark:border-rose-900 dark:bg-rose-950/30"><p class="text-sm font-extrabold uppercase tracking-widest text-rose-700 dark:text-rose-300">Responsible voice use</p><h2 class="mt-2 text-3xl font-black text-slate-950 dark:text-white">Permission is part of the workflow</h2><p class="mt-5 leading-7">Use only voice recordings that you own or have permission to use. Myna is intended for legitimate narration, production, accessibility, experimentation, and creator workflows—not impersonation, deception, fraud, or unauthorized cloning. You are responsible for consent, applicable law, platform rules, and the licenses that govern your sources and outputs.</p></div>
+        </section>
+
+        <section id="requirements" class="section-anchor border-y border-slate-200 bg-white py-16 dark:border-dark-border dark:bg-dark-surface/40">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <p class="text-sm font-extrabold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">System requirements</p><h2 class="mt-2 text-3xl font-black text-slate-950 dark:text-white">Current Windows alpha test target</h2>
+                <div class="mt-8 grid gap-6 lg:grid-cols-2">
+                    <div class="rounded-2xl border border-slate-200 bg-slate-50 p-6 dark:border-dark-border dark:bg-dark-bg"><h3 class="text-xl font-extrabold text-slate-950 dark:text-white">Minimum test target</h3><dl class="mt-5 grid grid-cols-[auto_1fr] gap-x-5 gap-y-3 text-sm"><dt class="font-bold">OS</dt><dd>Windows 10 or 11, 64-bit</dd><dt class="font-bold">CPU</dt><dd>64-bit, 4-core target; lower-end target not yet externally validated</dd><dt class="font-bold">RAM</dt><dd>16 GB for the current alpha test target</dd><dt class="font-bold">Load gate</dt><dd>At least 6 GiB available physical memory immediately before model loading</dd><dt class="font-bold">Storage</dt><dd>Approximately 12 GiB free during installation</dd><dt class="font-bold">GPU</dt><dd>Not required; CPU-only FP32 inference</dd><dt class="font-bold">Other</dt><dd>Windows page file enabled; internet for initial component download</dd></dl></div>
+                    <div class="rounded-2xl border border-amber-200 bg-amber-50 p-6 dark:border-amber-700/50 dark:bg-amber-950/20"><h3 class="text-xl font-extrabold text-slate-950 dark:text-white">Recommended configuration</h3><dl class="mt-5 grid grid-cols-[auto_1fr] gap-x-5 gap-y-3 text-sm"><dt class="font-bold">CPU</dt><dd>6 cores or better</dd><dt class="font-bold">RAM</dt><dd>24–32 GB</dd><dt class="font-bold">Storage</dt><dd>15–20+ GiB free on an SSD</dd><dt class="font-bold">Page file</dt><dd>System-managed</dd><dt class="font-bold">Mastering</dt><dd>FFmpeg available for optional Light Documentary mode</dd></dl><p class="mt-5 rounded-xl bg-white/70 p-4 text-sm leading-6 dark:bg-slate-900/60">CPU synthesis may be slower than real time. Generation is intentionally sequential, and performance and output quality vary with hardware, reference audio, text, and settings.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="installation" class="section-anchor mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+            <div class="grid gap-10 lg:grid-cols-[.8fr_1.2fr]"><div><p class="text-sm font-extrabold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Installation</p><h2 class="mt-2 text-3xl font-black text-slate-950 dark:text-white">Small bootstrap, verified components</h2></div><div class="space-y-5 leading-7"><p>The prepared Windows bootstrap is a small native .NET Framework application. It is designed to download four required artifacts—the Myna application, an isolated Python 3.11 CPU runtime, and two pinned model archives—then verify every artifact with SHA-256 before extracting any of them.</p><p>Installation is per-user under <code class="rounded bg-slate-200 px-1.5 py-1 text-sm dark:bg-slate-700">%LOCALAPPDATA%\Amaleen Global LLC\Myna</code>. Application files are separated from <code class="rounded bg-slate-200 px-1.5 py-1 text-sm dark:bg-slate-700">UserData</code>; system Python is not installed or modified. A normal uninstall preserves UserData, while deleting it requires an explicit option.</p><p>The current alpha bootstrap is unsigned. Windows SmartScreen or antivirus reputation checks may show a warning. Myna does not bypass those warnings, browser confirmation, UAC, or execution-policy controls.</p></div></div>
+        </section>
+
+        <section id="engine" class="section-anchor border-y border-slate-200 bg-white py-16 dark:border-dark-border dark:bg-dark-surface/40">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><p class="text-sm font-extrabold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Engine & provenance</p><h2 class="mt-2 text-3xl font-black text-slate-950 dark:text-white">Pinned, attributed, and reviewable</h2><div class="mt-8 grid gap-6 lg:grid-cols-3"><div class="rounded-2xl border border-slate-200 p-6 dark:border-dark-border"><span class="text-xs font-bold uppercase text-slate-500">Engine</span><p class="mt-2 text-xl font-extrabold text-slate-950 dark:text-white">Chatterbox Original English</p><p class="mt-2 text-sm">Open-source engine developed by Resemble AI. Myna and Amaleen Global LLC do not claim ownership of Chatterbox.</p></div><div class="rounded-2xl border border-slate-200 p-6 dark:border-dark-border"><span class="text-xs font-bold uppercase text-slate-500">Validated stack</span><p class="mt-2 font-mono text-sm font-bold">chatterbox-tts 0.1.7</p><p class="mt-3 text-sm">Python 3.11.9<br>PyTorch 2.6.0+cpu<br>torchaudio 2.6.0+cpu<br>Upstream license snapshot: MIT</p></div><div class="rounded-2xl border border-slate-200 p-6 dark:border-dark-border"><span class="text-xs font-bold uppercase text-slate-500">Pinned revisions</span><p class="mt-2 text-sm font-bold">Source</p><code class="mt-1 block break-all text-xs">5de7a54aa4e5e2baadb0182dde554908b48b85c2</code><p class="mt-3 text-sm font-bold">Model</p><code class="mt-1 block break-all text-xs">5bb1f6ee58e50c3b8d408bc82a6d3740c2db6e18</code></div></div><p class="mt-6 max-w-4xl leading-7">Myna compares the installed engine environment with a frozen provenance snapshot before model use. A changed result prompts review without rewriting packages or blocking local work. The snapshot and exported reports aid reproducibility and record keeping; neither is legal advice nor a guarantee of commercial rights.</p></div>
+        </section>
+
+        <section id="limitations" class="section-anchor mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8"><p class="text-sm font-extrabold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Current alpha limitations</p><h2 class="mt-2 text-3xl font-black text-slate-950 dark:text-white">What testers should expect</h2><div class="mt-7 grid gap-4 md:grid-cols-2"><p class="rounded-xl border border-slate-200 bg-white p-5 dark:border-dark-border dark:bg-dark-surface"><strong>Variable results.</strong> Reference quality, script structure, and settings affect output. Speaker identity may not perfectly match the source.</p><p class="rounded-xl border border-slate-200 bg-white p-5 dark:border-dark-border dark:bg-dark-surface"><strong>Resource-heavy operation.</strong> Model loading uses substantial memory, and CPU generation can be slow.</p><p class="rounded-xl border border-slate-200 bg-white p-5 dark:border-dark-border dark:bg-dark-surface"><strong>Deliberately serial generation.</strong> Myna uses one model instance and one generation worker; running multiple copies is not recommended.</p><p class="rounded-xl border border-slate-200 bg-white p-5 dark:border-dark-border dark:bg-dark-surface"><strong>Pre-release packaging.</strong> The public installer is currently unsigned, Myna 0.9-alpha remains a test build, and compatibility may evolve before stable release.</p></div></section>
+
+        <section id="download" class="section-anchor bg-gradient-to-br from-slate-900 to-slate-950 py-16 text-white">
+            <div class="mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8"><span class="rounded-full border border-amber-500/50 bg-amber-400/10 px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-amber-300">Windows prerelease</span><h2 class="mt-5 text-3xl font-black sm:text-4xl">Download Myna 0.9-alpha</h2><p class="mx-auto mt-5 max-w-3xl leading-7 text-slate-300">Download the small bootstrap from the official Myna GitHub prerelease. It retrieves the application, isolated CPU runtime, and two model archives from GitHub Releases, then verifies their pinned SHA-256 values before installation. The multi-gigabyte payload is not hosted on CreatorKit Studio.</p><a href="https://github.com/auonaqvi-cyber/myna/releases/download/v0.9-alpha/MynaBootstrap.exe" class="mt-8 inline-flex items-center gap-2 rounded-xl bg-myna px-6 py-3 font-bold text-slate-950 shadow-lg shadow-amber-500/20 hover:bg-yellow-300"><i class="fa-solid fa-download"></i> Download Myna Bootstrap</a><p class="mx-auto mt-4 max-w-3xl break-all font-mono text-xs text-slate-400">SHA-256: 5a970a8d5f8a4ab68a9549d68d5467a43e8a0687ee525e270e1ede52951da5f7</p><div class="mt-8 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm font-semibold text-amber-300"><a href="#requirements" class="hover:underline">System requirements</a><a href="#installation" class="hover:underline">Installation</a><a href="#engine" class="hover:underline">Engine & provenance</a><a href="#responsible-use" class="hover:underline">Responsible use</a></div><p class="mt-6 text-xs text-slate-400">Windows alpha · about 3.8 GiB downloaded · about 4.7 GiB installed · 12 GiB free-space minimum · unsigned test build</p></div>
+        </section>
+
+        <section id="creator-tools" class="section-anchor mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8"><p class="text-sm font-extrabold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">Creator tool connections</p><h2 class="mt-2 text-3xl font-black text-slate-950 dark:text-white">Prepare the script before generation</h2><div class="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"><a href="../speech-timer.html" class="rounded-2xl border border-slate-200 bg-white p-5 hover:border-amber-400 dark:border-dark-border dark:bg-dark-surface"><i class="fa-solid fa-stopwatch text-amber-500"></i><h3 class="mt-3 font-extrabold text-slate-950 dark:text-white">Speech Timer</h3><p class="mt-2 text-sm">Estimate narration length before generating takes.</p></a><a href="../tools/srt-caption-cleaner/" class="rounded-2xl border border-slate-200 bg-white p-5 hover:border-emerald-400 dark:border-dark-border dark:bg-dark-surface"><i class="fa-solid fa-closed-captioning text-emerald-500"></i><h3 class="mt-3 font-extrabold text-slate-950 dark:text-white">SRT Caption Cleaner</h3><p class="mt-2 text-sm">Turn subtitle text into cleaner narration copy.</p></a><a href="../tools/teleprompter/" class="rounded-2xl border border-slate-200 bg-white p-5 hover:border-indigo-400 dark:border-dark-border dark:bg-dark-surface"><i class="fa-solid fa-display text-indigo-500"></i><h3 class="mt-3 font-extrabold text-slate-950 dark:text-white">Teleprompter</h3><p class="mt-2 text-sm">Use the same script for live or on-camera delivery.</p></a><a href="../tools/readability-checker/" class="rounded-2xl border border-slate-200 bg-white p-5 hover:border-teal-400 dark:border-dark-border dark:bg-dark-surface"><i class="fa-solid fa-book-open-reader text-teal-500"></i><h3 class="mt-3 font-extrabold text-slate-950 dark:text-white">Readability Checker</h3><p class="mt-2 text-sm">Review sentence complexity before chunking.</p></a></div></section>
+
+        <section id="faq" class="section-anchor border-t border-slate-200 bg-white py-16 dark:border-dark-border dark:bg-dark-surface/40"><div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8"><p class="text-sm font-extrabold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">FAQ</p><h2 class="mt-2 text-3xl font-black text-slate-950 dark:text-white">Questions about Myna</h2><div class="mt-7 space-y-3">
+            <details open class="group rounded-xl border border-slate-200 bg-slate-50 p-5 dark:border-dark-border dark:bg-dark-bg"><summary class="cursor-pointer font-extrabold text-slate-950 dark:text-white">What is Myna?</summary><p class="mt-3 leading-7">Myna is a Windows application for local, reference-conditioned voice generation and long-form narration management. It combines voice presets, script chunks, multiple takes, approvals, pauses, assembly, and project records.</p></details>
+            <details class="group rounded-xl border border-slate-200 bg-slate-50 p-5 dark:border-dark-border dark:bg-dark-bg"><summary class="cursor-pointer font-extrabold text-slate-950 dark:text-white">Does Myna run locally?</summary><p class="mt-3 leading-7">Yes. After setup, voice conditioning and generation run on the local CPU. Projects and audio stay in local Myna storage unless you choose to move or share them.</p></details>
+            <details class="group rounded-xl border border-slate-200 bg-slate-50 p-5 dark:border-dark-border dark:bg-dark-bg"><summary class="cursor-pointer font-extrabold text-slate-950 dark:text-white">Does Myna need an internet connection?</summary><p class="mt-3 leading-7">Internet is required when running the public bootstrap to download the application, isolated runtime, and pinned model components. Normal generation does not require cloud inference after those components are installed.</p></details>
+            <details class="group rounded-xl border border-slate-200 bg-slate-50 p-5 dark:border-dark-border dark:bg-dark-bg"><summary class="cursor-pointer font-extrabold text-slate-950 dark:text-white">Does Myna train a model on my voice?</summary><p class="mt-3 leading-7">No. The current workflow uses zero-shot reference conditioning: a permitted WAV reference guides a pre-trained speech model without training a new model for that voice.</p></details>
+            <details class="group rounded-xl border border-slate-200 bg-slate-50 p-5 dark:border-dark-border dark:bg-dark-bg"><summary class="cursor-pointer font-extrabold text-slate-950 dark:text-white">Can Myna handle long scripts?</summary><p class="mt-3 leading-7">That is its primary workflow. Scripts are divided into sentence-aware chunks so you can generate, review, approve, and revise one manageable section at a time.</p></details>
+            <details class="group rounded-xl border border-slate-200 bg-slate-50 p-5 dark:border-dark-border dark:bg-dark-bg"><summary class="cursor-pointer font-extrabold text-slate-950 dark:text-white">Can I regenerate only one sentence or chunk?</summary><p class="mt-3 leading-7">Yes. Select a chunk and generate another take using the same seed or a new seed. You do not need to regenerate the complete script.</p></details>
+            <details class="group rounded-xl border border-slate-200 bg-slate-50 p-5 dark:border-dark-border dark:bg-dark-bg"><summary class="cursor-pointer font-extrabold text-slate-950 dark:text-white">Are old takes overwritten?</summary><p class="mt-3 leading-7">No. New generations create non-overwriting takes. If chunk text changes, prior takes can be retained but marked outdated so their status is clear.</p></details>
+            <details class="group rounded-xl border border-slate-200 bg-slate-50 p-5 dark:border-dark-border dark:bg-dark-bg"><summary class="cursor-pointer font-extrabold text-slate-950 dark:text-white">Which operating systems are supported?</summary><p class="mt-3 leading-7">The current alpha targets 64-bit Windows 10 and Windows 11. macOS and Linux packages are not part of this build.</p></details>
+            <details class="group rounded-xl border border-slate-200 bg-slate-50 p-5 dark:border-dark-border dark:bg-dark-bg"><summary class="cursor-pointer font-extrabold text-slate-950 dark:text-white">Do I need a dedicated GPU?</summary><p class="mt-3 leading-7">No. This validated stack uses CPU-only FP32 inference. A capable multi-core CPU, adequate available memory, a page file, and SSD storage are more relevant to this alpha.</p></details>
+            <details class="group rounded-xl border border-slate-200 bg-slate-50 p-5 dark:border-dark-border dark:bg-dark-bg"><summary class="cursor-pointer font-extrabold text-slate-950 dark:text-white">Can I use any voice recording?</summary><p class="mt-3 leading-7">Only use a clean recording you own or have permission to use. You remain responsible for consent, laws, platform policies, and applicable licenses.</p></details>
+            <details class="group rounded-xl border border-slate-200 bg-slate-50 p-5 dark:border-dark-border dark:bg-dark-bg"><summary class="cursor-pointer font-extrabold text-slate-950 dark:text-white">What speech engine does Myna use?</summary><p class="mt-3 leading-7">Myna 0.9-alpha uses Chatterbox Original English via chatterbox-tts 0.1.7, pinned to recorded source and model revisions. Chatterbox is developed by Resemble AI and distributed under an MIT license snapshot in this build.</p></details>
+            <details class="group rounded-xl border border-slate-200 bg-slate-50 p-5 dark:border-dark-border dark:bg-dark-bg"><summary class="cursor-pointer font-extrabold text-slate-950 dark:text-white">Is Myna production-ready?</summary><p class="mt-3 leading-7">No. Myna 0.9-alpha is an alpha/test build. The installer is currently unsigned, generation speed and voice similarity can vary by hardware, reference audio, and script, and compatibility may continue to evolve before a stable release. A public prerelease is available for testing, but it should not yet be treated as a production-ready application.</p></details>
+        </div></div></section>
+    </main>
+
+    <footer class="border-t border-slate-200 bg-white px-4 py-8 text-sm text-slate-500 dark:border-dark-border dark:bg-dark-surface dark:text-slate-400"><div class="mx-auto flex max-w-7xl flex-col justify-between gap-4 md:flex-row md:items-center"><p><strong class="text-slate-800 dark:text-slate-200">Myna</strong> — A project by Amaleen Global LLC.</p><nav class="flex flex-wrap gap-5"><a href="../" class="hover:text-indigo-600">CreatorKit Studio</a><a href="../about/" class="hover:text-indigo-600">About</a><a href="../privacy/" class="hover:text-indigo-600">Privacy</a><a href="../terms/" class="hover:text-indigo-600">Terms</a><a href="../contact/" class="hover:text-indigo-600">Contact</a></nav></div></footer>
+    <script>
+        const themeBtn=document.getElementById('themeToggleBtn');const themeIcon=document.getElementById('themeIcon');
+        function syncIcon(){themeIcon.className=document.documentElement.classList.contains('dark')?'fa-solid fa-sun text-amber-400':'fa-solid fa-moon'}syncIcon();
+        themeBtn.addEventListener('click',()=>{const dark=document.documentElement.classList.toggle('dark');localStorage.setItem('creatorkit_theme',dark?'dark':'light');syncIcon()});
+    </script>
+</body>
+</html>
