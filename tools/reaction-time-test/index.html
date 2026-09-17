@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8J6Z3C5EZ3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8J6Z3C5EZ3');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Reaction Time Test – Test Your Reflexes | CreatorKit Studio</title>
+    <meta name="description" content="Test your visual reaction time with a free browser-based reflex test. Wait for green, react as quickly as you can, and compare your best valid result.">
+    <meta name="keywords" content="reaction time test, reflex test, reaction speed test, visual reaction test, test reflexes online, free reaction timer">
+    <meta name="author" content="CreatorKit Studio">
+    <meta name="robots" content="index, follow">
+    <meta name="google-site-verification" content="WM4c52x0WOHkjYTAqQMRLdBSMGOo3aG7IoGemVJVte8" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://creatorkitstudio.pro/tools/reaction-time-test/">
+
+    <!-- Force Cache-Busting Meta Tags -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <!-- Google AdSense Verification & Publisher Script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5863857969717583" crossorigin="anonymous"></script>
+
+    <!-- Open Graph / Meta -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Free Reaction Time Test – Test Your Reflexes | CreatorKit Studio">
+    <meta property="og:description" content="Wait for green, react as quickly as you can, and measure your visual reaction time in milliseconds.">
+    <meta property="og:url" content="https://creatorkitstudio.pro/tools/reaction-time-test/">
+
+    <!-- Favicon & App Icons -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../favicon.png">
+
+    <!-- Schema.org JSON-LD for WebApplication & FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "Free Reaction Time Test – Test Your Reflexes | CreatorKit Studio",
+          "url": "https://creatorkitstudio.pro/tools/reaction-time-test/",
+          "description": "Test your visual reaction time with a free browser-based reflex test using unpredictable start delays.",
+          "applicationCategory": "GameApplication",
+          "operatingSystem": "All",
+          "browserRequirements": "Requires JavaScript.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is a good reaction time?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Visual reaction times vary by person, device, and testing conditions. Many adults record results around 200 to 300 milliseconds in a simple browser test, but hardware and input lag can influence the number."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why is the waiting time different every round?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "An unpredictable wait makes it difficult to anticipate the green signal. Each attempt receives a newly generated delay, including retries after an early click."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does a “Too soon!” attempt count?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Clicking before green immediately cancels that round, and the attempt is excluded from both your result and valid attempt count."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50: '#eef2ff', 100: '#e0e7ff', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca' },
+                        dark: { bg: '#0b0f19', surface: '#111827', border: '#1f2937', text: '#f3f4f6' }
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css?v=2.3.0">
+
+    <style>
+        #reactionPad {
+            min-height: 300px;
+            touch-action: manipulation;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        #reactionPad.state-go {
+            background: #16a34a;
+            border-color: #22c55e;
+            color: #ffffff;
+        }
+        #reactionPad.state-waiting {
+            background: #b91c1c;
+            border-color: #ef4444;
+            color: #ffffff;
+        }
+        #reactionPad.state-too-soon {
+            background: #c2410c;
+            border-color: #f97316;
+            color: #ffffff;
+        }
+        #reactionPad.state-result,
+        #reactionPad.state-complete {
+            background: #4338ca;
+            border-color: #6366f1;
+            color: #ffffff;
+        }
+        #reactionPad:focus-visible {
+            outline: 3px solid #818cf8;
+            outline-offset: 3px;
+        }
+        @media (min-width: 640px) {
+            #reactionPad { min-height: 360px; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-dark-bg text-slate-900 dark:text-dark-text antialiased min-h-screen flex flex-col font-['Inter',sans-serif]">
+
+    <!-- Top Navbar -->
+    <header class="bg-white dark:bg-dark-surface border-b border-slate-200 dark:border-dark-border sticky top-0 z-40 shadow-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <a href="../../index.html" class="flex items-center gap-2.5 group" title="Return to CreatorKit Studio Homepage">
+                    <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-indigo-400 flex items-center justify-center text-white shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-wand-magic-sparkles text-sm"></i>
+                    </div>
+                    <div>
+                        <span class="text-base font-extrabold tracking-tight bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-300 bg-clip-text text-transparent">CreatorKit</span>
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-indigo-500 block leading-none">Studio</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Header Navigation -->
+            <nav class="hidden md:flex items-center gap-4 text-xs font-semibold">
+                <a href="../" class="px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-layer-group text-indigo-500"></i> Tools Directory
+                </a>
+                <a href="../../index.html#blogger" class="px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-feather text-amber-500"></i> Blogger Mode
+                </a>
+                <a href="../../index.html#creator" class="px-3 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-video text-pink-500"></i> Creator Mode
+                </a>
+            </nav>
+
+            <div class="flex items-center gap-2">
+                <button id="themeToggleBtn" aria-label="Toggle Theme" class="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition">
+                    <i id="themeIcon" class="fa-solid fa-moon text-base"></i>
+                </button>
+                <a href="../../index.html" class="px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-table-cells"></i> <span class="hidden sm:inline">Suite Dashboard</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-5xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 space-y-8 flex-1">
+
+        <!-- Breadcrumb Navigation -->
+        <nav class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400" aria-label="Breadcrumb">
+            <a href="../../index.html" class="hover:text-indigo-500 transition">CreatorKit Studio</a>
+            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            <a href="../" class="hover:text-indigo-500 transition">Tools Directory</a>
+            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            <span class="text-slate-800 dark:text-slate-200 font-semibold">Reaction Time Test</span>
+        </nav>
+
+        <!-- Header Banner Ad Placeholder -->
+        <div class="w-full">
+            <div class="adsense-slot adsense-placeholder w-full rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-700 flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 text-xs gap-1 p-3 bg-white/40 dark:bg-slate-800/30 overflow-hidden text-center shadow-sm" style="min-height: 90px; height: 90px;">
+                <span class="font-mono uppercase tracking-widest text-[10px] bg-slate-200 dark:bg-slate-700 px-2 py-0.5 rounded text-slate-600 dark:text-slate-300">Advertisement</span>
+                <span class="flex items-center gap-1 font-mono text-[11px]"><i class="fa-brands fa-google text-indigo-500"></i> Google AdSense Leaderboard (Responsive)</span>
+            </div>
+        </div>
+
+        <!-- Tool Header -->
+        <div class="space-y-2">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 border border-indigo-200/60 dark:border-indigo-800/40">
+                <i class="fa-solid fa-bolt"></i> Brain &amp; Focus
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">Free Reaction Time Test</h1>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">Measure how quickly you react to a visual signal. Start the test, wait for the panel to turn green, then click or tap as fast as you can.</p>
+        </div>
+
+        <!-- Interactive Tool Card -->
+        <div class="bg-white dark:bg-dark-surface rounded-2xl border border-slate-200 dark:border-dark-border p-4 sm:p-6 shadow-sm">
+            <div id="reactionPad" role="button" tabindex="0" aria-describedby="reactionHint" aria-label="Ready. Press to start round 1 of 5." class="state-ready cursor-pointer rounded-2xl border-2 border-indigo-300 dark:border-indigo-700 bg-indigo-50 dark:bg-indigo-950/50 flex items-center justify-center text-center p-6 sm:p-10">
+                <div class="pointer-events-none space-y-4">
+                    <div id="reactionIcon" class="text-4xl sm:text-5xl text-indigo-500 dark:text-indigo-400" aria-hidden="true">
+                        <i class="fa-solid fa-hand-pointer"></i>
+                    </div>
+                    <div>
+                        <p id="reactionMessage" class="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">Click to start</p>
+                        <p id="reactionHint" class="mt-2 text-sm text-slate-600 dark:text-slate-300">Wait for green, then react.</p>
+                    </div>
+                    <p id="reactionResult" class="hidden font-mono text-4xl sm:text-5xl font-bold" aria-live="polite"></p>
+                </div>
+            </div>
+
+            <div class="mt-4" aria-label="Five-round reaction test results">
+                <div class="mb-2 flex items-center justify-between gap-3">
+                    <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Five-round results</span>
+                    <span id="roundProgress" class="font-mono text-xs font-semibold text-indigo-600 dark:text-indigo-400">0 / 5</span>
+                </div>
+                <ol class="grid grid-cols-5 gap-2" aria-live="polite">
+                    <li class="rounded-lg border border-slate-200 dark:border-dark-border bg-slate-50 dark:bg-slate-900/60 p-2 text-center"><span class="block text-[10px] text-slate-500">1</span><strong id="roundResult1" class="block font-mono text-xs text-slate-800 dark:text-slate-100">—</strong></li>
+                    <li class="rounded-lg border border-slate-200 dark:border-dark-border bg-slate-50 dark:bg-slate-900/60 p-2 text-center"><span class="block text-[10px] text-slate-500">2</span><strong id="roundResult2" class="block font-mono text-xs text-slate-800 dark:text-slate-100">—</strong></li>
+                    <li class="rounded-lg border border-slate-200 dark:border-dark-border bg-slate-50 dark:bg-slate-900/60 p-2 text-center"><span class="block text-[10px] text-slate-500">3</span><strong id="roundResult3" class="block font-mono text-xs text-slate-800 dark:text-slate-100">—</strong></li>
+                    <li class="rounded-lg border border-slate-200 dark:border-dark-border bg-slate-50 dark:bg-slate-900/60 p-2 text-center"><span class="block text-[10px] text-slate-500">4</span><strong id="roundResult4" class="block font-mono text-xs text-slate-800 dark:text-slate-100">—</strong></li>
+                    <li class="rounded-lg border border-slate-200 dark:border-dark-border bg-slate-50 dark:bg-slate-900/60 p-2 text-center"><span class="block text-[10px] text-slate-500">5</span><strong id="roundResult5" class="block font-mono text-xs text-slate-800 dark:text-slate-100">—</strong></li>
+                </ol>
+            </div>
+
+            <div class="mt-3 grid grid-cols-3 gap-2 sm:gap-3" aria-label="Reaction test summary">
+                <div class="rounded-xl border border-slate-200 dark:border-dark-border bg-slate-50 dark:bg-slate-900/60 p-3 text-center">
+                    <span class="block text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Average</span>
+                    <span id="averageTime" class="mt-1 block font-mono text-sm sm:text-lg font-bold text-slate-800 dark:text-slate-100">—</span>
+                </div>
+                <div class="rounded-xl border border-slate-200 dark:border-dark-border bg-slate-50 dark:bg-slate-900/60 p-3 text-center">
+                    <span class="block text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Best time</span>
+                    <span id="bestTime" class="mt-1 block font-mono text-sm sm:text-lg font-bold text-slate-800 dark:text-slate-100">—</span>
+                </div>
+                <div class="rounded-xl border border-slate-200 dark:border-dark-border bg-slate-50 dark:bg-slate-900/60 p-3 text-center">
+                    <span class="block text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Worst time</span>
+                    <span id="worstTime" class="mt-1 block font-mono text-sm sm:text-lg font-bold text-slate-800 dark:text-slate-100">—</span>
+                </div>
+            </div>
+            <div class="mt-3 flex flex-col sm:flex-row items-center justify-center gap-2 text-center">
+                <p class="text-xs text-slate-500 dark:text-slate-400"><i class="fa-solid fa-keyboard mr-1"></i> Mouse, touch, Space, and Enter are supported.</p>
+                <button id="restartBtn" type="button" class="min-h-[44px] px-4 py-2.5 rounded-lg text-xs font-semibold text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 transition">
+                    <i class="fa-solid fa-rotate-right mr-1"></i> Restart test
+                </button>
+            </div>
+        </div>
+
+        <!-- Structured Usage Instructions Card -->
+        <section class="bg-slate-50 dark:bg-slate-900/60 p-6 rounded-2xl border border-slate-200 dark:border-dark-border space-y-4">
+            <h2 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <i class="fa-solid fa-circle-info text-indigo-500"></i> How to Use This Tool
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-2">
+                    <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Step-by-Step Instructions:</h3>
+                    <ol class="list-decimal pl-5 text-xs text-slate-600 dark:text-slate-300 space-y-1.5 leading-relaxed">
+                        <li>Click or tap the test panel to begin a round.</li>
+                        <li>When the panel says <strong>Wait for green...</strong>, keep your pointer ready but do not click.</li>
+                        <li>Click, tap, or press Space as soon as the panel turns green and displays <strong>GO!</strong></li>
+                        <li>Complete five valid rounds to see every result plus your rounded average, best, and worst times.</li>
+                    </ol>
+                </div>
+                <div class="space-y-2">
+                    <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Tips for a Fair Result:</h3>
+                    <ul class="list-disc pl-5 text-xs text-slate-600 dark:text-slate-300 space-y-1.5 leading-relaxed">
+                        <li>Use the same device and input method when comparing results.</li>
+                        <li>Keep your eyes on the center of the panel and react to the color change.</li>
+                        <li>Early clicks are discarded and never included in your five valid results or summary.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- In-Content Ad Placeholder -->
+        <div class="w-full">
+            <div class="adsense-slot adsense-placeholder w-full rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-700 flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 text-xs gap-1 p-3 bg-white/40 dark:bg-slate-800/30 overflow-hidden text-center shadow-sm" style="min-height: 90px; height: 90px;">
+                <span class="font-mono uppercase tracking-widest text-[10px] bg-slate-200 dark:bg-slate-700 px-2 py-0.5 rounded text-slate-600 dark:text-slate-300">Advertisement</span>
+                <span class="flex items-center gap-1 font-mono text-[11px]"><i class="fa-brands fa-google text-indigo-500"></i> Google AdSense Responsive In-Content Banner</span>
+            </div>
+        </div>
+
+        <!-- Educational Guide Article -->
+        <article class="prose prose-slate dark:prose-invert max-w-none bg-white dark:bg-dark-surface p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-dark-border shadow-sm space-y-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            <h2 class="text-xl font-bold text-slate-900 dark:text-white">Understanding Your Reaction Time</h2>
+            <p>Reaction time is the interval between noticing a signal and responding to it. In this test, the signal is a sudden green panel and the response is your click, tap, or key press. The displayed result is measured in milliseconds, where 1,000 milliseconds equals one second.</p>
+            <p>The wait before each green signal is randomized at runtime. Some rounds begin relatively quickly, others take a medium amount of time, and some take longer. This variation helps prevent you from learning a fixed rhythm and reacting before you actually see the signal.</p>
+            <p>Results can vary with alertness, practice, input hardware, display refresh rate, browser performance, and whether you use a mouse, touchscreen, or keyboard. For useful comparisons, complete all five valid rounds under similar conditions and focus on the summary rather than a single unusually fast or slow result.</p>
+            <p>This browser test is designed for casual self-measurement and practice. It is not a medical, neurological, or fitness assessment.</p>
+
+            <div class="mt-6 p-4 rounded-xl bg-indigo-50/50 dark:bg-indigo-950/30 border border-indigo-100 dark:border-indigo-900/40">
+                <h3 class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-1">
+                    <i class="fa-solid fa-shield-halved"></i> Private Browser Processing
+                </h3>
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">The timer and results run entirely in your browser. Your reaction-time attempts are not uploaded or saved by this tool.</p>
+            </div>
+        </article>
+
+        <!-- FAQ Accordion Section -->
+        <section class="bg-white dark:bg-dark-surface p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-dark-border shadow-sm space-y-4">
+            <h2 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <i class="fa-solid fa-circle-question text-indigo-500"></i> Frequently Asked Questions
+            </h2>
+            <div class="space-y-3">
+                <details class="group bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-dark-border rounded-xl p-4 transition [&_summary::-webkit-details-marker]:hidden" open>
+                    <summary class="flex items-center justify-between cursor-pointer font-semibold text-xs md:text-sm text-slate-900 dark:text-white">
+                        <span>What is a good reaction time?</span>
+                        <span class="ml-2 text-slate-400 group-open:rotate-180 transition-transform"><i class="fa-solid fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <p class="mt-3 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Visual reaction times vary by person, device, and testing conditions. Many adults record results around 200 to 300 milliseconds in a simple browser test, but hardware and input lag can influence the number.</p>
+                </details>
+                <details class="group bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-dark-border rounded-xl p-4 transition [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer font-semibold text-xs md:text-sm text-slate-900 dark:text-white">
+                        <span>Why is the waiting time different every round?</span>
+                        <span class="ml-2 text-slate-400 group-open:rotate-180 transition-transform"><i class="fa-solid fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <p class="mt-3 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">An unpredictable wait makes it difficult to anticipate the green signal. Each attempt receives a newly generated delay, including retries after an early click.</p>
+                </details>
+                <details class="group bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-dark-border rounded-xl p-4 transition [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer font-semibold text-xs md:text-sm text-slate-900 dark:text-white">
+                        <span>Does a “Too soon!” attempt count?</span>
+                        <span class="ml-2 text-slate-400 group-open:rotate-180 transition-transform"><i class="fa-solid fa-chevron-down text-xs"></i></span>
+                    </summary>
+                    <p class="mt-3 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">No. Clicking before green immediately cancels that round, and the attempt is excluded from both your result and valid attempt count.</p>
+                </details>
+            </div>
+        </section>
+
+        <!-- Related Tools Section -->
+        <section class="space-y-3">
+            <h2 class="text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Explore More Free Standalone Creator Utilities:</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                <a href="../teleprompter/" class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-dark-border hover:border-indigo-500 transition flex items-center gap-2.5 text-xs font-semibold text-slate-800 dark:text-slate-200 group">
+                    <i class="fa-solid fa-chalkboard-user text-indigo-500 group-hover:scale-110 transition-transform"></i><span>Online Teleprompter</span>
+                </a>
+                <a href="../readability-checker/" class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-dark-border hover:border-indigo-500 transition flex items-center gap-2.5 text-xs font-semibold text-slate-800 dark:text-slate-200 group">
+                    <i class="fa-solid fa-glasses text-indigo-500 group-hover:scale-110 transition-transform"></i><span>Free Readability Checker</span>
+                </a>
+                <a href="../image-resizer/" class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-dark-border hover:border-indigo-500 transition flex items-center gap-2.5 text-xs font-semibold text-slate-800 dark:text-slate-200 group">
+                    <i class="fa-solid fa-image text-indigo-500 group-hover:scale-110 transition-transform"></i><span>Free Online Image Resizer</span>
+                </a>
+                <a href="../seo-meta-generator/" class="p-3.5 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-dark-border hover:border-indigo-500 transition flex items-center gap-2.5 text-xs font-semibold text-slate-800 dark:text-slate-200 group">
+                    <i class="fa-solid fa-magnifying-glass-chart text-indigo-500 group-hover:scale-110 transition-transform"></i><span>SEO Meta Generator</span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-dark-surface border-t border-slate-200 dark:border-dark-border py-8 px-4 sm:px-6 lg:px-8 text-xs text-slate-500 dark:text-slate-400 mt-auto">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div><span class="font-bold text-slate-800 dark:text-slate-200">CreatorKit Studio</span> &copy; 2026. Operated by AMALEEN GLOBAL LLC. All rights reserved.</div>
+            <div class="flex flex-wrap items-center gap-5 font-medium">
+                <a href="../../about/" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">About</a>
+                <a href="../../privacy/" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">Privacy Policy</a>
+                <a href="../../terms/" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">Terms of Use</a>
+                <a href="../../contact/" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">Contact</a>
+                <a href="../../tools/" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">Tools Directory</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme & Tool Logic Script -->
+    <script>
+        const themeBtn = document.getElementById('themeToggleBtn');
+        const themeIcon = document.getElementById('themeIcon');
+        themeBtn.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('creatorkit_theme', isDark ? 'dark' : 'light');
+            themeIcon.className = isDark ? 'fa-solid fa-sun text-base text-amber-400' : 'fa-solid fa-moon text-base text-slate-600';
+        });
+        if (localStorage.getItem('creatorkit_theme') === 'light') {
+            document.documentElement.classList.remove('dark');
+            themeIcon.className = 'fa-solid fa-moon text-base text-slate-600';
+        } else {
+            document.documentElement.classList.add('dark');
+            themeIcon.className = 'fa-solid fa-sun text-base text-amber-400';
+        }
+
+        const TOTAL_ROUNDS = 5;
+        const reactionPad = document.getElementById('reactionPad');
+        const reactionMessage = document.getElementById('reactionMessage');
+        const reactionHint = document.getElementById('reactionHint');
+        const reactionIcon = document.getElementById('reactionIcon');
+        const reactionResult = document.getElementById('reactionResult');
+        const roundProgress = document.getElementById('roundProgress');
+        const roundResultSlots = Array.from({ length: TOTAL_ROUNDS }, (_, index) => document.getElementById(`roundResult${index + 1}`));
+        const averageTime = document.getElementById('averageTime');
+        const bestTime = document.getElementById('bestTime');
+        const worstTime = document.getElementById('worstTime');
+        const restartBtn = document.getElementById('restartBtn');
+
+        const MIN_DELAY = 1500;
+        const MAX_DELAY = 6000;
+        const MIN_DELAY_DIFFERENCE = 350;
+        let gameState = 'ready';
+        let pendingTimer = null;
+        let pendingFrame = null;
+        let signalStartedAt = 0;
+        let previousDelay = null;
+        const results = [];
+
+        function secureRandom() {
+            if (window.crypto && window.crypto.getRandomValues) {
+                const values = new Uint32Array(1);
+                window.crypto.getRandomValues(values);
+                return values[0] / 4294967296;
+            }
+            return Math.random();
+        }
+
+        function weightedRandomDelay() {
+            const bucket = secureRandom();
+            let low;
+            let high;
+
+            if (bucket < 0.30) {
+                low = MIN_DELAY;
+                high = 2600;
+            } else if (bucket < 0.80) {
+                low = 2600;
+                high = 4500;
+            } else {
+                low = 4500;
+                high = MAX_DELAY;
+            }
+
+            return Math.round(low + secureRandom() * (high - low));
+        }
+
+        function createFreshDelay() {
+            let delay = weightedRandomDelay();
+            let tries = 0;
+
+            while (previousDelay !== null && Math.abs(delay - previousDelay) < MIN_DELAY_DIFFERENCE && tries < 12) {
+                delay = weightedRandomDelay();
+                tries += 1;
+            }
+
+            if (previousDelay !== null && Math.abs(delay - previousDelay) < MIN_DELAY_DIFFERENCE) {
+                const moveLater = previousDelay < (MIN_DELAY + MAX_DELAY) / 2;
+                delay = moveLater
+                    ? Math.min(MAX_DELAY, previousDelay + MIN_DELAY_DIFFERENCE + Math.round(secureRandom() * 500))
+                    : Math.max(MIN_DELAY, previousDelay - MIN_DELAY_DIFFERENCE - Math.round(secureRandom() * 500));
+            }
+
+            previousDelay = delay;
+            return delay;
+        }
+
+        function setPadState(state) {
+            reactionPad.classList.remove('state-ready', 'state-waiting', 'state-go', 'state-too-soon', 'state-result', 'state-complete');
+            reactionPad.classList.add(`state-${state}`);
+        }
+
+        function clearPendingSignal() {
+            if (pendingTimer !== null) {
+                window.clearTimeout(pendingTimer);
+                pendingTimer = null;
+            }
+            if (pendingFrame !== null) {
+                window.cancelAnimationFrame(pendingFrame);
+                pendingFrame = null;
+            }
+        }
+
+        function updateResults() {
+            roundProgress.textContent = `${results.length} / ${TOTAL_ROUNDS}`;
+            roundResultSlots.forEach((slot, index) => {
+                slot.textContent = results[index] === undefined ? '—' : `${results[index]} ms`;
+            });
+
+            if (results.length === 0) {
+                averageTime.textContent = '—';
+                bestTime.textContent = '—';
+                worstTime.textContent = '—';
+                return;
+            }
+
+            const total = results.reduce((sum, value) => sum + value, 0);
+            averageTime.textContent = `${Math.round(total / results.length)} ms`;
+            bestTime.textContent = `${Math.min(...results)} ms`;
+            worstTime.textContent = `${Math.max(...results)} ms`;
+        }
+
+        function resetSession() {
+            clearPendingSignal();
+            results.length = 0;
+            signalStartedAt = 0;
+            gameState = 'ready';
+            setPadState('ready');
+            reactionMessage.textContent = 'Click to start';
+            reactionHint.textContent = 'Complete five valid rounds. Wait for green, then react.';
+            reactionMessage.className = 'text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white';
+            reactionHint.className = 'mt-2 text-sm text-slate-600 dark:text-slate-300';
+            reactionIcon.className = 'text-4xl sm:text-5xl text-indigo-500 dark:text-indigo-400';
+            reactionIcon.innerHTML = '<i class="fa-solid fa-hand-pointer"></i>';
+            reactionResult.classList.add('hidden');
+            reactionPad.setAttribute('aria-label', 'Ready. Press to start round 1 of 5.');
+            updateResults();
+        }
+
+        function startRound() {
+            clearPendingSignal();
+
+            gameState = 'waiting';
+            setPadState('waiting');
+            reactionMessage.textContent = 'Wait for green...';
+            reactionHint.textContent = 'Clicking now will cancel this attempt.';
+            reactionMessage.className = 'text-2xl sm:text-3xl font-extrabold tracking-tight text-white';
+            reactionHint.className = 'mt-2 text-sm text-red-100';
+            reactionIcon.className = 'text-4xl sm:text-5xl text-red-100';
+            reactionIcon.innerHTML = '<i class="fa-solid fa-hourglass-half"></i>';
+            reactionResult.classList.add('hidden');
+            reactionPad.setAttribute('aria-label', `Round ${results.length + 1} of ${TOTAL_ROUNDS}. Wait for green. Do not press yet.`);
+
+            const delay = createFreshDelay();
+            pendingTimer = window.setTimeout(() => {
+                pendingTimer = null;
+                pendingFrame = window.requestAnimationFrame(() => {
+                    pendingFrame = null;
+                    if (gameState !== 'waiting') return;
+                    setPadState('go');
+                    reactionMessage.textContent = 'GO!';
+                    reactionHint.textContent = 'Click, tap, or press Space now.';
+                    reactionHint.className = 'mt-2 text-sm text-green-100';
+                    reactionIcon.className = 'text-4xl sm:text-5xl text-green-100';
+                    reactionIcon.innerHTML = '<i class="fa-solid fa-bolt"></i>';
+                    reactionPad.setAttribute('aria-label', 'Go. Press now.');
+                    signalStartedAt = performance.now();
+                    gameState = 'go';
+                });
+            }, delay);
+        }
+
+        function markTooSoon() {
+            clearPendingSignal();
+
+            gameState = 'too-soon';
+            setPadState('too-soon');
+            reactionMessage.textContent = 'Too soon!';
+            reactionHint.textContent = 'This attempt was not counted. Click to retry.';
+            reactionMessage.className = 'text-2xl sm:text-3xl font-extrabold tracking-tight text-white';
+            reactionHint.className = 'mt-2 text-sm text-orange-100';
+            reactionIcon.className = 'text-4xl sm:text-5xl text-orange-100';
+            reactionIcon.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i>';
+            reactionResult.classList.add('hidden');
+            reactionPad.setAttribute('aria-label', 'Too soon. This attempt was not counted. Press to retry.');
+        }
+
+        function recordResult(inputTimestamp) {
+            const elapsed = Math.max(0, Math.round(inputTimestamp - signalStartedAt));
+            results.push(elapsed);
+            updateResults();
+
+            reactionIcon.className = 'hidden';
+            reactionResult.classList.remove('hidden');
+
+            if (results.length === TOTAL_ROUNDS) {
+                const average = Math.round(results.reduce((sum, value) => sum + value, 0) / TOTAL_ROUNDS);
+                gameState = 'complete';
+                setPadState('complete');
+                reactionMessage.textContent = 'Five rounds complete';
+                reactionHint.textContent = 'Click to start a new five-round test.';
+                reactionMessage.className = 'text-xl sm:text-2xl font-bold tracking-tight text-white';
+                reactionHint.className = 'mt-2 text-sm text-indigo-100';
+                reactionResult.textContent = `Average: ${average} ms`;
+                reactionPad.setAttribute('aria-label', `Five rounds complete. Average ${average} milliseconds. Press to start again.`);
+                return;
+            }
+
+            gameState = 'result';
+            setPadState('result');
+            reactionMessage.textContent = `Round ${results.length} result`;
+            reactionHint.textContent = `Click to start round ${results.length + 1} of ${TOTAL_ROUNDS}.`;
+            reactionMessage.className = 'text-xl sm:text-2xl font-bold tracking-tight text-white';
+            reactionHint.className = 'mt-2 text-sm text-indigo-100';
+            reactionResult.textContent = `${elapsed} ms`;
+            reactionPad.setAttribute('aria-label', `Round ${results.length} result: ${elapsed} milliseconds. Press for the next round.`);
+        }
+
+        function handleAction(inputTimestamp) {
+            if (gameState === 'waiting') {
+                markTooSoon();
+            } else if (gameState === 'go') {
+                recordResult(inputTimestamp);
+            } else if (gameState === 'complete') {
+                resetSession();
+                startRound();
+            } else {
+                startRound();
+            }
+        }
+
+        reactionPad.addEventListener('pointerdown', (event) => {
+            if (event.pointerType === 'mouse' && event.button !== 0) return;
+            const inputTimestamp = performance.now();
+            event.preventDefault();
+            handleAction(inputTimestamp);
+        });
+
+        reactionPad.addEventListener('keydown', (event) => {
+            if (event.code !== 'Space' && event.code !== 'Enter') return;
+            if (event.repeat) return;
+            const inputTimestamp = performance.now();
+            event.preventDefault();
+            handleAction(inputTimestamp);
+        });
+
+        restartBtn.addEventListener('click', resetSession);
+
+        resetSession();
+
+    </script>
+</body>
+</html>

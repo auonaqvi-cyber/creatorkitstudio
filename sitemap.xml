@@ -6,7 +6,7 @@
     
     <!-- Homepage -->
     <url>
-        <loc>https://www.creatorkitstudio.pro/</loc>
+        <loc>https://creatorkitstudio.pro/</loc>
         <lastmod>2026-09-02</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
@@ -14,7 +14,7 @@
 
     <!-- Main Tools Directory Index -->
     <url>
-        <loc>https://www.creatorkitstudio.pro/tools/</loc>
+        <loc>https://creatorkitstudio.pro/tools/</loc>
         <lastmod>2026-09-02</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.95</priority>
@@ -28,101 +28,107 @@
         <priority>0.90</priority>
     </url>
 
-    <!-- Dedicated Phase 1 Tool Routes (9 Dedicated Routes) -->
+    <!-- Dedicated Tool Routes (10 Dedicated Routes) -->
     <url>
-        <loc>https://www.creatorkitstudio.pro/tools/line-break-fixer/</loc>
+        <loc>https://creatorkitstudio.pro/tools/line-break-fixer/</loc>
         <lastmod>2026-09-02</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.90</priority>
     </url>
     <url>
-        <loc>https://www.creatorkitstudio.pro/tools/image-resizer/</loc>
+        <loc>https://creatorkitstudio.pro/tools/image-resizer/</loc>
         <lastmod>2026-09-02</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.90</priority>
     </url>
     <url>
-        <loc>https://www.creatorkitstudio.pro/tools/hashtag-generator/</loc>
+        <loc>https://creatorkitstudio.pro/tools/hashtag-generator/</loc>
         <lastmod>2026-09-02</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.90</priority>
     </url>
     <url>
-        <loc>https://www.creatorkitstudio.pro/tools/teleprompter/</loc>
+        <loc>https://creatorkitstudio.pro/tools/teleprompter/</loc>
         <lastmod>2026-09-02</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.90</priority>
     </url>
     <url>
-        <loc>https://www.creatorkitstudio.pro/tools/srt-caption-cleaner/</loc>
+        <loc>https://creatorkitstudio.pro/tools/srt-caption-cleaner/</loc>
         <lastmod>2026-09-02</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.90</priority>
     </url>
     <url>
-        <loc>https://www.creatorkitstudio.pro/tools/seo-meta-generator/</loc>
+        <loc>https://creatorkitstudio.pro/tools/seo-meta-generator/</loc>
         <lastmod>2026-09-02</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.90</priority>
     </url>
     <url>
-        <loc>https://www.creatorkitstudio.pro/tools/seo-slug-generator/</loc>
+        <loc>https://creatorkitstudio.pro/tools/seo-slug-generator/</loc>
         <lastmod>2026-09-02</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.90</priority>
     </url>
     <url>
-        <loc>https://www.creatorkitstudio.pro/tools/readability-checker/</loc>
+        <loc>https://creatorkitstudio.pro/tools/readability-checker/</loc>
         <lastmod>2026-09-02</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.90</priority>
     </url>
     <url>
-        <loc>https://www.creatorkitstudio.pro/tools/case-converter/</loc>
+        <loc>https://creatorkitstudio.pro/tools/case-converter/</loc>
         <lastmod>2026-09-02</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.90</priority>
+    </url>
+    <url>
+        <loc>https://creatorkitstudio.pro/tools/reaction-time-test/</loc>
+        <lastmod>2026-09-09</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.90</priority>
     </url>
 
     <!-- Standalone Tool Pages Without /tools/ Directory (7 Tools) -->
     <url>
-        <loc>https://www.creatorkitstudio.pro/fancy-text-generator.html</loc>
+        <loc>https://creatorkitstudio.pro/fancy-text-generator.html</loc>
         <lastmod>2026-09-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
-        <loc>https://www.creatorkitstudio.pro/twitter-thread-splitter.html</loc>
+        <loc>https://creatorkitstudio.pro/twitter-thread-splitter.html</loc>
         <lastmod>2026-09-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
-        <loc>https://www.creatorkitstudio.pro/hashtag-deduplicator.html</loc>
+        <loc>https://creatorkitstudio.pro/hashtag-deduplicator.html</loc>
         <lastmod>2026-09-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
-        <loc>https://www.creatorkitstudio.pro/speech-timer.html</loc>
+        <loc>https://creatorkitstudio.pro/speech-timer.html</loc>
         <lastmod>2026-09-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
-        <loc>https://www.creatorkitstudio.pro/ai-text-cleaner.html</loc>
+        <loc>https://creatorkitstudio.pro/ai-text-cleaner.html</loc>
         <lastmod>2026-09-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
-        <loc>https://www.creatorkitstudio.pro/whitespace-trimmer.html</loc>
+        <loc>https://creatorkitstudio.pro/whitespace-trimmer.html</loc>
         <lastmod>2026-09-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
-        <loc>https://www.creatorkitstudio.pro/duplicate-line-filter.html</loc>
+        <loc>https://creatorkitstudio.pro/duplicate-line-filter.html</loc>
         <lastmod>2026-09-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
@@ -130,49 +136,49 @@
 
     <!-- Creator Guides Section (Hub + 7 Guides = 8 URLs) -->
     <url>
-        <loc>https://www.creatorkitstudio.pro/guides/</loc>
+        <loc>https://creatorkitstudio.pro/guides/</loc>
         <lastmod>2026-09-02</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.90</priority>
     </url>
     <url>
-        <loc>https://www.creatorkitstudio.pro/guides/convert-text-case/</loc>
+        <loc>https://creatorkitstudio.pro/guides/convert-text-case/</loc>
         <lastmod>2026-09-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
-        <loc>https://www.creatorkitstudio.pro/guides/clean-srt-subtitles/</loc>
+        <loc>https://creatorkitstudio.pro/guides/clean-srt-subtitles/</loc>
         <lastmod>2026-09-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
-        <loc>https://www.creatorkitstudio.pro/guides/seo-titles-meta-descriptions/</loc>
+        <loc>https://creatorkitstudio.pro/guides/seo-titles-meta-descriptions/</loc>
         <lastmod>2026-09-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
-        <loc>https://www.creatorkitstudio.pro/guides/resize-images-in-browser/</loc>
+        <loc>https://creatorkitstudio.pro/guides/resize-images-in-browser/</loc>
         <lastmod>2026-09-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
-        <loc>https://www.creatorkitstudio.pro/guides/how-to-use-online-teleprompter/</loc>
+        <loc>https://creatorkitstudio.pro/guides/how-to-use-online-teleprompter/</loc>
         <lastmod>2026-09-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
-        <loc>https://www.creatorkitstudio.pro/guides/social-media-line-breaks/</loc>
+        <loc>https://creatorkitstudio.pro/guides/social-media-line-breaks/</loc>
         <lastmod>2026-09-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
-        <loc>https://www.creatorkitstudio.pro/guides/improve-content-readability/</loc>
+        <loc>https://creatorkitstudio.pro/guides/improve-content-readability/</loc>
         <lastmod>2026-09-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
@@ -180,25 +186,25 @@
 
     <!-- Legal, Business & Company Pages (4) -->
     <url>
-        <loc>https://www.creatorkitstudio.pro/about/</loc>
+        <loc>https://creatorkitstudio.pro/about/</loc>
         <lastmod>2026-09-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>https://www.creatorkitstudio.pro/privacy/</loc>
+        <loc>https://creatorkitstudio.pro/privacy/</loc>
         <lastmod>2026-09-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>https://www.creatorkitstudio.pro/terms/</loc>
+        <loc>https://creatorkitstudio.pro/terms/</loc>
         <lastmod>2026-09-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
     </url>
     <url>
-        <loc>https://www.creatorkitstudio.pro/contact/</loc>
+        <loc>https://creatorkitstudio.pro/contact/</loc>
         <lastmod>2026-09-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>
